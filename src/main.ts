@@ -16,7 +16,6 @@ import 'element-plus/dist/index.css'
 import pinia from './store'
 
 const app = createApp(App)
-console.log(app)
 //安装仓库
 app.use(pinia)
 app.use(router)

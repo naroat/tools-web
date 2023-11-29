@@ -41,6 +41,7 @@
     "tailwindcss": "^3.3.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
+    "vite-plugin-html": "^3.2.0",
     "vite-plugin-mock": "2.9.6",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-router": "^4.2.5",

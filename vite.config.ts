@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import {viteMockServe} from 'vite-plugin-mock'
 import path from 'path'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 // https://vitejs.dev/config/
 export default defineConfig(({command, mode}) => {
@@ -20,6 +21,14 @@ export default defineConfig(({command, mode}) => {
       viteMockServe({
         localEnabled: command === 'serve',
       }),
+      //修改html插件
+      createHtmlPlugin({
+        inject: {
+          data: {
+            title: env.VITE_APP_TITLE
+          }
+        }
+      })
     ],
     resolve: {
       alias: {
