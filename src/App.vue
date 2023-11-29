@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Header from '@/components/Header/Header.vue'
-import Floor from '@/components/Floor/Floor.vue'
-import Right from '@/components/Right/Right.vue'
+import Header from '@/components/Layout/Header/Header.vue'
+import Floor from '@/components/Layout/Floor/Floor.vue'
+import Right from '@/components/Layout/Right/Right.vue'
 </script>
 
 <template>

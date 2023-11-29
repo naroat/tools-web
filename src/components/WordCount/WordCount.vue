@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { Back } from '@element-plus/icons-vue'
+import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 
 const info = reactive({
   title: "在线字数统计",
@@ -36,16 +36,7 @@ const changeContent = () => {
 
 <template>
   <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
-    <div class="text-gray-600">
-      <a href="/" class="flex items-center">
-        <el-icon color="blue"><Back /></el-icon>
-        <div>返回首页</div>
-      </a>
-    </div>
-
-    <div class="text-xl mt-5 mb-5">
-      {{ info.title }}
-    </div>
+    <DetailHeader :title="info.title"></DetailHeader>
 
     <div>
       <div>

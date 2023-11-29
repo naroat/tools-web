@@ -82,7 +82,7 @@ export function scale64ToBase(base64: string) {
   return result;
 }
 
-const StringUtils = {
+const MathUtils = {
   baseToScale58,
   scale58ToBase,
   baseToScale62,
@@ -90,4 +90,4 @@ const StringUtils = {
   baseToScale64,
   scale64ToBase
 }
-export default StringUtils
+export default MathUtils

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-const beianNo = ref('xxxxx备案号')
+const beianNo = ref('粤ICP备19038804号-1')
 const copyright = ref('ranblogs.com')
 </script>
 

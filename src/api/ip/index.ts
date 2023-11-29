@@ -9,7 +9,7 @@ import type {
 
 enum API {
   //获取ip
-  GET_IP = '/api/v1/ip/get?ip='
+  GET_IP = '/v1/ip/get?ip='
 }
 //获取ip
 export const getIp = (ip:string) => request.get<any, getIpResponseData>(API.GET_IP + ip)

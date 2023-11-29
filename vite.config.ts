@@ -7,7 +7,6 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig(({command, mode}) => {
   let env = loadEnv(mode, process.cwd())
-  console.log('0-0-0-')
   return {
     plugins: [
       vue(),
@@ -29,13 +28,8 @@ export default defineConfig(({command, mode}) => {
     },
     server: {
       proxy: {
-        // [env.VITE_APP_BASE_API]: {
-        //   target: env.VITE_SERVE,
-        //   changeOrigin: true,
-        //   rewrite: (path) => path.replace(/^\/api/, '')
-        // }
         '/api': {
-          target: 'https://searchplugin.csdn.net',
+          target: 'https://searchplugin.csdn.net',  //ip查询
           changeOrigin: true,
           pathRewrite: {
             '^/api': ''

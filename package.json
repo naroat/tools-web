@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:dev": "vue-tsc && vite build --mode dev",
-    "build:pro": "vue-tsc && vite build --mode pro",
+    "build:dev": "vue-tsc && vite build --mode development",
+    "build:pro": "vue-tsc && vite build --mode production",
     "preview": "vite preview",
     "preinstall": "node ./scripts/preinstall.js"
   },

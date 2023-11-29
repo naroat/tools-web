@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, reactive } from 'vue'
-import { VideoPause,VideoPlay,Back,CopyDocument } from '@element-plus/icons-vue'
+import { VideoPause,VideoPlay,CopyDocument } from '@element-plus/icons-vue'
 import { Jh_getTimeStamp,Jh_timeStampToTime,Jh_convertTimeStamp } from '@/utils/time'
 import clipboard3 from 'vue-clipboard3'
 import { ElMessage } from 'element-plus';
+import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 const info = reactive({
   title: "时间戳转换",
   nowTime: Jh_getTimeStamp(),
@@ -99,16 +100,7 @@ const copyStamp = async () => {
 
 <template>
   <div class="flex flex-col mt-3 ml-4 flex-1">
-    <div class="text-gray-600">
-      <a href="/" class="flex items-center">
-        <el-icon color="blue"><Back /></el-icon>
-        <div>返回首页</div>
-      </a>
-    </div>
-
-    <div class="text-xl mt-5 mb-5">
-      {{ info.title }}
-    </div>
+    <DetailHeader :title="info.title"></DetailHeader>
 
     <div class="flex flex-col">
       <div class="flex flex-direction">

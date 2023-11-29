@@ -2,6 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import 'tui-image-editor/dist/tui-image-editor.css'
 // import 'tui-color-picker/dist/tui-color-picker.css'
+import { base64ToBlod } from '@/utils/file'
 import ImageEditor from 'tui-image-editor'
 
 // 中文菜单
@@ -195,37 +196,33 @@ const init = ()=> {
         name: 'image'
       },
       menu: ['resize', 'crop', 'rotate', 'draw', 'shape', 'icon', 'text', 'filter'], // 底部菜单按钮列表 隐藏镜像flip和遮罩mask
-      initMenu: 'draw', // 默认打开的菜单项
-      menuBarPosition: 'bottom', // 菜单所在的位置
+      initMenu: 'none', // 默认打开的菜单项
+      menuBarPosition: 'left', // 菜单所在的位置
       locale: locale_zh, // 本地化语言为中文
       theme: customTheme // 自定义样式
     },
     cssMaxWidth: 400, // canvas 最大宽度
     cssMaxHeight: 500 // canvas 最大高度
   })
-  document.getElementsByClassName('tui-image-editor-main')[0].style.top = '45px' // 调整图片显示位置
+  document.getElementsByClassName('tui-image-editor-main')[0].style.top = '0' // 调整图片显示位置
   document.getElementsByClassName(
     'tie-btn-reset tui-image-editor-item help'
   )[0].style.display = 'none' // 隐藏顶部重置按钮
 }
 
 // 保存图片，并上传
-const save = ()=> {
-  const base64String = instance.value.toDataURL() // base64 文件
-  const data = window.atob(base64String.split(',')[1])
-  const ia = new Uint8Array(data.length)
-  for (let i = 0; i < data.length; i++) {
-    ia[i] = data.charCodeAt(i)
-  }
-  const blob = new Blob([ia], { type: 'image/png' }) // blob 文件
-  const form = new FormData()
-  form.append("avatarfile", blob);
-  uploadAvatar(form).then(res=>{
-      emit('getNewImg',res.imgUrl);
-      closeDialog()
-    })
+const save = () => {
+  // base64 文件
+  const base64String = instance.value.toDataURL() 
+  //转换blod
+  const url = base64ToBlod(base64String)
+  //传递给父组件
+  emit('getNewImg', url);
 }
 
+defineExpose({
+  save
+})
 </script>
 
 <template>

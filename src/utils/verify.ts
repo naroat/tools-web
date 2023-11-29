@@ -42,7 +42,7 @@ export function isHexadecimal(data: string): boolean {
   return   /^([0-9a-fA-F]+)$/g.test(data) ? true : false;
 }
 
-const StringUtils = {
+const VerifyUtils = {
   isIp,
   isBinary,
   isOctal,
@@ -50,4 +50,4 @@ const StringUtils = {
   isHexadecimal
 }
 
-export default StringUtils
+export default VerifyUtils

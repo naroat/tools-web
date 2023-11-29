@@ -6,13 +6,19 @@ import ElementPlus from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 //vite-plugin-svg-icons
 import 'virtual:svg-icons-register'
+//router
 import router from './router'
 //styles
 import './styles/tailwind.css'
 //element-plus css
 import 'element-plus/dist/index.css'
+//pinia
+import pinia from './store'
 
 const app = createApp(App)
+console.log(app)
+//安装仓库
+app.use(pinia)
 app.use(router)
 app.use(ElementPlus, {
   locale: zhCn

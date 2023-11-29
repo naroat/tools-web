@@ -1,5 +1,3 @@
-
-
 //响应格式
 export interface getIpResponseData {
   code: number,

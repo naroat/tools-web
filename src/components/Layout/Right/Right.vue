@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { Search } from '@element-plus/icons-vue';
 import { Tools } from '@element-plus/icons-vue'
 import { reactive } from 'vue';
 const info = reactive({
-  searchInput: '',
   hotTools: [
     {
       id: 1,
@@ -23,7 +21,7 @@ const info = reactive({
     },
     {
       id: 1,
-      value: '在线代码运行'
+      value: '在线图片处理'
     }
   ]
 })
@@ -31,10 +29,7 @@ const info = reactive({
 
 <template>
   <div>
-    <!-- search -->
-    <div>
-      <el-input v-model="info.searchInput" placeholder="搜索工具" class="w-full max-w-xl h-10" :suffix-icon="Search"/>
-    </div>
+    
 
     <!-- hot tools -->
     <div class="mt-3 border-solid rounded border-gray border p-3">
