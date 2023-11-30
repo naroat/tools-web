@@ -2,8 +2,7 @@ import axios from "axios";
 import { ElMessage } from "element-plus";
 //创建axios实例
 let request = axios.create({
-    //判断mock是否启用
-    baseURL: import.meta.env.VITE_IS_MOCK == 'true' ? import.meta.env.VITE_APP_BASE_API :  import.meta.env.VITE_SERVE + import.meta.env.VITE_APP_BASE_API,
+    baseURL: import.meta.env.VITE_APP_BASE_API,
     timeout: 5000
 })
 //请求拦截器

@@ -16,6 +16,7 @@ const router = createRouter({
 })
 router.beforeEach((to, from, next) => {
   if (to.meta.title && to.meta.title != '') {
+    console.log(from)
     let oldTitle = document.title
     document.title = <string>to.meta.title + ' - ' + oldTitle
   }
