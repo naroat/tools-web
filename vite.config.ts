@@ -19,7 +19,7 @@ export default defineConfig(({command, mode}) => {
       }),
       //mock
       viteMockServe({
-        localEnabled: command === 'serve',
+        localEnabled: env.VITE_IS_MOCK == 'true' ? command === 'serve' : false,
       }),
       //修改html插件
       createHtmlPlugin({

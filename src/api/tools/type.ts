@@ -8,8 +8,8 @@ export interface ToolsReqData {
 //tools
 export interface ToolsInfo {
   id: number,
-  value: string,
-  img: string,
+  title: string,
+  logo: string,
   desc: string,
   url: string,
   cate: string
@@ -18,7 +18,7 @@ export interface ToolsInfo {
 //tools cate
 export interface ToolCate {
   id: number,
-  value: string,
+  title: string,
   img: string,
   desc: string,
   url: string,

@@ -13,7 +13,7 @@ function getTools() {
     {
       id: 1,
       value: 'MD5在线加密',
-      img: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: 'MD5在线加密,长度包含32位、16位',
       url: '/MD5',
       cateId: 2,
@@ -22,7 +22,7 @@ function getTools() {
     {
       id: 1,
       value: 'Json在线转换',
-      img: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '在线编辑json, 语法检查',
       url: '/json',
       cateId: 2,
@@ -31,7 +31,7 @@ function getTools() {
     {
       id: 1,
       value: '正则测试工具',
-      img: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '正则表达式测试工具, 常用正则表达式',
       url: '/reg',
       cateId: 2,
@@ -40,7 +40,7 @@ function getTools() {
     {
       id: 1,
       value: 'Unicode转中文',
-      img: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: 'Unicode和中文的相互转换',
       url: '/unicode',
       cateId: 2,
@@ -49,7 +49,7 @@ function getTools() {
     {
       id: 1,
       value: '字数统计',
-      img: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '在线统计字符串的字数、段落、标点符号数量',
       url: '/wordCount',
       cateId: 3,
@@ -58,7 +58,7 @@ function getTools() {
     {
       id: 1,
       value: 'IP查询',
-      img: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '在线查询ip地址、ip归属地',
       url: '/ip',
       cateId: 6,
@@ -67,7 +67,7 @@ function getTools() {
     {
       id: 1,
       value: '常用进制转换',
-      img: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '在线进制转换工具,可在2到64进制之间相互转换',
       url: '/scaletran',
       cateId: 4,
@@ -76,7 +76,7 @@ function getTools() {
     {
       id: 1,
       value: '在线图片处理',
-      img: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '在线图片裁剪，标注，滤镜，画等操作',
       url: '/signimage',
       cateId: 5,
@@ -90,34 +90,34 @@ function getToolsCate() {
   return [
     {
       id: 0,
-      value: '全部工具',
+      title: '全部工具',
     },
     {
       id: 2,
-      value: '开发运维'
+      title: '开发运维'
     },
     {
       id: 3,
-      value: '文本处理'
+      title: '文本处理'
     },
     {
       id: 4,
-      value: '教育学术'
+      title: '教育学术'
     },
     {
       id: 5,
-      value: '设计工具'
+      title: '设计工具'
     },
     {
       id: 6,
-      value: '查询相关'
+      title: '查询相关'
     }
   ]
 }
 
 export default [
   {
-    url: '/api/tools',
+    url: '/v1/tools',
     method: 'get',//请求方式
     response: (request) => {
       //接收参数
@@ -141,7 +141,7 @@ export default [
     },
   },
   {
-    url: '/api/tool/cates',
+    url: '/v1/tool/cates',
     method: 'get',//请求方式
     response: ({ body }) => {
       //获取请求体携带过来的用户名与密码

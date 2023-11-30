@@ -84,12 +84,19 @@ onMounted(() => {
               <!-- cates -->
               <div class="mr-3">
                 <ul class="flex bg-gray-100  h-10 rounded leading-10 pl-3">
+                  <li class="flex items-center mr-3">
+                    <el-text></el-text>
+                    <div 
+                      class="hover:text-blue-400 hover:underline hover:decoration-2 hover:underline-offset-[6px] text-sm" :class="searchParam.cateId == 0 ? 'text-blue-400 underline decoration-2 underline-offset-[6px]' : ''"
+                      @click="chooseCate(0)"
+                    >全部工具</div>
+                  </li>
                   <li v-for="(item, index) in toolsStore.cates" :key="index" class="flex items-center">
                     <el-text>{{ index != 0 ? '&nbsp;&nbsp;&nbsp;&nbsp;' : '' }} </el-text>
                     <div 
                       class="hover:text-blue-400 hover:underline hover:decoration-2 hover:underline-offset-[6px] text-sm" :class="searchParam.cateId == item.id ? 'text-blue-400 underline decoration-2 underline-offset-[6px]' : ''"
                       @click="chooseCate(item.id)"
-                    >{{ item.value }}</div>
+                    >{{ item.title }}</div>
                   </li>
                 </ul>
               </div> 
