@@ -11,7 +11,13 @@ import Right from '@/components/Layout/Right/Right.vue'
       <el-col :xl="4" :md="1" class=""></el-col>
       <el-col :xl="16" :md="22" class="mt-4">
         <el-row class="flex-1">
-          <el-col :xl="19" :md="19" class=""><router-view></router-view></el-col>
+          <el-col :xl="19" :md="19" class="">
+            <router-view v-slot="{ Component, route }">
+              <transition name="animation" mode="out-in">
+                <component :is="Component" :key="route.path"></component>
+              </transition>
+            </router-view>
+          </el-col>
           <el-col :xl="5" :md="5" class="">
             <Right/>
           </el-col>
@@ -25,4 +31,20 @@ import Right from '@/components/Layout/Right/Right.vue'
 </template>
 
 <style scoped>
+/* 过度动画配置代码 */
+.animation-enter-from,
+.animation-leave-to {
+	transform: translateX(20px);
+	opacity: 0;
+}
+.animation-enter-to,
+.animation-leave-from {
+	opacity: 1;
+}
+.animation-enter-active {
+	transition: all 0.7s ease;
+}
+.animation-leave-active {
+	transition: all 0.3s cubic-bezier(1, 0.6, 0.6, 1);
+}
 </style>

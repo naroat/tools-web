@@ -2,9 +2,8 @@
 import { onMounted, onUnmounted, reactive } from 'vue'
 import { VideoPause,VideoPlay,CopyDocument } from '@element-plus/icons-vue'
 import { Jh_getTimeStamp,Jh_timeStampToTime,Jh_convertTimeStamp } from '@/utils/time'
-import clipboard3 from 'vue-clipboard3'
-import { ElMessage } from 'element-plus';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import { copy } from '@/utils/string'
 const info = reactive({
   title: "时间戳转换",
   nowTime: Jh_getTimeStamp(),
@@ -77,24 +76,8 @@ const timeTran = (type: string) => {
 }
 
 //复制时间戳
-const {toClipboard} = clipboard3()
-const copyStamp = async () => {
-  try {
-    await toClipboard('' + info.nowTime)
-    ElMessage({
-      message: "复制成功",
-      type: "success",
-      duration: 1500
-    })
-  } catch (error) {
-    console.log("复制失败")
-    console.log(error)
-    ElMessage({
-      message: "复制失败",
-      type: "error",
-      duration: 1500
-    })
-  }
+const copyRes = async () => {
+  copy('' + info.nowTime)
 }
 </script>
 
@@ -105,7 +88,7 @@ const copyStamp = async () => {
     <div class="flex flex-col">
       <div class="flex flex-direction">
         <el-text class="mr-2 w-12">现在</el-text>
-        <el-button class="mr-3" link @click="copyStamp()">{{ info.nowTime }} <el-icon class="ml-1 mr-1"><CopyDocument /></el-icon></el-button>
+        <el-button class="mr-3" link @click="copyRes()">{{ info.nowTime }} <el-icon class="ml-1 mr-1"><CopyDocument /></el-icon></el-button>
         <el-button v-if="info.isPlay" type="danger" link class="flex items-center" @click="isPlayChange()"><el-icon class="mr-1" size="16"><VideoPlay/></el-icon>停止</el-button>
         <el-button v-else="info.isPlay" type="primary" link class="flex items-center" @click="isPlayChange()"><el-icon class="mr-1" size="16"><VideoPause /></el-icon>开始</el-button>
       </div>

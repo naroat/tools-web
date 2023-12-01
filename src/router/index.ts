@@ -14,9 +14,9 @@ const router = createRouter({
     }
   },
 })
-router.beforeEach((to, from, next) => {
+// _form: ‘_’表示占位变量，可以不被使用
+router.beforeEach((to, _from, next) => {
   if (to.meta.title && to.meta.title != '') {
-    console.log(from)
     let oldTitle = document.title
     document.title = <string>to.meta.title + ' - ' + oldTitle
   }

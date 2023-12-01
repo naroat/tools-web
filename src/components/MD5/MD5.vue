@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
-import clipboard3 from 'vue-clipboard3'
-import { ElMessage } from 'element-plus';
 import { Md5 } from 'ts-md5'
+import { copy } from '@/utils/string'
 const info = reactive({
   title: "MD5在线加密",
   encryptStr: '',
@@ -26,34 +25,9 @@ const clear = () => {
   info.encryptStr = ''
 }
 
-const {toClipboard} = clipboard3()
+//copy
 const copyRes = async (resStr: string) => {
-  try {
-    //check
-    if (resStr == '') {
-      ElMessage({
-        message: "无可复制内容",
-        type: "warning",
-        duration: 1500
-      })
-      return
-    }
-    //copy
-    await toClipboard(resStr)
-    ElMessage({
-      message: "复制成功",
-      type: "success",
-      duration: 1500
-    })
-  } catch (error) {
-    console.log("复制失败")
-    console.log(error)
-    ElMessage({
-      message: "复制失败",
-      type: "error",
-      duration: 1500
-    })
-  }
+  copy(resStr)
 }
 </script>
 

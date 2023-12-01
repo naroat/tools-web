@@ -9,10 +9,10 @@ const props = defineProps({
   <div>
     <div class="text-gray-600">
       <div class="flex">
-        <a href="/" class="flex items-center">
+        <RouterLink to="/" class="flex items-center">
           <el-icon color="blue"><Back /></el-icon>
           <div>返回首页</div>
-        </a>
+        </RouterLink>
       </div>
     </div>
 

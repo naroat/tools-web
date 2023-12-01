@@ -9,6 +9,9 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 export default defineConfig(({command, mode}) => {
   let env = loadEnv(mode, process.cwd())
   return {
+    define: {  
+      'process.env.NODE_ENV': JSON.stringify('production')  
+    },
     plugins: [
       vue(),
       createSvgIconsPlugin({
@@ -37,17 +40,6 @@ export default defineConfig(({command, mode}) => {
     },
     server: {
       proxy: {
-        '/v1/ip': {
-          target: 'https://searchplugin.csdn.net',  //ip查询
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/v1\/ip/, '/api/v1/ip'),
-          // bypass(req, res, options) {
-          //   console.log(1111)
-          //   const proxyUrl = new URL(options.rewrite(req.url) || '', (options.target) as string)?.href || ''
-          //   req.headers['x-req-proxyUrl'] = proxyUrl;
-          //   res.setHeader("x-res-proxyUrl", proxyUrl)
-          // }
-        },
         [env.VITE_APP_BASE_API] : {
           target: env.VITE_SERVE,
           changeOrigin: true,

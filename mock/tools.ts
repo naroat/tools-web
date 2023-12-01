@@ -123,7 +123,7 @@ export default [
       //标题筛选
       if (title != '') {
         list = list.filter(item => {
-          let tmpValue = item.value.toLowerCase()
+          let tmpValue = item.title.toLowerCase()
           return tmpValue.indexOf(title.toLowerCase()) !== -1;
         });
       }

@@ -42,8 +42,6 @@ export function copy(resStr: string) {
       duration: 1500
     })
   } catch (error) {
-    console.log("复制失败")
-    console.log(error)
     ElMessage({
       message: "复制失败",
       type: "error",

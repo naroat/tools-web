@@ -2,6 +2,7 @@
 import request from '@/utils/request'
 
 import type {
+  IpReqData,
   getIpResponseData
 } from './type'
 
@@ -9,7 +10,7 @@ import type {
 
 enum API {
   //获取ip
-  GET_IP = '/ip/get?ip='
+  GET_IP = '/openapi/ip'
 }
 //获取ip
-export const getIp = (ip:string) => request.get<any, getIpResponseData>(API.GET_IP + ip)
+export const getIp = (data: IpReqData) => request.post<any, getIpResponseData>(API.GET_IP, data)
