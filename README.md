@@ -1,4 +1,4 @@
-# 基于Vite4.x + Vue3.x + ElementPlus + Typescript + Tailwind开发的工具平台
+# 基于Vite4.x + Vue3.x + ElementPlus + Typescript + Tailwind的工具站
 
 [![license](https://img.shields.io/github/license/taoran1401/tools-web)](LICENSE)
 
