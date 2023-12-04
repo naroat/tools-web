@@ -7,6 +7,7 @@
     "dev": "vite",
     "build:dev": "vue-tsc && vite build --mode development",
     "build:pro": "vue-tsc && vite build --mode production",
+    "build:client": "vite build --ssr src/entry-server.ts --outDir dist/server",
     "preview": "vite preview",
     "preinstall": "node ./scripts/preinstall.js"
   },
@@ -27,6 +28,7 @@
     "sass-loader": "^13.3.2",
     "ts-md5": "^1.3.1",
     "tui-image-editor": "^3.15.3",
+    "vite-plugin-seo-prerender": "^0.5.0",
     "vue": "^3.3.4",
     "vue-clipboard3": "^2.0.0",
     "vue-codemirror": "^6.1.1"
