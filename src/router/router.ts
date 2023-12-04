@@ -89,6 +89,14 @@ export const constantRoute = [
     }
   },
   {
+    path: '/urlencode',
+    component: () => import('@/components/UrlEncode/UrlEncode.vue'),
+    name: 'urlencode',
+    meta: {
+      title: "URL编码/解码"
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/components/404/404.vue'),
     name: '404',
