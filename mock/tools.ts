@@ -81,6 +81,24 @@ function getTools() {
       url: '/signimage',
       cateId: 5,
       cate: '设计工具',
+    },
+    {
+      id: 1,
+      title: '随机密码生成',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      desc: '密码生成器、随机字符串生成,批量生成',
+      url: '/random_password',
+      cateId: 2,
+      cate: '开发运维',
+    },
+    {
+      id: 1,
+      title: 'URL编码/解码',
+      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+      desc: 'URL在线编码解码工具（UrlEncode编码 和 UrlDecode解码）',
+      url: '/urlencode',
+      cateId: 2,
+      cate: '开发运维',
     }
   ]
 }
@@ -107,6 +125,10 @@ function getToolsCate() {
     {
       id: 6,
       title: '查询相关'
+    },
+    {
+      id: 7,
+      title: '其他'
     }
   ]
 }

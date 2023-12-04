@@ -81,6 +81,22 @@ export const constantRoute = [
     }
   },
   {
+    path: '/random_password',
+    component: () => import('@/components/RandomPassword/RandomPassword.vue'),
+    name: 'random_password',
+    meta: {
+      title: "随机密码生成"
+    }
+  },
+  {
+    path: '/urlencode',
+    component: () => import('@/components/UrlEncode/UrlEncode.vue'),
+    name: 'urlencode',
+    meta: {
+      title: "URL编码/解码"
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/components/404/404.vue'),
     name: '404',

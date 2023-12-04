@@ -32,7 +32,7 @@ const info = reactive({
     
 
     <!-- hot tools -->
-    <div class="mt-3 border-solid rounded border-gray border p-3">
+    <div class="mt-3 border-solid rounded border-gray border p-3 c-xs:mr-3 c-xs:ml-3">
       <div class="text-xl text-gray-400 font-bold">热门工具</div>
       <ul class="mt-3">
         <li class="flex items-center hover:bg-gray-200 p-1 rounded" v-for="(item, index) in info.hotTools" :key="index">

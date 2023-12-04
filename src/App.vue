@@ -8,23 +8,23 @@ import Right from '@/components/Layout/Right/Right.vue'
   <Header></Header>
   <div class="w-full flex flex-col justify-between mb-20">
     <el-row>
-      <el-col :xl="4" :md="1" class=""></el-col>
-      <el-col :xl="16" :md="22" class="mt-4">
+      <el-col :lg="4" :sm="1" class=""></el-col>
+      <el-col :lg="16" :sm="22" class="mt-4">
         <el-row class="flex-1">
-          <el-col :xl="19" :md="19" class="">
+          <el-col :lg="19" :sm="19" class="">
             <router-view v-slot="{ Component, route }">
               <transition name="animation" mode="out-in">
                 <component :is="Component" :key="route.path"></component>
               </transition>
             </router-view>
           </el-col>
-          <el-col :xl="5" :md="5" class="">
+          <el-col :lg="5" :sm="5" class="">
             <Right/>
           </el-col>
         </el-row>
       </el-col>
-      <!-- <el-col :xl="4" :md="1" class="flex bg-gray-200"></el-col> -->
-      <el-col :xl="4" :md="1"></el-col>
+      <!-- <el-col :lg="4" :sm="1" class="flex bg-gray-200"></el-col> -->
+      <el-col :lg="4" :sm="1"></el-col>
     </el-row>
   </div>
   <Floor></Floor>
