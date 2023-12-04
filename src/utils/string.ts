@@ -50,9 +50,26 @@ export function copy(resStr: string) {
   }
 }
 
+/**
+ * 按指定字符生成随机字符串(场景：生成随机密码)
+ * 
+ * @param char 
+ * @param length 
+ * @returns 
+ */
+export function genRandomStrByChars(chars: string, length: number): string {
+  let password = '';  
+  for (let i = 0; i < length; i++) {  
+    const randomIndex = Math.floor(Math.random() * chars.length);  
+    password += chars[randomIndex];  
+  }  
+  return password;  
+} 
+
 const StringUtils = {
   transferred,
-  copy
+  copy,
+  genRandomStrByChars
 }
 
 export default StringUtils
