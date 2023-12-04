@@ -7,7 +7,6 @@
     "dev": "vite",
     "build:dev": "vue-tsc && vite build --mode development",
     "build:pro": "vue-tsc && vite build --mode production",
-    "build:client": "vite build --ssr src/entry-server.ts --outDir dist/server",
     "preview": "vite preview",
     "preinstall": "node ./scripts/preinstall.js"
   },
