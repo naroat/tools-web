@@ -4,6 +4,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import {viteMockServe} from 'vite-plugin-mock'
 import path from 'path'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import {seoperender} from "./ssr.config";
 
 // https://vitejs.dev/config/
 export default defineConfig(({command, mode}) => {
@@ -31,7 +32,8 @@ export default defineConfig(({command, mode}) => {
             title: env.VITE_APP_TITLE
           }
         }
-      })
+      }),
+      seoperender()
     ],
     resolve: {
       alias: {
