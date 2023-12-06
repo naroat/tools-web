@@ -97,6 +97,30 @@ export const constantRoute = [
     }
   },
   {
+    path: '/ascii',
+    component: () => import('@/components/ASCII/ASCII.vue'),
+    name: 'ascii',
+    meta: {
+      title: "ASCII码表"
+    }
+  },
+  {
+    path: '/uuid',
+    component: () => import('@/components/UUID/UUID.vue'),
+    name: 'uuid',
+    meta: {
+      title: "UUID生成器"
+    }
+  },
+  {
+    path: '/barrage',
+    component: () => import('@/components/Barrage/Barrage.vue'),
+    name: 'barrage',
+    meta: {
+      title: "手持弹幕"
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/components/404/404.vue'),
     name: '404',

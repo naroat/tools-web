@@ -31,6 +31,7 @@ const gen = () => {
       type: "warning",
       duration: 1500
     })
+    return
   }
 
   //生成长度验证
@@ -40,6 +41,7 @@ const gen = () => {
       type: "warning",
       duration: 1500
     })
+    return
   }
 
   //生成数量验证
@@ -49,6 +51,7 @@ const gen = () => {
       type: "warning",
       duration: 1500
     })
+    return
   }
   
   //清空旧数据
@@ -129,10 +132,10 @@ onMounted(() => {
         <el-input class="" v-model="info.char">
           <template #prepend>包含字符:</template>
         </el-input>
-        <el-input v-model="info.pwLen" placeholder="长度范围1~100" class="mt-3" max="100" type="number">
+        <el-input v-model="info.pwLen" placeholder="范围1~100" class="mt-3" max="100" type="number">
           <template #prepend>生成长度:</template>
         </el-input>
-        <el-input v-model="info.pwNum" placeholder="长度范围1~100" class="mt-3" max="100" type="number">
+        <el-input v-model="info.pwNum" placeholder="范围1~100" class="mt-3" max="100" type="number">
           <template #prepend>生成数量:</template>
         </el-input>
       </div>
