@@ -29,7 +29,8 @@
       "@/*": ["src/*"]
     },
     "allowJs": true,
+    "noImplicitAny": false,
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.ts*", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

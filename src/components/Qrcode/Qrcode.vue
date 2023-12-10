@@ -12,7 +12,7 @@ const info = reactive({
   size: '200',
   sizeSelect: '',
   margin: 1,
-  fileList: [],
+  fileList: <string[]>[],
   fileUrl: '',
   preColor: '#000',
   bgColor: '#fff',
@@ -37,7 +37,7 @@ const setQRSize = () => {
 }
 
 const handleChange = (file: UploadFile) => {
-  info.fileList.push(file.url)
+  info.fileList.push(file.url as string)
   info.fileUrl = info.fileList[0] ?? ''
 }
 
@@ -140,7 +140,7 @@ const gen = () => {
           <el-button type="primary" @click="gen">生成二维码</el-button>
         </div>
       </div>
-      <div>
+      <div class="w-[200px] h-[200px]">
         <QRCodeVue3
           :key="info.qrKey"
           :width="info.width"
