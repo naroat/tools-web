@@ -121,6 +121,30 @@ export const constantRoute = [
     }
   },
   {
+    path: '/palettes',
+    component: () => import('@/components/Palettes/Palettes.vue'),
+    name: 'palettes',
+    meta: {
+      title: "色板"
+    }
+  },
+  {
+    path: '/unit',
+    component: () => import('@/components/Unit/Unit.vue'),
+    name: 'unit',
+    meta: {
+      title: "单位转换"
+    }
+  },
+  {
+    path: '/qrcode',
+    component: () => import('@/components/Qrcode/Qrcode.vue'),
+    name: 'qrcode',
+    meta: {
+      title: "二维码生成"
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/components/404/404.vue'),
     name: '404',

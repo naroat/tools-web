@@ -129,66 +129,30 @@ function getTools() {
     },
     {
       id: 1,
-      title: '单位换算(ing)',
+      title: '单位换算',
       logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '在线体积、重量、字节、长度、面积、时间、角度、速度、温度、压力、热量、功率等换算',
-      url: '/danmu',
+      url: '/unit',
       cateId: 4,
       cate: '教育学术'
     },
     {
       id: 1,
-      title: '色板(ing)',
+      title: '色板',
       logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '包含纯色、渐变与阶梯色和常用色彩组合',
-      url: '/danmu',
+      url: '/palettes',
       cateId: 5,
       cate: '设计工具'
     },
     {
       id: 1,
-      title: '三才五格起名(ing)',
-      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-      desc: '根据三才五格起名',
-      url: '/danmu',
-      cateId: 4,
-      cate: '教育学术'
-    },
-    {
-      id: 1,
-      title: '二维码生成(ing)',
+      title: '二维码生成',
       logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
       desc: '在线生成带logo、透明、艺术的二维码',
-      url: '/danmu',
+      url: '/qrcode',
       cateId: 5,
       cate: '设计工具'
-    },
-    {
-      id: 1,
-      title: 'logo生成(ing)',
-      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-      desc: '在线生成logo，免费下载',
-      url: '/danmu',
-      cateId: 5,
-      cate: '设计工具'
-    },
-    {
-      id: 1,
-      title: '头像生成(ing)',
-      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-      desc: '在线生成头像',
-      url: '/danmu',
-      cateId: 5,
-      cate: '设计工具'
-    },
-    {
-      id: 1,
-      title: 'linux命令查询(ing)',
-      logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-      desc: 'linux命令查询',
-      url: '/danmu',
-      cateId: 2,
-      cate: '开发运维'
     }
   ]
 }
