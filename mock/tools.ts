@@ -131,7 +131,7 @@ function getTools() {
       id: 1,
       title: '单位换算',
       logo: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-      desc: '在线体积、重量、字节、长度、面积、时间、角度、速度、温度、压力、热量、功率等换算',
+      desc: '在线重量、长度、面积、时间、角度、速度、温度、压力、热量、功率等换算',
       url: '/unit',
       cateId: 4,
       cate: '教育学术'

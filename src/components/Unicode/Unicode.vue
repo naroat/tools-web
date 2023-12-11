@@ -2,11 +2,13 @@
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import { Codemirror } from "vue-codemirror"
+import { lineNumbers } from '@codemirror/view';
 import { copy } from '@/utils/string'
+
 
 const info = reactive({
   title: "Unicode转中文",
-  extensions: [],
+  extensions: [lineNumbers()],
   content: '',
   tranRes: '',
 })
