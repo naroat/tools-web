@@ -35,4 +35,9 @@ export interface ToolCateResponseData extends ResponseData {
   data: ToolCate[]
 }
 
+//tools recommend response
+export interface ToolRecommendResponseData extends ResponseData {
+  data: ToolsInfo[]
+}
+
 

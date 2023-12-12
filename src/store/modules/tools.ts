@@ -1,6 +1,6 @@
 //创建tools相关的小工具
 import { defineStore } from 'pinia'
-import { getTools, getToolCate} from '@/api/tools'
+import { getTools, getToolCate, getToolRecommend} from '@/api/tools'
 import { getIp } from '@/api/ip'
 import type { ToolsReqData, ToolsInfo, ToolCate } from '@/api/tools/type'
 import type { IpReqData, IpInfo } from '@/api/ip/type'
@@ -10,6 +10,7 @@ export const useToolsStore = defineStore('tools', {
   state: () => ({
     list: [] as ToolsInfo[],
     cates: [] as ToolCate[],
+    recommends: [] as ToolsInfo[],
     ipData: {} as IpInfo,
   }),
   //方法
@@ -36,15 +37,25 @@ export const useToolsStore = defineStore('tools', {
         return Promise.reject(new Error(result.message))
       }
     },
+    //获取推荐
+    async getToolRecommend() {
+      const result: any = await getToolRecommend()
+      if (result.code == 200) {
+        this.recommends = result.data
+        return result.message
+      } else {
+        return Promise.reject(new Error(result.message))
+      }
+    },
     //获取ip
     async getIp(data: IpReqData) {
       const result: any = await getIp(data)
       if (result.code == 200) {
         this.ipData = result.data
         return result.message
-    } else {
-      return Promise.reject(new Error(result.message))
-    }
+      } else {
+        return Promise.reject(new Error(result.message))
+      }
     }
   }
 })
