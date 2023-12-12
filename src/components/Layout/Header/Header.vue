@@ -28,6 +28,8 @@ const getToolCates = async () => {
 const search = async () => {
   try {
     await toolsStore.getTools(searchParam)
+    //关闭抽屉
+    isNavDrawer.value = false
   } catch (error) {
     console.log(error)
   }
