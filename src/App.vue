@@ -8,8 +8,8 @@ import Right from '@/components/Layout/Right/Right.vue'
   <Header></Header>
   <div class="w-full flex flex-col justify-between mb-20">
     <el-row>
-      <el-col :lg="4" :sm="1" class=""></el-col>
-      <el-col :lg="16" :sm="22" class="mt-4">
+      <el-col :xl="4" :lg="3" :sm="1" class=""></el-col>
+      <el-col :xl="16" :lg="18" :sm="22" class="mt-4">
         <el-row class="flex-1">
           <el-col :lg="19" :sm="19" class="">
             <router-view v-slot="{ Component, route }">
@@ -24,7 +24,7 @@ import Right from '@/components/Layout/Right/Right.vue'
         </el-row>
       </el-col>
       <!-- <el-col :lg="4" :sm="1" class="flex bg-gray-200"></el-col> -->
-      <el-col :lg="4" :sm="1"></el-col>
+      <el-col :xl="4" :lg="3" :sm="1"></el-col>
     </el-row>
   </div>
   <Floor></Floor>

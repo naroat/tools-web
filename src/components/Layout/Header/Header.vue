@@ -56,8 +56,8 @@ onMounted(() => {
   <header class="">
     <nav class="h-28 w-full leading-10 flex flex-col justify-between pt-2 pb-2 c-xs:h-16 c-xs:border-b-[1px]">
       <el-row>
-        <el-col :lg="4" :sm="1"></el-col>
-        <el-col :lg="16" :sm="22">
+        <el-col :xl="4" :lg="3" :sm="1"></el-col>
+        <el-col :xl="16" :lg="18" :sm="22">
           <div class="flex items-center justify-between">
             <!-- left -->
             <router-link class="ml-4 flex flex-row" to="/">
@@ -162,7 +162,7 @@ onMounted(() => {
             </el-col>
           </el-row>
         </el-col>
-        <el-col :lg="4" :sm="1" class="flex"></el-col>
+        <el-col :xl="4" :lg="3" :sm="1" class="flex"></el-col>
       </el-row>
     </nav>
   </header>

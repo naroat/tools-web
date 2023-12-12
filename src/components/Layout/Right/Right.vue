@@ -61,7 +61,8 @@ onMounted(() => {
     <div class="mt-3" v-if="info.advShow == 'true'">
       <el-carousel
         height="130px"
-        :autoplay="false"
+        :autoplay="true"
+        :interval="5000"
       >
         <el-carousel-item v-for="(item, index) in info.advList" :key="index" @click="clickCarousel(item.url)">
           <el-image :src="item.img" fit="fill" class="h-full w-full"></el-image>
