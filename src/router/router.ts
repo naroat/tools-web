@@ -5,7 +5,8 @@ export const constantRoute = [
     component: () => import('@/components/Home/Home.vue'),
     name: 'home',
     meta: {
-      title: ""
+      keywords: '然部落工具坊,在线工具,开发人员工具,时间戳转换,加密,解密,md5,进制转换,二维码,正则表达式,json格式化,照片处理,字数统计',
+      description: '然部落工具坊,在线工具大全,开发人员工具,日常生活工具,办公助手,时间戳转换,加密,解密,md5,进制转换,二维码,正则表达式,json格式化,照片处理,字数统计',
     }
   },
   {
@@ -13,7 +14,9 @@ export const constantRoute = [
     component: () => import('@/components/TimeTran/TimeTran.vue'),
     name: 'timetran',
     meta: {
-      title: "时间戳转换"
+      title: "时间戳转换",
+      keywords: '时间,日期转换时间戳,Unix时间戳',
+      description: 'Unix时间戳转换可以把Unix时间转成北京时间。',
     }
   },
   {
@@ -21,7 +24,9 @@ export const constantRoute = [
     component: () => import('@/components/MD5/MD5.vue'),
     name: 'MD5',
     meta: {
-      title: "MD5在线加密"
+      title: "MD5在线加密",
+      keywords: 'md5加密，md5在线加密，md5',
+      description: '在线md5加密，一键生成md5加密字符串，可生成16位或32位md5加密字符串，md5双重加密',
     }
   },
   {
@@ -29,7 +34,9 @@ export const constantRoute = [
     component: () => import('@/components/JsonTran/JsonTran.vue'),
     name: 'json',
     meta: {
-      title: "Json在线转换"
+      title: "Json在线转换",
+      keywords: 'json编辑器，json格式化,json压缩,json转义,json去转义',
+      description: 'json编辑器,json解析,json格式化,json压缩,json转义,json去转义',
     }
   },
   {
@@ -37,7 +44,9 @@ export const constantRoute = [
     component: () => import('@/components/RegTest/RegTest.vue'),
     name: 'reg',
     meta: {
-      title: "正则表达式测试"
+      title: "正则表达式测试",
+      keywords: '正则表达式测试工具,常用正则表达式,在线正则表达式',
+      description: '正则表达式测试工具,常用正则表达式,在线正则表达式',
     }
   },
   {
@@ -45,7 +54,9 @@ export const constantRoute = [
     component: () => import('@/components/Unicode/Unicode.vue'),
     name: 'unicode',
     meta: {
-      title: "Unicode转中文"
+      title: "Unicode转中文",
+      keywords: '在线Unicode编码转换，中文转Unicode，Unicode转中文',
+      description: '在线Unicode编码转换，中文转Unicode，Unicode转中文，在文本框里输入要转换的内容，然后点击要转换的类型按钮，转换完成后即可看到对应的内容。..',
     }
   },
   {
@@ -53,7 +64,9 @@ export const constantRoute = [
     component: () => import('@/components/WordCount/WordCount.vue'),
     name: 'wordcount',
     meta: {
-      title: "在线字数统计"
+      title: "在线字数统计",
+      keywords: '在线字数计算器,计算字数,在线字数统计器,字数计数器',
+      description: '在线字数计数器,主要是方便计算字数，以控制文字数量的小工具(小说作者、论文、文案文档、文字编辑必备工具)。',
     }
   },
   {
@@ -61,7 +74,9 @@ export const constantRoute = [
     component: () => import('@/components/Ip/Ip.vue'),
     name: 'ip',
     meta: {
-      title: "IP查询"
+      title: "IP查询",
+      keywords: 'ip,ip查询,ip地址查询,ip138,查ip,我的ip,公网ip,ip归属地查询',
+      description: '公网ip地址归属地查询',
     }
   },
   {
@@ -69,7 +84,9 @@ export const constantRoute = [
     component: () => import('@/components/ScaleTran/ScaleTran.vue'),
     name: 'scaletran',
     meta: {
-      title: "常用进制转换"
+      title: "常用进制转换",
+      keywords: '进制转换,进制转换工具,10进制转2进制,2进制转10进制,10进制转62进制,62进制转10进制',
+      description: '常用进制转换工具，支持32进制以上进制转换',
     }
   },
   {
@@ -77,7 +94,9 @@ export const constantRoute = [
     component: () => import('@/components/SignImage/SignImage.vue'),
     name: 'signimage',
     meta: {
-      title: "在线编辑图片"
+      title: "在线编辑图片",
+      keywords: '图片裁剪，图片滤镜，图片旋转，图片编辑，美化图片',
+      description: '图片裁剪，图片滤镜，图片旋转，图片编辑，美化图片',
     }
   },
   {
@@ -85,7 +104,9 @@ export const constantRoute = [
     component: () => import('@/components/RandomPassword/RandomPassword.vue'),
     name: 'random_password',
     meta: {
-      title: "随机密码生成"
+      title: "随机密码生成",
+      keywords: '在线生成随机密码，批量生成随机密码，密码生成',
+      description: '在线随机密码生成',
     }
   },
   {
@@ -93,7 +114,9 @@ export const constantRoute = [
     component: () => import('@/components/UrlEncode/UrlEncode.vue'),
     name: 'urlencode',
     meta: {
-      title: "URL编码/解码"
+      title: "URL编码/解码",
+      keywords: 'url编码，url解码，url加密，url解密',
+      description: '在线url编码，在线url解码工具',
     }
   },
   {
@@ -101,7 +124,9 @@ export const constantRoute = [
     component: () => import('@/components/ASCII/ASCII.vue'),
     name: 'ascii',
     meta: {
-      title: "ASCII码表"
+      title: "ASCII码表",
+      keywords: 'ascii，ascii码表,ascii对照表，ascii控制字符，ascii打印字符，ascii扩展码',
+      description: 'ascii全面对照表，包含控制字符，打印字符，扩展码',
     }
   },
   {
@@ -109,7 +134,9 @@ export const constantRoute = [
     component: () => import('@/components/UUID/UUID.vue'),
     name: 'uuid',
     meta: {
-      title: "UUID生成器"
+      title: "UUID生成器",
+      keywords: 'UUID生成器',
+      description: 'uuid生成器，批量uuid生成',
     }
   },
   {
@@ -117,7 +144,9 @@ export const constantRoute = [
     component: () => import('@/components/Barrage/Barrage.vue'),
     name: 'barrage',
     meta: {
-      title: "手持弹幕"
+      title: "手持弹幕",
+      keywords: '手持弹幕，弹幕工具',
+      description: '手持弹幕是一种新型的互动沟通工具，可以方便地为各种户外活动、演出嘉年华等活动增加趣味性和互动性。手持弹幕具有轻便、易携带、易操作等优点，可以让每个参与者都变成活动的一部分。同时，手持弹幕还可以通过预先编写的文本、表情等形式，表达参与者的情感和想法，实现沟通互动。在社交媒体时代，手持弹幕的使用也带来了更广泛的社交效应，增加了活动的互动性和传播度。无论是举办方还是参与者，手持弹幕都是一个非常有价值的互动工具。',
     }
   },
   {
@@ -125,7 +154,9 @@ export const constantRoute = [
     component: () => import('@/components/Palettes/Palettes.vue'),
     name: 'palettes',
     meta: {
-      title: "色板"
+      title: "色板",
+      keywords: '色板，颜色板',
+      description: '在线复制颜色，好看的颜色组合色板',
     }
   },
   {
@@ -133,7 +164,9 @@ export const constantRoute = [
     component: () => import('@/components/Unit/Unit.vue'),
     name: 'unit',
     meta: {
-      title: "单位转换"
+      title: "单位转换",
+      keywords: '在线单位换算,长度单位换算,面积单位换算,时间单位换算,重量单位换算,温度单位换算,压力单位换算,热量单位换算,功率单位换算。',
+      description: '在线单位换算,长度单位换算,面积单位换算,时间单位换算,重量单位换算,温度单位换算,压力单位换算,热量单位换算,功率单位换算。',
     }
   },
   {
@@ -141,7 +174,9 @@ export const constantRoute = [
     component: () => import('@/components/Qrcode/Qrcode.vue'),
     name: 'qrcode',
     meta: {
-      title: "二维码生成"
+      title: "二维码生成",
+      keywords: '二维码,qrcode,二维码制作,二维码生成,微信二维码',
+      description: '在线生成二维码,logo二维码',
     }
   },
   {

@@ -23,4 +23,25 @@ router.beforeEach((to, _from, next) => {
   }
   next()
 })
+//路由后置卫士
+router.afterEach((to) => {
+  //填充mate元信息
+  const { title , keywords, description } = to.meta
+  //详情页标题
+  const detailTitle = title
+  //设置title
+  if (detailTitle) {
+    document.title = detailTitle + ' - ' + import.meta.env.VITE_APP_TITLE
+  } else {
+    document.title = import.meta.env.VITE_APP_TITLE
+  }
+
+  //设置meta
+  document.querySelector('meta[name="keywords"]')?.setAttribute("content", `${keywords}`)
+  document.querySelector('meta[name="description"]')?.setAttribute("content", `${description}`)
+  //设置meta og
+  document.querySelector('meta[property="og:title"]')?.setAttribute("content", `${document.title}`)
+  document.querySelector('meta[property="og:site_name"]')?.setAttribute("content", `${document.title}`)
+  document.querySelector('meta[property="og:description"]')?.setAttribute("content", `${description}`)
+})
 export default router
