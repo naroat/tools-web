@@ -6,7 +6,7 @@ import { ElMessageBox } from 'element-plus'
 import 'element-plus/theme-chalk/display.css'
 
 const appName = ref(import.meta.env.VITE_APP_TITLE || '工具坊')
-const appNet = ref('tools.ranblogs.com')
+const appNet = ref(import.meta.env.VITE_APP_WEBSITE || '')
 const isNavDrawer = ref(false)
 //store
 const toolsStore = useToolsStore()
