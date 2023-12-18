@@ -8,9 +8,9 @@ const info = reactive({
   tranRes: '',
 })
 
-const tran = (type: number) => {
+const tran = () => {
   //数字转中文
-  info.tranRes = numberToChinese(info.content)
+  info.tranRes = numberToChinese(parseInt(info.content))
 }
 
 const clear = () => {
