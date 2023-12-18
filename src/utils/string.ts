@@ -64,12 +64,60 @@ export function genRandomStrByChars(chars: string, length: number): string {
     password += chars[randomIndex];  
   }  
   return password;  
-} 
+}
+
+/**
+ * 数字转中文
+ * @param num 
+ * @returns 
+ */
+export function numberToChinese(num: number): string {
+  // const units = ['', '拾', '佰', '仟', '万', '亿'];  
+  const units = ['', '拾', '佰', '仟', '万', '拾', '佰', '仟', '亿', '拾', '佰', '仟', '万'];  
+  const chars = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];  
+  let numStr = num.toString()
+  let len = numStr.length
+  if (len > 13) {
+    ElMessage({
+      message: "金额太大无法转换",
+      type: "error",
+      duration: 1500
+    })
+    return ''
+  }
+  let isZero = false;  
+  let zeroCount = 0;  
+  let chinese = ''
+
+  for (let i = 0; i < len; i++) {  
+    let n = parseInt(numStr[i]);  
+    if (n === 0) {  
+      isZero = true;  
+      zeroCount++;  
+    } else {  
+      if (isZero) {  
+        chinese += chars[0];  
+      }  
+      chinese += chars[n] + units[len - i - 1];  
+      isZero = false;  
+      zeroCount = 0;  
+    }  
+    // debugger
+  }
+
+
+  if (chinese.endsWith(chars[0])) {  
+    chinese = chinese.substring(0, chinese.length - 1);  
+  }  
+  
+  return chinese;  
+}
 
 const StringUtils = {
   transferred,
   copy,
-  genRandomStrByChars
+  genRandomStrByChars,
+  numberToChinese
 }
 
 export default StringUtils

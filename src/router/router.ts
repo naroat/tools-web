@@ -180,6 +180,76 @@ export const constantRoute = [
     }
   },
   {
+    path: '/decision',
+    component: () => import('@/components/Decision/Decision.vue'),
+    name: 'decision',
+    meta: {
+      title: "帮我决定",
+      keywords: '选择困难，难以决定，今天吃什么，现在做什么，自定义选项都给你安排的明明白白',
+      description: '选择困难症，自定义选择内容',
+    }
+  },
+  {
+    path: '/morse',
+    component: () => import('@/components/Morse/Morse.vue'),
+    name: 'morse',
+    meta: {
+      title: "摩斯电码",
+      keywords: 'morse电码,摩斯电码',
+      description: '摩斯电码编码解码',
+    }
+  },
+  {
+    path: '/random',
+    component: () => import('@/components/Random/Random.vue'),
+    name: 'random',
+    meta: {
+      title: "生成随机数",
+      keywords: '随机数生成,随机数',
+      description: '可定制范围内进行随机数字，可用于抽奖、点名等用途',
+    }
+  },
+  {
+    path: '/numberToChinese',
+    component: () => import('@/components/NumberToChinese/NumberToChinese.vue'),
+    name: 'numberToChinese',
+    meta: {
+      title: "数字转金额大写",
+      keywords: '数字转中文,数字转大写,中文转数字,大写转数字,数字中文互转',
+      description: '在线数字一键转换成人民币大写，中文大写金额数字应用正楷或行书填写',
+    }
+  },
+  {
+    path: '/diff',
+    component: () => import('@/components/Diff/Diff.vue'),
+    name: 'diff',
+    meta: {
+      title: "文本对比",
+      keywords: '中文比对,代码比对，代码对比，文本比对，英文比对',
+      description: '文本差异比对支持中文、英文、代码比对',
+    }
+  },
+  {
+    path: '/markdown',
+    component: () => import('@/components/Markdown/Markdown.vue'),
+    name: 'markdown',
+    meta: {
+      title: "markdown编辑器",
+      keywords: '在线创建或编辑markdown, 实时预览，导出markdown',
+      description: '在线markdown编辑器',
+    }
+  },
+  {
+    path: '/textToImg',
+    component: () => import('@/components/TextToImg/TextToImg.vue'),
+    name: 'textToImg',
+    meta: {
+      title: "文本转图片",
+      keywords: '文本生成图片，文本生成长图，推广长图',
+      description: '把文本转换成图片，生成长图，具有超多个性文字排版',
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/components/404/404.vue'),
     name: '404',

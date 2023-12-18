@@ -14,6 +14,9 @@ import './styles/tailwind.css'
 import 'element-plus/dist/index.css'
 //pinia
 import pinia from './store'
+//v-md-editor
+import { setupMdEditor } from './plugins/v-md-editor'
+
 
 const app = createApp(App)
 //安装仓库
@@ -22,4 +25,5 @@ app.use(router)
 app.use(ElementPlus, {
   locale: zhCn
 })
+setupMdEditor(app)
 app.mount('#app')

@@ -153,6 +153,69 @@ function getTools() {
       url: '/qrcode',
       cateId: 5,
       cate: '设计工具'
+    },
+    {
+      id: 1,
+      title: '帮我决定',
+      logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/choose.png',
+      desc: '选择困难，难以决定，今天吃什么，现在做什么，自定义选项都给你安排的明明白白',
+      url: '/decision',
+      cateId: 7,
+      cate: '其他'
+    },
+    {
+      id: 1,
+      title: '摩斯电码',
+      logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/medium.png',
+      desc: '支持中文的摩斯电码编码解码',
+      url: '/morse',
+      cateId: 3,
+      cate: '文本处理'
+    },
+    {
+      id: 1,
+      title: '生成随机数',
+      logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/randomnum.png',
+      desc: '可定制范围内进行随机数字，可用于抽奖、点名等用途',
+      url: '/random',
+      cateId: 7,
+      cate: '其他'
+    },
+    {
+      id: 1,
+      title: '数字转金额大写',
+      logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/text%20recognition.png',
+      desc: '在线数字一键转换成人民币大写，中文大写转换数字',
+      url: '/numberToChinese',
+      cateId: 7,
+      cate: '其他'
+    },
+    {
+      id: 1,
+      title: '文本对比',
+      logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/diff.png',
+      desc: '文本差异比对支持中文、英文、代码比对',
+      url: '/diff',
+      cateId: 3,
+      cate: '文本处理'
+    },
+    {
+      id: 1,
+      title: 'markdown编辑器',
+      logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/file-markdown-fill.png',
+      desc: '在线创建或编辑markdown, 实时预览，导出markdown',
+      url: '/markdown',
+      cateId: 3,
+      cate: '文本处理'
+    },
+    {
+      id: 1,
+      title: '文本转图片',
+      logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/text_to_img.png',
+      desc: '把文本转换成图片，生成长图，具有超多个性文字排版',
+      url: '/textToImg',
+      cateId: 3,
+      cate: '文本处理'
     }
   ]
 }
