@@ -15,7 +15,7 @@ const info = reactive({
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1">
     <DetailHeader :title="info.title"></DetailHeader>
 
     <div class="">

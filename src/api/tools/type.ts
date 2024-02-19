@@ -22,7 +22,8 @@ export interface ToolCate {
   img: string,
   desc: string,
   url: string,
-  cate: string
+  cate: string,
+  list: ToolsInfo[]
 }
 
 //tools list response

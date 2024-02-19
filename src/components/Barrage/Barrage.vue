@@ -57,7 +57,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1">
     <DetailHeader :title="info.title"></DetailHeader>
 
     <!-- 全屏 -->
@@ -83,7 +83,7 @@ onBeforeMount(() => {
       </template>
     </vue-danmaku>
 
-    <div>
+    <div class="p-4 rounded-2xl bg-white">
       <div class="flex mb-2">
         <el-text class="w-20">弹幕内容:</el-text>
         <div class="w-72"><el-input v-model="info.content" type="textarea" rows="3"></el-input></div>

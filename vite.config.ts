@@ -25,14 +25,6 @@ export default defineConfig(({command, mode}) => {
       viteMockServe({
         localEnabled: env.VITE_IS_MOCK == 'true' ? command === 'serve' : false,
       }),
-      //修改html插件
-      // createHtmlPlugin({
-      //   inject: {
-      //     data: {
-      //       title: env.VITE_APP_TITLE
-      //     }
-      //   }
-      // }),
       seoperender()
     ],
     resolve: {

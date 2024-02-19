@@ -20,10 +20,10 @@ const handleClick = () => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div>
     <DetailHeader :title="info.title"></DetailHeader>
     <div>
-      <div>
+      <div  class="p-4 rounded-2xl bg-white">
         <el-tabs v-model="info.activeName" class="demo-tabs" @tab-click="handleClick">
           <el-tab-pane label="长度" name="lengthTab">
             <Length/>

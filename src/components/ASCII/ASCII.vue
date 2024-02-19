@@ -277,10 +277,10 @@ const tableDataNonStandard = reactive([
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1">
     <DetailHeader :title="info.title"></DetailHeader>
 
-    <div class="">
+    <div class="p-4 rounded-2xl bg-white">
       <el-table :data="tableDataControlCodes" class="w-full">
         <el-table-column label="ASCII 控制字符 (字符编码: 0-31)" align="center">
           <el-table-column prop="dec" label="十进制DEC" width="120" />

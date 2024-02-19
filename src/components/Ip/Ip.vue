@@ -42,10 +42,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1">
     <DetailHeader :title="info.title"></DetailHeader>
 
-    <div>
+    <div class="p-4 rounded-2xl bg-white">
       <div class="flex">
         <div class="mr-2 w-60">
           <el-input v-model="params.ip" ></el-input>

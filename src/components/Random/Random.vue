@@ -30,10 +30,10 @@ const random = () => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1">
     <DetailHeader :title="info.title"></DetailHeader>
 
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center p-4 rounded-2xl bg-white">
       <div>
         <el-input-number v-model="info.startNum" :min="0" size="large"/>
         <el-input-number v-model="info.endNum" :min="0" size="large" class="ml-5"/>

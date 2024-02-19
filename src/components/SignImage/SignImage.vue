@@ -48,10 +48,10 @@ const saveImg = () => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1">
     <DetailHeader :title="info.title"></DetailHeader>
 
-    <div class="flex flex-col mb-3 h-[38rem]">
+    <div class="flex flex-col mb-3 h-[38rem] p-4 rounded-2xl bg-white">
       <div class="mb-3 flex flex-row-reverse">
         <!-- save -->
         <el-button type="primary" class="ml-2" @click="saveImg">保存</el-button>

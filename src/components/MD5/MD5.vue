@@ -32,10 +32,10 @@ const copyRes = async (resStr: string) => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1">
     <DetailHeader :title="info.title"></DetailHeader>
 
-    <div class="">
+    <div class="p-4 rounded-2xl bg-white ">
       <div>
         <el-input v-model="info.encryptStr" :rows="5" type="textarea" placeholder="请输入加密内容"></el-input>
       </div>

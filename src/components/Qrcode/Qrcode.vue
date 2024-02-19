@@ -58,8 +58,8 @@ const gen = () => {
   <div class="flex flex-col mt-3 ml-4 flex-1 mr-3">
     <DetailHeader :title="info.title"></DetailHeader>
 
-    <div class="flex justify-between w-full">
-      <div class="w-4/6">
+    <div class="flex justify-between w-full p-4 rounded-2xl bg-white">
+      <div class="w-4/6 ">
         <div class="flex mb-3">
           <div class="w-16 mr-2"><el-text>内容</el-text></div>
           <el-input v-model="info.content" type="textarea" rows="3" class="w-full" placeholder="可在此输入文字或网址"></el-input>

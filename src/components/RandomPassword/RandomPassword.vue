@@ -117,10 +117,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1">
     <DetailHeader :title="info.title"></DetailHeader>
 
-    <div>
+    <div class="p-4 rounded-2xl bg-white">
       <el-text>密码组合</el-text>
       <div>
         <el-checkbox v-model="info.checkedNum" label="数字(0-9)"  @change="(val: any) => (changeCheckBox(val, 0))"/>

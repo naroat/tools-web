@@ -250,6 +250,16 @@ export const constantRoute = [
     }
   },
   {
+    path: '/about',
+    component: () => import('@/components/Home/About.vue'),
+    name: 'about',
+    meta: {
+      title: "关于",
+      keywords: '关于ranblogs,关于工具站',
+      description: '',
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/components/404/404.vue'),
     name: '404',

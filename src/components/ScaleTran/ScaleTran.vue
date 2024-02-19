@@ -193,59 +193,61 @@ const copyRes = async (index: any) => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-3 ml-4 flex-1 mr-10">
+  <div class="flex flex-col mt-3 flex-1 ">
     <DetailHeader :title="info.title"></DetailHeader>
-
-    <div class="flex">
-      <div class="mr-2 w-full">
-        <el-input v-model="info.content">
-          <template #prepend>
-            <el-select v-model="info.chooseTranOptions" placeholder="Select"  class="w-24">
-              <el-option
-                v-for="item in info.tranOptions"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </template>
-        </el-input>
+    <div class="p-4 rounded-2xl bg-white">
+      <div class="flex">
+        <div class="mr-2 w-full">
+          <el-input v-model="info.content">
+            <template #prepend>
+              <el-select v-model="info.chooseTranOptions" placeholder="Select"  class="w-24">
+                <el-option
+                  v-for="item in info.tranOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </template>
+          </el-input>
+        </div>
+        
+        <el-button type="primary" @click="tran()">转换</el-button>
       </div>
-      
-      <el-button type="primary" @click="tran()">转换</el-button>
-    </div>
 
-    <div class="mt-3 min-h-md bg-gray-100 p-3 mb-3 flex flex-col">
-      <el-table :data="info.tranOptions" border style="width: 100%">
-        <el-table-column prop="label" label="进制" width="120">
-          <template #default="scope">
-            <div class="flex items-center">
-              <span class="mr-1">{{ scope.row.label }}</span>
-              <el-tooltip
-                v-if="scope.row.desc != ''"
-                class="box-item"
-                effect="dark"
-                :content="scope.row.desc"
-                placement="top-start"
-              ><el-icon ><InfoFilled /></el-icon></el-tooltip>
-            </div>
-          </template>
-        </el-table-column>
-        <el-table-column prop="tranValue" label="结果"/>
-        <el-table-column prop="" label="操作" width="60">
-          <template #default="scope">
-            <el-button
-              link
-              type="primary"
-              size="small"
-              @click.prevent="copyRes(scope.$index)"
-            >
-              复制
-            </el-button>
-          </template>
-        </el-table-column>
-      </el-table>
+      <div class="mt-3 min-h-md bg-gray-100 p-3 mb-3 flex flex-col">
+        <el-table :data="info.tranOptions" border style="width: 100%">
+          <el-table-column prop="label" label="进制" width="120">
+            <template #default="scope">
+              <div class="flex items-center">
+                <span class="mr-1">{{ scope.row.label }}</span>
+                <el-tooltip
+                  v-if="scope.row.desc != ''"
+                  class="box-item"
+                  effect="dark"
+                  :content="scope.row.desc"
+                  placement="top-start"
+                ><el-icon ><InfoFilled /></el-icon></el-tooltip>
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop="tranValue" label="结果"/>
+          <el-table-column prop="" label="操作" width="60">
+            <template #default="scope">
+              <el-button
+                link
+                type="primary"
+                size="small"
+                @click.prevent="copyRes(scope.$index)"
+              >
+                复制
+              </el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
     </div>
+    
   </div>
 </template>
 

@@ -12,6 +12,7 @@ export const useToolsStore = defineStore('tools', {
     cates: [] as ToolCate[],
     recommends: [] as ToolsInfo[],
     ipData: {} as IpInfo,
+    collect: [],
   }),
   //方法
   actions: {
