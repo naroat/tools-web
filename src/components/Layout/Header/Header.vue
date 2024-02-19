@@ -8,7 +8,7 @@ import 'element-plus/theme-chalk/display.css'
 import { ToolsInfo } from '@/api/tools/type';
 import router from '@/router';
 
-const isNavDrawer = ref(false)
+// const isNavDrawer = ref(false)
 const loading = ref(false)
 const options = ref<ToolsInfo[]>([])
 //store
@@ -29,21 +29,21 @@ const getToolCates = async () => {
 }
 
 //search
-const search = async () => {
-  try {
-    await toolsStore.getTools(searchParam)
-    //关闭抽屉
-    isNavDrawer.value = false
-  } catch (error) {
-    console.log(error)
-  }
-}
+// const search = async () => {
+//   try {
+//     await toolsStore.getTools(searchParam)
+//     //关闭抽屉
+//     isNavDrawer.value = false
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
 
 //选择分类
-const chooseCate = (cateId: number) => {
-  searchParam.cateId = cateId
-  search()
-}
+// const chooseCate = (cateId: number) => {
+//   searchParam.cateId = cateId
+//   search()
+// }
 
 //搜索工具
 const searchTools = async (query: string) => {
