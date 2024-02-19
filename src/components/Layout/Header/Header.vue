@@ -96,7 +96,7 @@ onMounted(() => {
         </svg>
       </Transition>
     
-      <div class="w-80">
+      <div class="md:w-80 c-xs:72">
         <!-- <el-input 
           v-model="searchParam.title" 
           placeholder="搜索工具" 
@@ -117,7 +117,7 @@ onMounted(() => {
           placeholder="输入关键词搜索，如文本、json、图片等"
           :remote-method="searchTools"
           :loading="loading"
-          class="ml-3 w-80"
+          class="ml-3 mr-3 md:w-80 c-xs:w-60"
         >
           <el-option
             v-for="item in toolsStore.list"
@@ -131,8 +131,8 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class=" w-full md:w-auto flex c-xs:hidden md:block">
-      <ul class="flex mt-4 flex-col md:flex-row md:mt-0 justify-end items-center">
+    <div class=" w-full md:w-auto flex md:block c-xs:w-auto">
+      <ul class="flex mt-4 flex-col md:flex-row md:mt-0 justify-end items-center c-xs:mt-0">
         <li class="hover:text-blue-500">
           <el-button link size="large" @click="collect">收藏本站</el-button>
         </li>

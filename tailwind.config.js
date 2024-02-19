@@ -10,7 +10,7 @@ export default {
     screens: {
       // 自定义响应式尺寸
       'c-xs': {'max': '768px'},
-      'c-sm': {'min': '768px'},
+      'c-sm': {'min': '768px'}, //相当远默认的md
       'c-md': {'min': '992px'},
       'c-lg': {'min': '1200px'},
       ...defaultTheme.screens,

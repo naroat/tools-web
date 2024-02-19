@@ -26,11 +26,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="mr-6">
+  <div class="md:mr-6 c-xs:mr-0">
     <!-- collect -->
     <div id="collect">
       <!-- cate title -->
-      <div class="mt-8 mb-8 text-xl font-bold text-[--base-black]">
+      <div class="md:mt-8 md:mb-8 c-xs:mt-1 c-xs:mb-4 text-xl font-bold text-[--base-black]">
         我的收藏
       </div>
       <!-- card -->
@@ -67,7 +67,7 @@ onMounted(() => {
         {{ cate.title }}
       </div>
       <!-- card -->
-      <div class="flex justify-between flex-wrap self-card-div c-xs:ml-3" :gutter="10">
+      <div class="flex justify-between flex-wrap self-card-div c-xs:ml-0" :gutter="10">
           <router-link v-for="(item, index) in cate.list" :key="index" :to="item.url" class="flex flex-col mt-5 border-solid rounded-2xl border-gray w-[24%] p-2 bg-white hover:shadow-md c-xs:w-[99.5%] c-md:w-[24%] c-sm:w-[32%] p-5 hover:-translate-y-2 duration-300">
             <div class="flex items-center border-b pb-2">
               <el-image :src="item.logo" class="w-10 h-10 min-h-[2.5rem] min-w-[2.5rem] rounded-full"></el-image>

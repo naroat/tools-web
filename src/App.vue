@@ -38,7 +38,7 @@ const componentStore = useComponentStore()
           </transition>
         </router-view>
       </el-main>
-      <el-footer class="mb-6 mt-12">
+      <el-footer class="md:mb-6 mt-12 c-xs:mb-12">
         <Floor />
       </el-footer>
     </el-container>
