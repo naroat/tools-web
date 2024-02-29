@@ -2,7 +2,8 @@ import { ResponseData } from "../common"
 
 export interface ToolsReqData {
   cateId: number,
-  title: string
+  title: string,
+  route: string,
 }
 
 //tools
@@ -26,6 +27,10 @@ export interface ToolCate {
   list: ToolsInfo[]
 }
 
+export interface CollectReqData {
+  toolId: number
+}
+
 //tools list response
 export interface ToolsResponseData extends ResponseData {
   data: ToolsInfo[]
@@ -41,4 +46,12 @@ export interface ToolRecommendResponseData extends ResponseData {
   data: ToolsInfo[]
 }
 
+//tools collect response
+export interface ToolCollectResponseData extends ResponseData {
 
+}
+
+//get collect response
+export interface GetToolCollectResponseData extends ResponseData {
+
+}

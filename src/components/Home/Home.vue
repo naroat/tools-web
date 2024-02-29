@@ -1,22 +1,45 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted,reactive } from 'vue';
 import { RouterLink } from "vue-router"
 import { Star } from '@element-plus/icons-vue'
 import { useToolsStore } from '@/store/modules/tools'
+import { useUserStore } from '@/store/modules/user'
+import { ElMessage } from 'element-plus'
 import { useRoute } from "vue-router"
 //store
 const toolsStore = useToolsStore()
+const userStore = useUserStore()
 const route = useRoute()
 const getToolsCate = async () => {
   try {
     await toolsStore.getToolCate()
-  } catch (error) {
-    console.log(error)
+  } catch (error: any) {
+    ElMessage.error(error.message)
   }
 }
 
+//收藏
+const toolCollect = reactive({
+  toolId: 0
+})
+const collect = async (toolId) => {
+  try {
+    if (!userStore.isLogin()) {
+      //未登录,弹出登录窗口
+      ElMessage.error('请登录')
+      return 
+    }
+    toolCollect.toolId = toolId
+    await toolsStore.toolCollect(toolCollect)
+    // ElMessage.success('收藏成功')
+  } catch (error: any) {
+    ElMessage.error(error.message)
+  }
+  return
+}
+
 onMounted(() => {
-  getToolsCate()
+  // getToolsCate()
   if (route.query && route.query.value) {//底部导航跳转过来的则定位到响应位置
       document?.querySelector('#' + `${route.query.value}`)?.scrollIntoView();
   } else {//其他位置跳转过来不需要定位的则定位到顶部
@@ -35,7 +58,7 @@ onMounted(() => {
       </div>
       <!-- card -->
       <div class="flex justify-between flex-wrap self-card-div c-xs:ml-3" :gutter="10" v-if="toolsStore.collect.length > 0">
-          <router-link v-for="(item, index) in toolsStore.list" :key="index" :to="item.url" class="flex flex-col mt-5 border-solid rounded-2xl border-gray w-[24%] p-2 bg-white hover:shadow-md c-xs:w-[99.5%] c-md:w-[24%] c-sm:w-[32%] p-5">
+          <router-link v-for="(item, index) in toolsStore.collect" :key="index" :to="item.url" class="flex flex-col mt-5 border-solid rounded-2xl border-gray w-[24%] p-2 bg-white hover:shadow-md c-xs:w-[99.5%] c-md:w-[24%] c-sm:w-[32%] p-5">
             <div class="flex items-center border-b pb-2">
               <el-image :src="item.logo" class="w-10 h-10 min-h-[2.5rem] min-w-[2.5rem] rounded-full"></el-image>
               <div class="flex flex-col ml-2 w-full">
@@ -44,7 +67,7 @@ onMounted(() => {
                 </div>
                 <div class="flex justify-between">
                   <el-text size="small">{{ item.cate }}</el-text>
-                  <el-button :icon="Star" circle size="small"/>
+                  <el-button :icon="Star" circle size="small" @click.prevent="collect(item.id)"  type="warning"/>
                 </div>
               </div>
             </div>
@@ -77,7 +100,7 @@ onMounted(() => {
                 </div>
                 <div class="flex justify-between">
                   <el-text size="small">{{ item.cate }}</el-text>
-                  <el-button :icon="Star" circle size="small"/>
+                  <el-button :icon="Star" circle size="small" @click.prevent="collect(item.id)" type="warning" :plain="!toolsStore.collectIds.includes(item.id)"/>
                 </div>
               </div>
             </div>

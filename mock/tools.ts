@@ -124,8 +124,8 @@ function getTools() {
       logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/icon_%E7%BC%96%E7%A0%81%E5%AF%B9%E7%85%A7.png',
       desc: 'ASCII码表,控制代码、标准ASCII字符和非标准ASCII字符对照表',
       url: '/ascii',
-      cateId: 2,
-      cate: '开发运维'
+      cateId: 4,
+      cate: '教育学术'
     },
     {
       id: 1,
@@ -214,8 +214,8 @@ function getTools() {
       logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/text_to_img.png',
       desc: '把文本转换成图片，生成长图，具有超多个性文字排版',
       url: '/textToImg',
-      cateId: 3,
-      cate: '文本处理'
+      cateId: 5,
+      cate: '设计工具'
     }
   ]
 }
@@ -254,16 +254,6 @@ function getToolsCate() {
           url: '/uuid',
           cateId: 2,
           cate: '开发运维',
-        },
-        
-        {
-          id: 1,
-          title: 'ASCII码表',
-          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/icon_%E7%BC%96%E7%A0%81%E5%AF%B9%E7%85%A7.png',
-          desc: 'ASCII码表,控制代码、标准ASCII字符和非标准ASCII字符对照表',
-          url: '/ascii',
-          cateId: 2,
-          cate: '开发运维'
         },
         {
           id: 1,
@@ -337,15 +327,6 @@ function getToolsCate() {
         },
         {
           id: 1,
-          title: '文本转图片',
-          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/text_to_img.png',
-          desc: '把文本转换成图片，生成长图，具有超多个性文字排版',
-          url: '/textToImg',
-          cateId: 3,
-          cate: '文本处理'
-        },
-        {
-          id: 1,
           title: '摩斯电码',
           logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/medium.png',
           desc: '支持中文的摩斯电码编码解码',
@@ -386,7 +367,16 @@ function getToolsCate() {
           url: '/scaletran',
           cateId: 4,
           cate: '教育学术',
-        }
+        },
+        {
+          id: 1,
+          title: 'ASCII码表',
+          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/icon_%E7%BC%96%E7%A0%81%E5%AF%B9%E7%85%A7.png',
+          desc: 'ASCII码表,控制代码、标准ASCII字符和非标准ASCII字符对照表',
+          url: '/ascii',
+          cateId: 4,
+          cate: '教育学术'
+        },
       ]
     },
     {
@@ -420,6 +410,15 @@ function getToolsCate() {
           url: '/signimage',
           cateId: 5,
           cate: '设计工具',
+        },
+        {
+          id: 1,
+          title: '文本转图片',
+          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/text_to_img.png',
+          desc: '把文本转换成图片，生成长图，具有超多个性文字排版',
+          url: '/textToImg',
+          cateId: 5,
+          cate: '设计工具'
         }
       ]
     },
