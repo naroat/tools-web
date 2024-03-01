@@ -47,3 +47,15 @@ pnpm build:dev
 - 状态管理: Pinia
 - Ui框架: ElementPlus + Tailwindcss
 - Http工具: Axios
+
+# 后端功能
+
+主要包含登录后的相关操作
+
+项目地址：`https://github.com/taoran1401/tools-web-api`
+
+使用方法见内`README`
+
+# 其他
+
+有问题请提`issue`，积极处理
