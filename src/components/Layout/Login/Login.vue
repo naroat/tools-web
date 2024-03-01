@@ -65,9 +65,9 @@ const show = () => {
 }
 
 //关闭弹窗
-const close = () => {
-  visible.value = false
-}
+// const close = () => {
+//   visible.value = false
+// }
 
 //发送验证码
 const sendCode = async () => {

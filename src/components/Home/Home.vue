@@ -10,13 +10,13 @@ import { useRoute } from "vue-router"
 const toolsStore = useToolsStore()
 const userStore = useUserStore()
 const route = useRoute()
-const getToolsCate = async () => {
-  try {
-    await toolsStore.getToolCate()
-  } catch (error: any) {
-    ElMessage.error(error.message)
-  }
-}
+// const getToolsCate = async () => {
+//   try {
+//     await toolsStore.getToolCate()
+//   } catch (error: any) {
+//     ElMessage.error(error.message)
+//   }
+// }
 
 //收藏
 const toolCollect = reactive({

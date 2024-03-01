@@ -8,12 +8,14 @@ import 'element-plus/theme-chalk/display.css'
 import { ToolsInfo } from '@/api/tools/type';
 import Login from '@/components/Layout/Login/Login.vue'
 import { useUserStore } from '@/store/modules/user'
+import defaultAvatar from '@/assets/default_avatar.png'
 import router from '@/router';
 // const isNavDrawer = ref(false)
 const loading = ref(false)
 const options = ref<ToolsInfo[]>([])
 const loginRef = ref()
 const userPopRef = ref()
+const defAvatar = ref(defaultAvatar)
 //store
 const toolsStore = useToolsStore()
 const componentStore = useComponentStore()
@@ -172,7 +174,7 @@ onMounted(() => {
         </li>
         <li class="ml-3" v-if="userStore.token?.length != 0">
           <!-- userStore.avatar -->
-          <el-image class="w-10 h-10 cursor-pointer" fit="cover" :src="(userStore.avatar == '' || userStore.avatar == null || userStore.avatar == undefined) ? '/src/assets/default_avatar.png' : userStore.avatar" v-popover="userPopRef"></el-image>
+          <el-image class="w-10 h-10 cursor-pointer" fit="cover" :src="(userStore.avatar == '' || userStore.avatar == null || userStore.avatar == undefined) ? defAvatar : userStore.avatar" v-popover="userPopRef"></el-image>
           <el-popover
             ref="userPopRef"
             trigger="hover"
@@ -180,7 +182,7 @@ onMounted(() => {
             popper-style="padding-left: 0; padding-right: 0;"
           >
             <div class="flex flex-col">
-              <el-button dlink class="mb-3">{{ userStore.email }}</el-button>
+              <el-button link class="mb-3">{{ userStore.email }}</el-button>
               <el-button link type="danger" class="ml-0" style="margin-left: 0;" @click="logout">退出登录</el-button>
             </div>
           </el-popover>

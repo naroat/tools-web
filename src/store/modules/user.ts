@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { login, register, sendCodeEmail, userInfo, logout, sendForgetCodeEmail, forget} from '@/api/user'
-import type { LoginReqData, LoginResponseData, RegisterReqData, RegisterResponseData, SendCodeEmailResponseData, sendCodeEmailReq, ForgetReqData } from '@/api/user/type'
+import type { LoginReqData, RegisterReqData, sendCodeEmailReq, ForgetReqData } from '@/api/user/type'
 export const useUserStore = defineStore('user', {
   //用来存放变量
   state: () => ({
