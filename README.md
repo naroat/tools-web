@@ -50,9 +50,9 @@ pnpm build:dev
 
 # 后端功能
 
-主要包含登录后的相关操作
+主要包含登录后的相关操作，若不用后端功能可以忽略该部分
 
-项目地址：`https://github.com/taoran1401/tools-web-api`
+项目地址：https://github.com/taoran1401/tools-web-api
 
 使用方法见内`README`
 
