@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { rev } from 'vue'
+import { ref } from 'vue'
 // import { copy } from '@/utils/string'
 // const info = reactive({
 //   title: "关于本站",
