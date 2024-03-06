@@ -19,7 +19,7 @@ const router = createRouter({
 router.beforeEach((to, _from, next) => {
   if (to.meta.title && to.meta.title != '') {
     let oldTitle = document.title
-    document.title = <string>to.meta.title + ' - ' + oldTitle
+    document.title = <string>to.meta.title + '-' + oldTitle
   }
   next()
 })
@@ -31,7 +31,7 @@ router.afterEach((to) => {
   const detailTitle = title
   //设置title
   if (detailTitle) {
-    document.title = detailTitle + ' - ' + import.meta.env.VITE_APP_TITLE
+    document.title = detailTitle + '-' + import.meta.env.VITE_APP_TITLE
   } else {
     document.title = import.meta.env.VITE_APP_TITLE
   }
