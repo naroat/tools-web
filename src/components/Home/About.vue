@@ -1,10 +1,10 @@
 <script setup lang="ts">
-// import { reactive } from 'vue'
+import { rev } from 'vue'
 // import { copy } from '@/utils/string'
 // const info = reactive({
 //   title: "关于本站",
 // })
-
+const feedBackUrl = import.meta.env.VITE_FEEDBACK_URL
 //copy
 // const copyRes = async (resStr: string) => {
 //   copy(resStr)
@@ -21,7 +21,7 @@
       <br>
       <p class="font-bold">联系作者/问题反馈</p>
       <br>
-      <p>反馈中心：<el-link href="https://txc.qq.com/products/619520">https://txc.qq.com/products/619520</el-link></p>
+      <p>反馈中心：<el-link :href="feedBackUrl">{{ feedBackUrl }}</el-link></p>
       <br>
       <p>邮箱：taoran0796@163.com</p>
       <br>

@@ -48,7 +48,7 @@ pnpm build:dev
 - Ui框架: ElementPlus + Tailwindcss
 - Http工具: Axios
 
-# 后端功能
+# 后端功能(可以不用)
 
 主要包含登录后的相关操作，若不用后端功能可以忽略该部分
 

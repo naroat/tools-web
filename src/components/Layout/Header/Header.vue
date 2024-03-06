@@ -172,7 +172,7 @@ onMounted(() => {
         <li class="hover:text-blue-500">
           <el-button link size="large" @click="collect">收藏本站</el-button>
         </li>
-        <li class="ml-3" v-if="userStore.token?.length != 0">
+        <li class="ml-3" v-if="userStore.isLogin()">
           <!-- userStore.avatar -->
           <el-image class="w-10 h-10 cursor-pointer" fit="cover" :src="(userStore.avatar == '' || userStore.avatar == null || userStore.avatar == undefined) ? defAvatar : userStore.avatar" v-popover="userPopRef"></el-image>
           <el-popover

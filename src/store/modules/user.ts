@@ -87,7 +87,7 @@ export const useUserStore = defineStore('user', {
     },
     //获取用户信息
     async userInfo() {
-      if (this.token?.length == 0) {
+      if (!this.isLogin()) {
         return
       }
       //发送请求
