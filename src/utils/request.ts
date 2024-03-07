@@ -9,12 +9,35 @@ let request = axios.create({
     baseURL: import.meta.env.VITE_IS_MOCK == 'true' ? import.meta.env.VITE_APP_BASE_API :  import.meta.env.VITE_SERVE + import.meta.env.VITE_APP_BASE_API,
     timeout: 5000
 })
+//创建一个存储CancelToken源的映射，用于管理请求和取消操作  
+const cancelSources = new Map();  
+//mock环境下无法使用的接口
+const mockBanUrl: string[] = [
+    '/login',
+    '/user/info',
+    '/get/tool/collects',
+    '/send/forget/password/code',
+    '/send/register/code',
+    '/forget/password',
+    '/register',
+    '/logout'
+];
 //请求拦截器
 request.interceptors.request.use(config => {
-    //获取token
-    if (userStore.token) {
-        // config.headers.token = userStore.token
-        config.headers.Authorization = 'Bearer ' + userStore.token
+    if (import.meta.env.VITE_IS_MOCK == 'true' && config.url != undefined && mockBanUrl.includes(config.url)) {
+        //mock环境不能使用登录后相关功能
+        const source = axios.CancelToken.source()
+        //将source与请求的url或某种唯一标识符关联起来  
+        cancelSources.set(config.url, source);  
+        config.cancelToken = source.token;
+        //取消
+        source.cancel('Request canceled by the user.');
+    } else {
+        //获取token
+        if (userStore.token) {
+            // config.headers.token = userStore.token
+            config.headers.Authorization = 'Bearer ' + userStore.token
+        }
     }
     return config;
 });
@@ -27,6 +50,10 @@ request.interceptors.response.use((response) => {
     }
     return response.data;
 }, (error) => {
+    if (error.code == 'ERR_CANCELED') {
+        //拒绝响应
+        return Promise.race([]);
+    }
     //处理网络错误
     let msg = '';
     let status = error.response.status;

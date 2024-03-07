@@ -4,7 +4,7 @@ import type { LoginReqData, RegisterReqData, sendCodeEmailReq, ForgetReqData } f
 export const useUserStore = defineStore('user', {
   //用来存放变量
   state: () => ({
-    token: localStorage.getItem('TOKEN'),//token
+    token: import.meta.env.VITE_IS_MOCK == 'true' ? localStorage.setItem('TOKEN', '') : localStorage.getItem('TOKEN'),//token
     username: '',
     avatar: '',
     email: '',
