@@ -216,7 +216,16 @@ function getTools() {
       url: '/textToImg',
       cateId: 5,
       cate: '设计工具'
-    }
+    },
+    {
+      id: 1,
+      title: '网站favicon获取',
+      logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/IP.png',
+      desc: '获取网站logo、icon、favicon、标题、关键词、描述等信息',
+      url: '/webInfo',
+      cateId: 6,
+      cate: '查询相关',
+    },
   ]
 }
 
@@ -433,6 +442,15 @@ function getToolsCate() {
           logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/IP.png',
           desc: '在线查询ip地址、ip归属地',
           url: '/ip',
+          cateId: 6,
+          cate: '查询相关',
+        },
+        {
+          id: 1,
+          title: '网站favicon获取',
+          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/text_to_img.png',
+          desc: '获取网站logo、icon、favicon、标题、关键词、描述等信息',
+          url: '/webInfo',
           cateId: 6,
           cate: '查询相关',
         }

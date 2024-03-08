@@ -250,6 +250,16 @@ export const constantRoute = [
     }
   },
   {
+    path: '/webInfo',
+    component: () => import('@/components/WebInfo/WebInfo.vue'),
+    name: 'webInfo',
+    meta: {
+      title: "网站favicon获取",
+      keywords: '获取网站logo,获取网站icon,获取网站favicon,获取网站标题,获取网站关键词,获取网站描述',
+      description: '获取网站logo、icon、favicon、标题、关键词、描述等信息',
+    }
+  },
+  {
     path: '/about',
     component: () => import('@/components/Home/About.vue'),
     name: 'about',
