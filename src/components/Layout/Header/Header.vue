@@ -3,7 +3,7 @@ import { ref, reactive, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue';
 import { useToolsStore } from '@/store/modules/tools'
 import { useComponentStore } from '@/store/modules/component'
-import { ElMessageBox, ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/display.css'
 import { ToolsInfo } from '@/api/tools/type';
 import Login from '@/components/Layout/Login/Login.vue'

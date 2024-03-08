@@ -4,6 +4,37 @@
 
 > 演示站点：https://tools.ranblogs.com
 
+# 介绍
+
+免费开源的工具站，目前已开发数十种工具，对平板和手机适配进行了响应式设计，同时为了让seo更为友好做了ssr处理，搭建简单使用方便
+
+已有工具：
+- 时间戳转换
+- MD5在线加密
+- Json在线转换
+- 正则测试工具
+- Unicode转中文
+- IP查询
+- 常用进制转换
+- 在线图片处理
+- 字数统计
+- 随机密码生成
+- URL编码/解码
+- UUID生成器
+- 手持弹幕
+- ASCII码表
+- 单位换算
+- 色板
+- 二维码生成
+- 帮我决定
+- 摩斯电码
+- 生成随机数
+- 数字转金额大写
+- 文本对比
+- markdown编辑器
+- 文本转图片
+- 网站favicon获取
+
 # 快速使用
 
 安装`pnpm`, 为避免因为不同包管理器工具下载同一个依赖,可能版本不一样的问题,本项目强制使用`pnpm`
@@ -38,19 +69,9 @@ pnpm dev
 pnpm build:dev
 ```
 
-# 技术栈
+# 后端功能(非必须)
 
-- 编程语言: TypeScript + JavaScript
-- 构件工具: Vite4.x
-- 前端框架: Vue3.x
-- 路由工具: Vue Router
-- 状态管理: Pinia
-- Ui框架: ElementPlus + Tailwindcss
-- Http工具: Axios
-
-# 后端功能(可以不用)
-
-主要包含登录后的相关操作，若不用后端功能可以忽略该部分
+主要包含登录后的收藏功能，若只用工具可以忽略该部分
 
 项目地址：https://github.com/taoran1401/tools-web-api
 
@@ -58,4 +79,4 @@ pnpm build:dev
 
 # 其他
 
-有问题请提`issue`，积极处理
+有问题或建议请提`issue`
