@@ -16,6 +16,7 @@ const options = ref<ToolsInfo[]>([])
 const loginRef = ref()
 const userPopRef = ref()
 const defAvatar = ref(defaultAvatar)
+const feedBackUrl = import.meta.env.VITE_FEEDBACK_URL
 //store
 const toolsStore = useToolsStore()
 const componentStore = useComponentStore()
@@ -170,7 +171,7 @@ onMounted(() => {
     <div class=" w-full md:w-auto flex md:block c-xs:w-auto">
       <ul class="flex mt-4 flex-col md:flex-row md:mt-0 justify-end items-center c-xs:mt-0">
         <li class="hover:text-blue-500">
-          <el-button link size="large" @click="collect">收藏本站</el-button>
+          <el-link :href="feedBackUrl" size="large" target="_blank">建议/问题</el-link>
         </li>
         <li class="ml-3" v-if="userStore.isLogin()">
           <!-- userStore.avatar -->
