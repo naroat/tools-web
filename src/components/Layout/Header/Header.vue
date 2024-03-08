@@ -62,12 +62,12 @@ const optionClick = (url: string) => {
 }
 
 //收藏
-const collect = () => {
-  ElMessageBox({
-    title: '提示',
-    message: '请使用快捷键`Ctrl+D`进行收藏'
-  })
-}
+// const collect = () => {
+//   ElMessageBox({
+//     title: '提示',
+//     message: '请使用快捷键`Ctrl+D`进行收藏'
+//   })
+// }
 
 const openLogin = () => {
   loginRef.value.show()
