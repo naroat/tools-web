@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
-import { copy } from '@/utils/string'
+// import { copy } from '@/utils/string'
+import { Jh_getTimeStamp } from '@/utils/time'
 import { isUrl } from '@/utils/url'
+import { autoDown, getFileExtension } from '@/utils/file'
 import { useToolsStore } from '@/store/modules/tools'
 import { ElMessage } from 'element-plus'
 const info = reactive({
@@ -39,12 +41,16 @@ const getWebInfo = async () => {
   } catch (error) {
     console.error('Error fetching site info:', error);  
   }  
-}; 
+};
+
+const down = () => {
+  autoDown(toolsStore.webInfo.logo, Jh_getTimeStamp() + '.' + getFileExtension(toolsStore.webInfo.logo))
+}
 
 //copy
-const copyRes = async (resStr: string) => {
-  copy(resStr)
-}
+// const copyRes = async (resStr: string) => {
+//   copy(resStr)
+// }
 </script>
 
 <template>
@@ -68,31 +74,24 @@ const copyRes = async (resStr: string) => {
       <div>
         <ul>
           <li class="mt-3">
-            <el-text>域名: </el-text>
+            <el-text><b>域名: </b></el-text>
             <el-link :href="'https://' + searchUrl" type="primary" target="_blank">{{ searchUrl }}</el-link>
           </li>
           <li class="mt-3 flex">
-            <el-text>logo: </el-text>
+            <el-text><b>logo: </b></el-text>
             <div v-if="toolsStore.webInfo.logo" class="ml-2 flex items-center">
               <el-image :src="toolsStore.webInfo.logo" class="h-12"></el-image>
-              <el-button class="ml-3" link type="primary">下载</el-button>
+              <el-button class="ml-3" link type="primary" @click="down">下载</el-button>
             </div>
           </li>
           <li class="mt-3 flex">
-            <el-text >标题: </el-text>
-            <div class="ml-2"></div>
-            <el-text>{{ toolsStore.webInfo.title }}</el-text>
+            <el-text><b>标题: </b>{{ toolsStore.webInfo.title }}</el-text>
           </li>
           <li class="mt-3 flex">
-            <el-text >关键词: </el-text>
-            <div class="ml-2"></div>
-            <el-text>{{ toolsStore.webInfo.keywords }}</el-text>
+            <el-text><b>关键词: </b> {{ toolsStore.webInfo.keywords }}</el-text>
           </li>
           <li class="mt-3 flex">
-            <el-text>描述: </el-text>
-            <div class="ml-2"></div>
-            <el-text>{{ toolsStore.webInfo.desc }}</el-text>
-            <!-- <el-button>复制</el-button> -->
+            <el-text><b>描述: </b> {{ toolsStore.webInfo.desc }}</el-text>
           </li>
         </ul>
       </div>
