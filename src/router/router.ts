@@ -260,6 +260,16 @@ export const constantRoute = [
     }
   },
   {
+    path: '/bar',
+    component: () => import('@/components/Chart/Bar/Bar.vue'),
+    name: 'bar',
+    meta: {
+      title: "柱状图",
+      keywords: '柱状图',
+      description: '在线制作柱状图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+    }
+  },
+  {
     path: '/about',
     component: () => import('@/components/Home/About.vue'),
     name: 'about',

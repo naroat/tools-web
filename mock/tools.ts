@@ -226,6 +226,15 @@ function getTools() {
       cateId: 6,
       cate: '查询相关',
     },
+    {
+      id: 1,
+      title: '柱状图',
+      logo: '/src/assets/logo/bar.png',
+      desc: '在线制作柱状图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+      url: '/bar',
+      cateId: 8,
+      cate: '数据图表',
+    },
   ]
 }
 
@@ -453,6 +462,22 @@ function getToolsCate() {
           url: '/webInfo',
           cateId: 6,
           cate: '查询相关',
+        }
+      ]
+    },
+    {
+      id: 8,
+      title: '数据图表',
+      icon: '',
+      list: [
+        {
+          id: 1,
+          title: '柱状图',
+          logo: '/src/assets/logo/bar.png',
+          desc: '在线制作柱状图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+          url: '/bar',
+          cateId: 8,
+          cate: '数据图表',
         }
       ]
     },

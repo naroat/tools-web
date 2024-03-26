@@ -16,6 +16,8 @@ import 'element-plus/dist/index.css'
 import pinia from './store'
 //v-md-editor
 import { setupMdEditor } from './plugins/v-md-editor'
+//default-passive-events
+import 'default-passive-events'
 
 
 const app = createApp(App)
