@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 import { useToolsStore } from '@/store/modules/tools'
 import { useUserStore } from '@/store/modules/user'
 import { ElMessage } from 'element-plus'
+import {rtrim} from '@/utils/string'
 const props = defineProps({
   title: String,
   id: Number
@@ -22,7 +23,8 @@ const userStore = useUserStore()
 
 //根据路由查询tool id
 const getToolInfo = async () => {
-  searchParam.route = route.path
+  let routeStr = route.path
+  searchParam.route = rtrim(routeStr, '/')
   await toolsStore.getToolInfo(searchParam)
 }
 

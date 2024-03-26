@@ -113,11 +113,17 @@ export function numberToChinese(num: number): string {
   return chinese;  
 }
 
+//rtrim: 删除右侧指定字符， 默认删除空格
+export function rtrim(str, char = ' ') {
+    return str.replace(new RegExp('\\'+char+'+$', 'g'), '');
+}
+
 const StringUtils = {
   transferred,
   copy,
   genRandomStrByChars,
-  numberToChinese
+  numberToChinese,
+  rtrim,
 }
 
 export default StringUtils

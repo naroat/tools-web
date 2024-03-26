@@ -229,7 +229,7 @@ function getTools() {
     {
       id: 1,
       title: '柱状图',
-      logo: '/src/assets/logo/bar.png',
+      logo: '/images/logo/bar.png',
       desc: '在线制作柱状图，像做表格一样制作可视化图表，支持导出静态或动态图表',
       url: '/bar',
       cateId: 8,
@@ -473,7 +473,7 @@ function getToolsCate() {
         {
           id: 1,
           title: '柱状图',
-          logo: '/src/assets/logo/bar.png',
+          logo: '/images/logo/bar.png',
           desc: '在线制作柱状图，像做表格一样制作可视化图表，支持导出静态或动态图表',
           url: '/bar',
           cateId: 8,

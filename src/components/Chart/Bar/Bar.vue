@@ -272,10 +272,12 @@ const updateDataFile = async (params) => {
         if(sheetArray.length == 0){
           continue;
         }
+
         for(let item in sheetArray){
           if (sheetArray[item] != undefined) {
-            tmpColumnData.push(sheetArray[item][0])
-            tmpValueData.push(sheetArray[item][1])
+              let tmp1 = sheetArray as []
+              tmpColumnData.push(tmp1[item][0])
+              tmpValueData.push(tmp1[item][1])
           }
         }
         useCount++
