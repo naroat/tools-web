@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { onMounted,reactive } from 'vue';
-import { RouterLink } from "vue-router"
-import { Star } from '@element-plus/icons-vue'
-import { useToolsStore } from '@/store/modules/tools'
-import { useUserStore } from '@/store/modules/user'
-import { ElMessage } from 'element-plus'
-import { useRoute } from "vue-router"
+import { onMounted,reactive, ref } from 'vue';
+import { useScanStore } from '@/store/modules/scan'
+// import { ElMessage } from 'element-plus'
+import { Search } from '@element-plus/icons-vue';
+// import { useRoute } from "vue-router"
 //store
-const toolsStore = useToolsStore()
-const userStore = useUserStore()
-const route = useRoute()
+const scanStore = useScanStore()
+// const route = useRoute()
 // const getToolsCate = async () => {
 //   try {
 //     await toolsStore.getToolCate()
@@ -18,100 +15,197 @@ const route = useRoute()
 //   }
 // }
 
-//收藏
-const toolCollect = reactive({
-  toolId: 0
+const loading = ref(false)
+const setTagsDialog = ref(false)
+// const checkedTags = reactive({})
+//常见视频格式
+const extVideo = ref(['ts', 'mp4', 'mkv', 'wmv', 'avi', 'flv', '3gp', 'dvd', 'mov', 'vob', 'webm'])
+
+//获取分类
+//查询参数
+const searchParam = reactive({
+  title: '',
+  tags: '',
+  page: 1,
 })
-const collect = async (toolId) => {
+const getList = async () => {
   try {
-    if (!userStore.isLogin()) {
-      //未登录,弹出登录窗口
-      ElMessage.error('请登录')
-      return 
-    }
-    toolCollect.toolId = toolId
-    await toolsStore.toolCollect(toolCollect)
-    // ElMessage.success('收藏成功')
-  } catch (error: any) {
-    ElMessage.error(error.message)
+    await scanStore.getList(searchParam)
+  } catch (error) {
+    console.log(error)
   }
-  return
+}
+
+//获取标签
+const getTags = async () => {
+  try {
+    await scanStore.getTags()
+    //设置标签checked
+    // for (let index in scanStore.tags) {
+    //   for (let childIndex in scanStore.tags[index].childTags) {
+    //     let cheeckedTag = 'checkTag' + scanStore.tags[index].childTags[childIndex].id
+    //   }
+    //   console.log(scanStore.tags[index].childTags)
+    // }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const optionClick = (path: string) => {
+  console.log(path)
+  // router.push(url)
+}
+
+//获取文件信息
+const getFileInfo = async (fileId: number) => {
+  try {
+    await scanStore.getInfo({
+      fileId: fileId,
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+//set tags
+const setTagsDia = async (fileId: number) => {
+  //显示dialog
+  setTagsDialog.value = true
+  await getFileInfo(fileId)
+}
+
+//更新标签
+const updateTag = async (fileId: number, tagId: number) => {
+  console.log(fileId, tagId)
+  try {
+    await scanStore.updateTag({
+      fileId: fileId,
+      tagId: tagId
+    })
+    //获取当前文件标签
+    await getFileInfo(fileId)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+//分页 - 页码改变时
+const pageChange = async (nowPage: number) => {
+  searchParam.page = nowPage
+  console.log(nowPage)
+  await scanStore.getList(searchParam)
 }
 
 onMounted(() => {
-  // getToolsCate()
-  if (route.query && route.query.value) {//底部导航跳转过来的则定位到响应位置
-      document?.querySelector('#' + `${route.query.value}`)?.scrollIntoView();
-  } else {//其他位置跳转过来不需要定位的则定位到顶部
-      document?.querySelector('#collect')?.scrollIntoView()
-  }
+  getList();
+  getTags();
 })
 </script>
 
 <template>
-  <div class="md:mr-6 c-xs:mr-0">
-    <!-- collect -->
-    <div id="collect">
-      <!-- cate title -->
-      <div class="md:mt-8 md:mb-8 c-xs:mt-1 c-xs:mb-4 text-xl font-bold text-[--base-black]">
-        我的收藏
-      </div>
-      <!-- card -->
-      <div class="flex justify-between flex-wrap self-card-div c-xs:ml-3" :gutter="10" v-if="toolsStore.collect.length > 0">
-          <router-link v-for="(item, index) in toolsStore.collect" :key="index" :to="item.url" class="flex flex-col mt-5 border-solid rounded-2xl border-gray w-[24%] p-2 bg-white hover:shadow-md c-xs:w-[99.5%] c-md:w-[24%] c-sm:w-[32%] p-5">
-            <div class="flex items-center border-b pb-2">
-              <el-image :src="item.logo" class="w-10 h-10 min-h-[2.5rem] min-w-[2.5rem] rounded-full"></el-image>
-              <div class="flex flex-col ml-2 w-full">
-                <div class="flex">
-                  <div class="font-semibold text-lg line-clamp-1">{{ item.title }}</div>
-                </div>
-                <div class="flex justify-between">
-                  <el-text size="small">{{ item.cate }}</el-text>
-                  <el-button :icon="Star" circle size="small" @click.prevent="collect(item.id)"  type="warning"/>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mt-2">
-              <el-text line-clamp="2">{{ item.desc }}</el-text>
-            </div>
-          </router-link>
-          <!-- 占位 div -->
-          <div class="w-[24%] c-md:w-[24%] c-sm:w-[32%]"></div>
-      </div>
-      <div v-else class="bg-white rounded-2xl">
-        <el-empty description="暂无收藏" />
-      </div>
+  <div>
+    <div class="mt-3">
+      <el-select
+        v-model="searchParam.title"
+        filterable
+        remote
+        reserve-keyword
+        remote-show-suffix
+        :suffix-transition="false"
+        :suffix-icon="Search"
+        placeholder="输入关键词搜索"
+        :remote-method="getList"
+        :loading="loading"
+        class="ml-3 mr-3 md:w-80 c-xs:w-60"
+      >
+        <el-optiond
+          v-for="item in scanStore.list.data"
+          :key="item.id"
+          :label="item.title"
+          :value="item.id"
+          @click="optionClick(item.path)"
+        >
+        </el-optiond>
+      </el-select>
     </div>
 
-    <!-- list -->
-    <div v-for="(cate, index) in toolsStore.cates" :key="index">
-      <!-- cate title -->
-      <div class="mt-8 mb-3 text-xl font-bold text-[--base-black]" :id="'cate_' + cate.id">
-        {{ cate.title }}
-      </div>
-      <!-- card -->
-      <div class="flex justify-between flex-wrap self-card-div c-xs:ml-0" :gutter="10">
-          <router-link v-for="(item, index) in cate.list" :key="index" :to="item.url" class="flex flex-col mt-5 border-solid rounded-2xl border-gray w-[24%] p-2 bg-white hover:shadow-md c-xs:w-[99.5%] c-md:w-[24%] c-sm:w-[32%] p-5 hover:-translate-y-2 duration-300">
-            <div class="flex items-center border-b pb-2">
-              <el-image :src="item.logo" class="w-10 h-10 min-h-[2.5rem] min-w-[2.5rem] rounded-full"></el-image>
-              <div class="flex flex-col ml-2 w-full">
-                <div class="flex">
-                  <div class="font-semibold text-lg line-clamp-1">{{ item.title }}</div>
-                </div>
-                <div class="flex justify-between">
-                  <el-text size="small">{{ item.cate }}</el-text>
-                  <el-button :icon="Star" circle size="small" @click.prevent="collect(item.id)" type="warning" :plain="!toolsStore.collectIds.includes(item.id)"/>
-                </div>
+    <div class="flex w-full">
+      <!-- 左侧列表 -->
+      <div class="w-9/12">
+        <div class="flex items-center justify-between h-40 bg-white mt-3 ml-3 rounded-lg p-3" v-for="(item, index) in scanStore.list.data" :key="index">
+          <!-- left -->
+          <div class="flex items-center">
+            <!--  -->
+            <div>
+              <div v-if="extVideo.includes(item.ext)">
+                <video :src="item.path" controls></video>
+              </div>
+              <div v-else>
+                <el-empty description="无预览" :image-size="100"/>
               </div>
             </div>
-            <div class="flex items-center justify-between mt-2">
-              <el-text line-clamp="2">{{ item.desc }}</el-text>
+            
+            <!--  -->
+            <div class="ml-3">
+              <div class="flex items-center">
+                  <el-button class="mr-2" type="warning" size="small">{{ item.ext }}</el-button>
+                  <el-text>{{item.title}}</el-text>
+              </div>
+              <div class="mt-3">
+                <el-text class="mt-3">{{ item.path }}</el-text>
+              </div>
+              <div class="mt-3">
+                <el-tag type="danger" class="mt-2 mr-2" v-for="(childItem, childIndex) in item.scan_tag" :key="childIndex">{{ childItem.title }}</el-tag>
+              </div>
             </div>
-          </router-link>
-          <!-- 占位 div -->
-          <div class="w-[24%] c-md:w-[24%] c-sm:w-[32%] "></div>
+          </div>
+
+          <!-- right -->
+          <div class="flex flex-col justify-center">
+            <el-button size="small" type="primary" class="w-20">open</el-button>
+            <el-button size="small" type="primary" class="w-20 mt-2" style="margin-left: 0;" @click="setTagsDia(item.id)">set tags</el-button>
+            <el-button size="small" type="primary" class="w-20 mt-2" style="margin-left: 0;" >move</el-button>
+            <el-button size="small" type="primary" class="w-20 mt-2" style="margin-left: 0;">delete</el-button>
+          </div>
+        </div>
+        <!-- 分页 -->
+        <div class="mt-3 mb-3 ml-3 flex justify-end">
+          <el-pagination 
+            background 
+            layout="prev, pager, next, jumper" 
+            :page-count="scanStore.list.last_page"
+            :total="scanStore.list.total" 
+            :default-page-size="scanStore.list.per_page" 
+            @current-change="pageChange"
+            @size-change="pageChange"
+            @prev-click="pageChange"
+            @next-click="pageChange"/>
+        </div>
+      </div>
+      <!-- 右侧栏目 -->
+      <div class="w-3/12 mt-3 ml-3 mr-3  rounded-lg">
+        <!-- tags -->
+        <div class="p-3 bg-white" v-for="(item, index) in scanStore.tags" :key="index">
+          <div>{{ item.title }}</div>
+          <div class="flex flex-wrap">
+            <el-tag type="danger" class="mt-2 mr-2" v-for="(childItem, childIndex) in item.childTags" :key="childIndex" @click="">{{ childItem.title }}</el-tag>
+          </div>
+        </div>
+        
       </div>
     </div>
+    <!-- set tags dialog -->
+    <el-dialog v-model="setTagsDialog" title="set tags" width="800" @close="getList()">
+      <!-- tags -->
+      <div class="p-3 bg-white" v-for="(item, index) in scanStore.tags" :key="index">
+        <div>{{ item.title }}</div>
+        <div class="flex flex-wrap">
+          <el-check-tag type="danger" :checked="scanStore.fileInfoTags.includes(childItem.id)" @change="updateTag(scanStore.fileInfo.id, childItem.id)" class="mt-2 mr-2" v-for="(childItem, childIndex) in item.childTags" :key="childIndex">{{ childItem.title }}</el-check-tag>
+        </div>
+      </div>
+      <!-- <el-button class="ml-3 mt-3" type="primary">保存</el-button> -->
+    </el-dialog>
   </div>
 </template>
 

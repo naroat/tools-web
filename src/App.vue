@@ -11,12 +11,12 @@ const componentStore = useComponentStore()
 </script>
 
 <template>
-  <el-container>
+  <!-- <el-container> -->
     <!-- left -->
-    <el-aside class="fixed top-0 left-0 h-full z-10 c-md:block c-sm:hidden c-xs:hidden" width="240px" v-show="!componentStore.leftCom">
+    <!-- <el-aside class="fixed top-0 left-0 h-full z-10 c-md:block c-sm:hidden c-xs:hidden" width="240px" v-show="!componentStore.leftCom">
         <Left></Left>
-    </el-aside>
-    <el-drawer 
+    </el-aside> -->
+    <!-- <el-drawer 
       show-close
       size="240px" 
       :with-header="false" 
@@ -24,26 +24,26 @@ const componentStore = useComponentStore()
       direction="ltr"
       >
       <Left bgColor="#fff"></Left>
-    </el-drawer>
+    </el-drawer> -->
 
     <!-- right -->
-    <el-container  :class="!componentStore.leftCom ? 'c-md:ml-[240px]' : ''">
-      <el-header>
+    <!-- <el-container> -->
+      <!-- <el-header>
         <Header/>
-      </el-header>
-      <el-main>
+      </el-header> -->
+      <!-- <el-main> -->
         <router-view v-slot="{ Component, route }">
           <transition name="animation" mode="out-in">
             <component :is="Component" :key="route.path"></component>
           </transition>
         </router-view>
-      </el-main>
-      <el-footer class="md:mb-6 mt-12 c-xs:mb-12">
+      <!-- </el-main> -->
+      <!-- <el-footer class="md:mb-6 mt-12 c-xs:mb-12">
         <Floor />
-      </el-footer>
-    </el-container>
+      </el-footer> -->
+    <!-- </el-container> -->
 
-  </el-container>
+  <!-- </el-container> -->
 </template>
 
 <style scoped>
