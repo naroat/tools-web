@@ -4,11 +4,11 @@ import Spreadsheet from 'x-data-spreadsheet'
 import 'x-data-spreadsheet/dist/locale/zh-cn';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 // import { copy } from '@/utils/string'
-import { toEchartsData, toSpreadsheetData } from '@/utils/echarts'
+import { toEchartsPieData, toSpreadsheetData, tranObjAndColumn } from '@/utils/echarts'
 import * as echarts from 'echarts'
 import * as XLSX from 'xlsx'
 const info = reactive({
-  title: "柱状图",
+  title: "饼图",
 })
 
 const chartDom = ref<HTMLElement|null>()
@@ -117,12 +117,9 @@ const canvasHandle = (type) => {
     case "data":
       //更新数据
       myChart.value?.setOption({
-        xAxis: {
-          data: colunmData.value,
-        },
         series: [
           {
-            data: valueData.value,
+            data: seriesData.value,
           }
         ]
       })
@@ -134,8 +131,9 @@ const handleChange = () => {
 }
 
 //数据
-const colunmData = ref(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']);
-const valueData = ref(['23', '24', '18', '25', '27', '28', '25']);
+const colunmData = ref(['Search Engine', 'Direct', 'Email', 'Union Ads', 'Video Ads'] as string[]);
+const valueData = ref([1048, 735, 580, 484, 300] as number[]);
+const seriesData = ref([] as Object[])
 //选项
 const option = {
   backgroundColor: '#fff',
@@ -149,20 +147,23 @@ const option = {
     subtext: subTitle.value,
     left: titlePos.value
   },
-  xAxis: {
-    data: colunmData.value,
-  },
-  yAxis: {},
   series: [
     {
-      type: 'bar',
-      data: valueData.value,
-      itemStyle: {
-        color: attrColor.value
+      type: 'pie',
+      radius: '50%',
+      data: seriesData.value,
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
       }
-    }
+    },
   ],
-  tooltip: {}
+  tooltip: {
+    // trigger: 'item'
+  },
 };
 
 //重新加载画布
@@ -174,6 +175,8 @@ const reloadCanvas = () => {
     height: heightCanvas.value
   })
   myChart.value.setOption(option)
+  //加载数据
+  canvasHandle('data')
 }
 
 //下载echarts图表图片
@@ -235,9 +238,7 @@ const editData = () => {
       .change(data => {
         //表格数据改变后触发
         //规则: 获取第一列和第二列的数据
-        let tmp = toEchartsData(data)
-        colunmData.value = tmp[0]
-        valueData.value = tmp[1]
+        seriesData.value = toEchartsPieData(data)
         canvasHandle('data')
       });
       // sheet.validate()
@@ -285,6 +286,9 @@ const updateDataFile = async (params) => {
       //更新数据
       colunmData.value = tmpColumnData
       valueData.value = tmpValueData
+      seriesData.value = tranObjAndColumn([
+        colunmData.value, valueData.value
+      ])
       //更新图表
       canvasHandle('data')
       //更新表格
@@ -305,6 +309,10 @@ const updateDataFile = async (params) => {
 // }
 
 onMounted(() => {
+  //初始化数据
+  seriesData.value = tranObjAndColumn([
+    colunmData.value, valueData.value
+  ])
   //init echart dom
   chartDom.value = document.getElementById('main')
   //设置画布宽高
@@ -424,12 +432,12 @@ onMounted(() => {
               <el-input class="h-8 w-60 max-w-[60%] ml-3" v-model="subTitle"  @blur="canvasHandle('title')"></el-input>
             </div>
           </el-collapse-item>
-          <el-collapse-item title="图形属性" name="3">
+          <!-- <el-collapse-item title="图形属性" name="3">
             <div class="flex">
               <el-text class="w-16 text-right">颜色</el-text>
               <el-color-picker v-model="attrColor" class="ml-3" @change="canvasHandle('color')"/>
             </div>
-          </el-collapse-item>
+          </el-collapse-item> -->
           <el-collapse-item title="水印设置" name="4">
             <div class="flex">
               <el-text class="w-16 text-right">显示</el-text>

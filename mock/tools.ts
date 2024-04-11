@@ -80,7 +80,7 @@ function getTools() {
       desc: '在线图片裁剪，标注，滤镜，画等操作',
       url: '/signimage',
       cateId: 5,
-      cate: '设计工具',
+      cate: '图片处理',
     },
     {
       id: 1,
@@ -142,8 +142,8 @@ function getTools() {
       logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/%E8%B0%83%E8%89%B2%E6%9D%BF.png',
       desc: '包含纯色、渐变与阶梯色和常用色彩组合',
       url: '/palettes',
-      cateId: 5,
-      cate: '设计工具'
+      cateId: 7,
+      cate: '其他工具'
     },
     {
       id: 1,
@@ -152,7 +152,7 @@ function getTools() {
       desc: '在线生成带logo、透明、艺术的二维码',
       url: '/qrcode',
       cateId: 5,
-      cate: '设计工具'
+      cate: '图片处理'
     },
     {
       id: 1,
@@ -160,8 +160,8 @@ function getTools() {
       logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/choose.png',
       desc: '选择困难，难以决定，今天吃什么，现在做什么，自定义选项都给你安排的明明白白',
       url: '/decision',
-      cateId: 7,
-      cate: '其他'
+      cateId: 9,
+      cate: '选择随机'
     },
     {
       id: 1,
@@ -169,8 +169,8 @@ function getTools() {
       logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/medium.png',
       desc: '支持中文的摩斯电码编码解码',
       url: '/morse',
-      cateId: 3,
-      cate: '文本处理'
+      cateId: 4,
+      cate: '教育学术'
     },
     {
       id: 1,
@@ -178,8 +178,8 @@ function getTools() {
       logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/randomnum.png',
       desc: '可定制范围内进行随机数字，可用于抽奖、点名等用途',
       url: '/random',
-      cateId: 7,
-      cate: '其他'
+      cateId: 9,
+      cate: '选择随机'
     },
     {
       id: 1,
@@ -188,7 +188,7 @@ function getTools() {
       desc: '在线数字一键转换成人民币大写，中文大写转换数字',
       url: '/numberToChinese',
       cateId: 7,
-      cate: '其他'
+      cate: '其他工具'
     },
     {
       id: 1,
@@ -215,7 +215,7 @@ function getTools() {
       desc: '把文本转换成图片，生成长图，具有超多个性文字排版',
       url: '/textToImg',
       cateId: 5,
-      cate: '设计工具'
+      cate: '图片处理'
     },
     {
       id: 1,
@@ -234,6 +234,69 @@ function getTools() {
       url: '/bar',
       cateId: 8,
       cate: '数据图表',
+    },
+    {
+      id: 1,
+      title: '折线图',
+      logo: '/images/logo/bar.png',
+      desc: '在线制作柱状图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+      url: '/line',
+      cateId: 8,
+      cate: '数据图表',
+    },
+    {
+      id: 1,
+      title: '饼图',
+      logo: '/images/logo/bar.png',
+      desc: '在线制作柱状图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+      url: '/pie',
+      cateId: 8,
+      cate: '数据图表',
+    },
+    {
+      id: 1,
+      title: '散点图',
+      logo: '/images/logo/bar.png',
+      desc: '在线制作柱状图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+      url: '/scatter',
+      cateId: 8,
+      cate: '数据图表',
+    },
+    {
+      id: 1,
+      title: '抛硬币',
+      logo: '/images/logo/bar.png',
+      desc: '在线抛硬币，选择困难那么交给硬币来帮你选择吧',
+      url: '/coin',
+      cateId: 9,
+      cate: '选择随机',
+    },
+    {
+      id: 1,
+      title: '投骰子',
+      logo: '/images/logo/bar.png',
+      desc: '在线投骰子，可自定义骰子数量，简单好用的骰子工具',
+      url: '/dice',
+      cateId: 9,
+      cate: '选择随机',
+    },
+    {
+      id: 1,
+      title: '文本去重',
+      logo: '/images/logo/bar.png',
+      desc: '可以删除或去除文本或字符串中的重复行',
+      url: '/textRemoveDuplicate',
+      cateId: 3,
+      cate: '文本处理',
+    },
+    {
+      id: 1,
+      title: '图片分割',
+      logo: '/images/logo/bar.png',
+      desc: '将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列',
+      url: '/imgCut',
+      cateId: 5,
+      cate: '图片处理',
     },
   ]
 }
@@ -345,22 +408,22 @@ function getToolsCate() {
         },
         {
           id: 1,
-          title: '摩斯电码',
-          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/medium.png',
-          desc: '支持中文的摩斯电码编码解码',
-          url: '/morse',
-          cateId: 3,
-          cate: '文本处理'
-        },
-        {
-          id: 1,
           title: '字数统计',
           logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/ico_%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1_%E5%B7%A5%E4%BD%9C%E9%87%8F%E7%BB%9F%E8%AE%A1.png',
           desc: '在线统计字符串的字数、段落、标点符号数量',
           url: '/wordCount',
           cateId: 3,
           cate: '文本处理',
-        }
+        },
+        {
+          id: 1,
+          title: '文本去重',
+          logo: '/images/logo/bar.png',
+          desc: '可以删除或去除文本或字符串中的重复行',
+          url: '/textRemoveDuplicate',
+          cateId: 3,
+          cate: '文本处理',
+        },
       ]
     },
     {
@@ -374,6 +437,15 @@ function getToolsCate() {
           logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/%E5%8D%95%E4%BD%8D%E6%8D%A2%E7%AE%97.png',
           desc: '在线重量、长度、面积、时间、角度、速度、温度、压力、热量、功率等换算',
           url: '/unit',
+          cateId: 4,
+          cate: '教育学术'
+        },
+        {
+          id: 1,
+          title: '摩斯电码',
+          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/medium.png',
+          desc: '支持中文的摩斯电码编码解码',
+          url: '/morse',
           cateId: 4,
           cate: '教育学术'
         },
@@ -399,18 +471,9 @@ function getToolsCate() {
     },
     {
       id: 5,
-      title: '设计工具',
+      title: '图片处理',
       icon: '',
       list: [
-        {
-          id: 1,
-          title: '色板',
-          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/%E8%B0%83%E8%89%B2%E6%9D%BF.png',
-          desc: '包含纯色、渐变与阶梯色和常用色彩组合',
-          url: '/palettes',
-          cateId: 5,
-          cate: '设计工具'
-        },
         {
           id: 1,
           title: '二维码生成',
@@ -418,7 +481,7 @@ function getToolsCate() {
           desc: '在线生成带logo、透明、艺术的二维码',
           url: '/qrcode',
           cateId: 5,
-          cate: '设计工具'
+          cate: '图片处理'
         },
         {
           id: 1,
@@ -427,7 +490,7 @@ function getToolsCate() {
           desc: '在线图片裁剪，标注，滤镜，画等操作',
           url: '/signimage',
           cateId: 5,
-          cate: '设计工具',
+          cate: '图片处理',
         },
         {
           id: 1,
@@ -436,8 +499,17 @@ function getToolsCate() {
           desc: '把文本转换成图片，生成长图，具有超多个性文字排版',
           url: '/textToImg',
           cateId: 5,
-          cate: '设计工具'
-        }
+          cate: '图片处理'
+        },
+        {
+          id: 1,
+          title: '图片分割',
+          logo: '/images/logo/bar.png',
+          desc: '将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列',
+          url: '/imgCut',
+          cateId: 5,
+          cate: '图片处理',
+        },
       ]
     },
     {
@@ -478,12 +550,38 @@ function getToolsCate() {
           url: '/bar',
           cateId: 8,
           cate: '数据图表',
+        },{
+          id: 1,
+          title: '折线图',
+          logo: '/images/logo/bar.png',
+          desc: '在线制作折线图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+          url: '/line',
+          cateId: 8,
+          cate: '数据图表',
+        },
+        {
+          id: 1,
+          title: '饼图',
+          logo: '/images/logo/bar.png',
+          desc: '在线制作饼图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+          url: '/pie',
+          cateId: 8,
+          cate: '数据图表',
+        },
+        {
+          id: 1,
+          title: '散点图',
+          logo: '/images/logo/bar.png',
+          desc: '在线制作散点图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+          url: '/scatter',
+          cateId: 8,
+          cate: '数据图表',
         }
       ]
     },
     {
-      id: 7,
-      title: '其他',
+      id: 9,
+      title: '选择随机',
       icon: '',
       list: [
         {
@@ -492,17 +590,8 @@ function getToolsCate() {
           logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/randomnum.png',
           desc: '可定制范围内进行随机数字，可用于抽奖、点名等用途',
           url: '/random',
-          cateId: 7,
-          cate: '其他'
-        },
-        {
-          id: 1,
-          title: '数字转金额大写',
-          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/text%20recognition.png',
-          desc: '在线数字一键转换成人民币大写，中文大写转换数字',
-          url: '/numberToChinese',
-          cateId: 7,
-          cate: '其他'
+          cateId: 9,
+          cate: '选择随机'
         },
         {
           id: 1,
@@ -510,8 +599,42 @@ function getToolsCate() {
           logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/choose.png',
           desc: '选择困难，难以决定，今天吃什么，现在做什么，自定义选项都给你安排的明明白白',
           url: '/decision',
+          cateId: 9,
+          cate: '选择随机'
+        },
+        {
+          id: 1,
+          title: '抛硬币',
+          logo: '/images/logo/bar.png',
+          desc: '在线抛硬币，选择困难那么交给硬币来帮你选择吧',
+          url: '/coin',
+          cateId: 9,
+          cate: '选择随机',
+        },
+        {
+          id: 1,
+          title: '投骰子',
+          logo: '/images/logo/bar.png',
+          desc: '在线投骰子，可自定义骰子数量，简单好用的骰子工具',
+          url: '/dice',
+          cateId: 9,
+          cate: '选择随机',
+        },
+      ]
+    },
+    {
+      id: 7,
+      title: '其他工具',
+      icon: '',
+      list: [
+        {
+          id: 1,
+          title: '数字转金额大写',
+          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/text%20recognition.png',
+          desc: '在线数字一键转换成人民币大写，中文大写转换数字',
+          url: '/numberToChinese',
           cateId: 7,
-          cate: '其他'
+          cate: '其他工具'
         },
         {
           id: 1,
@@ -520,7 +643,16 @@ function getToolsCate() {
           desc: '手持滚动弹幕',
           url: '/barrage',
           cateId: 7,
-          cate: '其他',
+          cate: '其他工具',
+        },
+        {
+          id: 1,
+          title: '色板',
+          logo: 'https://baseran2.oss-cn-shenzhen.aliyuncs.com/toools-web/icon/%E8%B0%83%E8%89%B2%E6%9D%BF.png',
+          desc: '包含纯色、渐变与阶梯色和常用色彩组合',
+          url: '/palettes',
+          cateId: 7,
+          cate: '其他工具'
         }
       ]
     }

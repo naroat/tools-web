@@ -1,5 +1,6 @@
 //对外暴露配置路由(常量路由)
 export const constantRoute = [
+  //首页
   {
     path: '/',
     component: () => import('@/components/Home/Home.vue'),
@@ -9,6 +10,7 @@ export const constantRoute = [
       description: '然部落,在线工具,在线工具大全,开发人员工具,日常生活工具,办公助手,时间戳转换,加密,解密,md5,进制转换,二维码,正则表达式,json格式化,照片处理,字数统计',
     }
   },
+  //工具
   {
     path: '/timetran',
     component: () => import('@/components/TimeTran/TimeTran.vue'),
@@ -270,6 +272,77 @@ export const constantRoute = [
     }
   },
   {
+    path: '/line',
+    component: () => import('@/components/Chart/Line/Line.vue'),
+    name: 'line',
+    meta: {
+      title: "折线图",
+      keywords: '折线图',
+      description: '在线制作折线图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+    }
+  },
+  {
+    path: '/Pie',
+    component: () => import('@/components/Chart/Pie/Pie.vue'),
+    name: 'pie',
+    meta: {
+      title: "饼图",
+      keywords: '饼图',
+      description: '在线制作饼图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+    }
+  },
+  {
+    path: '/Scatter',
+    component: () => import('@/components/Chart/Scatter/Scatter.vue'),
+    name: 'scatter',
+    meta: {
+      title: "散点图",
+      keywords: '散点图',
+      description: '在线制作散点图，像做表格一样制作可视化图表，支持导出静态或动态图表',
+    }
+  },
+  {
+    path: '/Coin',
+    component: () => import('@/components/Coin/Coin.vue'),
+    name: 'coin',
+    meta: {
+      title: "抛硬币",
+      keywords: '抛硬币,硬币',
+      description: '在线抛硬币，选择困难那么交给硬币来帮你选择吧',
+    }
+  },
+  {
+    path: '/Dice',
+    component: () => import('@/components/Dice/Dice.vue'),
+    name: 'dice',
+    meta: {
+      title: "投骰子",
+      keywords: '投骰子,骰子,自定义骰子',
+      description: '在线投骰子，可自定义骰子数量，简单好用的骰子工具',
+    }
+  },
+  {
+    path: '/TextRemoveDuplicate',
+    component: () => import('@/components/TextRemoveDuplicate/TextRemoveDuplicate.vue'),
+    name: 'textRemoveDuplicate',
+    meta: {
+      title: "文本去重",
+      keywords: '文本去重,文本排重，文本去除重复',
+      description: '可以删除或去除文本或字符串中的重复行',
+    }
+  },
+  {
+    path: '/ImgCut',
+    component: () => import('@/components/ImgCut/ImgCut.vue'),
+    name: 'imgCut',
+    meta: {
+      title: "图片分割",
+      keywords: '图片分割,图片切割,四宫格,九宫格,十六宫格',
+      description: '将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列',
+    }
+  },
+  // 关于
+  {
     path: '/about',
     component: () => import('@/components/Home/About.vue'),
     name: 'about',
@@ -279,6 +352,7 @@ export const constantRoute = [
       description: '',
     }
   },
+  //其他路由
   {
     path: '/404',
     component: () => import('@/components/404/404.vue'),

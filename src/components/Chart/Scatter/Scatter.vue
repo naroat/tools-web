@@ -4,11 +4,11 @@ import Spreadsheet from 'x-data-spreadsheet'
 import 'x-data-spreadsheet/dist/locale/zh-cn';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 // import { copy } from '@/utils/string'
-import { toEchartsData, toSpreadsheetData } from '@/utils/echarts'
+import { toEchartsData, toSpreadsheetData, tranObjAndColumn } from '@/utils/echarts'
 import * as echarts from 'echarts'
 import * as XLSX from 'xlsx'
 const info = reactive({
-  title: "柱状图",
+  title: "散点图",
 })
 
 const chartDom = ref<HTMLElement|null>()
@@ -117,12 +117,9 @@ const canvasHandle = (type) => {
     case "data":
       //更新数据
       myChart.value?.setOption({
-        xAxis: {
-          data: colunmData.value,
-        },
         series: [
           {
-            data: valueData.value,
+            data: seriesData.value,
           }
         ]
       })
@@ -134,8 +131,9 @@ const handleChange = () => {
 }
 
 //数据
-const colunmData = ref(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']);
-const valueData = ref(['23', '24', '18', '25', '27', '28', '25']);
+const colunmData = ref([10.0, 8.07, 13.0, 9.05, 11.0, 14.0, 13.4, 10.0, 14.0, 12.5, 9.15, 11.5, 3.03, 12.2, 2.02, 1.05, 4.05, 6.03, 12.0, 7.08, 5.02, 6.03]);
+const valueData = ref([8.04, 6.95, 7.58, 8.81, 8.33, 7.66, 6.81, 6.33, 8.96, 6.82, 7.2, 7.2, 4.23, 7.83, 4.47, 3.33, 4.96, 7.24, 6.26, 8.84, 5.82, 5.68, 7.05]);
+const seriesData = ref([] as Array<any>[])
 //选项
 const option = {
   backgroundColor: '#fff',
@@ -149,17 +147,13 @@ const option = {
     subtext: subTitle.value,
     left: titlePos.value
   },
-  xAxis: {
-    data: colunmData.value,
-  },
+  xAxis: {},
   yAxis: {},
   series: [
     {
-      type: 'bar',
-      data: valueData.value,
-      itemStyle: {
-        color: attrColor.value
-      }
+      type: 'scatter',
+      symbolSize: 30,
+      data: seriesData.value,
     }
   ],
   tooltip: {}
@@ -174,6 +168,8 @@ const reloadCanvas = () => {
     height: heightCanvas.value
   })
   myChart.value.setOption(option)
+  //加载数据
+  canvasHandle('data')
 }
 
 //下载echarts图表图片
@@ -285,6 +281,9 @@ const updateDataFile = async (params) => {
       //更新数据
       colunmData.value = tmpColumnData
       valueData.value = tmpValueData
+      seriesData.value = tranObjAndColumn([
+        colunmData.value, valueData.value
+      ])
       //更新图表
       canvasHandle('data')
       //更新表格
@@ -305,6 +304,10 @@ const updateDataFile = async (params) => {
 // }
 
 onMounted(() => {
+    //初始化数据
+  seriesData.value = tranObjAndColumn([
+    colunmData.value, valueData.value
+  ], 'toCoord')
   //init echart dom
   chartDom.value = document.getElementById('main')
   //设置画布宽高

@@ -8,7 +8,7 @@ import { toEchartsData, toSpreadsheetData } from '@/utils/echarts'
 import * as echarts from 'echarts'
 import * as XLSX from 'xlsx'
 const info = reactive({
-  title: "柱状图",
+  title: "折线图",
 })
 
 const chartDom = ref<HTMLElement|null>()
@@ -155,7 +155,7 @@ const option = {
   yAxis: {},
   series: [
     {
-      type: 'bar',
+      type: 'line',
       data: valueData.value,
       itemStyle: {
         color: attrColor.value
@@ -444,7 +444,7 @@ onMounted(() => {
       </div>
     </div>
     
-    <el-drawer id="x-spreadsheet" v-model="drawer" direction="btt" custom-class="sheet" style="">
+    <el-drawer id="x-spreadsheet" v-model="drawer" direction="btt" class="sheet" style="">
     </el-drawer>
   </div>
 </template>
