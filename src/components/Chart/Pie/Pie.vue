@@ -2,6 +2,7 @@
 import {ref, reactive, onMounted } from 'vue'
 import Spreadsheet from 'x-data-spreadsheet'
 import 'x-data-spreadsheet/dist/locale/zh-cn';
+import { UploadProps,UploadRawFile,genFileId } from 'element-plus'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 // import { copy } from '@/utils/string'
 import { toEchartsPieData, toSpreadsheetData, tranObjAndColumn } from '@/utils/echarts'
@@ -13,6 +14,7 @@ const info = reactive({
 
 const chartDom = ref<HTMLElement|null>()
 const myChart = ref<echarts.ECharts>()
+const dataFileRef = ref()
 
 const setOptionName = ref(1)
 //缩放比例
@@ -303,6 +305,16 @@ const updateDataFile = async (params) => {
   fileReader.readAsArrayBuffer(_file)
 }
 
+//当超出限制时，执行的钩子函数
+//这里覆盖前一个文件
+const handleExceed: UploadProps['onExceed'] = (files) => {
+  dataFileRef.value!.clearFiles()
+  const file = files[0] as UploadRawFile
+  file.uid = genFileId()
+  dataFileRef.value!.handleStart(file)
+  dataFileRef.value!.submit()
+}
+
 //copy
 // const copyRes = async (resStr: string) => {
 //   copy(resStr)
@@ -367,6 +379,7 @@ onMounted(() => {
                   ref="dataFileRef"
                   accept=".xls,.xlsx,.csv"
                   :http-request="updateDataFile"
+                  :on-exceed="handleExceed"
                   :limit="1"
                 >
                 上传数据
