@@ -13,7 +13,7 @@ export const constantRoute = [
   //工具
   {
     path: '/timetran',
-    component: () => import('@/components/TimeTran/TimeTran.vue'),
+    component: () => import('@/components/Tools/TimeTran/TimeTran.vue'),
     name: 'timetran',
     meta: {
       title: "时间戳转换",
@@ -23,7 +23,7 @@ export const constantRoute = [
   },
   {
     path: '/MD5',
-    component: () => import('@/components/MD5/MD5.vue'),
+    component: () => import('@/components/Tools/MD5/MD5.vue'),
     name: 'MD5',
     meta: {
       title: "MD5在线加密",
@@ -33,7 +33,7 @@ export const constantRoute = [
   },
   {
     path: '/json',
-    component: () => import('@/components/JsonTran/JsonTran.vue'),
+    component: () => import('@/components/Tools/JsonTran/JsonTran.vue'),
     name: 'json',
     meta: {
       title: "Json在线转换",
@@ -43,7 +43,7 @@ export const constantRoute = [
   },
   {
     path: '/reg',
-    component: () => import('@/components/RegTest/RegTest.vue'),
+    component: () => import('@/components/Tools/RegTest/RegTest.vue'),
     name: 'reg',
     meta: {
       title: "正则表达式测试",
@@ -53,7 +53,7 @@ export const constantRoute = [
   },
   {
     path: '/unicode',
-    component: () => import('@/components/Unicode/Unicode.vue'),
+    component: () => import('@/components/Tools/Unicode/Unicode.vue'),
     name: 'unicode',
     meta: {
       title: "Unicode转中文",
@@ -63,7 +63,7 @@ export const constantRoute = [
   },
   {
     path: '/wordcount',
-    component: () => import('@/components/WordCount/WordCount.vue'),
+    component: () => import('@/components/Tools/WordCount/WordCount.vue'),
     name: 'wordcount',
     meta: {
       title: "在线字数统计",
@@ -73,7 +73,7 @@ export const constantRoute = [
   },
   {
     path: '/ip',
-    component: () => import('@/components/Ip/Ip.vue'),
+    component: () => import('@/components/Tools/Ip/Ip.vue'),
     name: 'ip',
     meta: {
       title: "IP查询",
@@ -83,7 +83,7 @@ export const constantRoute = [
   },
   {
     path: '/scaletran',
-    component: () => import('@/components/ScaleTran/ScaleTran.vue'),
+    component: () => import('@/components/Tools/ScaleTran/ScaleTran.vue'),
     name: 'scaletran',
     meta: {
       title: "常用进制转换",
@@ -93,7 +93,7 @@ export const constantRoute = [
   },
   {
     path: '/signimage',
-    component: () => import('@/components/SignImage/SignImage.vue'),
+    component: () => import('@/components/Tools/SignImage/SignImage.vue'),
     name: 'signimage',
     meta: {
       title: "在线编辑图片",
@@ -103,7 +103,7 @@ export const constantRoute = [
   },
   {
     path: '/random_password',
-    component: () => import('@/components/RandomPassword/RandomPassword.vue'),
+    component: () => import('@/components/Tools/RandomPassword/RandomPassword.vue'),
     name: 'random_password',
     meta: {
       title: "随机密码生成",
@@ -113,7 +113,7 @@ export const constantRoute = [
   },
   {
     path: '/urlencode',
-    component: () => import('@/components/UrlEncode/UrlEncode.vue'),
+    component: () => import('@/components/Tools/UrlEncode/UrlEncode.vue'),
     name: 'urlencode',
     meta: {
       title: "URL编码/解码",
@@ -123,7 +123,7 @@ export const constantRoute = [
   },
   {
     path: '/ascii',
-    component: () => import('@/components/ASCII/ASCII.vue'),
+    component: () => import('@/components/Tools/ASCII/ASCII.vue'),
     name: 'ascii',
     meta: {
       title: "ASCII码表",
@@ -133,7 +133,7 @@ export const constantRoute = [
   },
   {
     path: '/uuid',
-    component: () => import('@/components/UUID/UUID.vue'),
+    component: () => import('@/components/Tools/UUID/UUID.vue'),
     name: 'uuid',
     meta: {
       title: "UUID生成器",
@@ -143,7 +143,7 @@ export const constantRoute = [
   },
   {
     path: '/barrage',
-    component: () => import('@/components/Barrage/Barrage.vue'),
+    component: () => import('@/components/Tools/Barrage/Barrage.vue'),
     name: 'barrage',
     meta: {
       title: "手持弹幕",
@@ -153,7 +153,7 @@ export const constantRoute = [
   },
   {
     path: '/palettes',
-    component: () => import('@/components/Palettes/Palettes.vue'),
+    component: () => import('@/components/Tools/Palettes/Palettes.vue'),
     name: 'palettes',
     meta: {
       title: "色板",
@@ -163,7 +163,7 @@ export const constantRoute = [
   },
   {
     path: '/unit',
-    component: () => import('@/components/Unit/Unit.vue'),
+    component: () => import('@/components/Tools/Unit/Unit.vue'),
     name: 'unit',
     meta: {
       title: "单位转换",
@@ -173,7 +173,7 @@ export const constantRoute = [
   },
   {
     path: '/qrcode',
-    component: () => import('@/components/Qrcode/Qrcode.vue'),
+    component: () => import('@/components/Tools/Qrcode/Qrcode.vue'),
     name: 'qrcode',
     meta: {
       title: "二维码生成",
@@ -183,7 +183,7 @@ export const constantRoute = [
   },
   {
     path: '/decision',
-    component: () => import('@/components/Decision/Decision.vue'),
+    component: () => import('@/components/Tools/Decision/Decision.vue'),
     name: 'decision',
     meta: {
       title: "帮我决定",
@@ -193,7 +193,7 @@ export const constantRoute = [
   },
   {
     path: '/morse',
-    component: () => import('@/components/Morse/Morse.vue'),
+    component: () => import('@/components/Tools/Morse/Morse.vue'),
     name: 'morse',
     meta: {
       title: "摩斯电码",
@@ -203,7 +203,7 @@ export const constantRoute = [
   },
   {
     path: '/random',
-    component: () => import('@/components/Random/Random.vue'),
+    component: () => import('@/components/Tools/Random/Random.vue'),
     name: 'random',
     meta: {
       title: "生成随机数",
@@ -213,7 +213,7 @@ export const constantRoute = [
   },
   {
     path: '/numberToChinese',
-    component: () => import('@/components/NumberToChinese/NumberToChinese.vue'),
+    component: () => import('@/components/Tools/NumberToChinese/NumberToChinese.vue'),
     name: 'numberToChinese',
     meta: {
       title: "数字转金额大写",
@@ -223,7 +223,7 @@ export const constantRoute = [
   },
   {
     path: '/diff',
-    component: () => import('@/components/Diff/Diff.vue'),
+    component: () => import('@/components/Tools/Diff/Diff.vue'),
     name: 'diff',
     meta: {
       title: "文本对比",
@@ -233,7 +233,7 @@ export const constantRoute = [
   },
   {
     path: '/markdown',
-    component: () => import('@/components/Markdown/Markdown.vue'),
+    component: () => import('@/components/Tools/Markdown/Markdown.vue'),
     name: 'markdown',
     meta: {
       title: "markdown编辑器",
@@ -243,7 +243,7 @@ export const constantRoute = [
   },
   {
     path: '/textToImg',
-    component: () => import('@/components/TextToImg/TextToImg.vue'),
+    component: () => import('@/components/Tools/TextToImg/TextToImg.vue'),
     name: 'textToImg',
     meta: {
       title: "文本转图片",
@@ -253,7 +253,7 @@ export const constantRoute = [
   },
   {
     path: '/webInfo',
-    component: () => import('@/components/WebInfo/WebInfo.vue'),
+    component: () => import('@/components/Tools/WebInfo/WebInfo.vue'),
     name: 'webInfo',
     meta: {
       title: "网站favicon获取",
@@ -263,7 +263,7 @@ export const constantRoute = [
   },
   {
     path: '/bar',
-    component: () => import('@/components/Chart/Bar/Bar.vue'),
+    component: () => import('@/components/Tools/Chart/Bar/Bar.vue'),
     name: 'bar',
     meta: {
       title: "柱状图",
@@ -273,7 +273,7 @@ export const constantRoute = [
   },
   {
     path: '/line',
-    component: () => import('@/components/Chart/Line/Line.vue'),
+    component: () => import('@/components/Tools/Chart/Line/Line.vue'),
     name: 'line',
     meta: {
       title: "折线图",
@@ -283,7 +283,7 @@ export const constantRoute = [
   },
   {
     path: '/Pie',
-    component: () => import('@/components/Chart/Pie/Pie.vue'),
+    component: () => import('@/components/Tools/Chart/Pie/Pie.vue'),
     name: 'pie',
     meta: {
       title: "饼图",
@@ -293,7 +293,7 @@ export const constantRoute = [
   },
   {
     path: '/Scatter',
-    component: () => import('@/components/Chart/Scatter/Scatter.vue'),
+    component: () => import('@/components/Tools/Chart/Scatter/Scatter.vue'),
     name: 'scatter',
     meta: {
       title: "散点图",
@@ -303,7 +303,7 @@ export const constantRoute = [
   },
   {
     path: '/Coin',
-    component: () => import('@/components/Coin/Coin.vue'),
+    component: () => import('@/components/Tools/Coin/Coin.vue'),
     name: 'coin',
     meta: {
       title: "抛硬币",
@@ -313,7 +313,7 @@ export const constantRoute = [
   },
   {
     path: '/Dice',
-    component: () => import('@/components/Dice/Dice.vue'),
+    component: () => import('@/components/Tools/Dice/Dice.vue'),
     name: 'dice',
     meta: {
       title: "投骰子",
@@ -323,7 +323,7 @@ export const constantRoute = [
   },
   {
     path: '/TextRemoveDuplicate',
-    component: () => import('@/components/TextRemoveDuplicate/TextRemoveDuplicate.vue'),
+    component: () => import('@/components/Tools/TextRemoveDuplicate/TextRemoveDuplicate.vue'),
     name: 'textRemoveDuplicate',
     meta: {
       title: "文本去重",
@@ -333,7 +333,7 @@ export const constantRoute = [
   },
   {
     path: '/ImgCut',
-    component: () => import('@/components/ImgCut/ImgCut.vue'),
+    component: () => import('@/components/Tools/ImgCut/ImgCut.vue'),
     name: 'imgCut',
     meta: {
       title: "图片分割",

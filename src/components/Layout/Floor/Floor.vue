@@ -6,7 +6,7 @@ const copyright = ref('ranblogs.com')
 
 <template>
   <div class="bg-white w-full rounded-2xl z-10 p-5 text-center">
-    Copyright © 2023  · {{ copyright }} &nbsp;&nbsp; <a href="https://beian.miit.gov.cn/" target="_blank">{{ beianNo }}</a> 
+    Copyright © 2023  · {{ copyright }} &nbsp;&nbsp; <a href="https://xy.ranblogs.com/tools_web.html" target="_blank">隐私权政策</a> &nbsp;&nbsp; <a href="https://beian.miit.gov.cn/" target="_blank">{{ beianNo }}</a> 
   </div>
 </template>
 

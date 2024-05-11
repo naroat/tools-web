@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref,reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
-import DiceCore from "@/components/Dice/DiceCore.vue"
+import DiceCore from "@/components/Tools/Dice/DiceCore.vue"
 // import { copy } from '@/utils/string'
 const info = reactive({
   title: "投骰子",
