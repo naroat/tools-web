@@ -45,13 +45,3 @@ export interface ToolCateResponseData extends ResponseData {
 export interface ToolRecommendResponseData extends ResponseData {
   data: ToolsInfo[]
 }
-
-//tools collect response
-export interface ToolCollectResponseData extends ResponseData {
-
-}
-
-//get collect response
-export interface GetToolCollectResponseData extends ResponseData {
-
-}

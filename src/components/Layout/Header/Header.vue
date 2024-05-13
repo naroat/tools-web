@@ -3,24 +3,17 @@ import { ref, reactive, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue';
 import { useToolsStore } from '@/store/modules/tools'
 import { useComponentStore } from '@/store/modules/component'
-import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/display.css'
 import { ToolsInfo } from '@/api/tools/type';
-import Login from '@/components/Layout/Login/Login.vue'
-import { useUserStore } from '@/store/modules/user'
-import defaultAvatar from '@/assets/default_avatar.png'
+
 import router from '@/router';
 // const isNavDrawer = ref(false)
 const loading = ref(false)
 const options = ref<ToolsInfo[]>([])
 const loginRef = ref()
-const userPopRef = ref()
-const defAvatar = ref(defaultAvatar)
-const feedBackUrl = import.meta.env.VITE_FEEDBACK_URL
 //store
 const toolsStore = useToolsStore()
 const componentStore = useComponentStore()
-const userStore = useUserStore()
 //查询参数
 const searchParam = reactive({
   cateId: 0,
@@ -61,53 +54,8 @@ const optionClick = (url: string) => {
   router.push(url)
 }
 
-//收藏
-// const collect = () => {
-//   ElMessageBox({
-//     title: '提示',
-//     message: '请使用快捷键`Ctrl+D`进行收藏'
-//   })
-// }
-
-const openLogin = () => {
-  loginRef.value.show()
-}
-
-//获取用户信息
-const userInfo = async () => {
-  try {
-    //提交
-    await userStore.userInfo()
-  } catch (error: any) {
-    ElMessage.error(error.message)
-  }
-}
-
-//退出登录
-const logout = async () => {
-  try {
-    //提交
-    await userStore.logout()
-    location.reload()
-  } catch (error: any) {
-    ElMessage.error(error.message)
-  }
-}
-
-//获取收藏
-const getToolCollect = async () => {
-  try {
-    await toolsStore.getCollect()
-    // ElMessage.success('收藏成功')
-  } catch (error: any) {
-    ElMessage.error(error.message)
-  }
-  return
-}
 
 onMounted(() => {
-  getToolCollect(),
-  userInfo()
 })
 </script>
 
@@ -170,30 +118,9 @@ onMounted(() => {
 
     <div class=" w-full md:w-auto flex md:block c-xs:w-auto">
       <ul class="flex mt-4 flex-col md:flex-row md:mt-0 justify-end items-center c-xs:mt-0">
-        <li class="hover:text-blue-500">
-          <el-link :href="feedBackUrl" size="large" target="_blank">建议/问题</el-link>
-        </li>
-        <li class="ml-3" v-if="userStore.isLogin()">
-          <!-- userStore.avatar -->
-          <el-image class="w-10 h-10 cursor-pointer" fit="cover" :src="(userStore.avatar == '' || userStore.avatar == null || userStore.avatar == undefined) ? defAvatar : userStore.avatar" v-popover="userPopRef"></el-image>
-          <el-popover
-            ref="userPopRef"
-            trigger="hover"
-            virtual-triggering
-            popper-style="padding-left: 0; padding-right: 0;"
-          >
-            <div class="flex flex-col">
-              <el-button link class="mb-3">{{ userStore.email }}</el-button>
-              <el-button link type="danger" class="ml-0" style="margin-left: 0;" @click="logout">退出登录</el-button>
-            </div>
-          </el-popover>
-        </li>
-        <li class="ml-3 hover:text-blue-500" v-else>
-          <el-button size="large" type="primary" @click="openLogin">登录</el-button>
-        </li>
+
       </ul>
     </div>
-    <Login ref="loginRef"/>
   </header>
 </template>
 

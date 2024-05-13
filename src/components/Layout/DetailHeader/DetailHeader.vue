@@ -3,8 +3,7 @@
 import { onMounted, reactive } from 'vue';
 import { useRoute } from 'vue-router'
 import { useToolsStore } from '@/store/modules/tools'
-import { useUserStore } from '@/store/modules/user'
-import { ElMessage } from 'element-plus'
+// import { ElMessageBox } from 'element-plus'
 import {rtrim} from '@/utils/string'
 const props = defineProps({
   title: String,
@@ -19,7 +18,6 @@ const searchParam = reactive({
 })
 //store
 const toolsStore = useToolsStore()
-const userStore = useUserStore()
 
 //根据路由查询tool id
 const getToolInfo = async () => {
@@ -27,26 +25,13 @@ const getToolInfo = async () => {
   searchParam.route = rtrim(routeStr, '/')
   await toolsStore.getToolInfo(searchParam)
 }
-
 //收藏
-const toolCollect = reactive({
-  toolId: 0
-})
-const collect = async (toolId) => {
-  try {
-    if (!userStore.isLogin()) {
-      //未登录,弹出登录窗口
-      ElMessage.error('请登录')
-      return 
-    }
-    toolCollect.toolId = toolId
-    await toolsStore.toolCollect(toolCollect)
-    // ElMessage.success('收藏成功')
-  } catch (error: any) {
-    ElMessage.error(error.message)
-  }
-  return
-}
+// const collect = () => {
+//   ElMessageBox({
+//     title: '提示',
+//     message: '请使用快捷键`Ctrl+D`进行收藏'
+//   })
+// }
 
 onMounted(() => {
   getToolInfo()
@@ -67,10 +52,6 @@ onMounted(() => {
 
     <div class="text-xl">
       {{ props.title }}
-    </div>
-    <div>
-      <el-button type="warning" :plain="!toolsStore.collectIds.includes(toolsStore.toolInfo.id)" @click="collect(toolsStore.toolInfo.id)">收藏</el-button>
-      <!-- <el-button type="danger">取消收藏</el-button> -->
     </div>
   </div>
 </template>

@@ -1,11 +1,10 @@
 //创建tools相关的小工具
 import { defineStore } from 'pinia'
-import { getTools, getToolCate, getToolRecommend, toolCollect, getToolCollect } from '@/api/tools'
+import { getTools, getToolCate, getToolRecommend } from '@/api/tools'
 import { getIp } from '@/api/ip'
-import type { ToolsReqData, ToolsInfo, ToolCate, CollectReqData } from '@/api/tools/type'
+import type { ToolsReqData, ToolsInfo, ToolCate } from '@/api/tools/type'
 import type { IpReqData, IpInfo } from '@/api/ip/type'
 import type { WebInfo, WebInfoReqData } from '@/api/webinfo/type'
-import { useUserStore } from '@/store/modules/user'
 import { fetchWebInfo } from '@/api/webinfo'
 
 export const useToolsStore = defineStore('tools', {
@@ -70,37 +69,6 @@ export const useToolsStore = defineStore('tools', {
       const result: any = await getIp(data)
       if (result.code == 200) {
         this.ipData = result.data
-        return result.message
-      } else {
-        return Promise.reject(new Error(result.message))
-      }
-    },
-    //收藏工具
-    async toolCollect(data: CollectReqData) {
-      if (!useUserStore().isLogin()) {
-        //未登录
-        return
-      }
-      const result: any = await toolCollect(data)
-      if (result.code == 200) {
-        //收藏成功
-        this.getCollect();
-        return result.message
-      } else {
-        return Promise.reject(new Error(result.message))
-      }
-    },
-    //我的收藏
-    async getCollect() {
-      if (!useUserStore().isLogin()) {
-        //未登录
-        return
-      }
-      const result: any = await getToolCollect()
-      if (result.code == 200) {
-        this.collect = result.data
-        this.collectIds = this.collect.map(item => item.id)
-        console.log(this.collectIds)
         return result.message
       } else {
         return Promise.reject(new Error(result.message))
