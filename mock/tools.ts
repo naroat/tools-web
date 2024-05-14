@@ -381,7 +381,8 @@ export default [
       if (title != '') {
         list = list.filter(item => {
           let tmpValue = item.title.toLowerCase()
-          return tmpValue.indexOf(title.toLowerCase()) !== -1;
+          let tmpDesc = item.desc.toLowerCase()
+          return tmpValue.indexOf(title.toLowerCase()) !== -1 || tmpDesc.indexOf(title.toLowerCase()) !== -1;
         });
       }
       //分类筛选

@@ -56,8 +56,8 @@ const gotoAbout = () => {
   router.push('about')
 }
 
-onMounted(() => {
-  getToolCates()
+onMounted(async () => {
+  await getToolCates()
 })
 </script>
 
@@ -66,7 +66,7 @@ onMounted(() => {
     <el-scrollbar>
       <!-- logo -->
       <div class="flex justify-center">
-        <router-link class="flex flex-row h-20" to="/">
+        <router-link class="flex flex-row h-24" to="/">
           <img class="h-12 w-auto rounded-lg mr-2 mt-auto mb-auto" src="@/assets/logo.png" :alt="appNet">
           <div class="flex flex-col  mt-auto mb-auto">
             <div class="text-2xl">{{ appName }}</div>
