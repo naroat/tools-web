@@ -12,7 +12,7 @@ const route = useRoute()
 const appName = ref(import.meta.env.VITE_APP_TITLE || '工具坊')
 const appNet = ref(import.meta.env.VITE_APP_DESC || '')
 //菜单选中
-const defaultActive = ref('collect')
+const defaultActive = ref('')
 //默认展开的菜单
 const defaultOpeneds = ['cate']
 //store
@@ -85,14 +85,6 @@ onMounted(() => {
           @open="handleOpen"
           @close="handleClose"
         >
-          <el-menu-item index="collect" @click="gotoAnchor('collect')">
-            <template #title>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728="" width="20" height="20">
-                <path fill="currentColor" d="m512 747.84 228.16 119.936a6.4 6.4 0 0 0 9.28-6.72l-43.52-254.08 184.512-179.904a6.4 6.4 0 0 0-3.52-10.88l-255.104-37.12L517.76 147.904a6.4 6.4 0 0 0-11.52 0L392.192 379.072l-255.104 37.12a6.4 6.4 0 0 0-3.52 10.88L318.08 606.976l-43.584 254.08a6.4 6.4 0 0 0 9.28 6.72zM313.6 924.48a70.4 70.4 0 0 1-102.144-74.24l37.888-220.928L88.96 472.96A70.4 70.4 0 0 1 128 352.896l221.76-32.256 99.2-200.96a70.4 70.4 0 0 1 126.208 0l99.2 200.96 221.824 32.256a70.4 70.4 0 0 1 39.04 120.064L774.72 629.376l37.888 220.928a70.4 70.4 0 0 1-102.144 74.24L512 820.096l-198.4 104.32z"></path>
-              </svg>
-              <span class="ml-2">我的收藏</span>
-            </template>
-          </el-menu-item>
           <el-sub-menu index="cate">
             <template #title>
               <svg t="1702896224109" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4239" width="20" height="20">
