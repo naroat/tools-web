@@ -23,7 +23,7 @@ const componentStore = useComponentStore()
       v-model="componentStore.leftComDrawer" 
       direction="ltr"
       >
-      <Left bgColor="#fff"></Left>
+      <Left></Left>
     </el-drawer>
 
     <!-- right -->
