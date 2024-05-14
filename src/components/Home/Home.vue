@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { RouterLink } from "vue-router"
-import { Star } from '@element-plus/icons-vue'
+// import { Star } from '@element-plus/icons-vue'
 import { useToolsStore } from '@/store/modules/tools'
 // import { ElMessage } from 'element-plus'
 import { useRoute } from "vue-router"
