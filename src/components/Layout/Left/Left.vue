@@ -3,9 +3,6 @@
 import { onMounted, ref, reactive } from 'vue';
 import { useToolsStore } from '@/store/modules/tools'
 import { useRouter, useRoute } from "vue-router"
-const props = defineProps({
-  bgColor: String,
-})
 const router = useRouter()
 const route = useRoute()
 
@@ -83,7 +80,6 @@ onMounted(async () => {
           :default-active="defaultActive"
           :default-openeds="defaultOpeneds"
           background-color="transparent"
-          :text-color="props.bgColor ?? '#f5f5fb'"
           @open="handleOpen"
           @close="handleClose"
         >
