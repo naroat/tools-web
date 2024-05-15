@@ -14,7 +14,7 @@
 
 - [功能展览](#功能展览)
 - [开始使用](#开始使用)
-  - [Docker方式(推荐)](#Docker方式(推荐))
+  - [docker方式](#docker方式)
   - [手动](#手动)
 
 ## 功能展览
@@ -23,7 +23,7 @@
 
 ## 开始使用
 
-### Docker方式(推荐)
+### docker方式
 
 ```
 docker run -d --name tools-web --restart unless-stopped -p 8080:80 docker0796/tools-web:latest
