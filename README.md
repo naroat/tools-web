@@ -29,7 +29,8 @@
 docker run -d --name tools-web --restart unless-stopped -p 8080:80 docker0796/tools-web:latest
 ```
 
-访问：
+访问：`http://127.0.0.1:8080`
+
 
 ### 手动
 
