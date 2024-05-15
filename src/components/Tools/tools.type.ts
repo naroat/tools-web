@@ -1,5 +1,3 @@
-import { ResponseData } from "../common"
-
 export interface ToolsReqData {
   cateId: number,
   title: string,
@@ -32,16 +30,16 @@ export interface CollectReqData {
 }
 
 //tools list response
-export interface ToolsResponseData extends ResponseData {
+export interface ToolsResponseData {
   data: ToolsInfo[]
 }
 
 //tools cate response
-export interface ToolCateResponseData extends ResponseData {
+export interface ToolCateResponseData{
   data: ToolCate[]
 }
 
 //tools recommend response
-export interface ToolRecommendResponseData extends ResponseData {
+export interface ToolRecommendResponseData{
   data: ToolsInfo[]
 }

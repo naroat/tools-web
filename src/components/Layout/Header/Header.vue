@@ -4,7 +4,7 @@ import { Search } from '@element-plus/icons-vue';
 import { useToolsStore } from '@/store/modules/tools'
 import { useComponentStore } from '@/store/modules/component'
 import 'element-plus/theme-chalk/display.css'
-import { ToolsInfo } from '@/api/tools/type';
+import { ToolsInfo } from '@/components/Tools/tools.type.ts';
 
 import router from '@/router';
 // const isNavDrawer = ref(false)

@@ -1,18 +1,35 @@
-# 基于Vite4.x + Vue3.x + ElementPlus + Typescript + Tailwind的工具站
+<div align="center">
+  <h1 align="center">Tools-Web</h1>
+  <p> 只需简单几步，即可快速搭建属于自己的综合工具站。</p> 
 
+<p>基于Vite4.x + Vue3.x + ElementPlus + Typescript + Tailwind的工具站</p>
+
+
+[![node](https://img.shields.io/badge/any_text-18.14.2-red?label=node)](node)
+[![vue](https://img.shields.io/badge/any_text-3.3.10-origin?label=vue)](vue)
+[![tailwindcss](https://img.shields.io/badge/any_text-3.3.5-yellow?label=tailwindcss)](tailwindcss)
+[![elementplus](https://img.shields.io/badge/any_text-2.7-blue?label=element-plus)](elementplus)
 [![license](https://img.shields.io/github/license/taoran1401/tools-web)](LICENSE)
 
-> 演示站点：https://tools.ranblogs.com
+</div>
 
-# 介绍
-
-免费开源的工具站，目前已开发数十种工具，对平板和手机适配进行了响应式设计，同时为了让seo更为友好做了ssr处理，搭建简单使用方便
+## 功能展览
 
 ![](/public/index.png)
 
-# 快速使用
+## 开始使用
 
-安装`pnpm`, 为避免因为不同包管理器工具下载同一个依赖,可能版本不一样的问题,本项目强制使用`pnpm`
+### Docker方式(推荐)
+
+```
+docker run -d --name tools-web --restart unless-stopped -p 8080:80 docker0796/tools-web:latest
+```
+
+访问：
+
+### 手动
+
+安装`pnpm`
 ```
 npm install pnpm -g
 ```
@@ -41,17 +58,5 @@ pnpm dev
 
 打包
 ```
-pnpm build:dev
+pnpm build
 ```
-
-# 后端功能(非必须)
-
-主要包含登录后的收藏功能，若只用工具可以忽略该部分
-
-项目地址：https://github.com/taoran1401/tools-web-api
-
-使用方法见内`README`
-
-# 其他
-
-有问题或建议请提`issue`

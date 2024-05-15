@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Tools } from '@element-plus/icons-vue'
-import { Message } from '@element-plus/icons-vue'
 import { reactive, onMounted } from 'vue';
 import { useToolsStore } from '@/store/modules/tools'
 const info = reactive({
@@ -21,42 +20,18 @@ const info = reactive({
 //store
 const toolsStore = useToolsStore()
 
-//获取随机推荐
-const getToolRecommend = async () => {
-  try {
-    await toolsStore.getToolRecommend()
-  } catch (e) {
-    console.log(e)
-  }
-}
-
 //点击走马灯
 const clickCarousel = (url: string) => {
   let w = window.open('')
   w?.document.write(`<!DOCTYPE html><html><body ><img src='${url}'/></body></html>`)
 }
 
-//反馈
-const feedback = () => {
-  window.open(info.feedbackUrl)
-}
-
 onMounted(() => {
-  getToolRecommend()
 })
 </script>
 
 <template>
   <div>
-    <!-- feedback -->
-    <div class="flex flex-col text-center mt-3 border-solid rounded border-gray border p-3 c-xs:mr-3 c-xs:ml-3">
-      <div @click="feedback()" class="text-2xl flex items-center justify-center cursor-pointer">
-        <el-icon><Message /></el-icon>
-        <div class="ml-2">
-          建议反馈
-        </div>
-      </div>
-    </div>
     <!-- adv -->
     <div class="mt-3" v-if="info.advShow == 'true'">
       <el-carousel

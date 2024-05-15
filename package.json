@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:dev": "vue-tsc && vite build --mode development",
+    "build": "vue-tsc --noEmit && node --max_old_space_size=8192 node_modules/vite/bin/vite.js build --mode development",
     "build:pro": "vue-tsc && vite build --mode production",
-    "preview": "vite preview",
-    "preinstall": "node ./scripts/preinstall.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@codemirror/commands": "^6.3.0",
@@ -54,14 +53,12 @@
     "autoprefixer": "^10.4.16",
     "fast-glob": "^3.3.2",
     "less": "^4.2.0",
-    "mockjs": "^1.1.0",
     "path": "^0.12.7",
     "pinia": "^2.1.7",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-html": "^3.2.0",
-    "vite-plugin-mock": "2.9.6",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-router": "^4.2.5",
     "vue-tsc": "^1.8.5"

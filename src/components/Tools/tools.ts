@@ -1,17 +1,7 @@
-//获取tools
-function getTools() {
-  let tools = [] as any[]
-  let toolsCate = getToolsCate()
-  for (let item in toolsCate) {
-    for (let _item in toolsCate[item].list) {
-      tools.push(toolsCate[item].list[_item])
-    }
-  }
-  return tools
-}
+import type { ToolsReqData } from '@/components/Tools/tools.type.ts'
 
 //获取tools分类与对应的工具
-function getToolsCate() {
+export function getToolsCate() {
   return [
     {
       id: 2,
@@ -306,31 +296,31 @@ function getToolsCate() {
         },
       ]
     },
-    {
-      id: 6,
-      title: '查询相关',
-      icon: '',
-      list: [
-        // {
-        //   id: 1,
-        //   title: 'IP查询',
-        //   logo: '/images/logo/IP.png',
-        //   desc: '在线查询ip地址、ip归属地',
-        //   url: '/ip',
-        //   cateId: 6,
-        //   cate: '查询相关',
-        // },
-        {
-          id: 1,
-          title: '网站favicon获取',
-          logo: '/images/logo/text_to_img.png',
-          desc: '获取网站logo、icon、favicon、标题、关键词、描述等信息',
-          url: '/webInfo',
-          cateId: 6,
-          cate: '查询相关',
-        }
-      ]
-    },
+    // {
+    //   id: 6,
+    //   title: '查询相关',
+    //   icon: '',
+    //   list: [
+    //     {
+    //       id: 1,
+    //       title: 'IP查询',
+    //       logo: '/images/logo/IP.png',
+    //       desc: '在线查询ip地址、ip归属地',
+    //       url: '/ip',
+    //       cateId: 6,
+    //       cate: '查询相关',
+    //     },
+    //     {
+    //       id: 1,
+    //       title: '网站favicon获取',
+    //       logo: '/images/logo/text_to_img.png',
+    //       desc: '获取网站logo、icon、favicon、标题、关键词、描述等信息',
+    //       url: '/webInfo',
+    //       cateId: 6,
+    //       cate: '查询相关',
+    //     }
+    //   ]
+    // },
     {
       id: 7,
       title: '其他工具',
@@ -368,61 +358,37 @@ function getToolsCate() {
   ]
 }
 
-export default [
-  {
-    url: '/v1/tools',
-    method: 'get',//请求方式
-    response: (request) => {
-      //接收参数
-      const { cateId, title } = request.query
-      //调用获取用户信息函数,用于判断是否有此用户
-      let list = getTools()
-      //标题筛选
-      if (title != '') {
-        list = list.filter(item => {
-          let tmpValue = item.title.toLowerCase()
-          let tmpDesc = item.desc.toLowerCase()
-          return tmpValue.indexOf(title.toLowerCase()) !== -1 || tmpDesc.indexOf(title.toLowerCase()) !== -1;
-        });
-      }
-      //分类筛选
-      if (cateId > 0) {
-        list = list.filter(item => {
-          return item.cateId == cateId;  
-        });
-      }
-      return { code: 200, message: 'ok', data: list }
-    },
-  },
-  {
-    url: '/v1/tool/cates',
-    method: 'get',//请求方式
-    response: ({ body }) => {
-      const list = getToolsCate()
-      return { code: 200, message: 'ok', data: list }
-    },
-  },
-  {
-    url: '/v1/tool/recommends',
-    method: 'get',//请求方式
-    response: () => {
-      let list = [] as any
-      //获取推荐数量
-      let num = 10
-      const toolList = getTools()
-      //使用Set数据结构来存储已经生成的随机数  
-      const set = new Set();
-      
-      while (set.size < num) {  
-         // 生成随机数 
-        const randomNum = Math.floor(Math.random() * toolList.length); 
-        // 如果随机数不在Set中，则添加到Set中并赋值给randomNumber变量  
-        if (!set.has(randomNum)) { 
-          set.add(randomNum);  
-          list.push(toolList[randomNum])
-        }  
-      }  
-      return { code: 200, message: 'ok', data: list }
-    },
+//获取工具
+export function getTools(data: ToolsReqData) {
+  //接收参数
+  const { cateId, title } = data
+  //获取工具
+  let list = [] as any[]
+  let toolsCate = getToolsCate()
+  for (let item in toolsCate) {
+    for (let _item in toolsCate[item].list) {
+      list.push(toolsCate[item].list[_item])
+    }
   }
-]
+  //标题筛选
+  if (title != '') {
+    list = list.filter(item => {
+      let tmpValue = item.title.toLowerCase()
+      let tmpDesc = item.desc.toLowerCase()
+      return tmpValue.indexOf(title.toLowerCase()) !== -1 || tmpDesc.indexOf(title.toLowerCase()) !== -1;
+    });
+  }
+  //分类筛选
+  if (cateId > 0) {
+    list = list.filter(item => {
+      return item.cateId == cateId;  
+    });
+  }
+}
+
+const ToolsExport = {
+  getTools,
+  getToolsCate,
+};
+
+export default ToolsExport;
