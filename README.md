@@ -2,9 +2,6 @@
   <h1 align="center">Tools-Web</h1>
   <p> 只需简单几步，即可快速搭建属于自己的综合工具站。</p> 
 
-<p>基于Vite4.x + Vue3.x + ElementPlus + Typescript + Tailwind的工具站</p>
-
-
 [![node](https://img.shields.io/badge/any_text-18.14.2-red?label=node)](node)
 [![vue](https://img.shields.io/badge/any_text-3.3.10-origin?label=vue)](vue)
 [![tailwindcss](https://img.shields.io/badge/any_text-3.3.5-yellow?label=tailwindcss)](tailwindcss)
