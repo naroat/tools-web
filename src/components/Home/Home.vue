@@ -3,10 +3,10 @@ import { onMounted,reactive, ref } from 'vue';
 import { useScanStore } from '@/store/modules/scan'
 // import { ElMessage } from 'element-plus'
 import { Search } from '@element-plus/icons-vue';
-// import { useRoute } from "vue-router"
+import { useRouter } from "vue-router"
 //store
 const scanStore = useScanStore()
-// const route = useRoute()
+const router = useRouter()
 // const getToolsCate = async () => {
 //   try {
 //     await toolsStore.getToolCate()
@@ -18,8 +18,8 @@ const scanStore = useScanStore()
 const loading = ref(false)
 const setTagsDialog = ref(false)
 // const checkedTags = reactive({})
-//常见视频格式
-const extVideo = ref(['ts', 'mp4', 'mkv', 'wmv', 'avi', 'flv', '3gp', 'dvd', 'mov', 'vob', 'webm'])
+//----- config -----
+//----- ^ -----
 
 //获取分类
 //查询参数
@@ -28,8 +28,9 @@ const searchParam = reactive({
   tags: '',
   page: 1,
 })
-const getList = async () => {
+const getList = async (query) => {
   try {
+    searchParam.title = query
     await scanStore.getList(searchParam)
   } catch (error) {
     console.log(error)
@@ -97,15 +98,38 @@ const pageChange = async (nowPage: number) => {
   await scanStore.getList(searchParam)
 }
 
+/**
+ * open local app
+ * 
+ * index: 索引
+ * data: 内容数据
+ */
+const open = (index: number, data: any) => {
+  //缓存当前播放和播放索引
+  scanStore.setNowPlay(data)
+  scanStore.setNowIndex(index)
+  router.push({
+    path: '/about',
+  })
+
+  // let addr = router.resolve({
+  //   path: '/about',
+  //   params: {
+  //     url: url
+  //   }
+  // }).href
+  // window.open(addr, '_blank')
+}
+
 onMounted(() => {
-  getList();
+  getList('');
   getTags();
 })
 </script>
 
 <template>
   <div>
-    <div class="mt-3">
+    <div class="mt-3 flex items-center">
       <el-select
         v-model="searchParam.title"
         filterable
@@ -128,6 +152,11 @@ onMounted(() => {
         >
         </el-optiond>
       </el-select>
+      <!-- <el-button>扫描目录</el-button> -->
+      <el-button>随机预览</el-button>
+      <div class='ml-3'>
+        <el-text>数量：111</el-text>
+      </div>
     </div>
 
     <div class="flex w-full">
@@ -138,8 +167,8 @@ onMounted(() => {
           <div class="flex items-center">
             <!--  -->
             <div>
-              <div v-if="extVideo.includes(item.ext)">
-                <video :src="item.path" controls></video>
+              <div v-if="scanStore.extVideo.includes(item.ext)">
+                <video :src="scanStore.sourceUrl + item.title" style="height:150px;width:270px;"></video>
               </div>
               <div v-else>
                 <el-empty description="无预览" :image-size="100"/>
@@ -163,10 +192,10 @@ onMounted(() => {
 
           <!-- right -->
           <div class="flex flex-col justify-center">
-            <el-button size="small" type="primary" class="w-20">open</el-button>
+            <el-button size="small" type="primary" class="w-20" @click="open(index, item)">open</el-button>
             <el-button size="small" type="primary" class="w-20 mt-2" style="margin-left: 0;" @click="setTagsDia(item.id)">set tags</el-button>
-            <el-button size="small" type="primary" class="w-20 mt-2" style="margin-left: 0;" >move</el-button>
-            <el-button size="small" type="primary" class="w-20 mt-2" style="margin-left: 0;">delete</el-button>
+            <!-- <el-button size="small" type="primary" class="w-20 mt-2" style="margin-left: 0;" >move</el-button> -->
+            <!-- <el-button size="small" type="primary" class="w-20 mt-2" style="margin-left: 0;">delete</el-button> -->
           </div>
         </div>
         <!-- 分页 -->
@@ -196,7 +225,7 @@ onMounted(() => {
       </div>
     </div>
     <!-- set tags dialog -->
-    <el-dialog v-model="setTagsDialog" title="set tags" width="800" @close="getList()">
+    <el-dialog v-model="setTagsDialog" title="set tags" width="800" @close="getList('')">
       <!-- tags -->
       <div class="p-3 bg-white" v-for="(item, index) in scanStore.tags" :key="index">
         <div>{{ item.title }}</div>
