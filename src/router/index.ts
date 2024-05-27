@@ -21,6 +21,13 @@ router.beforeEach((to, _from, next) => {
     let oldTitle = document.title
     document.title = <string>to.meta.title + '-' + oldTitle
   }
+  // console.log(to,_from)
+  // if (window.location.hostname == 'ascii.ranblogs.com') {
+  // if (to.fullPath != '/ascii' &&  window.location.hostname == 'mshop.io') {
+  //   next('/ascii')
+  // } else {
+  //   next()
+  // }
   next()
 })
 //路由后置卫士
