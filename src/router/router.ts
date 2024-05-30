@@ -341,6 +341,56 @@ export const constantRoute = [
       description: '将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列',
     }
   },
+  {
+    path: '/HttpStatusCode',
+    component: () => import('@/components/Tools/HttpStatusCode/HttpStatusCode.vue'),
+    name: 'HttpStatusCode',
+    meta: {
+      title: "HTTP状态码",
+      keywords: 'http状态码',
+      description: '所有http状态对应的名称和含义解释',
+    }
+  },
+  {
+    path: '/jwt',
+    component: () => import('@/components/Tools/JWT/JWT.vue'),
+    name: 'jwt',
+    meta: {
+      title: "JWT解析",
+      keywords: 'jwt解析,jwt解码，JSON Web Token解析',
+      description: '解析和解码JSON Web Token（jwt）',
+    }
+  },
+  {
+    path: '/HtmlEntity',
+    component: () => import('@/components/Tools/HtmlEntity/HtmlEntity.vue'),
+    name: 'HtmlEntity',
+    meta: {
+      title: "html实体转义",
+      keywords: 'html实体转义',
+      description: 'html实体转义，实体转义成html',
+    }
+  },
+  {
+    path: '/ColorPicker',
+    component: () => import('@/components/Tools/ColorPicker/ColorPicker.vue'),
+    name: 'ColorPicker',
+    meta: {
+      title: "Color选择器",
+      keywords: '颜色选择器,Color选择器',
+      description: '颜色选择器、在各种颜色空间如十六进制、rgb、hsl、css等等之间转换颜色',
+    }
+  },
+  {
+    path: '/asciiWordPic',
+    component: () => import('@/components/Tools/ASCIIWordPic/ASCIIWordPic.vue'),
+    name: 'asciiWordPic',
+    meta: {
+      title: "Color选择器",
+      keywords: '颜色选择器,Color选择器',
+      description: '颜色选择器、在各种颜色空间如十六进制、rgb、hsl、css等等之间转换颜色',
+    }
+  },
   // 关于
   {
     path: '/about',

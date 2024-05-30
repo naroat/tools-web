@@ -53,6 +53,9 @@ dependencies:
   axios:
     specifier: ^1.6.2
     version: 1.6.2
+  colord:
+    specifier: ^2.9.3
+    version: 2.9.3
   default-passive-events:
     specifier: ^2.0.0
     version: 2.0.0
@@ -62,6 +65,9 @@ dependencies:
   element-plus:
     specifier: ^2.4.2
     version: 2.4.3(vue@3.3.10)
+  figlet:
+    specifier: ^1.7.0
+    version: 1.7.0
   highlight.js:
     specifier: ^11.9.0
     version: 11.9.0
@@ -71,6 +77,12 @@ dependencies:
   imorse:
     specifier: ^1.0.0
     version: 1.0.0
+  jwt-decode:
+    specifier: ^4.0.0
+    version: 4.0.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   prismjs:
     specifier: ^1.29.0
     version: 1.29.0
@@ -2109,6 +2121,10 @@ packages:
     dev: false
     optional: true
 
+  /colord@2.9.3:
+    resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
+    dev: false
+
   /colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
     dev: true
@@ -2853,8 +2869,8 @@ packages:
     resolution: {integrity: sha512-kxxKlPEDa6Nc5WJi+qRgPbOAbgTpSULL+vI3NUXsZMlkJxTqYI9wg5ZTay2sFrdZRWHPWNi+EdAhcJf81WtoMQ==}
     dev: false
 
-  /dompurify@3.0.6:
-    resolution: {integrity: sha512-ilkD8YEnnGh1zJ240uJsW7AzE+2qpbOUYjacomn3AvJ6J4JhKGSZ2nh4wUIXPZrEPppaCLx5jFe8T89Rk8tQ7w==}
+  /dompurify@3.1.4:
+    resolution: {integrity: sha512-2gnshi6OshmuKil8rMZuQCGiUF3cUxHY3NGDzUAdUx/NPEe5DVnO8BDoAQouvgwnx0R/+a6jUn36Z0FSdq8vww==}
     dev: false
 
   /domutils@1.7.0:
@@ -3307,6 +3323,12 @@ packages:
     resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
     dependencies:
       pend: 1.2.0
+    dev: false
+
+  /figlet@1.7.0:
+    resolution: {integrity: sha512-gO8l3wvqo0V7wEFLXPbkX83b7MVjRrk1oRLfYlZXol8nEpb/ON9pcKLI4qpBv5YtOTfrINtqb7b40iYY2FTWFg==}
+    engines: {node: '>= 0.4.0'}
+    hasBin: true
     dev: false
 
   /figures@2.0.0:
@@ -4188,6 +4210,11 @@ packages:
     dev: false
     optional: true
 
+  /jwt-decode@4.0.0:
+    resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
+    engines: {node: '>=18'}
+    dev: false
+
   /katex@0.13.24:
     resolution: {integrity: sha512-jZxYuKCma3VS5UuxOx/rFV1QyGSl3Uy/i0kTJF3HgQ5xMinCQVF8Zd4bMY/9aI9b9A2pjIBOsjSSm68ykTAr8w==}
     hasBin: true
@@ -4533,7 +4560,7 @@ packages:
       d3-sankey: 0.12.3
       dagre-d3-es: 7.0.10
       dayjs: 1.11.10
-      dompurify: 3.0.6
+      dompurify: 3.1.4
       elkjs: 0.8.2
       khroma: 2.1.0
       lodash-es: 4.17.21

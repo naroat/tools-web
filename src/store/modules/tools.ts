@@ -25,23 +25,15 @@ export const useToolsStore = defineStore('tools', {
     async getTools(data: ToolsReqData) {
       //发送请求
       const result: any = await getTools(data)
-      if (result.code == 200) {
-          this.list = result.data
-          return result.message
-      } else {
-        return Promise.reject(new Error(result.message))
-      }
+          this.list = result
+          return result
     },
     //获取tool info
     async getToolInfo(data: ToolsReqData) {
       //发送请求
       const result: any = await getTools(data)
-      if (result.code == 200) {
-          this.toolInfo = result.data[0]
-          return result.message
-      } else {
-        return Promise.reject(new Error(result.message))
-      }
+      this.toolInfo = result
+      return result
     },
     //获取tools cate
     async getToolCate() {
