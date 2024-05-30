@@ -26,10 +26,6 @@ const clear = () => {
   cleanContent.value = ''
 }
 
-//copy
-const copyRes = async (resStr: string) => {
-  copy(resStr)
-}
 
 onMounted(() => {
 })
