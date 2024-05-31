@@ -202,6 +202,78 @@ export function getToolsCate() {
           cateId: 4,
           cate: '教育学术'
         },
+        {
+          id: 1,
+          title: '长度单位转换',
+          logo: '/images/logo/length.png',
+          desc: '长度转换工具-支持国际长度单位，中国传统长度单位，英制长度单位',
+          url: '/unit/?active=length',
+          cateId: 4,
+          cate: '教育学术'
+        },
+        {
+          id: 1,
+          title: '面积单位转换',
+          logo: '/images/logo/area.png',
+          desc: '面积转换工具-支持国际面积单位，中国传统面积单位，英制面积单位',
+          url: '/unit/?active=area',
+          cateId: 4,
+          cate: '教育学术'
+        },
+        {
+          id: 1,
+          title: '重量单位转换',
+          logo: '/images/logo/weight.png',
+          desc: '重量转换工具-支持国际重量单位，中国传统重量单位，英制重量单位(常衡制和金衡制)',
+          url: '/unit/?active=weight',
+          cateId: 4,
+          cate: '教育学术'
+        },
+        {
+          id: 1,
+          title: '时间单位转换',
+          logo: '/images/logo/time_unit.png',
+          desc: '时间单位转换工具-支持国际时间单位',
+          url: '/unit/?active=time',
+          cateId: 4,
+          cate: '教育学术'
+        },
+        {
+          id: 1,
+          title: '温度单位转换',
+          logo: '/images/logo/temperature.png',
+          desc: '温度单位转换工具-支持国际温度单位',
+          url: '/unit/?active=temperature',
+          cateId: 4,
+          cate: '教育学术'
+        },
+        {
+          id: 1,
+          title: '压力单位转换',
+          logo: '/images/logo/pressure.png',
+          desc: '压力单位转换工具-Pa/kPa/hPa/MPa/bar/torr/psi等',
+          url: '/unit/?active=pressure',
+          cateId: 4,
+          cate: '教育学术'
+        },
+        {
+          id: 1,
+          title: '热量单位转换',
+          logo: '/images/logo/heat.png',
+          desc: '热量单位转换工具-Wh/mWh/kWh/MWh/J/kJ等',
+          url: '/unit/?active=heat',
+          cateId: 4,
+          cate: '教育学术'
+        },
+        {
+          id: 1,
+          title: '功率单位转换',
+          logo: '/images/logo/power.png',
+          desc: '功率单位转换工具-W/mW/kW/MW/GW等',
+          url: '/unit/?active=power',
+          cateId: 4,
+          cate: '教育学术'
+        },
       ]
     },
     {
@@ -415,11 +487,13 @@ export function getTools(data: ToolsReqData) {
       list.push(toolsCate[item].list[_item])
     }
   }
+
   //标题筛选
   if (title != '') {
     list = list.filter(item => {
       let tmpValue = item.title.toLowerCase()
       let tmpDesc = item.desc.toLowerCase()
+      console.log(tmpValue.indexOf(title.toLowerCase()))
       return tmpValue.indexOf(title.toLowerCase()) !== -1 || tmpDesc.indexOf(title.toLowerCase()) !== -1;
     });
   }
@@ -429,6 +503,7 @@ export function getTools(data: ToolsReqData) {
       return item.cateId == cateId;  
     });
   }
+  return list
 }
 
 const ToolsExport = {

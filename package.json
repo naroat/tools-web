@@ -6,20 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && node --max_old_space_size=8192 node_modules/vite/bin/vite.js build --mode development",
-    "build:pro": "vue-tsc && vite build --mode production",
+    "build:pro": "vue-tsc --noEmit && node --max_old_space_size=8192 node_modules/vite/bin/vite.js build --mode production",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@codemirror/commands": "^6.3.0",
+    "@codemirror/commands": "^6.3.2",
     "@codemirror/lang-javascript": "^6.2.1",
     "@codemirror/lang-json": "^6.0.1",
-    "@codemirror/language": "^6.9.2",
+    "@codemirror/language": "^6.9.3",
     "@codemirror/lint": "^6.4.2",
-    "@codemirror/search": "^6.5.4",
+    "@codemirror/search": "^6.5.5",
     "@codemirror/state": "^6.3.3",
     "@codemirror/theme-one-dark": "^6.1.2",
-    "@codemirror/view": "^6.22.0",
-    "@element-plus/icons-vue": "^2.1.0",
+    "@codemirror/view": "^6.22.1",
+    "@element-plus/icons-vue": "^2.3.1",
     "@kangc/v-md-editor": "^2.3.18",
     "@toast-ui/editor": "^3.2.2",
     "@vueuse/core": "^10.9.0",
@@ -29,7 +29,7 @@
     "colord": "^2.9.3",
     "default-passive-events": "^2.0.0",
     "echarts": "^5.5.0",
-    "element-plus": "^2.4.2",
+    "element-plus": "^2.4.3",
     "figlet": "^1.7.0",
     "highlight.js": "^11.9.0",
     "html2canvas": "^1.4.1",
@@ -45,7 +45,7 @@
     "uuid": "^9.0.1",
     "v-code-diff": "^1.8.0",
     "vite-plugin-seo-prerender": "^0.5.0",
-    "vue": "^3.3.4",
+    "vue": "^3.3.10",
     "vue-clipboard3": "^2.0.0",
     "vue-codemirror": "^6.1.1",
     "vue3-danmaku": "^1.6.0",
@@ -53,18 +53,18 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^4.5.1",
     "autoprefixer": "^10.4.16",
     "fast-glob": "^3.3.2",
     "less": "^4.2.0",
     "path": "^0.12.7",
     "pinia": "^2.1.7",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5",
+    "typescript": "^5.3.2",
+    "vite": "^4.5.1",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-router": "^4.2.5",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^1.8.24"
   }
 }

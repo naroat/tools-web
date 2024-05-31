@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import { useRoute } from "vue-router"
 import Length from './Length.vue'
 import Area from './Area.vue'
 import Heat from './Heat.vue'
@@ -14,9 +15,42 @@ const info = reactive({
   activeName: 'lengthTab',
 })
 
+const route = useRoute()
+
 const handleClick = () => {
 
 }
+
+onMounted(() => {
+  if (route.query.active) {
+    switch (route.query.active) {
+      case 'area':
+        info.activeName = 'areaTab'
+        break;
+      case 'weight':
+        info.activeName = 'weightTab'
+        break;
+      case 'time':
+        info.activeName = 'timeTab'
+        break;
+      case 'temperature':
+        info.activeName = 'temperatureTab'
+        break;
+      case 'pressure':
+        info.activeName = 'pressureTab'
+        break;
+      case 'heat':
+        info.activeName = 'heatTab'
+        break;
+      case 'power':
+        info.activeName = 'powerTab'
+        break
+      default:
+        info.activeName = 'lengthTab'
+        break;
+    }
+  }
+})
 </script>
 
 <template>

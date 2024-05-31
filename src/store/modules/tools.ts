@@ -25,8 +25,8 @@ export const useToolsStore = defineStore('tools', {
     async getTools(data: ToolsReqData) {
       //发送请求
       const result: any = await getTools(data)
-          this.list = result
-          return result
+      this.list = result
+      return result
     },
     //获取tool info
     async getToolInfo(data: ToolsReqData) {
