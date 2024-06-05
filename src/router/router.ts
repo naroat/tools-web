@@ -386,9 +386,9 @@ export const constantRoute = [
     component: () => import('@/components/Tools/ASCIIWordPic/ASCIIWordPic.vue'),
     name: 'asciiWordPic',
     meta: {
-      title: "Color选择器",
-      keywords: '颜色选择器,Color选择器',
-      description: '颜色选择器、在各种颜色空间如十六进制、rgb、hsl、css等等之间转换颜色',
+      title: "ASCII字形生成器",
+      keywords: 'ASCII画,字形画,字形生成器',
+      description: '在线生成字形ASCII画',
     }
   },
   // 关于
