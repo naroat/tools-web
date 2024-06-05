@@ -1,3 +1,6 @@
+<head>
+  <base target="_blank">
+</head>
 <div align="center">
   <pre>
     _______          _         __          __  _     
