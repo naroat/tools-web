@@ -1,6 +1,3 @@
-<head>
-  <base target="_blank">
-</head>
 <div align="center">
   <pre>
     _______          _         __          __  _     
@@ -30,7 +27,7 @@
 
 ## 功能展示
 
-在线站点：[Tools-Web](https://tools.ranblogs.com/)
+在线站点：<a href="https://tools.ranblogs.com" target="_blank">Tools-Web</a>
 
 ## 开始使用
 
