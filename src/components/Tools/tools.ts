@@ -110,7 +110,7 @@ export function getToolsCate() {
         {
           id: 1,
           title: 'js代码格式化/压缩',
-          logo: '/images/logo/HtmlEntity.png',
+          logo: '/images/logo/JSForamt.png',
           desc: 'JS格式化/压缩工具,提供在线JS格式化、JS压缩、JS混淆、JS解密',
           url: '/JSForamt/',
           cateId: 2,
@@ -118,9 +118,9 @@ export function getToolsCate() {
         },
         {
           id: 1,
-          title: 'Html代码格式化/压缩',
-          logo: '/images/logo/HtmlEntity.png',
-          desc: 'html格式化/压缩工具,提供在线html格式化、html压缩',
+          title: 'Html代码格式化',
+          logo: '/images/logo/HtmlFormat.png',
+          desc: '提供在线html、xml格式化',
           url: '/HtmlFormat/',
           cateId: 2,
           cate: '开发运维',
@@ -128,7 +128,7 @@ export function getToolsCate() {
         {
           id: 1,
           title: 'Css代码格式化/压缩',
-          logo: '/images/logo/HtmlEntity.png',
+          logo: '/images/logo/CssFormat.png',
           desc: 'css格式化/压缩工具,提供在线css格式化、css压缩',
           url: '/CssFormat/',
           cateId: 2,

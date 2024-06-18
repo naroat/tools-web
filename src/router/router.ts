@@ -406,9 +406,9 @@ export const constantRoute = [
     component: () => import('@/components/Tools/HtmlFormat/HtmlFormat.vue'),
     name: 'HtmlFormat',
     meta: {
-      title: "html格式化/压缩",
-      keywords: 'html格式化,html压缩,xml格式化,xml压缩',
-      description: '提供在线html、xml格式化/压缩工具',
+      title: "html代码格式化",
+      keywords: 'html格式化,xml格式化',
+      description: '提供在线html、xml格式化',
     }
   },
   {
@@ -416,7 +416,7 @@ export const constantRoute = [
     component: () => import('@/components/Tools/CssFormat/CssFormat.vue'),
     name: 'CssFormat',
     meta: {
-      title: "css格式化/压缩",
+      title: "css代码格式化/压缩",
       keywords: 'css格式化,css压缩',
       description: '提供在线css格式化,在线css压缩工具',
     }
