@@ -95,16 +95,6 @@ const copyRes = async () => {
       <div class="flex flex-direction mt-4 justify-start">
         <el-text class="mr-2 w-12">时间戳</el-text>
         <el-input v-model="info.waitTimeStamp" class="h-8 mr-2 w-60 max-w-[30%]" placeholder="毫秒/秒">
-          <!-- <template #append>
-            <el-select v-model="info.chooseTranDateOption" placeholder="Select"  class="w-24">
-              <el-option
-                v-for="item in info.tranOptions"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </template> -->
         </el-input> 
         <el-button class="mr-2 max-w-[25%]" @click="timeTran('toDate')">转换</el-button>
         <el-input v-model="info.tranDate" class="h-8 w-72 mr-2 max-w-[30%]" placeholder="北京时间"></el-input>
@@ -116,7 +106,7 @@ const copyRes = async () => {
         <el-button class="mr-2 max-w-[25%]" @click="timeTran('toStamp')">转换</el-button>
         <el-input v-model="info.tranTimeStamp" :value="info.tranTimeStamp == 0 ? '' : info.tranTimeStamp" class="h-8 w-72 mr-2 max-w-[30%]" placeholder="时间戳">
           <template #prepend>
-            <el-select v-model="info.chooseTranStampOption" placeholder="Select"  class="w-24">
+            <el-select v-model="info.chooseTranStampOption" placeholder="Select"  class="trantimestamp-select">
               <el-option
                 v-for="item in info.tranOptions"
                 :key="item.value"
@@ -137,5 +127,7 @@ const copyRes = async () => {
 </template>
 
 <style scoped>
-
+.trantimestamp-select{
+  @apply w-24
+}
 </style>

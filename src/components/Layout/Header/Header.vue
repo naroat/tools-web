@@ -49,6 +49,22 @@ const searchTools = async (query: string) => {
   loading.value = false
 }
 
+//保存到桌面
+const createUrlShortcut = async () => {
+  try {
+    const blob = new Blob(
+      [`[InternetShortcut]\nURL=${encodeURI(window.location.href)}`],
+      { type: 'text/plain' }
+    );
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'Tools-Web.url';
+    a.click();
+  } catch (error) {
+    console.error('创建URL快捷方式失败:', error);
+  }
+}
+
 const optionClick = (url: string) => {
   router.push(url)
 }
@@ -109,7 +125,7 @@ onMounted(() => {
           placeholder="输入关键词搜索，如文本、json、图片等"
           :remote-method="searchTools"
           :loading="loading"
-          class="ml-3 mr-3 md:w-[45rem] c-xs:w-60"
+          class="ml-3"
           size="large"
         >
           <el-option
@@ -153,10 +169,9 @@ onMounted(() => {
           </el-tooltip>
         </li>
 
-
-        <!-- <li class="hover:text-blue-500">
-          <el-link :href="www.baidu.com" size="large" target="_blank">建议/问题</el-link>
-        </li> -->
+        <li class="hover:text-blue-500">
+          <el-button type="primary" class="ml-3 bg-gradient-to-r from-cyan-500 to-blue-500" @click="createUrlShortcut">保存到桌面</el-button>
+        </li>
       </ul>
     </div>
   </header>
@@ -174,15 +189,13 @@ onMounted(() => {
 }
 
 
-:deep(.el-input__wrapper) {
+:deep(.el-select__wrapper) {
     box-shadow: 0 0 0 0px var(--el-input-border-color, var(--el-border-color)) inset;
     cursor: default;
+    @apply md:w-[40rem] c-xs:w-60;
 }
-:deep(.el-input__wrapper) {
-    box-shadow: 0 0 0 0px var(--el-input-border-color, var(--el-border-color)) inset;
-    cursor: default;
-}
-.el-select :deep(.el-input__wrapper){
+
+.el-select :deep(.el-select__wrapper){
   background-color: rgba(46, 51, 56, 0.05);
   background-color: rgb(255, 255, 255);
 }

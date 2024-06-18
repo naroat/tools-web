@@ -5,7 +5,6 @@ import { transferred, copy } from '@/utils/string';
 import { Codemirror } from "vue-codemirror";
 import { json } from '@codemirror/lang-json';
 import '@codemirror/search';
-import { lineNumbers } from '@codemirror/view';
 import '@codemirror/state';
 import '@codemirror/commands';
 // import { syntaxTree } from '@codemirror/language';
@@ -31,7 +30,7 @@ import '@codemirror/commands';
 const info = reactive({
   title: "Json在线转换",
   code: '',
-  extensions: [json(), lineNumbers()],
+  extensions: [json()],  //[json(), lineNumbers()],
   isParseErr: false,
   parseErr: ''
 })

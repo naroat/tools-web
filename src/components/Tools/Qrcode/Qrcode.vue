@@ -68,25 +68,27 @@ const gen = () => {
           <div class="w-16 mr-2"><el-text>尺寸</el-text></div>
           <el-input v-model="info.size" class="">
             <template #append>
-              <el-select v-model="info.size" class="w-32">
-                <el-option label="常规 200px" value="200" />
-                <el-option label="常规 300px" value="300" />
-                <el-option label="适中 350px" value="350" />
-                <el-option label="较大 500px" value="500" />
-                <!-- 分割线 start -->
-                <div class="flex justify-center bg-gray-200 w-full">
-                  <div class="h-[1px] bg-gray-200 w-4/5"></div>
-                </div>
-                <!-- 分割线 end -->
-                <el-option label="超大 1000px" value="1000" />
-                <el-option label="超大 1200px" value="1200" />
-              </el-select>
+                <el-select v-model="info.size" class="size-select">
+                  <el-option label="常规 200px" value="200" />
+                  <el-option label="常规 300px" value="300" />
+                  <el-option label="适中 350px" value="350" />
+                  <el-option label="较大 500px" value="500" />
+                  <!-- 分割线 start -->
+                  <div class="flex justify-center bg-gray-200 w-full">
+                    <div class="h-[1px] bg-gray-200 w-4/5"></div>
+                  </div>
+                  <!-- 分割线 end -->
+                  <el-option label="超大 1000px" value="1000" />
+                  <el-option label="超大 1200px" value="1200" />
+                </el-select>
             </template>
           </el-input>
         </div>
         <div class="flex mb-3">
-          <el-text class="w-16">纠错级别</el-text>
-          <el-select v-model="info.errorCorrectionLevel" class="w-36">
+          <div class="w-16">
+            <el-text>纠错级别</el-text>
+          </div>
+          <el-select v-model="info.errorCorrectionLevel" class="corr-select">
             <el-option label="L 可遮挡 7%" value="L" />
             <el-option label="M 可遮挡 15%" value="M" />
             <el-option label="Q 可遮挡 25%" value="Q" />
@@ -177,5 +179,11 @@ const gen = () => {
 <style scoped>
 .my-button{
   background-color:red;
+}
+.size-select{
+  @apply w-36
+}
+.corr-select{
+  @apply w-36
 }
 </style>

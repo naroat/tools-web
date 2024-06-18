@@ -2,11 +2,11 @@
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import { Codemirror } from "vue-codemirror"
-import { lineNumbers } from '@codemirror/view';
+// import { lineNumbers } from '@codemirror/view';
 
 const info = reactive({
   title: "正则表达式测试",
-  extensions: [lineNumbers()],
+  // extensions: [lineNumbers()],
   reg: '',
   content: `一些测试实例:
 邮箱1：demo@163.com

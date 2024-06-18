@@ -104,8 +104,8 @@ onBeforeUnmount(() => {
             <el-text>背景颜色：</el-text>
             <el-color-picker v-model="info.convasBackgroundColor" size="large" />
           </div>
-          <div>
-            <el-select v-model="info.downExt" class="" placeholder="Select">
+          <div class="flex">
+            <el-select v-model="info.downExt" class="downext-select" placeholder="Select">
               <el-option
                 v-for="item in info.downExts"
                 :key="item.value"
@@ -139,4 +139,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+.downext-select{
+  @apply w-24
+}
 </style>

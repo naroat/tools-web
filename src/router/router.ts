@@ -391,6 +391,36 @@ export const constantRoute = [
       description: '在线生成字形ASCII画',
     }
   },
+  {
+    path: '/JSForamt',
+    component: () => import('@/components/Tools/JSFormat/JSFormat.vue'),
+    name: 'JSForamt',
+    meta: {
+      title: "js代码格式化/压缩",
+      keywords: 'js代码格式化,js格式化,js压缩,javascript格式化',
+      description: 'JS格式化/压缩工具,提供在线JS格式化、JS压缩、JS混淆、JS解密',
+    }
+  },
+  {
+    path: '/HtmlFormat',
+    component: () => import('@/components/Tools/HtmlFormat/HtmlFormat.vue'),
+    name: 'HtmlFormat',
+    meta: {
+      title: "html格式化/压缩",
+      keywords: 'html格式化,html压缩,xml格式化,xml压缩',
+      description: '提供在线html、xml格式化/压缩工具',
+    }
+  },
+  {
+    path: '/CssFormat',
+    component: () => import('@/components/Tools/CssFormat/CssFormat.vue'),
+    name: 'CssFormat',
+    meta: {
+      title: "css格式化/压缩",
+      keywords: 'css格式化,css压缩',
+      description: '提供在线css格式化,在线css压缩工具',
+    }
+  },
   // 关于
   {
     path: '/about',

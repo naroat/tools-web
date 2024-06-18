@@ -106,6 +106,33 @@ export function getToolsCate() {
           url: '/HtmlEntity/',
           cateId: 2,
           cate: '开发运维',
+        },
+        {
+          id: 1,
+          title: 'js代码格式化/压缩',
+          logo: '/images/logo/HtmlEntity.png',
+          desc: 'JS格式化/压缩工具,提供在线JS格式化、JS压缩、JS混淆、JS解密',
+          url: '/JSForamt/',
+          cateId: 2,
+          cate: '开发运维',
+        },
+        {
+          id: 1,
+          title: 'Html代码格式化/压缩',
+          logo: '/images/logo/HtmlEntity.png',
+          desc: 'html格式化/压缩工具,提供在线html格式化、html压缩',
+          url: '/HtmlFormat/',
+          cateId: 2,
+          cate: '开发运维',
+        },
+        {
+          id: 1,
+          title: 'Css代码格式化/压缩',
+          logo: '/images/logo/HtmlEntity.png',
+          desc: 'css格式化/压缩工具,提供在线css格式化、css压缩',
+          url: '/CssFormat/',
+          cateId: 2,
+          cate: '开发运维',
         }
       ]
     },
@@ -475,11 +502,8 @@ export function getToolsCate() {
   ]
 }
 
-//获取工具
-export function getTools(data: ToolsReqData) {
-  //接收参数
-  const { cateId, title } = data
-  //获取工具
+//工具list
+export function toolsList() {
   let list = [] as any[]
   let toolsCate = getToolsCate()
   for (let item in toolsCate) {
@@ -487,6 +511,28 @@ export function getTools(data: ToolsReqData) {
       list.push(toolsCate[item].list[_item])
     }
   }
+  return list
+}
+
+/**
+ * url为键名的工具list map
+ * @returns 
+ */
+export function urlKeyMap() {
+  // let toolsMapByUrlKey = new Map()
+  // let list = toolsList()
+  // for (let item in list) {
+  //   toolsMapByUrlKey.set(list[item].url, list[item])
+  // }
+  // return toolsMapByUrlKey
+}
+
+//获取工具
+export function getTools(data: ToolsReqData) {
+  //接收参数
+  const { cateId, title } = data
+  //获取工具list
+  let list = toolsList()
 
   //标题筛选
   if (title != '') {
@@ -509,6 +555,7 @@ export function getTools(data: ToolsReqData) {
 const ToolsExport = {
   getTools,
   getToolsCate,
+  toolsList,
 };
 
 export default ToolsExport;

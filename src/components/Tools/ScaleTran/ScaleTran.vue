@@ -200,7 +200,7 @@ const copyRes = async (index: any) => {
         <div class="mr-2 w-full">
           <el-input v-model="info.content">
             <template #prepend>
-              <el-select v-model="info.chooseTranOptions" placeholder="Select"  class="w-24">
+              <el-select v-model="info.chooseTranOptions" placeholder="Select"  class="choosetranoptions-select">
                 <el-option
                   v-for="item in info.tranOptions"
                   :key="item.value"
@@ -252,4 +252,7 @@ const copyRes = async (index: any) => {
 </template>
 
 <style scoped>
+.choosetranoptions-select{
+  @apply w-24
+}
 </style>

@@ -136,8 +136,10 @@ onMounted(() => {
       <div class="mb-6">
         <el-input v-model="content" :rows="4" type="textarea" placeholder="请输入内容"></el-input>
         <div class="mt-3 flex items-center">
-          <div class="flex items-center mr-3">
-            <el-text>风格</el-text>
+          <div class="flex items-center mr-3 w-36">
+            <div class="w-10">
+              <el-text class="">风格</el-text>
+            </div>
             <el-select
               v-model="fontStyle"
               size="default"
