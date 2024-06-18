@@ -6,7 +6,7 @@
     <div class="p-5 w-2/3">
       <h1 class="text-2xl font-bold">关于 Tools-Web</h1>
       <p class="mt-6">
-        <el-text><el-link href="https://github.com/taoran1401/tools-web" target="_blank" type="primary">Tools-Web</el-link> 是一款免费开源的轻量工具集合站，包含开发、文本、媒体、图表、生活、查询等实用工具；如果对您有帮助，请将其分享给您的朋友，并且添加到收藏夹中！顺便再点个⭐️吧！</el-text>
+        <el-text><el-link href="https://github.com/taoran1401/tools-web" target="_blank" type="primary">Tools-Web</el-link> 是一款免费开源的轻量在线工具箱，包含开发、文本、媒体、图表、生活、查询等实用工具；如果对您有帮助，请将其分享给您的朋友，并且添加到收藏夹中！顺便再点个⭐️吧！</el-text>
       </p>
 
       <h1 class="text-2xl font-bold mt-6 mb-6">技术</h1>

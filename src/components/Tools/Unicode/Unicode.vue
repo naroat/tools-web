@@ -62,7 +62,6 @@ const copyRes = async () => {
           :autofocus="true"
           :indent-with-tab="true" 
           :tabSize="2"
-          :extensions="info.extensions"
         />
       </div>
 
