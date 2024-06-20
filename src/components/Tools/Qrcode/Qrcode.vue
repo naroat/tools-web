@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive,ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import QRCodeVue3 from 'qrcode-vue3'
 import { Delete, Plus } from '@element-plus/icons-vue'
 import { ElMessage, type UploadFile } from 'element-plus'
@@ -173,6 +174,14 @@ const gen = () => {
         />
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        根据内容生成二维码，自定义尺寸，纠错级别，颜色等带logo二维码
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

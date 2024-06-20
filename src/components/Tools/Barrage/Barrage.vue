@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onBeforeMount, reactive,ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 // import { ElMessage } from 'element-plus'
 import vueDanmaku  from 'vue3-danmaku'  //https://www.npmjs.com/package/vue3-danmaku
 const info = reactive({
@@ -114,6 +115,14 @@ onBeforeMount(() => {
         <el-text>双击可退出弹幕</el-text>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        手持弹幕是一种新型的互动沟通工具，可以方便地为各种户外活动、演出嘉年华等活动增加趣味性和互动性。手持弹幕具有轻便、易携带、易操作等优点，可以让每个参与者都变成活动的一部分。同时，手持弹幕还可以通过预先编写的文本、表情等形式，表达参与者的情感和想法，实现沟通互动。在社交媒体时代，手持弹幕的使用也带来了更广泛的社交效应，增加了活动的互动性和传播度。无论是举办方还是参与者，手持弹幕都是一个非常有价值的互动工具。
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

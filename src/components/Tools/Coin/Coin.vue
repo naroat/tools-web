@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref,reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 // import { copy } from '@/utils/string'
 const info = reactive({
   title: "抛硬币",
@@ -39,6 +40,14 @@ const throwCoin = () => {
 				<el-button type="primary" class="w-48" size="large" disabled v-else>抛硬币...</el-button>
 			</div>
     </div>
+
+		<!-- desc -->
+		<ToolDetail title="描述">
+			<el-text>
+				面临艰难的选择？ 我们邀请您在线掷硬币！
+			</el-text> 
+		</ToolDetail>
+
   </div>
 </template>
 

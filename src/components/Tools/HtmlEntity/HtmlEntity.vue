@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive,ref,onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { escape, unescape } from 'lodash';
 import { copy } from '@/utils/string'
 const info = reactive({
@@ -52,12 +53,12 @@ onMounted(() => {
       </div>
 
 
-
-      <!-- <el-divider content-position="left">描述</el-divider>
-      <div>
+      <!-- desc -->
+      <ToolDetail title="描述">
         <el-text>
-        </el-text>
-      </div> -->
+          html实体转义，实体转义成html
+        </el-text> 
+      </ToolDetail>
     </div>
   </div>
 </template>

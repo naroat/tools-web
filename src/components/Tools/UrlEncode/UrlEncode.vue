@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { copy } from '@/utils/string'
 
 const info = reactive({
@@ -54,6 +55,14 @@ const copyRes = async () => {
         <el-input type="textarea" :rows="8" v-model="info.tranRes"></el-input>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线url编码，在线url解码工具
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

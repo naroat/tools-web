@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
-
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 const info = reactive({
   title: "在线字数统计",
   content: '',
@@ -52,6 +52,14 @@ const changeContent = () => {
         <div class="ml-3"><el-text>空白字符：{{ info.emptyNum }}</el-text></div>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线统计字数、汉字、标点、数字、字母、字符
+      </el-text>
+    </ToolDetail>
+
   </div>
 </template>
 

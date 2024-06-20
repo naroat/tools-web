@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { Md5 } from 'ts-md5'
 import { copy } from '@/utils/string'
 const info = reactive({
@@ -83,6 +84,14 @@ const copyRes = async (resStr: string) => {
         </el-input>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线md5加密,md5加密算法,md5加密工具,免费MD5在线加密,可生成32位md5,16位md5
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

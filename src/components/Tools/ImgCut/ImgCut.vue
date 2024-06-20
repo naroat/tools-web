@@ -2,6 +2,7 @@
 import { onMounted, reactive, ref,computed, watch } from 'vue'
 import { UploadProps,UploadRawFile,genFileId } from 'element-plus'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 
 const info = reactive({
   title: "图片切割",
@@ -136,6 +137,14 @@ onMounted(() => {
         <el-empty :image-size="200" description="无预览"/>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列；<br>
+        比如：九宫格切图广泛应用于微信朋友圈，微博等社交媒体。
+      </el-text> 
+    </ToolDetail>
   </div>
 </template>
 

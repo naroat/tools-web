@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 // import { copy } from '@/utils/string'
 const info = reactive({
   title: "生成随机数",
@@ -48,6 +49,13 @@ const random = () => {
         <el-button @click="random" type="primary" size="large" disabled v-else>生成...</el-button>
       </div>
     </div>
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        可定制范围内进行随机数字，可用于抽奖、点名等用途
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { copy } from '@/utils/string'
 import { ElMessage } from 'element-plus'
 import { v4 as uuidv4 } from 'uuid'
@@ -62,6 +63,14 @@ const copyRes = async (resStr: string) => {
         <el-input type="textarea" :autosize="info.autosize" v-model="info.resStr"></el-input>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线UUID批量生成
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

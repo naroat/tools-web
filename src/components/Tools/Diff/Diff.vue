@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { CodeDiff } from "v-code-diff";
 // import { copy } from '@/utils/string'
 const info = reactive({
@@ -31,6 +32,14 @@ const info = reactive({
         theme="dark"
       />
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线文本差异比对支持中文、英文、代码比对，不限制字数轻松比对文本。
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { copy, genRandomStrByChars } from '@/utils/string'
 import { ElMessage } from 'element-plus'
 const info = reactive({
@@ -148,6 +149,14 @@ onMounted(() => {
         <el-input type="textarea" :autosize="info.autosize" v-model="info.resStr"></el-input>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线生成密码支持开启或关闭大小写 、数字 、特殊符号，支持自定义字符，长度；批量生成密码
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

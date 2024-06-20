@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { copy } from '@/utils/string'
 const info = reactive({
   title: "色板",
@@ -70,6 +71,14 @@ const copyRes = async (resStr: string) => {
       </div>
       <div></div>
     </div>
+
+    
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线复制颜色，好看的颜色组合色板
+      </el-text> 
+    </ToolDetail>
   </div>
 </template>
 

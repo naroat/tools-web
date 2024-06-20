@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, computed } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { copy } from '@/utils/string'
 
 const info = reactive({
@@ -48,6 +49,14 @@ const copyRes = async () => {
         <el-input type="textarea" :rows="8" v-model="removeDuplicate"></el-input>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        可以删除或去除文本或字符串中的重复行
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

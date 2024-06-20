@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { reactive, ref, shallowRef, onBeforeUnmount, onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import '@wangeditor/editor/dist/css/style.css' // 引入富文本 css
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'  //富文本组件
 import { copy } from '@/utils/string'
-import Html from '../Html/Html.vue'
 const info = reactive({
   title: "在线文本编辑/HTML获取",
   mode: 'default',
@@ -91,6 +91,13 @@ const copyRes = async (resStr: string) => {
         placeholder="html预览处"
       />
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线富文本编辑, html实时预览，在线编辑文本，文本编辑获取html
+      </el-text> 
+    </ToolDetail>
 
   </div>
 </template>

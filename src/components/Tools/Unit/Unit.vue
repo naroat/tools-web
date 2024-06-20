@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { useRoute } from "vue-router"
 import Length from './Length.vue'
 import Area from './Area.vue'
@@ -90,6 +91,14 @@ onMounted(() => {
         </el-tabs>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线单位换算、长度单位换算、面积单位换算、时间单位换算、温度单位换算、压力单位换算、热量单位换算、功率单位换算。
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

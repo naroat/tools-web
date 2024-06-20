@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive,ref,onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import {jwtDecode} from 'jwt-decode'
 const info = reactive({
   title: "JWT解析",
@@ -72,24 +73,28 @@ onMounted(() => {
           class="w-full"
         />
       </div>
-      <el-divider content-position="left">描述</el-divider>
-      <div>
-        <el-text>
-          1. JWT 是 JSON Web Tokens 的缩写，是目前最流行的跨域认证解决方案，是一个开放式标准(RFC 7519)，用于在各方之间以JSON对象安全传输信息。<br/>
-          2. Header(头部)<br/>
-          &nbsp;&nbsp;- typ(type): 用来标识整个token字符串是一个JWT字符串<br/>
-          &nbsp;&nbsp;- alg(algorithm): 用来说明这个JWT签发的时候所使用的签名和摘要算法<br/>
-          3. Payload(载荷)<br/>
-          &nbsp;&nbsp;- iss (Issuer)：签发者<br/>
-          &nbsp;&nbsp;- sub (Subject)：主题<br/>
-          &nbsp;&nbsp;- aud (Audience)：接收者<br/>
-          &nbsp;&nbsp;- exp (Expiration time)：过期时间<br/>
-          &nbsp;&nbsp;- nbf (Not Before)：生效时间<br/>
-          &nbsp;&nbsp;- iat (Issued At)：签发时间<br/>
-          &nbsp;&nbsp;- jti (JWT ID)：编号<br/>
-        </el-text>
-      </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        解析和解码JSON Web Token（jwt）并显示其内容。<br>
+        <br>
+        1. JWT 是 JSON Web Tokens 的缩写，是目前最流行的跨域认证解决方案，是一个开放式标准(RFC 7519)，用于在各方之间以JSON对象安全传输信息。<br/>
+        2. Header(头部)<br/>
+        &nbsp;&nbsp;- typ(type): 用来标识整个token字符串是一个JWT字符串<br/>
+        &nbsp;&nbsp;- alg(algorithm): 用来说明这个JWT签发的时候所使用的签名和摘要算法<br/>
+        3. Payload(载荷)<br/>
+        &nbsp;&nbsp;- iss (Issuer)：签发者<br/>
+        &nbsp;&nbsp;- sub (Subject)：主题<br/>
+        &nbsp;&nbsp;- aud (Audience)：接收者<br/>
+        &nbsp;&nbsp;- exp (Expiration time)：过期时间<br/>
+        &nbsp;&nbsp;- nbf (Not Before)：生效时间<br/>
+        &nbsp;&nbsp;- iat (Issued At)：签发时间<br/>
+        &nbsp;&nbsp;- jti (JWT ID)：编号<br/>
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

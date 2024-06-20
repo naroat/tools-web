@@ -4,6 +4,7 @@ import Spreadsheet from 'x-data-spreadsheet'
 import 'x-data-spreadsheet/dist/locale/zh-cn';
 import { UploadProps,UploadRawFile,genFileId } from 'element-plus'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 // import { copy } from '@/utils/string'
 import { toEchartsData, toSpreadsheetData } from '@/utils/echarts'
 import * as echarts from 'echarts'
@@ -459,6 +460,16 @@ onMounted(() => {
     
     <el-drawer id="x-spreadsheet" v-model="drawer" direction="btt" class="sheet" style="">
     </el-drawer>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        折线图为日常最常用的图表之一，当必须呈现与时间相关的数据时，它是首选它最适合分析趋势。<br>
+        在线图表制作工具，在线制作折线图<br>
+        支持导入表格并在线编辑表格生成折线图，支持png和jpeg格式导出<br>
+        支持超全的自定义配置，轻松实现你的个性化图表需求<br>
+      </el-text> 
+    </ToolDetail>
   </div>
 </template>
 

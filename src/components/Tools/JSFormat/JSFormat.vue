@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { copy } from '@/utils/string';
 import { Codemirror } from "vue-codemirror";
 import '@codemirror/search';
@@ -95,6 +96,13 @@ const copyRes = async () => {
         <el-text type="danger">{{ info.parseErr }}</el-text>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        JS格式化/压缩工具,提供在线JS格式化、JS压缩、JS混淆
+      </el-text> 
+    </ToolDetail>
   </div>
 </template>
 

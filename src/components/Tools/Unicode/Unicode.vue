@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { Codemirror } from "vue-codemirror"
 // import { lineNumbers } from '@codemirror/view';
 import { copy } from '@/utils/string'
@@ -75,6 +76,14 @@ const copyRes = async () => {
         <el-input type="textarea" :rows="8" v-model="info.tranRes"></el-input>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        Unicode是计算机科学领域里的一项业界标准，有时候我们需要对一段文本或者一段内容进行重新排版编译的时候就需要将获取的值进行转码。
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

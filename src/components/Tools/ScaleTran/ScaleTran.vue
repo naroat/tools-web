@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { ElMessage } from 'element-plus'
 import { copy } from '@/utils/string'
 import { isBinary, isOctal, isDecimal, isHexadecimal } from '@/utils/verify'
@@ -248,6 +249,13 @@ const copyRes = async (index: any) => {
       </div>
     </div>
     
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        进位制其实是一种记数的方式，所以也称为进位记数法/位值计数法，可以用有限的数字符号代表所有的数值。 可使用数字符号的数目称为基数（英文：radix）或底数，基数为n，即可称n进位制，简称n进制。 例如平常生活中我们经常用到的十进制，就是使用10个阿拉伯数字0-9进行记数，所以它的基数就是10，称为十进制。
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

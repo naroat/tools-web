@@ -3,6 +3,7 @@ import { onMounted, onUnmounted, reactive } from 'vue'
 import { VideoPause,VideoPlay,CopyDocument } from '@element-plus/icons-vue'
 import { Jh_getTimeStamp,Jh_timeStampToTime,Jh_convertTimeStamp } from '@/utils/time'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { copy } from '@/utils/string'
 const info = reactive({
   title: "时间戳转换",
@@ -119,10 +120,13 @@ const copyRes = async () => {
       </div>
     </div>
 
-    <div class="p-4 rounded-2xl bg-white mt-5">
-      <div class="text-xl mt-5 mb-5">时间戳</div>
-      <el-text>Unix 时间戳是从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数，不考虑闰秒。</el-text>
-    </div>
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        时间戳，是从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数（不考虑闰秒），用于表示一个时间点。然而，这种格式对于人类阅读并不友好，因此需要转换成可读的日期和时间格式。这个工具能够将时间戳快速转换为人类可读的日期时间格式，同时也支持反向转换，即将日期时间转换为时间戳。<br>
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

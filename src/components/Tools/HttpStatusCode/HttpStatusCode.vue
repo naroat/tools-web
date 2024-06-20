@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 // import { copy } from '@/utils/string'
 const info = reactive({
   title: "HTTP状态码",
@@ -129,6 +130,13 @@ const tableDataControlFive = reactive([
         </el-table-column>
       </el-table>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        超全面http状态对应的名称和含义解释
+      </el-text> 
+    </ToolDetail>
   </div>
 </template>
 

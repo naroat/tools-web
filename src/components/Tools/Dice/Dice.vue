@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref,reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import DiceCore from "@/components/Tools/Dice/DiceCore.vue"
 // import { copy } from '@/utils/string'
 const info = reactive({
@@ -62,6 +63,14 @@ const resetDice = () => {
         <el-button type="primary" class="w-48" size="large" @click="resetDice">重置</el-button>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线投骰子，骰子工具，自定义骰子数量
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

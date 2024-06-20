@@ -2,6 +2,7 @@
 import { ref, reactive } from "vue"
 import  SignImageCore  from './SignImageCore.vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { UploadProps, UploadInstance, UploadRawFile, genFileId } from 'element-plus'
 import { autoDown } from '@/utils/file'
 import { Jh_getTimeStamp } from '@/utils/time'
@@ -80,6 +81,14 @@ const saveImg = () => {
         @getNewImg="info.getNewImg"
       ></SignImageCore>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        在线图片裁剪，图片标注，图片滤镜，图片画笔、图片旋转、图片文字、图片尺寸调整等操作
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

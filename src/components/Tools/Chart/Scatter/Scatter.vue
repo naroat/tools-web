@@ -4,6 +4,7 @@ import Spreadsheet from 'x-data-spreadsheet'
 import 'x-data-spreadsheet/dist/locale/zh-cn';
 import { UploadProps,UploadRawFile,genFileId } from 'element-plus'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 // import { copy } from '@/utils/string'
 import { toEchartsData, toSpreadsheetData, tranObjAndColumn } from '@/utils/echarts'
 import * as echarts from 'echarts'
@@ -462,6 +463,16 @@ onMounted(() => {
     
     <el-drawer id="x-spreadsheet" v-model="drawer" direction="btt" custom-class="sheet" style="">
     </el-drawer>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        散点图更偏向于研究型图表，通过直观醒目的图形方式反映出变量随自变量而变化的大致趋势，可以帮助我们推断出不同维度数据之间的相关性，也经常用在地图的标注上。<br>
+        在线图表制作工具，在线制作散点图<br>
+        支持导入表格并在线编辑表格生成散点图，支持png和jpeg格式导出<br>
+        支持超全的自定义配置，轻松实现你的个性化图表需求<br>
+      </el-text> 
+    </ToolDetail>
   </div>
 </template>
 

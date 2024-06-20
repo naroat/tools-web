@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive,ref,onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import { copy } from '@/utils/string'
 import figlet from 'figlet';
 const info = reactive({
@@ -165,14 +166,15 @@ onMounted(() => {
         <pre tabindex="0"><code>{{ contentRes }}</code></pre>
       </div>
 
-
-
-      <!-- <el-divider content-position="left">描述</el-divider>
-      <div>
-        <el-text>
-        </el-text>
-      </div> -->
     </div>
+  
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        好用的ASCII字形生成器，输入框中输入需要生成的字母；提供多种风格选择
+      </el-text> 
+    </ToolDetail>
+  
   </div>
 </template>
 

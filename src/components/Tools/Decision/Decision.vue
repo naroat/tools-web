@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, onMounted,ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 // import { copy } from '@/utils/string'
 const info = reactive({
   title: "帮我决定",
@@ -86,6 +87,14 @@ onMounted(() => {
         <el-button @click="clear">清空</el-button>
       </div>
     </div>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        选择困难症患者的福音！由我来帮你决定，可自定义决定内容，随机选择决定
+      </el-text> 
+    </ToolDetail>
+
   </div>
 </template>
 

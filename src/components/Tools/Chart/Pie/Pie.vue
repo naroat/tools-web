@@ -4,6 +4,7 @@ import Spreadsheet from 'x-data-spreadsheet'
 import 'x-data-spreadsheet/dist/locale/zh-cn';
 import { UploadProps,UploadRawFile,genFileId } from 'element-plus'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
+import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 // import { copy } from '@/utils/string'
 import { toEchartsPieData, toSpreadsheetData, tranObjAndColumn } from '@/utils/echarts'
 import * as echarts from 'echarts'
@@ -467,6 +468,17 @@ onMounted(() => {
     
     <el-drawer id="x-spreadsheet" v-model="drawer" direction="btt" custom-class="sheet" style="">
     </el-drawer>
+
+    <!-- desc -->
+    <ToolDetail title="描述">
+      <el-text>
+        饼图是通过一个圆来展示数据，用圆内各扇形的角度来表示数据之间的占比关系。<br>
+        能够很好地展示不同分类的变量之间或单个分类变量与整体之间的占比情况，常用来强调某个突出的分类变量或表示表示占比关系。<br>
+        在线图表制作工具，在线制作饼图<br>
+        支持导入表格并在线编辑表格生成饼图，支持png和jpeg格式导出<br>
+        支持超全的自定义配置，轻松实现你的个性化图表需求<br>
+      </el-text> 
+    </ToolDetail>
   </div>
 </template>
 

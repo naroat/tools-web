@@ -38,7 +38,7 @@ export const constantRoute = [
     meta: {
       title: "Json在线转换",
       keywords: 'json编辑器，json格式化,json压缩,json转义,json去转义',
-      description: 'json编辑器,json解析,json格式化,json压缩,json转义,json去转义',
+      description: '提供实时编辑和预览JSON 数据，语法高亮、校验、格式化、转义，去转义、压缩等功能，可以提高阅读修改的效率和准确性',
     }
   },
   {
@@ -97,8 +97,8 @@ export const constantRoute = [
     name: 'signimage',
     meta: {
       title: "在线编辑图片",
-      keywords: '图片裁剪，图片滤镜，图片旋转，图片编辑，美化图片',
-      description: '图片裁剪，图片滤镜，图片旋转，图片编辑，美化图片',
+      keywords: '在线图片裁剪，图片标注，图片滤镜，图片画笔、图片旋转、图片文字，图片美,图片尺寸调整化',
+      description: '在线图片裁剪，图片标注，图片滤镜，图片画笔、图片旋转、图片文字,图片尺寸调整等操作',
     }
   },
   {
@@ -336,7 +336,7 @@ export const constantRoute = [
     component: () => import('@/components/Tools/ImgCut/ImgCut.vue'),
     name: 'imgCut',
     meta: {
-      title: "图片分割",
+      title: "图片切割",
       keywords: '图片分割,图片切割,四宫格,九宫格,十六宫格',
       description: '将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列',
     }
