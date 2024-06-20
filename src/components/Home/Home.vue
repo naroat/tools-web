@@ -58,6 +58,9 @@ onMounted(() => {
           <div class="w-[24%] c-md:w-[24%] c-sm:w-[32%] "></div>
       </div>
     </div>
+
+    <!-- 返回顶部 -->
+    <el-backtop :right="10" :bottom="50" />
   </div>
 </template>
 

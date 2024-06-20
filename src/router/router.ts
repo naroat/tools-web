@@ -421,6 +421,16 @@ export const constantRoute = [
       description: '提供在线css格式化,在线css压缩工具',
     }
   },
+  {
+    path: '/TextEdit',
+    component: () => import('@/components/Tools/TextEdit/TextEdit.vue'),
+    name: 'TextEdit',
+    meta: {
+      title: "在线文本编辑/HTML获取",
+      keywords: '文本编辑，富文本预览，在线编辑文本，文本编辑获取html',
+      description: '在线富文本编辑, html实时预览，在线编辑文本，文本编辑获取html',
+    }
+  },
   // 关于
   {
     path: '/about',

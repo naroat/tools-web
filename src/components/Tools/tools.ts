@@ -186,6 +186,15 @@ export function getToolsCate() {
           cateId: 3,
           cate: '文本处理',
         },
+        {
+          id: 1,
+          title: '在线文本编辑/HTML获取',
+          logo: '/images/logo/richtextEditor.png',
+          desc: '在线富文本编辑, html实时预览，在线编辑文本，文本编辑获取html',
+          url: '/textEdit/',
+          cateId: 3,
+          cate: '文本处理'
+        },
       ]
     },
     {
