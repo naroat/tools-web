@@ -75,7 +75,7 @@ onMounted(() => {
 
 <template>
   <header class="h-24 w-full flex justify-between pt-2 pb-2 c-xs:h-16 c-xs:border-b-[1px] items-center">
-    <div class="flex items-center">
+    <div class="flex items-center w-full">
       <Transition name="fold" class="hidden c-sm:block c-md:hidden c-xs:block">
         <svg v-if="!componentStore.leftComDrawer" @click="componentStore.setleftComDrawerStatus(true)" t="1702978210636" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7618" width="30" height="30">
           <path fill="#444" fill-opacity=".9" d="M895.936 256l-768-0.896 0.128-64L896 192l-0.064 64zM179.2 689.152l202.688-152a32 32 0 0 0 0-51.2L179.2 333.952a32 32 0 0 0-51.2 25.6v304a32 32 0 0 0 51.2 25.6z m12.8-89.6v-176l117.312 88L192 599.552zM896 544H480v-64H896v64z m-0.064 288l-768-0.896 0.128-64L896 768l-0.064 64z" p-id="7619"></path>
@@ -104,7 +104,7 @@ onMounted(() => {
       </div>
       
     
-      <div>
+      <div class="c-xs:w-[85%] w-full mr-3">
         <!-- <el-input 
           v-model="searchParam.title" 
           placeholder="搜索工具" 
@@ -143,7 +143,7 @@ onMounted(() => {
     <div class=" w-full md:w-auto flex md:block c-xs:w-auto">
       <ul class="flex mt-4 flex-col md:flex-row md:mt-0 justify-end items-center c-xs:mt-0">
         <!-- about -->
-         <li class="ml-3">
+         <li class="ml-3 c-xs:hidden">
           <router-link to="/about">
             <el-tooltip
               class="box-item"
@@ -169,7 +169,7 @@ onMounted(() => {
           </el-tooltip>
         </li>
 
-        <li class="hover:text-blue-500">
+        <li class="hover:text-blue-500 c-xs:hidden">
           <el-button type="primary" class="ml-3 bg-gradient-to-r from-cyan-500 to-blue-500" @click="createUrlShortcut">保存到桌面</el-button>
         </li>
       </ul>
@@ -192,7 +192,7 @@ onMounted(() => {
 :deep(.el-select__wrapper) {
     box-shadow: 0 0 0 0px var(--el-input-border-color, var(--el-border-color)) inset;
     cursor: default;
-    @apply md:w-[40rem] c-xs:w-60;
+    @apply md:w-full;
 }
 
 .el-select :deep(.el-select__wrapper){
