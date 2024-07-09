@@ -22,7 +22,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/MD5',
+    path: '/md5',
     component: () => import('@/components/Tools/MD5/MD5.vue'),
     name: 'MD5',
     meta: {
@@ -102,7 +102,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/random_password',
+    path: '/randompassword',
     component: () => import('@/components/Tools/RandomPassword/RandomPassword.vue'),
     name: 'random_password',
     meta: {
@@ -212,7 +212,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/numberToChinese',
+    path: '/numbertochinese',
     component: () => import('@/components/Tools/NumberToChinese/NumberToChinese.vue'),
     name: 'numberToChinese',
     meta: {
@@ -242,7 +242,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/textToImg',
+    path: '/texttoimg',
     component: () => import('@/components/Tools/TextToImg/TextToImg.vue'),
     name: 'textToImg',
     meta: {
@@ -252,7 +252,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/webInfo',
+    path: '/webinfo',
     component: () => import('@/components/Tools/WebInfo/WebInfo.vue'),
     name: 'webInfo',
     meta: {
@@ -282,7 +282,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/Pie',
+    path: '/pie',
     component: () => import('@/components/Tools/Chart/Pie/Pie.vue'),
     name: 'pie',
     meta: {
@@ -292,7 +292,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/Scatter',
+    path: '/scatter',
     component: () => import('@/components/Tools/Chart/Scatter/Scatter.vue'),
     name: 'scatter',
     meta: {
@@ -302,7 +302,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/Coin',
+    path: '/coin',
     component: () => import('@/components/Tools/Coin/Coin.vue'),
     name: 'coin',
     meta: {
@@ -312,7 +312,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/Dice',
+    path: '/dice',
     component: () => import('@/components/Tools/Dice/Dice.vue'),
     name: 'dice',
     meta: {
@@ -322,7 +322,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/TextRemoveDuplicate',
+    path: '/textremoveduplicate',
     component: () => import('@/components/Tools/TextRemoveDuplicate/TextRemoveDuplicate.vue'),
     name: 'textRemoveDuplicate',
     meta: {
@@ -332,7 +332,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/ImgCut',
+    path: '/imgcut',
     component: () => import('@/components/Tools/ImgCut/ImgCut.vue'),
     name: 'imgCut',
     meta: {
@@ -342,7 +342,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/HttpStatusCode',
+    path: '/httpstatuscode',
     component: () => import('@/components/Tools/HttpStatusCode/HttpStatusCode.vue'),
     name: 'HttpStatusCode',
     meta: {
@@ -362,7 +362,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/HtmlEntity',
+    path: '/htmlentity',
     component: () => import('@/components/Tools/HtmlEntity/HtmlEntity.vue'),
     name: 'HtmlEntity',
     meta: {
@@ -372,7 +372,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/ColorPicker',
+    path: '/colorpicker',
     component: () => import('@/components/Tools/ColorPicker/ColorPicker.vue'),
     name: 'ColorPicker',
     meta: {
@@ -382,7 +382,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/asciiWordPic',
+    path: '/asciiwordpic',
     component: () => import('@/components/Tools/ASCIIWordPic/ASCIIWordPic.vue'),
     name: 'asciiWordPic',
     meta: {
@@ -392,7 +392,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/JSForamt',
+    path: '/jsforamt',
     component: () => import('@/components/Tools/JSFormat/JSFormat.vue'),
     name: 'JSForamt',
     meta: {
@@ -402,7 +402,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/HtmlFormat',
+    path: '/htmlformat',
     component: () => import('@/components/Tools/HtmlFormat/HtmlFormat.vue'),
     name: 'HtmlFormat',
     meta: {
@@ -412,7 +412,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/CssFormat',
+    path: '/cssformat',
     component: () => import('@/components/Tools/CssFormat/CssFormat.vue'),
     name: 'CssFormat',
     meta: {
@@ -422,7 +422,7 @@ export const constantRoute = [
     }
   },
   {
-    path: '/TextEdit',
+    path: '/textedit',
     component: () => import('@/components/Tools/TextEdit/TextEdit.vue'),
     name: 'TextEdit',
     meta: {

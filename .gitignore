@@ -26,4 +26,4 @@ dist-ssr
 *.sln
 *.sw?
 
-public/tools_ranblogs_sitemap.txt
+public/sitemap.txt
