@@ -9,25 +9,25 @@ const isDicing = ref(false)
 const aniIndex = ref(0)
 //掷筛子动画所用到的图片(4张骰子旋转过程中的图)
 const diceAnimationImages = ref([
-  '/public/images/dice/dice_run1.png',
-  '/public/images/dice/dice_run2.png',
-  '/public/images/dice/dice_run3.png',
-  '/public/images/dice/dice_run4.png'
+  '/images/dice/dice_run1.png',
+  '/images/dice/dice_run2.png',
+  '/images/dice/dice_run3.png',
+  '/images/dice/dice_run4.png'
 ])
 //骰子每一个点的对应的图片
 const diceImages = ref({
   //1点的图片
-  1: '/public/images/dice/dice1.png',
+  1: '/images/dice/dice1.png',
   //2点的图片
-  2: '/public/images/dice/dice2.png',
+  2: '/images/dice/dice2.png',
   //3点的图片
-  3: '/public/images/dice/dice3.png',
+  3: '/images/dice/dice3.png',
   //4点的图片
-  4: '/public/images/dice/dice4.png',
+  4: '/images/dice/dice4.png',
   //5点的图片
-  5: '/public/images/dice/dice5.png',
+  5: '/images/dice/dice5.png',
   //6点的图片
-  6: '/public/images/dice/dice6.png'
+  6: '/images/dice/dice6.png'
 })
 //当前掷筛子掷到的点数（默认1点）
 const currentPoint = ref(1)

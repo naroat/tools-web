@@ -13,7 +13,7 @@ export function getToolsCate() {
           title: '随机密码生成',
           logo: '/images/logo/keywords.png',
           desc: '密码生成器、随机字符串生成,批量生成',
-          url: '/random_password/',
+          url: '/randompassword/',
           cateId: 2,
           cate: '开发运维',
         },
@@ -49,7 +49,7 @@ export function getToolsCate() {
           title: 'MD5在线加密',
           logo: '/images/logo/md5.png',
           desc: 'MD5在线加密,长度包含32位、16位',
-          url: '/MD5/',
+          url: '/md5/',
           cateId: 2,
           cate: '开发运维',
         },
@@ -85,7 +85,7 @@ export function getToolsCate() {
           title: 'HTTP状态码',
           logo: '/images/logo/http_code.png',
           desc: 'http状态对应的名称和含义解释',
-          url: '/HttpStatusCode/',
+          url: '/httpstatuscode/',
           cateId: 2,
           cate: '开发运维',
         },
@@ -103,7 +103,7 @@ export function getToolsCate() {
           title: 'html实体转义',
           logo: '/images/logo/HtmlEntity.png',
           desc: 'html实体转义，实体转义成html',
-          url: '/HtmlEntity/',
+          url: '/htmlentity/',
           cateId: 2,
           cate: '开发运维',
         },
@@ -112,7 +112,7 @@ export function getToolsCate() {
           title: 'js代码格式化/压缩',
           logo: '/images/logo/JSForamt.png',
           desc: 'JS格式化/压缩工具,提供在线JS格式化、JS压缩、JS混淆、JS解密',
-          url: '/JSForamt/',
+          url: '/jsforamt/',
           cateId: 2,
           cate: '开发运维',
         },
@@ -121,7 +121,7 @@ export function getToolsCate() {
           title: 'Html代码格式化',
           logo: '/images/logo/HtmlFormat.png',
           desc: '提供在线html、xml格式化',
-          url: '/HtmlFormat/',
+          url: '/htmlformat/',
           cateId: 2,
           cate: '开发运维',
         },
@@ -130,7 +130,7 @@ export function getToolsCate() {
           title: 'Css代码格式化/压缩',
           logo: '/images/logo/CssFormat.png',
           desc: 'css格式化/压缩工具,提供在线css格式化、css压缩',
-          url: '/CssFormat/',
+          url: '/cssformat/',
           cateId: 2,
           cate: '开发运维',
         }
@@ -164,7 +164,7 @@ export function getToolsCate() {
           title: '字数统计',
           logo: '/images/logo/wordCount.png',
           desc: '在线统计字符串的字数、段落、标点符号数量',
-          url: '/wordCount/',
+          url: '/wordcount/',
           cateId: 3,
           cate: '文本处理',
         },
@@ -173,7 +173,7 @@ export function getToolsCate() {
           title: '文本去重',
           logo: '/images/logo/textRemoveDuplicate.png',
           desc: '可以删除或去除文本或字符串中的重复行',
-          url: '/textRemoveDuplicate/',
+          url: '/textremoveduplicate/',
           cateId: 3,
           cate: '文本处理',
         },
@@ -182,7 +182,7 @@ export function getToolsCate() {
           title: 'ASCII字形生成器',
           logo: '/images/logo/ascii_word_pic.png',
           desc: '在线生成字形ASCII画',
-          url: '/asciiWordPic/',
+          url: '/asciiwordpic/',
           cateId: 3,
           cate: '文本处理',
         },
@@ -191,7 +191,7 @@ export function getToolsCate() {
           title: '在线文本编辑/HTML获取',
           logo: '/images/logo/richtextEditor.png',
           desc: '在线富文本编辑, html实时预览，在线编辑文本，文本编辑获取html',
-          url: '/textEdit/',
+          url: '/textedit/',
           cateId: 3,
           cate: '文本处理'
         },
@@ -340,7 +340,7 @@ export function getToolsCate() {
           title: '文本转图片',
           logo: '/images/logo/text_to_img.png',
           desc: '把文本转换成图片，生成长图，具有超多个性文字排版',
-          url: '/textToImg/',
+          url: '/texttoimg/',
           cateId: 5,
           cate: '图片处理'
         },
@@ -349,7 +349,7 @@ export function getToolsCate() {
           title: '图片分割',
           logo: '/images/logo/imgCut.png',
           desc: '将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列',
-          url: '/imgCut/',
+          url: '/imgcut/',
           cateId: 5,
           cate: '图片处理',
         },
@@ -475,7 +475,7 @@ export function getToolsCate() {
           title: '数字转金额大写',
           logo: '/images/logo/numberToChinese.png',
           desc: '在线数字一键转换成人民币大写，中文大写转换数字',
-          url: '/numberToChinese/',
+          url: '/numbertochinese/',
           cateId: 7,
           cate: '其他工具'
         },
@@ -502,7 +502,7 @@ export function getToolsCate() {
           title: 'Color选择器',
           logo: '/images/logo/color_picker.png',
           desc: '颜色选择器、在各种颜色空间如十六进制、rgb、hsl、css等等之间转换颜色',
-          url: '/ColorPicker/',
+          url: '/colorpicker/',
           cateId: 7,
           cate: '其他工具'
         }
@@ -542,13 +542,12 @@ export function getTools(data: ToolsReqData) {
   const { cateId, title } = data
   //获取工具list
   let list = toolsList()
-
   //标题筛选
   if (title != '') {
     list = list.filter(item => {
       let tmpValue = item.title.toLowerCase()
       let tmpDesc = item.desc.toLowerCase()
-      console.log(tmpValue.indexOf(title.toLowerCase()))
+      // console.log(tmpValue.indexOf(title.toLowerCase()))
       return tmpValue.indexOf(title.toLowerCase()) !== -1 || tmpDesc.indexOf(title.toLowerCase()) !== -1;
     });
   }

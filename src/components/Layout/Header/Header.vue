@@ -42,7 +42,7 @@ const searchTools = async (query: string) => {
   loading.value = true
   if (query) {
     searchParam.title = query
-    await toolsStore.getTools(searchParam)
+    options.value = await toolsStore.getTools(searchParam)
   } else {
     options.value = []
   }
@@ -129,7 +129,7 @@ onMounted(() => {
           size="large"
         >
           <el-option
-            v-for="item in toolsStore.list"
+            v-for="item in options"
             :key="item.id"
             :label="item.title + ' - ' + item.desc"
             :value="item.id"
