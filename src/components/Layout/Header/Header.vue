@@ -40,11 +40,10 @@ const searchParam = reactive({
 //搜索工具
 const searchTools = async (query: string) => {
   loading.value = true
+  options.value = []
   if (query) {
     searchParam.title = query
     options.value = await toolsStore.getTools(searchParam)
-  } else {
-    options.value = []
   }
   loading.value = false
 }
