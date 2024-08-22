@@ -14,7 +14,7 @@
 [![vue](https://img.shields.io/badge/any_text-3.3.10-origin?label=vue)](vue)
 [![tailwindcss](https://img.shields.io/badge/any_text-3.3.5-yellow?label=tailwindcss)](tailwindcss)
 [![elementplus](https://img.shields.io/badge/any_text-2.7-blue?label=element-plus)](elementplus)
-[![license](https://img.shields.io/github/license/taoran1401/tools-web)](LICENSE)
+[![license](https://img.shields.io/github/license/naroat/tools-web)](LICENSE)
 
 </div>
 
@@ -51,7 +51,7 @@ npm install pnpm -g
 
 克隆
 ```
-git clone --depth=1 https://github.com/taoran1401/tools-web.git
+git clone --depth=1 https://github.com/naroat/tools-web.git
 ```
 
 安装

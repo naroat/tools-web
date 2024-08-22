@@ -33,7 +33,7 @@ router.afterEach((to) => {
   if (detailTitle) {
     document.title = detailTitle + '-' + import.meta.env.VITE_APP_TITLE
   } else {
-    document.title = import.meta.env.VITE_APP_TITLE
+    document.title = import.meta.env.VITE_APP_TITLE + '-' + import.meta.env.VITE_APP_DESC
   }
 
   //设置meta
