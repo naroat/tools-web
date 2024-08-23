@@ -76,6 +76,11 @@ pnpm dev
 pnpm build
 ```
 
+打包seo静态页面:复制`.env.development`文件，并将文件名修改为`.env.production`,将里面的`NODE_ENV`的值改为`productio`,然后运行下面打包命令
+```
+pnpm build:pro
+```
+
 ## 工具列表
 
 - 开发运维
