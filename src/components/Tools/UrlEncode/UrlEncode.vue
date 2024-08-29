@@ -44,7 +44,7 @@ const copyRes = async () => {
         <el-input type="textarea" :rows="8" v-model="info.content"></el-input>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-4 flex flex-wrap gap-2 button-container">
         <el-button type="primary" @click="toEncode">UrlEncode编码</el-button>
         <el-button type="primary" @click="toDecode">UrlDecode解码</el-button>
         <el-button type="primary" @click="copyRes">复制结果</el-button>
@@ -67,4 +67,8 @@ const copyRes = async () => {
 </template>
 
 <style scoped>
+.button-container .el-button {
+  margin-right: 12px;
+  margin-left: 0px;
+}
 </style>
