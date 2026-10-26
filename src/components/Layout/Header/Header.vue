@@ -142,9 +142,9 @@ onMounted(() => {
           <button
             type="button"
             class="px-3 py-2 rounded-lg border border-blue-200 bg-white text-sm whitespace-nowrap hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
-            :aria-label="locale === 'en' ? '切换为中文' : 'Switch to English'"
+            :aria-label="locale === 'en' ? '切换为简体中文' : 'Switch to English'"
             @click="setLocale(locale === 'en' ? 'zh-CN' : 'en')"
-          >{{ locale === 'en' ? '中文' : 'English' }}</button>
+          >{{ locale === 'en' ? '简体中文' : 'English' }}</button>
         </li>
         <!-- about -->
          <li class="ml-3 c-xs:hidden">

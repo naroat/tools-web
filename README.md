@@ -18,6 +18,8 @@
 
 </div>
 
+**语言 / Language:** 简体中文 | [English](README.en.md)
+
 ## 目录
 
 - [功能展览](#功能展览)
