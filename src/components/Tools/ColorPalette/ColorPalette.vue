@@ -6,7 +6,7 @@
       <div class="tool-content">
         <div class="input-section">
           <el-tabs v-model="activeCategory">
-            <el-tab-pane label="基础颜色" name="basic">
+            <el-tab-pane :label="t('基础颜色')" name="basic">
               <div class="color-grid">
                 <div 
                   v-for="color in basicColors" 
@@ -16,14 +16,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="渐变色" name="gradient">
+            <el-tab-pane :label="t('渐变色')" name="gradient">
               <div class="gradient-grid">
                 <div 
                   v-for="(gradient, index) in gradients" 
@@ -33,7 +33,7 @@
                   @click="copyGradient(gradient)"
                 >
                   <div class="gradient-info">
-                    <span class="gradient-name">{{ gradient.name }}</span>
+                    <span class="gradient-name">{{ t(gradient.name) }}</span>
                     <span class="gradient-value">{{ gradient.value }}</span>
                   </div>
                 </div>
@@ -50,14 +50,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="扁平化" name="flat">
+            <el-tab-pane :label="t('扁平化')" name="flat">
               <div class="color-grid">
                 <div 
                   v-for="color in flatColors" 
@@ -67,14 +67,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="霓虹色" name="neon">
+            <el-tab-pane :label="t('霓虹色')" name="neon">
               <div class="color-grid">
                 <div 
                   v-for="color in neonColors" 
@@ -84,14 +84,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="自然色" name="nature">
+            <el-tab-pane :label="t('自然色')" name="nature">
               <div class="color-grid">
                 <div 
                   v-for="color in natureColors" 
@@ -101,14 +101,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="金属色" name="metal">
+            <el-tab-pane :label="t('金属色')" name="metal">
               <div class="color-grid">
                 <div 
                   v-for="color in metalColors" 
@@ -118,14 +118,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="复古色" name="vintage">
+            <el-tab-pane :label="t('复古色')" name="vintage">
               <div class="color-grid">
                 <div 
                   v-for="color in vintageColors" 
@@ -135,14 +135,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="季节色" name="seasonal">
+            <el-tab-pane :label="t('季节色')" name="seasonal">
               <div class="color-grid">
                 <div 
                   v-for="color in seasonalColors" 
@@ -152,14 +152,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="莫兰迪色" name="morandi">
+            <el-tab-pane :label="t('莫兰迪色')" name="morandi">
               <div class="color-grid">
                 <div 
                   v-for="color in morandiColors" 
@@ -169,14 +169,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="马卡龙色" name="macaron">
+            <el-tab-pane :label="t('马卡龙色')" name="macaron">
               <div class="color-grid">
                 <div 
                   v-for="color in macaronColors" 
@@ -186,14 +186,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="工业风" name="industrial">
+            <el-tab-pane :label="t('工业风')" name="industrial">
               <div class="color-grid">
                 <div 
                   v-for="color in industrialColors" 
@@ -203,14 +203,14 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
               </div>
             </el-tab-pane>
             
-            <el-tab-pane label="中国传统色" name="chinese">
+            <el-tab-pane :label="t('中国传统色')" name="chinese">
               <div class="color-grid">
                 <div 
                   v-for="color in chineseColors" 
@@ -220,7 +220,7 @@
                   @click="copyColor(color)"
                 >
                   <div class="color-info">
-                    <span class="color-name">{{ color.name }}</span>
+                    <span class="color-name">{{ t(color.name) }}</span>
                     <span class="color-hex">{{ color.hex }}</span>
                   </div>
                 </div>
@@ -232,16 +232,16 @@
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线色板工具，提供基础颜色、渐变色、Material Design 颜色、扁平化颜色、霓虹色、自然色、金属色、复古色、季节色、莫兰迪色、马卡龙色、工业风和中国传统色，点击颜色可复制颜色值，方便设计和开发使用。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线色板工具，提供基础颜色、渐变色、Material Design 颜色、扁平化颜色、霓虹色、自然色、金属色、复古色、季节色、莫兰迪色、马卡龙色、工业风和中国传统色，点击颜色可复制颜色值，方便设计和开发使用。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue';
 import { ElMessage } from 'element-plus';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
@@ -470,18 +470,18 @@ const chineseColors = [
 // 复制颜色
 const copyColor = (color: { name: string; hex: string }) => {
   navigator.clipboard.writeText(color.hex).then(() => {
-    ElMessage.success(`已复制 ${color.name} 的颜色值: ${color.hex}`);
+    ElMessage.success(t('已复制 {name} 的颜色值: {value}', { name: t(color.name), value: color.hex }));
   }).catch(() => {
-    ElMessage.error('复制失败');
+    ElMessage.error(t('复制失败'));
   });
 };
 
 // 复制渐变色
 const copyGradient = (gradient: { name: string; value: string }) => {
   navigator.clipboard.writeText(gradient.value).then(() => {
-    ElMessage.success(`已复制 ${gradient.name} 的渐变值: ${gradient.value}`);
+    ElMessage.success(t('已复制 {name} 的渐变值: {value}', { name: t(gradient.name), value: gradient.value }));
   }).catch(() => {
-    ElMessage.error('复制失败');
+    ElMessage.error(t('复制失败'));
   });
 };
 </script>

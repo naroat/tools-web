@@ -11,17 +11,10 @@
             :class="testStatus"
             @click="handleTestClick"
           >
-            <div v-if="testStatus === 'ready'" class="test-message">
-              点击开始测试
-            </div>
-            <div v-else-if="testStatus === 'waiting'" class="test-message">
-              准备就绪，等待变色...
-            </div>
-            <div v-else-if="testStatus === 'active'" class="test-message">
-              点击！
-            </div>
-            <div v-else-if="testStatus === 'completed'" class="test-message">
-              反应时间: {{ reactionTime }} ms
+            <div v-if="testStatus === 'ready'" class="test-message">{{ t("点击开始测试") }}</div>
+            <div v-else-if="testStatus === 'waiting'" class="test-message">{{ t("准备就绪，等待变色...") }}</div>
+            <div v-else-if="testStatus === 'active'" class="test-message">{{ t("点击！") }}</div>
+            <div v-else-if="testStatus === 'completed'" class="test-message">{{ t("反应时间:") }}{{ reactionTime }} ms
             </div>
           </div>
           
@@ -30,39 +23,36 @@
               type="primary" 
               @click="startTest" 
               :disabled="testStatus === 'waiting' || testStatus === 'active'"
-            >
-              开始测试
-            </el-button>
-            <el-button @click="resetTest">重置</el-button>
+            >{{ t("开始测试") }}</el-button>
+            <el-button @click="resetTest">{{ t("重置") }}</el-button>
           </div>
         </div>
         
         <div class="stats-section">
-          <h3>测试统计</h3>
+          <h3>{{ t("测试统计") }}</h3>
           <div class="stats-grid">
             <div class="stat-item">
-              <div class="stat-label">最佳反应时间</div>
+              <div class="stat-label">{{ t("最佳反应时间") }}</div>
               <div class="stat-value">{{ bestTime }} ms</div>
             </div>
             <div class="stat-item">
-              <div class="stat-label">平均反应时间</div>
+              <div class="stat-label">{{ t("平均反应时间") }}</div>
               <div class="stat-value">{{ averageTime }} ms</div>
             </div>
             <div class="stat-item">
-              <div class="stat-label">测试次数</div>
+              <div class="stat-label">{{ t("测试次数") }}</div>
               <div class="stat-value">{{ testCount }}</div>
             </div>
           </div>
           
           <div class="history-section">
-            <h4>测试历史</h4>
+            <h4>{{ t("测试历史") }}</h4>
             <div class="history-list">
               <div 
                 v-for="(time, index) in testHistory" 
                 :key="index"
                 class="history-item"
-              >
-                测试 {{ index + 1 }}: {{ time }} ms
+              >{{ t("测试") }}{{ index + 1 }}: {{ time }} ms
               </div>
             </div>
           </div>
@@ -71,16 +61,16 @@
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线反应速度测试工具，通过点击变色的方块来测试你的反应速度，记录测试历史和统计数据，帮助你了解自己的反应能力。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线反应速度测试工具，通过点击变色的方块来测试你的反应速度，记录测试历史和统计数据，帮助你了解自己的反应能力。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, computed } from 'vue';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'

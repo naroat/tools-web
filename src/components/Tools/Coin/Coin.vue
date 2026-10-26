@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref,reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -36,16 +38,14 @@ const throwCoin = () => {
 				</div>
 			</div>
 			<div class="flex justify-center">
-				<el-button type="primary" class="w-48" size="large" @click="throwCoin" v-if="!genStatus">抛硬币</el-button>
-				<el-button type="primary" class="w-48" size="large" disabled v-else>抛硬币...</el-button>
+				<el-button type="primary" class="w-48" size="large" @click="throwCoin" v-if="!genStatus">{{ t("抛硬币") }}</el-button>
+				<el-button type="primary" class="w-48" size="large" disabled v-else>{{ t("抛硬币...") }}</el-button>
 			</div>
     </div>
 
 		<!-- desc -->
-		<ToolDetail title="描述">
-			<el-text>
-				面临艰难的选择？ 我们邀请您在线掷硬币！
-			</el-text> 
+		<ToolDetail :title="t('描述')">
+			<el-text>{{ t("面临艰难的选择？ 我们邀请您在线掷硬币！") }}</el-text>
 		</ToolDetail>
 
   </div>

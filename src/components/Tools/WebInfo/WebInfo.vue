@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 // import { copy } from '@/utils/string'
@@ -33,7 +35,7 @@ const getWebInfo = async () => {
     } else {
       //无效的域名
       ElMessage({
-        message: "无效的域名或地址",
+        message: t("无效的域名或地址"),
         type: "error",
         duration: 1500
       })
@@ -62,36 +64,36 @@ const down = () => {
         <el-input
           v-model="searchUrl"
           style="max-width: 600px"
-          placeholder="请输入域名或地址"
+          :placeholder="t('请输入域名或地址')"
           class="input-with-select"
           size="large"
         >
           <template #append>
-            <el-button type="primary" @click="getWebInfo">获取</el-button>
+            <el-button type="primary" @click="getWebInfo">{{ t("获取") }}</el-button>
           </template>
         </el-input>
       </div>
       <div>
         <ul>
           <li class="mt-3">
-            <el-text><b>域名: </b></el-text>
+            <el-text><b>{{ t("域名:") }}</b></el-text>
             <el-link :href="'https://' + searchUrl" type="primary" target="_blank">{{ searchUrl }}</el-link>
           </li>
           <li class="mt-3 flex">
             <el-text><b>logo: </b></el-text>
             <div v-if="toolsStore.webInfo.logo" class="ml-2 flex items-center">
               <el-image :src="toolsStore.webInfo.logo" class="h-12"></el-image>
-              <el-button class="ml-3" link type="primary" @click="down">下载</el-button>
+              <el-button class="ml-3" link type="primary" @click="down">{{ t("下载") }}</el-button>
             </div>
           </li>
           <li class="mt-3 flex">
-            <el-text><b>标题: </b>{{ toolsStore.webInfo.title }}</el-text>
+            <el-text><b>{{ t("标题:") }}</b>{{ t(toolsStore.webInfo.title) }}</el-text>
           </li>
           <li class="mt-3 flex">
-            <el-text><b>关键词: </b> {{ toolsStore.webInfo.keywords }}</el-text>
+            <el-text><b>{{ t("关键词:") }}</b> {{ toolsStore.webInfo.keywords }}</el-text>
           </li>
           <li class="mt-3 flex">
-            <el-text><b>描述: </b> {{ toolsStore.webInfo.desc }}</el-text>
+            <el-text><b>{{ t("描述:") }}</b> {{ t(toolsStore.webInfo.desc) }}</el-text>
           </li>
         </ul>
       </div>

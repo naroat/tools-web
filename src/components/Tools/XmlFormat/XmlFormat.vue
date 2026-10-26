@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -15,7 +17,7 @@ const indentSize = ref(4)
 // 格式化XML
 const formatXml = () => {
   if (!inputText.value) {
-    ElMessage.warning('请输入要格式化的XML文本')
+    ElMessage.warning(t('请输入要格式化的XML文本'))
     return
   }
   
@@ -33,10 +35,10 @@ const formatXml = () => {
     // 格式化XML
     const formatted = formatXmlNode(xmlDoc.documentElement, 0)
     outputText.value = formatted
-    ElMessage.success('格式化成功')
+    ElMessage.success(t('格式化成功'))
   } catch (error) {
     outputText.value = '格式化失败'
-    ElMessage.error('格式化失败：' + error)
+    ElMessage.error(t('格式化失败：') + error)
   }
 }
 
@@ -91,7 +93,7 @@ const formatXmlNode = (node: Node, indent: number): string => {
 // 压缩XML
 const minifyXml = () => {
   if (!inputText.value) {
-    ElMessage.warning('请输入要压缩的XML文本')
+    ElMessage.warning(t('请输入要压缩的XML文本'))
     return
   }
   
@@ -104,17 +106,17 @@ const minifyXml = () => {
       .trim()
     
     outputText.value = minified
-    ElMessage.success('压缩成功')
+    ElMessage.success(t('压缩成功'))
   } catch (error) {
     outputText.value = '压缩失败'
-    ElMessage.error('压缩失败：' + error)
+    ElMessage.error(t('压缩失败：') + error)
   }
 }
 
 // 复制结果
 const copyResult = () => {
   if (!outputText.value || outputText.value === '格式化失败' || outputText.value === '压缩失败') {
-    ElMessage.warning('没有可复制的内容')
+    ElMessage.warning(t('没有可复制的内容'))
     return
   }
   
@@ -139,21 +141,21 @@ const clearInput = () => {
           v-model="inputText"
           type="textarea"
           :rows="6"
-          placeholder="请输入要格式化的XML文本"
+          :placeholder="t('请输入要格式化的XML文本')"
           class="mb-2"
         />
         
         <div class="flex items-center gap-2 mb-2">
-          <el-text>缩进大小：</el-text>
+          <el-text>{{ t("缩进大小：") }}</el-text>
           <el-input-number v-model="indentSize" :min="1" :max="8" size="small" />
         </div>
       </div>
       
       <!-- 操作按钮 -->
       <div class="mb-4">
-        <el-button type="primary" @click="formatXml">格式化</el-button>
-        <el-button type="success" @click="minifyXml">压缩</el-button>
-        <el-button @click="clearInput">清空</el-button>
+        <el-button type="primary" @click="formatXml">{{ t("格式化") }}</el-button>
+        <el-button type="success" @click="minifyXml">{{ t("压缩") }}</el-button>
+        <el-button @click="clearInput">{{ t("清空") }}</el-button>
       </div>
       
       <!-- 结果部分 -->
@@ -162,21 +164,19 @@ const clearInput = () => {
           v-model="outputText"
           type="textarea"
           :rows="6"
-          placeholder="格式化结果"
+          :placeholder="t('格式化结果')"
           readonly
         >
           <template #append>
-            <el-button @click="copyResult">复制</el-button>
+            <el-button @click="copyResult">{{ t("复制") }}</el-button>
           </template>
         </el-input>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线XML格式化工具，用于美化和压缩XML代码，支持自定义缩进大小，使XML代码更易于阅读和维护。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线XML格式化工具，用于美化和压缩XML代码，支持自定义缩进大小，使XML代码更易于阅读和维护。") }}</el-text>
     </ToolDetail>
 
   </div>

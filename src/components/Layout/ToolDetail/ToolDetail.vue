@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { onMounted } from 'vue';
 const props = defineProps({
   title: {
@@ -14,7 +16,7 @@ onMounted(() => {
 <template>
   <!-- desc -->
   <div class="mt-3 rounded-2xl p-4 tech-detail-section">
-    <el-divider content-position="left" class="tech-divider">{{ props.title }}</el-divider>
+    <el-divider content-position="left" class="tech-divider">{{ t(props.title) }}</el-divider>
     <div class="m-4">
       <slot></slot>
     </div> 

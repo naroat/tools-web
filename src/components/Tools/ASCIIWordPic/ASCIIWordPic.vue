@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive,ref,onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -135,11 +137,11 @@ onMounted(() => {
 
     <div class="p-4 rounded-2xl bg-white ">
       <div class="mb-6">
-        <el-input v-model="content" :rows="4" type="textarea" placeholder="请输入内容"></el-input>
+        <el-input v-model="content" :rows="4" type="textarea" :placeholder="t('请输入内容')"></el-input>
         <div class="mt-3 flex items-center">
           <div class="flex items-center mr-3 w-36">
             <div class="w-10">
-              <el-text class="">风格</el-text>
+              <el-text class="">{{ t("风格") }}</el-text>
             </div>
             <el-select
               v-model="fontStyle"
@@ -150,15 +152,15 @@ onMounted(() => {
               <el-option
                 v-for="item in options"
                 :key="item.value"
-                :label="item.label"
+                :label="t(item.label)"
                 :value="item.value"
               />
             </el-select>
           </div>
           
-          <el-button type="primary" @click="gen()">生成</el-button>
-          <el-button type="primary" @click="copy(contentRes)">复制结果</el-button>
-          <el-button type="primary" @click="clear">清除</el-button>
+          <el-button type="primary" @click="gen()">{{ t("生成") }}</el-button>
+          <el-button type="primary" @click="copy(contentRes)">{{ t("复制结果") }}</el-button>
+          <el-button type="primary" @click="clear">{{ t("清除") }}</el-button>
         </div>
       </div>
 
@@ -169,10 +171,8 @@ onMounted(() => {
     </div>
   
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        好用的ASCII字形生成器，输入框中输入需要生成的字母；提供多种风格选择
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("好用的ASCII字形生成器，输入框中输入需要生成的字母；提供多种风格选择") }}</el-text>
     </ToolDetail>
   
   </div>

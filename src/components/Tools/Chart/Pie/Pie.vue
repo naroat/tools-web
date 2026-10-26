@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t, locale } from '@/i18n'
+
 import {ref, reactive, onMounted } from 'vue'
 import Spreadsheet from 'x-data-spreadsheet'
 import 'x-data-spreadsheet/dist/locale/zh-cn';
@@ -210,9 +212,10 @@ const editData = () => {
   } else {
     drawer.value = true
     /** 在线excel */
-    Spreadsheet.locale('zh-cn', (window.x_spreadsheet as any).$messages['zh-cn']);
+    Spreadsheet.locale(locale.value === 'en' ? 'en' : 'zh-cn', (window.x_spreadsheet as any).$messages[locale.value === 'en' ? 'en' : 'zh-cn']);
     //const sheet = new Spreadsheet("#x-spreadsheet", {
     new Spreadsheet("#x-spreadsheet", {
+      mode: 'edit',
       showToolbar: false, //隐藏顶部工具栏
       showBottomBar: false,//隐藏底部工具栏,
       view: {
@@ -349,7 +352,7 @@ onMounted(() => {
       <div class="w-4/6">
         <div class="flex flex-row-reverse mb-4">
           <el-input-number v-model="sacleSize" :min="1" :max="100" :step="5" @change="canvasHandle('scale')" step-strictly/>
-          <el-text>缩放：</el-text>
+          <el-text>{{ t("缩放：") }}</el-text>
         </div>
         <!-- <div class="flex justify-center items-center"> -->
         <div class="flex justify-center items-center max-h-[500px] max-w-[1000px] overflow-auto">
@@ -358,9 +361,9 @@ onMounted(() => {
       </div>     
       <div class="w-2/6 bg-white ml-3 rounded-lg p-3">
         <div class="mb-3">
-          <el-button class="w-full mb-3" type="primary" size="large" @click="downEchartsImg">下载图表</el-button>
+          <el-button class="w-full mb-3" type="primary" size="large" @click="downEchartsImg">{{ t("下载图表") }}</el-button>
           <div class="flex items-center ml-1">
-            <el-text>文件类型</el-text>
+            <el-text>{{ t("文件类型") }}</el-text>
             <el-radio-group v-model="downType" class="ml-4">
               <el-radio size="large" label="1">PNG</el-radio>
               <el-radio size="large" label="2">JPEG</el-radio>
@@ -370,7 +373,7 @@ onMounted(() => {
             <el-tooltip
               class="box-item"
               effect="dark"
-              content="支持上传：xls, xlsx, csv文件"
+              :content="t('支持上传：xls, xlsx, csv文件')"
               placement="top-start"
             >
               <el-button class="w-1/2">
@@ -382,19 +385,17 @@ onMounted(() => {
                   :http-request="updateDataFile"
                   :on-exceed="handleExceed"
                   :limit="1"
-                >
-                上传数据
-                </el-upload>
+                >{{ t("上传数据") }}</el-upload>
               </el-button>
               
             </el-tooltip>
-            <el-button class="w-1/2" @click="editData">编辑数据</el-button>
+            <el-button class="w-1/2" @click="editData">{{ t("编辑数据") }}</el-button>
           </div>
         </div>
         <el-collapse v-model="setOptionName" @change="handleChange" accordion>
-          <el-collapse-item title="画布设置" name="1">
+          <el-collapse-item :title="t('画布设置')" name="1">
             <div class="flex">
-              <el-text class="w-16 text-right">宽度</el-text>
+              <el-text class="w-16 text-right">{{ t("宽度") }}</el-text>
               <el-input-number
                 v-model="widthCanvas"
                 :min="1"
@@ -406,7 +407,7 @@ onMounted(() => {
               />
             </div>
             <div class="flex mt-3">
-              <el-text class="w-16 text-right">高度</el-text>
+              <el-text class="w-16 text-right">{{ t("高度") }}</el-text>
               <el-input-number
                 v-model="heightCanvas"
                 :min="1"
@@ -418,31 +419,31 @@ onMounted(() => {
               />
             </div>
           </el-collapse-item>
-          <el-collapse-item title="标题设置" name="2">
+          <el-collapse-item :title="t('标题设置')" name="2">
             <div class="flex">
-              <el-text class="w-16 text-right">位置</el-text>
+              <el-text class="w-16 text-right">{{ t("位置") }}</el-text>
               <el-radio-group v-model="titlePos" class="ml-3" @change="canvasHandle('title')">
-                <el-radio-button label="left" value="left">左</el-radio-button>
-                <el-radio-button label="center" value="center">中</el-radio-button>
-                <el-radio-button label="right" value="right">右</el-radio-button>
+                <el-radio-button label="left" value="left">{{ t("左") }}</el-radio-button>
+                <el-radio-button label="center" value="center">{{ t("中") }}</el-radio-button>
+                <el-radio-button label="right" value="right">{{ t("右") }}</el-radio-button>
               </el-radio-group>
             </div>
-            <el-divider content-position="left" class="pl-10">标题</el-divider>
+            <el-divider content-position="left" class="pl-10">{{ t("标题") }}</el-divider>
             <div class="flex">
-              <el-text class="w-16 text-right">显示</el-text>
+              <el-text class="w-16 text-right">{{ t("显示") }}</el-text>
               <el-switch v-model="titleSwitch" class="ml-3" @change="canvasHandle('title')"/>
             </div>
             <div class="flex">
-              <el-text class="w-16 text-right">标题</el-text>
+              <el-text class="w-16 text-right">{{ t("标题") }}</el-text>
               <el-input class="h-8 w-60 max-w-[60%] ml-3" v-model="title" @blur="canvasHandle('title')"></el-input>
             </div>
-            <el-divider content-position="left">副标题</el-divider>
+            <el-divider content-position="left">{{ t("副标题") }}</el-divider>
             <div class="flex">
-              <el-text class="w-16 text-right">显示</el-text>
+              <el-text class="w-16 text-right">{{ t("显示") }}</el-text>
               <el-switch v-model="subTitleSwitch" class="ml-3" @change="canvasHandle('title')"/>
             </div>
             <div class="flex">
-              <el-text class="w-16 text-right">副标题</el-text>
+              <el-text class="w-16 text-right">{{ t("副标题") }}</el-text>
               <el-input class="h-8 w-60 max-w-[60%] ml-3" v-model="subTitle"  @blur="canvasHandle('title')"></el-input>
             </div>
           </el-collapse-item>
@@ -452,13 +453,13 @@ onMounted(() => {
               <el-color-picker v-model="attrColor" class="ml-3" @change="canvasHandle('color')"/>
             </div>
           </el-collapse-item> -->
-          <el-collapse-item title="水印设置" name="4">
+          <el-collapse-item :title="t('水印设置')" name="4">
             <div class="flex">
-              <el-text class="w-16 text-right">显示</el-text>
+              <el-text class="w-16 text-right">{{ t("显示") }}</el-text>
               <el-switch v-model="watermarkSwitch" class="ml-3" @change="canvasHandle('watermark')"/>
             </div>
             <div class="flex">
-              <el-text class="w-16 text-right">水印内容</el-text>
+              <el-text class="w-16 text-right">{{ t("水印内容") }}</el-text>
               <el-input class="h-8 w-60 max-w-[60%] ml-3" v-model="waterMarkText" @change="canvasHandle('watermark')"></el-input>
             </div>
           </el-collapse-item>
@@ -470,13 +471,8 @@ onMounted(() => {
     </el-drawer>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        饼图是通过一个圆来展示数据，用圆内各扇形的角度来表示数据之间的占比关系。<br>
-        能够很好地展示不同分类的变量之间或单个分类变量与整体之间的占比情况，常用来强调某个突出的分类变量或表示表示占比关系。<br>
-        在线图表制作工具，在线制作饼图<br>
-        支持导入表格并在线编辑表格生成饼图，支持png和jpeg格式导出<br>
-        支持超全的自定义配置，轻松实现你的个性化图表需求<br>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("饼图是通过一个圆来展示数据，用圆内各扇形的角度来表示数据之间的占比关系。") }}<br>{{ t("能够很好地展示不同分类的变量之间或单个分类变量与整体之间的占比情况，常用来强调某个突出的分类变量或表示表示占比关系。") }}<br>{{ t("在线图表制作工具，在线制作饼图") }}<br>{{ t("支持导入表格并在线编辑表格生成饼图，支持png和jpeg格式导出") }}<br>{{ t("支持超全的自定义配置，轻松实现你的个性化图表需求") }}<br>
       </el-text> 
     </ToolDetail>
   </div>

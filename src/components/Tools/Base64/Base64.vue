@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -16,37 +18,37 @@ const decodeOutput = ref('')
 // 加密处理
 const encodeText = () => {
   if (!encodeInput.value) {
-    ElMessage.warning('请输入要加密的文本')
+    ElMessage.warning(t('请输入要加密的文本'))
     return
   }
   
   try {
     encodeOutput.value = btoa(unescape(encodeURIComponent(encodeInput.value)))
-    ElMessage.success('加密成功')
+    ElMessage.success(t('加密成功'))
   } catch (error) {
-    ElMessage.error('加密失败：' + error)
+    ElMessage.error(t('加密失败：') + error)
   }
 }
 
 // 解密处理
 const decodeText = () => {
   if (!decodeInput.value) {
-    ElMessage.warning('请输入要解密的Base64字符串')
+    ElMessage.warning(t('请输入要解密的Base64字符串'))
     return
   }
   
   try {
     decodeOutput.value = decodeURIComponent(escape(atob(decodeInput.value)))
-    ElMessage.success('解密成功')
+    ElMessage.success(t('解密成功'))
   } catch (error) {
-    ElMessage.error('解密失败：请输入有效的Base64字符串')
+    ElMessage.error(t('解密失败：请输入有效的Base64字符串'))
   }
 }
 
 // 复制结果
 const copyEncodeResult = () => {
   if (!encodeOutput.value) {
-    ElMessage.warning('没有可复制的内容')
+    ElMessage.warning(t('没有可复制的内容'))
     return
   }
   
@@ -55,7 +57,7 @@ const copyEncodeResult = () => {
 
 const copyDecodeResult = () => {
   if (!decodeOutput.value) {
-    ElMessage.warning('没有可复制的内容')
+    ElMessage.warning(t('没有可复制的内容'))
     return
   }
   
@@ -69,18 +71,18 @@ const copyDecodeResult = () => {
 
     <div class="p-4 rounded-2xl bg-white">
       <el-tabs v-model="activeTab">
-        <el-tab-pane label="加密" name="encode">
+        <el-tab-pane :label="t('加密')" name="encode">
           <div class="mb-4">
             <el-input
               v-model="encodeInput"
               type="textarea"
               :rows="6"
-              placeholder="请输入要加密的文本"
+              :placeholder="t('请输入要加密的文本')"
             />
           </div>
           
           <div class="mb-4">
-            <el-button type="primary" @click="encodeText">加密</el-button>
+            <el-button type="primary" @click="encodeText">{{ t("加密") }}</el-button>
           </div>
           
           <div>
@@ -88,28 +90,28 @@ const copyDecodeResult = () => {
               v-model="encodeOutput"
               type="textarea"
               :rows="6"
-              placeholder="加密结果"
+              :placeholder="t('加密结果')"
               readonly
             >
               <template #append>
-                <el-button @click="copyEncodeResult">复制</el-button>
+                <el-button @click="copyEncodeResult">{{ t("复制") }}</el-button>
               </template>
             </el-input>
           </div>
         </el-tab-pane>
         
-        <el-tab-pane label="解密" name="decode">
+        <el-tab-pane :label="t('解密')" name="decode">
           <div class="mb-4">
             <el-input
               v-model="decodeInput"
               type="textarea"
               :rows="6"
-              placeholder="请输入要解密的Base64字符串"
+              :placeholder="t('请输入要解密的Base64字符串')"
             />
           </div>
           
           <div class="mb-4">
-            <el-button type="primary" @click="decodeText">解密</el-button>
+            <el-button type="primary" @click="decodeText">{{ t("解密") }}</el-button>
           </div>
           
           <div>
@@ -117,11 +119,11 @@ const copyDecodeResult = () => {
               v-model="decodeOutput"
               type="textarea"
               :rows="6"
-              placeholder="解密结果"
+              :placeholder="t('解密结果')"
               readonly
             >
               <template #append>
-                <el-button @click="copyDecodeResult">复制</el-button>
+                <el-button @click="copyDecodeResult">{{ t("复制") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -130,10 +132,8 @@ const copyDecodeResult = () => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线Base64加解密工具，支持文本的Base64编码和解码，可用于URL编码、数据传输等场景。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线Base64加解密工具，支持文本的Base64编码和解码，可用于URL编码、数据传输等场景。") }}</el-text>
     </ToolDetail>
 
   </div>

@@ -1,5 +1,6 @@
 <script setup> 
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
+import { locale } from '@/i18n'
 import 'tui-image-editor/dist/tui-image-editor.css'
 // import 'tui-color-picker/dist/tui-color-picker.css'
 import { base64ToBlod } from '@/utils/file'
@@ -188,17 +189,17 @@ onMounted(() => {
 })
 
 
-const init = ()=> {
+const init = (imageUrl = props.imgUrl)=> {
   instance.value = new ImageEditor(document.querySelector('#tui-image-editor'), {
     includeUI: {
       loadImage: {
-        path: props.imgUrl,
+        path: imageUrl,
         name: 'image'
       },
       menu: ['resize', 'crop', 'rotate', 'draw', 'shape', 'icon', 'text', 'filter'], // 底部菜单按钮列表 隐藏镜像flip和遮罩mask
       initMenu: 'none', // 默认打开的菜单项
       menuBarPosition: 'left', // 菜单所在的位置
-      locale: locale_zh, // 本地化语言为中文
+      locale: locale.value === 'en' ? {} : locale_zh,
       theme: customTheme // 自定义样式
     },
     cssMaxWidth: 400, // canvas 最大宽度
@@ -209,6 +210,17 @@ const init = ()=> {
     'tie-btn-reset tui-image-editor-item help'
   )[0].style.display = 'none' // 隐藏顶部重置按钮
 }
+
+// 切换菜单语言前保存当前图片，重建时保留已完成的图像编辑。
+watch(locale, async () => {
+  if (!instance.value) return
+  const imageUrl = instance.value.toDataURL()
+  instance.value.destroy()
+  instance.value = null
+  await nextTick()
+  init(imageUrl)
+})
+onBeforeUnmount(() => instance.value?.destroy())
 
 // 保存图片，并上传
 const save = () => {

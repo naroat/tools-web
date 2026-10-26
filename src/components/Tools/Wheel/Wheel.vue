@@ -6,18 +6,18 @@
       <div class="tool-content">
         <div class="input-section">
           <el-form label-position="top">
-            <el-form-item label="转盘选项（每行一个）">
+            <el-form-item :label="t('转盘选项（每行一个）')">
               <el-input
                 v-model="optionsText"
                 type="textarea"
                 :rows="6"
-                placeholder="请输入转盘选项，每行一个"
+                :placeholder="t('请输入转盘选项，每行一个')"
               />
             </el-form-item>
             
             <el-form-item>
-              <el-button type="primary" @click="updateWheel">更新转盘</el-button>
-              <el-button @click="clearOptions">清空</el-button>
+              <el-button type="primary" @click="updateWheel">{{ t("更新转盘") }}</el-button>
+              <el-button @click="clearOptions">{{ t("清空") }}</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -48,10 +48,9 @@
               :disabled="isSpinning || options.length < 2"
               @click="spinWheel"
             >
-              {{ isSpinning ? '旋转中...' : '开始旋转' }}
+              {{ t(isSpinning ? '旋转中...' : '开始旋转') }}
             </el-button>
-            <div v-if="result" class="result">
-              结果: {{ result }}
+            <div v-if="result" class="result">{{ t("结果:") }}{{ result }}
             </div>
           </div>
         </div>
@@ -59,16 +58,16 @@
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线转盘工具，自定义选项后旋转转盘随机选择结果，支持多个选项和动画效果，可用于随机选择、抽奖等场景。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线转盘工具，自定义选项后旋转转盘随机选择结果，支持多个选项和动画效果，可用于随机选择、抽奖等场景。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, computed } from 'vue';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'

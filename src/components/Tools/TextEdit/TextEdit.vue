@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { reactive, ref, shallowRef, onBeforeUnmount, onMounted } from 'vue'
+import { t, locale } from '@/i18n'
+
+import { computed, watch, reactive, ref, shallowRef, onBeforeUnmount, onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import '@wangeditor/editor/dist/css/style.css' // 引入富文本 css
+import { i18nChangeLanguage } from '@wangeditor/editor'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'  //富文本组件
 import { copy } from '@/utils/string'
 const info = reactive({
@@ -27,7 +30,14 @@ const toolbarConfig = {
 }
 
 //编辑器配置
-const editorConfig = { placeholder: '请输入内容...' }
+const editorConfig = computed(() => ({ placeholder: t('请输入内容...') }))
+
+// 重新创建编辑器的菜单时保留绑定的 HTML 内容。
+watch(locale, value => {
+  i18nChangeLanguage(value === 'en' ? 'en' : 'zh-CN')
+  editorRef.value?.destroy()
+  editorRef.value = undefined
+}, { immediate: true, flush: 'sync' })
 
 const handleCreated = (editor) => {
   editorRef.value = editor // 记录 editor 实例，重要！
@@ -62,13 +72,13 @@ const copyRes = async (resStr: string) => {
 
     <div class="p-4 rounded-2xl bg-white h-[510px]">
       <div class="border z-10 mt-3 h-96">
-        <Toolbar
+        <Toolbar :key="'toolbar-' + locale"
           class=""
           :editor="editorRef"
           :defaultConfig="toolbarConfig"
           :mode="info.mode"
         />
-        <Editor
+        <Editor :key="'editor-' + locale"
           class="border"
           v-model="content"
           :defaultConfig="editorConfig"
@@ -81,22 +91,20 @@ const copyRes = async (resStr: string) => {
     </div>
 
     <div class="p-4 mt-3 rounded-2xl bg-white">
-      <el-button type="primary" @click="copyRes(html)">复制HTML</el-button>
+      <el-button type="primary" @click="copyRes(html)">{{ t("复制HTML") }}</el-button>
       <el-input
         v-model="html"
         disabled
         class="mt-3"
         type="textarea"
         autosize
-        placeholder="html预览处"
+        :placeholder="t('html预览处')"
       />
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线富文本编辑, html实时预览，在线编辑文本，文本编辑获取html
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线富文本编辑, html实时预览，在线编辑文本，文本编辑获取html") }}</el-text>
     </ToolDetail>
 
   </div>

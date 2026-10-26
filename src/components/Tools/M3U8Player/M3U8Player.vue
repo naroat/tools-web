@@ -6,16 +6,16 @@
       <div class="tool-content">
         <div class="input-section">
           <el-form label-position="top">
-            <el-form-item label="m3u8地址">
+            <el-form-item :label="t('m3u8地址')">
               <el-input
                 v-model="m3u8Url"
-                placeholder="请输入m3u8格式的视频地址"
+                :placeholder="t('请输入m3u8格式的视频地址')"
               />
             </el-form-item>
             
             <el-form-item>
-              <el-button type="primary" @click="loadVideo">加载视频</el-button>
-              <el-button @click="clearUrl">清空</el-button>
+              <el-button type="primary" @click="loadVideo">{{ t("加载视频") }}</el-button>
+              <el-button @click="clearUrl">{{ t("清空") }}</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -30,28 +30,24 @@
               width="100%"
               height="400"
             >
-              <source :src="m3u8Url" type="application/x-mpegURL">
-              您的浏览器不支持HTML5视频播放。
-            </video>
+              <source :src="m3u8Url" type="application/x-mpegURL">{{ t("您的浏览器不支持HTML5视频播放。") }}</video>
           </div>
-          <div v-else class="no-video">
-            请输入m3u8地址并点击加载视频
-          </div>
+          <div v-else class="no-video">{{ t("请输入m3u8地址并点击加载视频") }}</div>
         </div>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线m3u8播放器，支持播放m3u8格式的视频流，可输入自定义m3u8地址进行播放，适用于直播流和视频点播场景。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线m3u8播放器，支持播放m3u8格式的视频流，可输入自定义m3u8地址进行播放，适用于直播流和视频点播场景。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, onMounted } from 'vue';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'

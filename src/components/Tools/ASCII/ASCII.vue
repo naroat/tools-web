@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -283,41 +285,39 @@ const tableDataNonStandard = reactive([
 
     <div class="p-4 rounded-2xl bg-white">
       <el-table :data="tableDataControlCodes" class="w-full">
-        <el-table-column label="ASCII 控制字符 (字符编码: 0-31)" align="center">
-          <el-table-column prop="dec" label="十进制DEC" width="120" />
-          <el-table-column prop="oct" label="八进制OCT" width="120" />
-          <el-table-column prop="hex" label="十六进制HEX" width="120" />
-          <el-table-column prop="code" label="符号" width="120" />
-          <el-table-column prop="desc" label="描述" />
+        <el-table-column :label="t('ASCII 控制字符 (字符编码: 0-31)')" align="center">
+          <el-table-column prop="dec" :label="t('十进制DEC')" width="120" />
+          <el-table-column prop="oct" :label="t('八进制OCT')" width="120" />
+          <el-table-column prop="hex" :label="t('十六进制HEX')" width="120" />
+          <el-table-column prop="code" :label="t('符号')" width="120" />
+          <el-table-column prop="desc" :label="t('描述')" ><template #default="{ row }">{{ t(row.desc) }}</template></el-table-column>
         </el-table-column>
       </el-table>
 
       <el-table :data="tableDataStandard" class="w-full mt-3">
-        <el-table-column label="ASCII 打印字符 (字符编码: 32-127)" align="center">
-          <el-table-column prop="dec" label="十进制DEC" width="120" />
-          <el-table-column prop="oct" label="八进制OCT" width="120" />
-          <el-table-column prop="hex" label="十六进制HEX" width="120" />
-          <el-table-column prop="code" label="符号" width="120" />
-          <el-table-column prop="desc" label="描述" />
+        <el-table-column :label="t('ASCII 打印字符 (字符编码: 32-127)')" align="center">
+          <el-table-column prop="dec" :label="t('十进制DEC')" width="120" />
+          <el-table-column prop="oct" :label="t('八进制OCT')" width="120" />
+          <el-table-column prop="hex" :label="t('十六进制HEX')" width="120" />
+          <el-table-column prop="code" :label="t('符号')" width="120" />
+          <el-table-column prop="desc" :label="t('描述')" ><template #default="{ row }">{{ t(row.desc) }}</template></el-table-column>
         </el-table-column>
       </el-table>
 
       <el-table :data="tableDataNonStandard" class="w-full mt-3">
-        <el-table-column label="ASCII扩展码 (字符编码: 128-255)" align="center">
-          <el-table-column prop="dec" label="十进制DEC" width="120" />
-          <el-table-column prop="oct" label="八进制OCT" width="120" />
-          <el-table-column prop="hex" label="十六进制HEX" width="120" />
-          <el-table-column prop="code" label="符号" width="120" />
-          <el-table-column prop="desc" label="描述" />
+        <el-table-column :label="t('ASCII扩展码 (字符编码: 128-255)')" align="center">
+          <el-table-column prop="dec" :label="t('十进制DEC')" width="120" />
+          <el-table-column prop="oct" :label="t('八进制OCT')" width="120" />
+          <el-table-column prop="hex" :label="t('十六进制HEX')" width="120" />
+          <el-table-column prop="code" :label="t('符号')" width="120" />
+          <el-table-column prop="desc" :label="t('描述')" ><template #default="{ row }">{{ t(row.desc) }}</template></el-table-column>
         </el-table-column>
       </el-table>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是一种字符编码标准，它使用一个字节（8位二进制数）来表示128个不同的字符。这些字符包括33个控制字符（具有特殊功能但不可直接显示的字符）和95个可打印字符。ASCII码表中的字符从0到127编号，其中0代表空字符（NULL），1代表开始头（SOH），2代表正文开始（STX），依此类推。ASCII码表的最小值是0，代表空字符。
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是一种字符编码标准，它使用一个字节（8位二进制数）来表示128个不同的字符。这些字符包括33个控制字符（具有特殊功能但不可直接显示的字符）和95个可打印字符。ASCII码表中的字符从0到127编号，其中0代表空字符（NULL），1代表开始头（SOH），2代表正文开始（STX），依此类推。ASCII码表的最小值是0，代表空字符。") }}</el-text>
     </ToolDetail>
 
   </div>

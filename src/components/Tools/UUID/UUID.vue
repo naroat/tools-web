@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -19,7 +21,7 @@ const gen = () => {
   //生成数量验证
   if (info.pwNum > 100) {
     ElMessage({
-      message: "生成数量范围在1~100",
+      message: t("生成数量范围在1~100"),
       type: "warning",
       duration: 1500
     })
@@ -50,13 +52,13 @@ const copyRes = async (resStr: string) => {
 
     <div class="p-4 rounded-2xl bg-white">
       <div>
-        <el-input v-model="info.pwNum" placeholder="范围1~100" class="" max="100" type="number">
-          <template #prepend>生成数量:</template>
+        <el-input v-model="info.pwNum" :placeholder="t('范围1~100')" class="" max="100" type="number">
+          <template #prepend>{{ t("生成数量:") }}</template>
         </el-input>
       </div>
       <div class="mt-3 mb-3">
-        <el-button type="primary" @click="gen">生成UUID</el-button>
-        <el-button type="primary" @click="copyRes(info.resStr)">复制全部</el-button>
+        <el-button type="primary" @click="gen">{{ t("生成UUID") }}</el-button>
+        <el-button type="primary" @click="copyRes(info.resStr)">{{ t("复制全部") }}</el-button>
       </div>
       <!-- res -->
       <div>
@@ -65,10 +67,8 @@ const copyRes = async (resStr: string) => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线UUID批量生成
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线UUID批量生成") }}</el-text>
     </ToolDetail>
 
   </div>

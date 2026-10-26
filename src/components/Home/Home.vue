@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { onMounted } from 'vue';
 import { RouterLink } from "vue-router"
 import { StarFilled } from '@element-plus/icons-vue'
@@ -13,9 +15,9 @@ const route = useRoute()
 const removeCollect = (url: string) => {
   const success = toolsStore.removeCollect(url)
   if (success) {
-    ElMessage.success('已取消收藏');
+    ElMessage.success(t('已取消收藏'));
   } else {
-    ElMessage.error('取消收藏失败');
+    ElMessage.error(t('取消收藏失败'));
   }
 }
 
@@ -34,9 +36,7 @@ onMounted(() => {
     <!-- 收藏工具 -->
     <div id="collect">
       <!-- 收藏标题 -->
-      <div class="mt-8 mb-3 text-xl font-bold text-[--base-black] tech-title">
-        收藏工具
-      </div>
+      <div class="mt-8 mb-3 text-xl font-bold text-[--base-black] tech-title">{{ t("收藏工具") }}</div>
       <!-- 收藏卡片 -->
       <div v-if="toolsStore.collectedTools.length > 0" class="flex justify-between flex-wrap self-card-div c-xs:ml-0" :gutter="10">
           <router-link v-for="(item, index) in toolsStore.collectedTools" :key="index" :to="item.url" class="flex flex-col mt-5 border-solid rounded-2xl border-gray w-[24%] p-2 bg-white hover:shadow-md c-xs:w-[99.5%] c-md:w-[24%] c-sm:w-[32%] p-5 hover:-translate-y-2 duration-300 tech-card">
@@ -44,7 +44,7 @@ onMounted(() => {
               <el-image :src="item.logo" class="w-10 h-10 min-h-[2.5rem] min-w-[2.5rem] rounded-full"></el-image>
               <div class="flex flex-col ml-2 w-full">
                 <div class="flex justify-between">
-                  <div class="font-semibold text-lg line-clamp-1">{{ item.title }}</div>
+                  <div class="font-semibold text-lg line-clamp-1">{{ t(item.title) }}</div>
                   <el-button 
                     :icon="StarFilled" 
                     circle 
@@ -54,19 +54,19 @@ onMounted(() => {
                   />
                 </div>
                 <div class="flex justify-between">
-                  <el-text size="small">{{ item.cate }}</el-text>
+                  <el-text size="small">{{ t(item.cate) }}</el-text>
                 </div>
               </div>
             </div>
             <div class="flex items-center justify-between mt-2">
-              <el-text line-clamp="2">{{ item.desc }}</el-text>
+              <el-text line-clamp="2">{{ t(item.desc) }}</el-text>
             </div>
           </router-link>
           <!-- 占位 div -->
           <div class="w-[24%] c-md:w-[24%] c-sm:w-[32%] "></div>
       </div>
       <div v-else class="mt-5 p-5 bg-white rounded-2xl">
-        <el-empty description="暂无收藏工具" />
+        <el-empty :description="t('暂无收藏工具')" />
       </div>
     </div>
 
@@ -74,7 +74,7 @@ onMounted(() => {
     <div v-for="(cate, index) in toolsStore.cates" :key="index">
       <!-- cate title -->
       <div class="mt-8 mb-3 text-xl font-bold text-[--base-black] tech-title" :id="'cate_' + cate.id">
-        {{ cate.title }}
+        {{ t(cate.title) }}
       </div>
       <!-- card -->
       <div class="flex justify-between flex-wrap self-card-div c-xs:ml-0" :gutter="10">
@@ -83,15 +83,15 @@ onMounted(() => {
               <el-image :src="item.logo" class="w-10 h-10 min-h-[2.5rem] min-w-[2.5rem] rounded-full"></el-image>
               <div class="flex flex-col ml-2 w-full">
                 <div class="flex">
-                  <div class="font-semibold text-lg line-clamp-1">{{ item.title }}</div>
+                  <div class="font-semibold text-lg line-clamp-1">{{ t(item.title) }}</div>
                 </div>
                 <div class="flex justify-between">
-                  <el-text size="small">{{ item.cate }}</el-text>
+                  <el-text size="small">{{ t(item.cate) }}</el-text>
                 </div>
               </div>
             </div>
             <div class="flex items-center justify-between mt-2">
-              <el-text line-clamp="2">{{ item.desc }}</el-text>
+              <el-text line-clamp="2">{{ t(item.desc) }}</el-text>
             </div>
           </router-link>
           <!-- 占位 div -->

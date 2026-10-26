@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -40,10 +42,10 @@ const copyRes = async (resStr: string) => {
       </div>
 
       <div class="mt-4">
-        <el-button type="primary" @click="toEncode">摩斯编码</el-button>
-        <el-button type="primary" @click="toDecode">摩斯解码</el-button>
-        <el-button type="primary" @click="copyRes(info.tranRes)">复制结果</el-button>
-        <el-button type="danger" @click="clear">清空内容</el-button>
+        <el-button type="primary" @click="toEncode">{{ t("摩斯编码") }}</el-button>
+        <el-button type="primary" @click="toDecode">{{ t("摩斯解码") }}</el-button>
+        <el-button type="primary" @click="copyRes(info.tranRes)">{{ t("复制结果") }}</el-button>
+        <el-button type="danger" @click="clear">{{ t("清空内容") }}</el-button>
       </div>
 
       <div class="mt-3 min-h-md bg-gray-100 p-3 mb-3">
@@ -52,10 +54,8 @@ const copyRes = async (resStr: string) => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        摩尔斯电码（或摩斯电码，Morse code）是一种编码系统，通过不同顺序的信号表示英文字母、数字和标点符号。由美国人艾尔菲德·维尔在协助Samuel Morse发明摩尔斯电报机（1835年）时创造。今天，国际摩尔斯电码仍在使用。
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("摩尔斯电码（或摩斯电码，Morse code）是一种编码系统，通过不同顺序的信号表示英文字母、数字和标点符号。由美国人艾尔菲德·维尔在协助Samuel Morse发明摩尔斯电报机（1835年）时创造。今天，国际摩尔斯电码仍在使用。") }}</el-text>
     </ToolDetail>
 
   </div>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -29,7 +31,7 @@ const availableSteps = [
 // 执行工作流
 const executeWorkflow = () => {
   if (!inputText.value) {
-    ElMessage.warning('请输入要处理的文本')
+    ElMessage.warning(t('请输入要处理的文本'))
     return
   }
   
@@ -42,10 +44,10 @@ const executeWorkflow = () => {
     })
     
     outputText.value = result
-    ElMessage.success('工作流执行成功')
+    ElMessage.success(t('工作流执行成功'))
   } catch (error) {
     outputText.value = '执行失败'
-    ElMessage.error('执行失败：' + error)
+    ElMessage.error(t('执行失败：') + error)
   }
 }
 
@@ -101,7 +103,7 @@ const moveStepDown = (index: number) => {
 // 复制结果
 const copyResult = () => {
   if (!outputText.value || outputText.value === '执行失败') {
-    ElMessage.warning('没有可复制的内容')
+    ElMessage.warning(t('没有可复制的内容'))
     return
   }
   
@@ -126,7 +128,7 @@ const clearInput = () => {
           v-model="inputText"
           type="textarea"
           :rows="4"
-          placeholder="请输入要处理的文本"
+          :placeholder="t('请输入要处理的文本')"
           class="mb-2"
         />
       </div>
@@ -136,10 +138,9 @@ const clearInput = () => {
         <el-card class="mb-4">
           <template #header>
             <div class="flex justify-between items-center">
-              <span>工作流步骤</span>
+              <span>{{ t("工作流步骤") }}</span>
               <el-dropdown>
-                <el-button type="primary" size="small">
-                  添加步骤 <el-icon><ArrowDown /></el-icon>
+                <el-button type="primary" size="small">{{ t("添加步骤") }}<el-icon><ArrowDown /></el-icon>
                 </el-button>
                 <template #dropdown>
                   <el-dropdown-menu>
@@ -148,7 +149,7 @@ const clearInput = () => {
                       :key="step.type"
                       @click="addStep(step.type, step.name)"
                     >
-                      {{ step.name }}
+                      {{ t(step.name) }}
                     </el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
@@ -156,9 +157,7 @@ const clearInput = () => {
             </div>
           </template>
           
-          <div v-if="workflowSteps.length === 0" class="text-center text-gray-500 py-4">
-            暂无步骤，请添加处理步骤
-          </div>
+          <div v-if="workflowSteps.length === 0" class="text-center text-gray-500 py-4">{{ t("暂无步骤，请添加处理步骤") }}</div>
           
           <div v-else class="space-y-2">
             <div
@@ -182,7 +181,7 @@ const clearInput = () => {
               >
                 <el-icon><ArrowDown /></el-icon>
               </el-button>
-              <div class="flex-1">{{ step.name }}</div>
+              <div class="flex-1">{{ t(step.name) }}</div>
               <el-button
                 type="danger"
                 size="small"
@@ -197,8 +196,8 @@ const clearInput = () => {
       
       <!-- 操作按钮 -->
       <div class="mb-4">
-        <el-button type="primary" @click="executeWorkflow">执行工作流</el-button>
-        <el-button @click="clearInput">清空</el-button>
+        <el-button type="primary" @click="executeWorkflow">{{ t("执行工作流") }}</el-button>
+        <el-button @click="clearInput">{{ t("清空") }}</el-button>
       </div>
       
       <!-- 结果部分 -->
@@ -207,21 +206,19 @@ const clearInput = () => {
           v-model="outputText"
           type="textarea"
           :rows="4"
-          placeholder="处理结果"
+          :placeholder="t('处理结果')"
           readonly
         >
           <template #append>
-            <el-button @click="copyResult">复制</el-button>
+            <el-button @click="copyResult">{{ t("复制") }}</el-button>
           </template>
         </el-input>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线文本处理工作流工具，允许用户定义一系列文本处理步骤并按顺序执行，可用于复杂的文本处理任务，提高工作效率。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线文本处理工作流工具，允许用户定义一系列文本处理步骤并按顺序执行，可用于复杂的文本处理任务，提高工作效率。") }}</el-text>
     </ToolDetail>
 
   </div>

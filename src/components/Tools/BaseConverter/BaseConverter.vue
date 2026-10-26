@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, computed } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -45,7 +47,7 @@ const convertedValue = computed(() => {
 // 复制结果
 const copyResult = () => {
   if (!convertedValue.value || convertedValue.value === '无效输入' || convertedValue.value === '转换失败') {
-    ElMessage.warning('没有可复制的内容')
+    ElMessage.warning(t('没有可复制的内容'))
     return
   }
   
@@ -67,30 +69,30 @@ const clearInput = () => {
       <div class="mb-4">
         <el-input
           v-model="inputValue"
-          placeholder="请输入要转换的数值"
+          :placeholder="t('请输入要转换的数值')"
           class="mb-2"
         />
         
         <div class="flex gap-4 items-center">
           <div class="flex items-center gap-2">
-            <el-text class="">从进制：</el-text>
+            <el-text class="">{{ t("从进制：") }}</el-text>
             <el-select v-model="fromBase" style="width: 140px;">
               <el-option
                 v-for="option in baseOptions"
                 :key="option.value"
-                :label="option.label"
+                :label="t(option.label)"
                 :value="option.value"
               />
             </el-select>
           </div>
           
           <div class="flex items-center gap-2">
-            <el-text>到进制：</el-text>
+            <el-text>{{ t("到进制：") }}</el-text>
             <el-select v-model="toBase" style="width: 140px;">
               <el-option
                 v-for="option in baseOptions"
                 :key="option.value"
-                :label="option.label"
+                :label="t(option.label)"
                 :value="option.value"
               />
             </el-select>
@@ -100,28 +102,26 @@ const clearInput = () => {
       
       <!-- 操作按钮 -->
       <div class="mb-4">
-        <el-button type="primary" @click="clearInput">清空</el-button>
+        <el-button type="primary" @click="clearInput">{{ t("清空") }}</el-button>
       </div>
       
       <!-- 结果部分 -->
       <div>
         <el-input
           :value="convertedValue"
-          placeholder="转换结果"
+          :placeholder="t('转换结果')"
           readonly
         >
           <template #append>
-            <el-button @click="copyResult">复制</el-button>
+            <el-button @click="copyResult">{{ t("复制") }}</el-button>
           </template>
         </el-input>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线进制转换计算器，支持二进制、八进制、十进制、十六进制等多种进制之间的相互转换。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线进制转换计算器，支持二进制、八进制、十进制、十六进制等多种进制之间的相互转换。") }}</el-text>
     </ToolDetail>
 
   </div>

@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { reactive, ref, shallowRef, onBeforeUnmount } from 'vue'
+import { t, locale } from '@/i18n'
+
+import { computed, watch, reactive, ref, shallowRef, onBeforeUnmount } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
 import html2canvas from "html2canvas";
 import '@wangeditor/editor/dist/css/style.css' // 引入富文本 css
+import { i18nChangeLanguage } from '@wangeditor/editor'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'  //富文本组件
 // import { copy } from '@/utils/string'
 const info = reactive({
@@ -46,7 +49,14 @@ const toolbarConfig = {
 }
 
 //编辑器配置
-const editorConfig = { placeholder: '请输入内容...' }
+const editorConfig = computed(() => ({ placeholder: t('请输入内容...') }))
+
+// 重新创建编辑器的菜单时保留绑定的 HTML 内容。
+watch(locale, value => {
+  i18nChangeLanguage(value === 'en' ? 'en' : 'zh-CN')
+  editorRef.value?.destroy()
+  editorRef.value = undefined
+}, { immediate: true, flush: 'sync' })
 
 const handleCreated = (editor) => {
   editorRef.value = editor // 记录 editor 实例，重要！
@@ -96,13 +106,13 @@ onBeforeUnmount(() => {
         <div class="">
           
           <div class="flex items-center">
-            <el-text class="w-20">宽度：</el-text>
+            <el-text class="w-20">{{ t("宽度：") }}</el-text>
             <el-slider v-model="info.convasWidth" show-input size="large" :min="260" :max="1920"/>
           </div>
         </div>
         <div class="mt-3 flex items-center justify-between">
           <div class="">
-            <el-text>背景颜色：</el-text>
+            <el-text>{{ t("背景颜色：") }}</el-text>
             <el-color-picker v-model="info.convasBackgroundColor" size="large" />
           </div>
           <div class="flex">
@@ -110,22 +120,22 @@ onBeforeUnmount(() => {
               <el-option
                 v-for="item in info.downExts"
                 :key="item.value"
-                :label="item.label"
+                :label="t(item.label)"
                 :value="item.value"
               />
             </el-select>
-            <el-button type="primary" class="ml-2"  @click="goDown">下载</el-button> 
+            <el-button type="primary" class="ml-2"  @click="goDown">{{ t("下载") }}</el-button>
           </div>
         </div>
       </div>
       <div class="border relative z-10 mt-3">
-        <Toolbar
+        <Toolbar :key="'toolbar-' + locale"
           class="border-b"
           :editor="editorRef"
           :defaultConfig="toolbarConfig"
           :mode="info.mode"
         />
-        <Editor
+        <Editor :key="'editor-' + locale"
           v-model="valueHtml"
           :defaultConfig="editorConfig"
           :mode="info.mode"
@@ -136,10 +146,8 @@ onBeforeUnmount(() => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        把文本转换成图片，生成长图，富文本自定义文字排版，可导出png，jpeg格式，可更换背景图，设置宽度，是好用的文本转图片工具
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("把文本转换成图片，生成长图，富文本自定义文字排版，可导出png，jpeg格式，可更换背景图，设置宽度，是好用的文本转图片工具") }}</el-text>
     </ToolDetail>
   </div>
 </template>

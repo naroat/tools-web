@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { onMounted, reactive, ref,computed, watch } from 'vue'
 import { UploadProps,UploadRawFile,genFileId } from 'element-plus'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
@@ -106,11 +108,11 @@ onMounted(() => {
         :on-exceed="handleExceed"
         :limit="1"
       >
-        <el-button type="primary">请上传需要切割的图片</el-button>
+        <el-button type="primary">{{ t("请上传需要切割的图片") }}</el-button>
       </el-upload>
       <div class="flex mt-3">
         <div class="flex">
-          <el-text>行数和列数</el-text>
+          <el-text>{{ t("行数和列数") }}</el-text>
           <el-input-number v-model="lineNum" :min="1" :max="10" class="ml-3"/>
         </div>
       </div>
@@ -119,31 +121,28 @@ onMounted(() => {
       <div class="mt-3 min-h-md bg-gray-100 p-3 mb-3 flex flex-col" v-if="image.src">
         <!-- 预览 -->
         <div class="mb-3">
-          <el-text>预览: </el-text>
+          <el-text>{{ t("预览:") }}</el-text>
           <div :style="cutImgStyle" class="grid gap-1 max-w-full">
-              <img v-for="(src,index) in cutImg" :key="index" :src="src" alt="结果" />
+              <img v-for="(src,index) in cutImg" :key="index" :src="src" :alt="t('结果')" />
           </div>
         </div>
 
         <!-- 原图 -->
         <div>
-          <el-text>原图: </el-text>
+          <el-text>{{ t("原图:") }}</el-text>
           <div>
-            <img :src="image.src" alt="原图" v-if="image.src"/>
+            <img :src="image.src" :alt="t('原图')" v-if="image.src"/>
           </div>
         </div>
       </div>
       <div v-else>
-        <el-empty :image-size="200" description="无预览"/>
+        <el-empty :image-size="200" :description="t('无预览')"/>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列；<br>
-        比如：九宫格切图广泛应用于微信朋友圈，微博等社交媒体。
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("将图片分割成四宫格、九宫格、十六宫格，支持自定义行与列；") }}<br>{{ t("比如：九宫格切图广泛应用于微信朋友圈，微博等社交媒体。") }}</el-text>
     </ToolDetail>
   </div>
 </template>

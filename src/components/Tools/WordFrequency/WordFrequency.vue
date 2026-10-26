@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -15,16 +17,16 @@ const frequencyResult = ref([] as { word: string; count: number }[])
 // 统计词频
 const calculateFrequency = () => {
   if (!inputText.value) {
-    ElMessage.warning('请输入要统计词频的文本')
+    ElMessage.warning(t('请输入要统计词频的文本'))
     return
   }
   
   try {
     const frequency = countWordFrequency(inputText.value, minWordLength.value)
     frequencyResult.value = frequency
-    ElMessage.success('统计完成')
+    ElMessage.success(t('统计完成'))
   } catch (error) {
-    ElMessage.error('统计失败：' + error)
+    ElMessage.error(t('统计失败：') + error)
   }
 }
 
@@ -63,7 +65,7 @@ const tokenize = (text: string): string[] => {
 // 复制结果
 const copyResult = () => {
   if (frequencyResult.value.length === 0) {
-    ElMessage.warning('没有可复制的内容')
+    ElMessage.warning(t('没有可复制的内容'))
     return
   }
   
@@ -72,7 +74,7 @@ const copyResult = () => {
     .join('\n')
   
   copy(resultText)
-  ElMessage.success('复制成功')
+  ElMessage.success(t('复制成功'))
 }
 
 // 清空输入
@@ -93,20 +95,20 @@ const clearInput = () => {
           v-model="inputText"
           type="textarea"
           :rows="6"
-          placeholder="请输入要统计词频的文本"
+          :placeholder="t('请输入要统计词频的文本')"
           class="mb-2"
         />
         
         <div class="flex items-center gap-2 mb-2">
-          <el-text>最小单词长度：</el-text>
+          <el-text>{{ t("最小单词长度：") }}</el-text>
           <el-input-number v-model="minWordLength" :min="1" :max="10" size="small" />
         </div>
       </div>
       
       <!-- 操作按钮 -->
       <div class="mb-4">
-        <el-button type="primary" @click="calculateFrequency">统计词频</el-button>
-        <el-button @click="clearInput">清空</el-button>
+        <el-button type="primary" @click="calculateFrequency">{{ t("统计词频") }}</el-button>
+        <el-button @click="clearInput">{{ t("清空") }}</el-button>
       </div>
       
       <!-- 结果部分 -->
@@ -114,24 +116,22 @@ const clearInput = () => {
         <el-card shadow="never">
           <template #header>
             <div class="flex justify-between items-center">
-              <div class="font-bold">统计结果</div>
-              <el-button size="small" @click="copyResult">复制结果</el-button>
+              <div class="font-bold">{{ t("统计结果") }}</div>
+              <el-button size="small" @click="copyResult">{{ t("复制结果") }}</el-button>
             </div>
           </template>
           
           <el-table :data="frequencyResult" style="width: 100%">
-            <el-table-column prop="word" label="单词" width="200" />
-            <el-table-column prop="count" label="出现次数" />
+            <el-table-column prop="word" :label="t('单词')" width="200" />
+            <el-table-column prop="count" :label="t('出现次数')" />
           </el-table>
         </el-card>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线词频统计工具，用于统计文本中单词出现的频率，可用于文本分析、关键词提取等场景，支持设置最小单词长度。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线词频统计工具，用于统计文本中单词出现的频率，可用于文本分析、关键词提取等场景，支持设置最小单词长度。") }}</el-text>
     </ToolDetail>
 
   </div>

@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import type { ToolsReqData } from '@/components/Tools/tools.type.ts'
 
 //获取tools分类与对应的工具
@@ -726,8 +727,8 @@ export function getTools(data: ToolsReqData) {
   //标题筛选
   if (title != '') {
     list = list.filter(item => {
-      let tmpValue = item.title.toLowerCase()
-      let tmpDesc = item.desc.toLowerCase()
+      let tmpValue = (item.title + ' ' + t(item.title)).toLowerCase()
+      let tmpDesc = (item.desc + ' ' + t(item.desc)).toLowerCase()
       // console.log(tmpValue.indexOf(title.toLowerCase()))
       return tmpValue.indexOf(title.toLowerCase()) !== -1 || tmpDesc.indexOf(title.toLowerCase()) !== -1;
     });

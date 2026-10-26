@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, reactive } from "vue"
 import  SignImageCore  from './SignImageCore.vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
@@ -55,7 +57,7 @@ const saveImg = () => {
     <div class="flex flex-col mb-3 h-[38rem] p-4 rounded-2xl bg-white">
       <div class="mb-3 flex flex-row-reverse">
         <!-- save -->
-        <el-button type="primary" class="ml-2" @click="saveImg">保存</el-button>
+        <el-button type="primary" class="ml-2" @click="saveImg">{{ t("保存") }}</el-button>
         <!-- upload -->
         <el-upload
           ref="upload"
@@ -67,7 +69,7 @@ const saveImg = () => {
           :show-file-list="false"
         >
           <template #trigger>
-            <el-button type="primary">选择图片</el-button>
+            <el-button type="primary">{{ t("选择图片") }}</el-button>
           </template>
         </el-upload>
       </div>
@@ -83,10 +85,8 @@ const saveImg = () => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线图片裁剪，图片标注，图片滤镜，图片画笔、图片旋转、图片文字、图片尺寸调整等操作
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线图片裁剪，图片标注，图片滤镜，图片画笔、图片旋转、图片文字、图片尺寸调整等操作") }}</el-text>
     </ToolDetail>
 
   </div>

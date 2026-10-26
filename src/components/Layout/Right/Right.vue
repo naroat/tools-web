@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { Tools } from '@element-plus/icons-vue'
 import { reactive, onMounted } from 'vue';
 import { useToolsStore } from '@/store/modules/tools'
@@ -46,11 +48,11 @@ onMounted(() => {
     </div>
     <!-- hot tools -->
     <div class="mt-3 border-solid rounded border-gray border p-3 c-xs:mr-3 c-xs:ml-3">
-      <div class="text-xl text-gray-400 font-bold">随机推荐</div>
+      <div class="text-xl text-gray-400 font-bold">{{ t("随机推荐") }}</div>
       <ul class="mt-3">
         <RouterLink :to="item.url" class="flex items-center hover:bg-gray-200 p-1 rounded" v-for="(item, index) in toolsStore.recommends" :key="index">
           <el-icon class="mr-1"><Tools /></el-icon>
-          <div>{{ item.title }}</div>
+          <div>{{ t(item.title) }}</div>
         </RouterLink>
       </ul>
     </div>

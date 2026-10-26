@@ -6,7 +6,7 @@
       <div class="tool-content">
         <div class="input-section">
           <el-form label-position="top">
-            <el-form-item label="上传图片">
+            <el-form-item :label="t('上传图片')">
               <el-upload
                 class="upload-demo"
                 action="#"
@@ -15,57 +15,55 @@
                 :show-file-list="false"
                 accept="image/*"
               >
-                <el-button type="primary">点击上传</el-button>
+                <el-button type="primary">{{ t("点击上传") }}</el-button>
                 <template #tip>
-                  <div class="el-upload__tip">
-                    支持 JPG、PNG、GIF 等格式的图片
-                  </div>
+                  <div class="el-upload__tip">{{ t("支持 JPG、PNG、GIF 等格式的图片") }}</div>
                 </template>
               </el-upload>
             </el-form-item>
             
-            <el-form-item label="水印文字">
+            <el-form-item :label="t('水印文字')">
               <el-input
                 v-model="watermarkText"
-                placeholder="请输入水印文字"
+                :placeholder="t('请输入水印文字')"
               />
             </el-form-item>
             
-            <el-form-item label="水印设置">
+            <el-form-item :label="t('水印设置')">
               <div class="settings-grid">
-                <el-form-item label="位置" class="setting-item">
+                <el-form-item :label="t('位置')" class="setting-item">
                   <el-select v-model="position" size="small">
-                    <el-option label="左上角" value="top-left" />
-                    <el-option label="右上角" value="top-right" />
-                    <el-option label="左下角" value="bottom-left" />
-                    <el-option label="右下角" value="bottom-right" />
-                    <el-option label="居中" value="center" />
+                    <el-option :label="t('左上角')" value="top-left" />
+                    <el-option :label="t('右上角')" value="top-right" />
+                    <el-option :label="t('左下角')" value="bottom-left" />
+                    <el-option :label="t('右下角')" value="bottom-right" />
+                    <el-option :label="t('居中')" value="center" />
                   </el-select>
                 </el-form-item>
                 
-                <el-form-item label="字体大小" class="setting-item">
+                <el-form-item :label="t('字体大小')" class="setting-item">
                   <el-input-number v-model="fontSize" :min="12" :max="100" size="small" />
                 </el-form-item>
                 
-                <el-form-item label="透明度" class="setting-item">
+                <el-form-item :label="t('透明度')" class="setting-item">
                   <el-slider v-model="opacity" :min="0" :max="1" :step="0.1" />
                 </el-form-item>
                 
-                <el-form-item label="颜色" class="setting-item">
+                <el-form-item :label="t('颜色')" class="setting-item">
                   <el-color-picker v-model="textColor" size="small" />
                 </el-form-item>
               </div>
             </el-form-item>
             
             <el-form-item>
-              <el-button type="primary" @click="addWatermark">添加水印</el-button>
-              <el-button @click="clearImage">清空</el-button>
+              <el-button type="primary" @click="addWatermark">{{ t("添加水印") }}</el-button>
+              <el-button @click="clearImage">{{ t("清空") }}</el-button>
             </el-form-item>
           </el-form>
         </div>
         
         <div class="preview-section">
-          <h3>预览</h3>
+          <h3>{{ t("预览") }}</h3>
           <div class="preview-container">
             <div v-if="imageUrl" class="image-wrapper">
               <img :src="imageUrl" class="original-image" />
@@ -76,29 +74,27 @@
                 :height="imageHeight"
               ></canvas>
             </div>
-            <div v-else class="no-image">
-              请上传图片
-            </div>
+            <div v-else class="no-image">{{ t("请上传图片") }}</div>
           </div>
           
           <div v-if="watermarkedUrl" class="download-section">
-            <el-button type="success" @click="downloadImage">下载图片</el-button>
+            <el-button type="success" @click="downloadImage">{{ t("下载图片") }}</el-button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线图片水印添加工具，上传图片后添加自定义文字水印，支持设置水印位置、字体大小、透明度和颜色，可下载带水印的图片。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线图片水印添加工具，上传图片后添加自定义文字水印，支持设置水印位置、字体大小、透明度和颜色，可下载带水印的图片。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, nextTick } from 'vue';
 import { ElMessage } from 'element-plus';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
@@ -136,7 +132,7 @@ const handleFileChange = (file: any) => {
 // 添加水印
 const addWatermark = async () => {
   if (!imageUrl.value || !watermarkText.value) {
-    ElMessage.warning('请上传图片并输入水印文字');
+    ElMessage.warning(t('请上传图片并输入水印文字'));
     return;
   }
   

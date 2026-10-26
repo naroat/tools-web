@@ -1,3 +1,5 @@
+
+import { t } from '@/i18n'
 import { ElMessage } from 'element-plus';
 import clipboard3 from 'vue-clipboard3'
 
@@ -27,7 +29,7 @@ export function copy(resStr: string) {
     //check
     if (resStr == '') {
       ElMessage({
-        message: "无可复制内容",
+        message: t("无可复制内容"),
         type: "warning",
         duration: 1500
       })
@@ -37,13 +39,13 @@ export function copy(resStr: string) {
     const {toClipboard} = clipboard3()
     toClipboard(resStr)
     ElMessage({
-      message: "复制成功",
+      message: t("复制成功"),
       type: "success",
       duration: 1500
     })
   } catch (error) {
     ElMessage({
-      message: "复制失败",
+      message: t("复制失败"),
       type: "error",
       duration: 1500
     })
@@ -79,7 +81,7 @@ export function numberToChinese(num: number): string {
   let len = numStr.length
   if (len > 13) {
     ElMessage({
-      message: "金额太大无法转换",
+      message: t("金额太大无法转换"),
       type: "error",
       duration: 1500
     })

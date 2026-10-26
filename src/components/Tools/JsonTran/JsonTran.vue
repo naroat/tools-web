@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -100,7 +102,7 @@ const copyRes = async () => {
          -->
         <codemirror
           v-model="info.code"
-          placeholder="这里是代码..."
+          :placeholder="t('这里是代码...')"
           :style="{ height: '400px' }"
           :autofocus="true"
           :indent-with-tab="true" 
@@ -110,14 +112,14 @@ const copyRes = async () => {
       </div>
       
       <div class="mt-4">
-        <el-button type="primary" @click="formatJson">校验/格式化</el-button>
-        <el-button type="primary" @click="compress">压缩</el-button>
-        <el-button type="primary" @click="tran">转义</el-button>
-        <el-button type="primary" @click="unTransferred">去转义</el-button>
+        <el-button type="primary" @click="formatJson">{{ t("校验/格式化") }}</el-button>
+        <el-button type="primary" @click="compress">{{ t("压缩") }}</el-button>
+        <el-button type="primary" @click="tran">{{ t("转义") }}</el-button>
+        <el-button type="primary" @click="unTransferred">{{ t("去转义") }}</el-button>
         <!-- <el-button type="primary">unicode转中文</el-button> -->
         <!-- <el-button type="primary">中文转unicode</el-button> -->
-        <el-button type="primary" @click="copyRes">复制</el-button>
-        <el-button type="primary" @click="clear">清空</el-button>
+        <el-button type="primary" @click="copyRes">{{ t("复制") }}</el-button>
+        <el-button type="primary" @click="clear">{{ t("清空") }}</el-button>
       </div>
 
       <div class="mt-3 min-h-md bg-red-100 p-3 mb-3" v-show="info.isParseErr">
@@ -126,11 +128,8 @@ const copyRes = async () => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        JSON（JavaScript Object Notation）是一种轻量级的数据交换格式。它基于JavaScript的一个子集，但与语言无关，因此在多种编程环境中广泛使用。JSON格式易于人阅读和编写，同时也易于机器解析和生成。它通常用于网络应用程序中服务器与客户端之间的数据传输。<br>
-        JSON 工具提供实时编辑和预览JSON 数据，语法高亮、校验、格式化、转义，去转义、压缩等功能，可以提高阅读修改的效率和准确性
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("JSON（JavaScript Object Notation）是一种轻量级的数据交换格式。它基于JavaScript的一个子集，但与语言无关，因此在多种编程环境中广泛使用。JSON格式易于人阅读和编写，同时也易于机器解析和生成。它通常用于网络应用程序中服务器与客户端之间的数据传输。") }}<br>{{ t("JSON 工具提供实时编辑和预览JSON 数据，语法高亮、校验、格式化、转义，去转义、压缩等功能，可以提高阅读修改的效率和准确性") }}</el-text>
     </ToolDetail>
   </div>
 </template>

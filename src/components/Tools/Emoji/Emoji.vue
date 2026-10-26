@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, computed } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -670,7 +672,7 @@ const filteredEmojis = computed(() => {
   // 按关键词搜索
   if (searchKeyword.value) {
     const keyword = searchKeyword.value.toLowerCase()
-    result = result.filter(emoji => emoji.name.toLowerCase().includes(keyword))
+    result = result.filter(emoji => (emoji.name + ' ' + t(emoji.name)).toLowerCase().includes(keyword))
   }
   
   return result
@@ -691,7 +693,7 @@ const copyEmoji = (emoji: string) => {
       <div class="mb-4">
         <el-input
           v-model="searchKeyword"
-          placeholder="搜索Emoji"
+          :placeholder="t('搜索Emoji')"
           class="mb-4"
         />
         
@@ -703,7 +705,7 @@ const copyEmoji = (emoji: string) => {
             @click="selectedCategory = category.id"
             size="small"
           >
-            {{ category.name }}
+            {{ t(category.name) }}
           </el-button>
         </div>
       </div>
@@ -717,16 +719,14 @@ const copyEmoji = (emoji: string) => {
           @click="copyEmoji(emoji.emoji)"
         >
           <div class="text-3xl mb-1">{{ emoji.emoji }}</div>
-          <div class="text-xs text-center">{{ emoji.name }}</div>
+          <div class="text-xs text-center">{{ t(emoji.name) }}</div>
         </div>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线Emoji表情大全，提供各种分类的Emoji表情，点击即可复制到剪贴板，方便在聊天、文档中使用。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线Emoji表情大全，提供各种分类的Emoji表情，点击即可复制到剪贴板，方便在聊天、文档中使用。") }}</el-text>
     </ToolDetail>
 
   </div>

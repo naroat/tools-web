@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -43,21 +45,19 @@ const changeContent = () => {
         <el-input type="textarea" :rows="16" v-model="info.content" @input="changeContent"></el-input>
       </div>
       <div class="mt-3 min-h-md bg-gray-100 p-3 mb-3 flex">
-        <div><el-text>总字数：{{ info.sum }}</el-text></div>
-        <div class="ml-3"><el-text>汉字：{{ info.chinaCharNum }}</el-text></div>
-        <div class="ml-3"><el-text>字母：{{ info.letterNum }}</el-text></div>
-        <div class="ml-3"><el-text>数字：{{ info.numberNum }}</el-text></div>
-        <div class="ml-3"><el-text>标点符号半角：{{ info.punctuationHalfNum }}</el-text></div>
-        <div class="ml-3"><el-text>标点符号全角：{{ info.punctuationFullNum }}</el-text></div>
-        <div class="ml-3"><el-text>空白字符：{{ info.emptyNum }}</el-text></div>
+        <div><el-text>{{ t("总字数：") }}{{ info.sum }}</el-text></div>
+        <div class="ml-3"><el-text>{{ t("汉字：") }}{{ info.chinaCharNum }}</el-text></div>
+        <div class="ml-3"><el-text>{{ t("字母：") }}{{ info.letterNum }}</el-text></div>
+        <div class="ml-3"><el-text>{{ t("数字：") }}{{ info.numberNum }}</el-text></div>
+        <div class="ml-3"><el-text>{{ t("标点符号半角：") }}{{ info.punctuationHalfNum }}</el-text></div>
+        <div class="ml-3"><el-text>{{ t("标点符号全角：") }}{{ info.punctuationFullNum }}</el-text></div>
+        <div class="ml-3"><el-text>{{ t("空白字符：") }}{{ info.emptyNum }}</el-text></div>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线统计字数、汉字、标点、数字、字母、字符
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线统计字数、汉字、标点、数字、字母、字符") }}</el-text>
     </ToolDetail>
 
   </div>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -45,15 +47,13 @@ const random = () => {
       </div>
 
       <div>
-        <el-button @click="random" type="primary" size="large" v-if="!info.genStatus">生成</el-button>
-        <el-button @click="random" type="primary" size="large" disabled v-else>生成...</el-button>
+        <el-button @click="random" type="primary" size="large" v-if="!info.genStatus">{{ t("生成") }}</el-button>
+        <el-button @click="random" type="primary" size="large" disabled v-else>{{ t("生成...") }}</el-button>
       </div>
     </div>
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        可定制范围内进行随机数字，可用于抽奖、点名等用途
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("可定制范围内进行随机数字，可用于抽奖、点名等用途") }}</el-text>
     </ToolDetail>
 
   </div>

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { locale } from '@/i18n'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import en from 'element-plus/es/locale/lang/en'
 import Header from '@/components/Layout/Header/Header.vue'
 import Left from '@/components/Layout/Left/Left.vue'
 import Floor from '@/components/Layout/Floor/Floor.vue'
@@ -7,10 +11,12 @@ import { useComponentStore } from '@/store/modules/component'
 
 //store
 const componentStore = useComponentStore()
+const elementLocale = computed(() => locale.value === 'en' ? en : zhCn)
 
 </script>
 
 <template>
+  <el-config-provider :locale="elementLocale">
   <el-container>
     <!-- left -->
     <transition name="left-sidebar">
@@ -46,6 +52,7 @@ const componentStore = useComponentStore()
     </el-container>
 
   </el-container>
+  </el-config-provider>
 </template>
 
 <style scoped>

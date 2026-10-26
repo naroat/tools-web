@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -38,58 +40,56 @@ const copyRes = async (resStr: string) => {
 
     <div class="p-4 rounded-2xl bg-white ">
       <div>
-        <el-input v-model="info.encryptStr" :rows="5" type="textarea" placeholder="请输入加密内容"></el-input>
+        <el-input v-model="info.encryptStr" :rows="5" type="textarea" :placeholder="t('请输入加密内容')"></el-input>
       </div>
       
       <div class="mt-4">
-        <el-button type="primary" @click="encrypt()" >加密</el-button>
-        <el-button type="primary" @click="clear()">清空输入框</el-button>
+        <el-button type="primary" @click="encrypt()" >{{ t("加密") }}</el-button>
+        <el-button type="primary" @click="clear()">{{ t("清空输入框") }}</el-button>
       </div>
 
       <div class="w-[30rem]">
         <el-input :value="info.encryptUpper32" class="mt-4" readonly>
           <template #prepend>
-            <el-text>32位大写</el-text>
+            <el-text>{{ t("32位大写") }}</el-text>
           </template>
           <template #append>
-            <el-button @click="copyRes(info.encryptUpper32)">复制</el-button>
+            <el-button @click="copyRes(info.encryptUpper32)">{{ t("复制") }}</el-button>
           </template>
         </el-input>
 
         <el-input :value="info.encryptLower32" class="mt-2" readonly>
           <template #prepend>
-            <el-text>32位小写</el-text>
+            <el-text>{{ t("32位小写") }}</el-text>
           </template>
           <template #append>
-            <el-button @click="copyRes(info.encryptLower32)">复制</el-button>
+            <el-button @click="copyRes(info.encryptLower32)">{{ t("复制") }}</el-button>
           </template>
         </el-input>
 
         <el-input :value="info.encryptUpper16" class="mt-2" readonly>
           <template #prepend>
-            <el-text>16位大写</el-text>
+            <el-text>{{ t("16位大写") }}</el-text>
           </template>
           <template #append>
-            <el-button @click="copyRes(info.encryptUpper16)">复制</el-button>
+            <el-button @click="copyRes(info.encryptUpper16)">{{ t("复制") }}</el-button>
           </template>
         </el-input>
 
         <el-input :value="info.encryptLower16" class="mt-2" readonly>
           <template #prepend>
-            <el-text>16位小写</el-text>
+            <el-text>{{ t("16位小写") }}</el-text>
           </template>
           <template #append>
-            <el-button @click="copyRes(info.encryptLower16)">复制</el-button>
+            <el-button @click="copyRes(info.encryptLower16)">{{ t("复制") }}</el-button>
           </template>
         </el-input>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线md5加密,md5加密算法,md5加密工具,免费MD5在线加密,可生成32位md5,16位md5
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线md5加密,md5加密算法,md5加密工具,免费MD5在线加密,可生成32位md5,16位md5") }}</el-text>
     </ToolDetail>
 
   </div>

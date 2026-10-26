@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -23,10 +25,8 @@ const info = reactive({
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线编辑markdown
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线编辑markdown") }}</el-text>
     </ToolDetail>
 
   </div>

@@ -6,7 +6,7 @@
       <div class="tool-content">
         <div class="upload-section">
           <el-form label-position="top">
-            <el-form-item label="上传图片">
+            <el-form-item :label="t('上传图片')">
               <el-upload
                 class="upload-demo"
                 action="#"
@@ -15,11 +15,9 @@
                 :show-file-list="false"
                 accept="image/*"
               >
-                <el-button type="primary">点击上传</el-button>
+                <el-button type="primary">{{ t("点击上传") }}</el-button>
                 <template #tip>
-                  <div class="el-upload__tip">
-                    支持 JPG、PNG、GIF 等格式的图片
-                  </div>
+                  <div class="el-upload__tip">{{ t("支持 JPG、PNG、GIF 等格式的图片") }}</div>
                 </template>
               </el-upload>
             </el-form-item>
@@ -41,51 +39,47 @@
               class="hidden-canvas"
             ></canvas>
           </div>
-          <div v-else class="no-image">
-            请上传图片
-          </div>
+          <div v-else class="no-image">{{ t("请上传图片") }}</div>
         </div>
         
         <div class="color-section">
-          <h3>颜色信息</h3>
+          <h3>{{ t("颜色信息") }}</h3>
           <div v-if="selectedColor" class="color-info">
             <div class="color-preview" :style="{ backgroundColor: selectedColor.hex }"></div>
             <div class="color-details">
               <div class="color-item">
                 <span class="color-label">HEX:</span>
                 <span class="color-value">{{ selectedColor.hex }}</span>
-                <el-button type="text" size="small" @click="copyColor(selectedColor.hex)">复制</el-button>
+                <el-button type="text" size="small" @click="copyColor(selectedColor.hex)">{{ t("复制") }}</el-button>
               </div>
               <div class="color-item">
                 <span class="color-label">RGB:</span>
                 <span class="color-value">{{ selectedColor.rgb }}</span>
-                <el-button type="text" size="small" @click="copyColor(selectedColor.rgb)">复制</el-button>
+                <el-button type="text" size="small" @click="copyColor(selectedColor.rgb)">{{ t("复制") }}</el-button>
               </div>
               <div class="color-item">
                 <span class="color-label">HSL:</span>
                 <span class="color-value">{{ selectedColor.hsl }}</span>
-                <el-button type="text" size="small" @click="copyColor(selectedColor.hsl)">复制</el-button>
+                <el-button type="text" size="small" @click="copyColor(selectedColor.hsl)">{{ t("复制") }}</el-button>
               </div>
             </div>
           </div>
-          <div v-else class="no-color">
-            点击图片获取颜色
-          </div>
+          <div v-else class="no-color">{{ t("点击图片获取颜色") }}</div>
         </div>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线传图取色工具，上传图片后点击图片任意位置获取颜色值，支持 HEX、RGB、HSL 三种颜色格式，可用于设计和开发中获取颜色参考。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线传图取色工具，上传图片后点击图片任意位置获取颜色值，支持 HEX、RGB、HSL 三种颜色格式，可用于设计和开发中获取颜色参考。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue';
 import { ElMessage } from 'element-plus';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
@@ -155,7 +149,7 @@ const handleImageClick = (e: MouseEvent) => {
     }
   } catch (error) {
     console.error('取色失败:', error);
-    ElMessage.error('取色失败，可能是图片跨域问题');
+    ElMessage.error(t('取色失败，可能是图片跨域问题'));
   }
 };
 
@@ -199,9 +193,9 @@ const rgbToHsl = (r: number, g: number, b: number) => {
 // 复制颜色值
 const copyColor = (color: string) => {
   navigator.clipboard.writeText(color).then(() => {
-    ElMessage.success('已复制到剪贴板');
+    ElMessage.success(t('已复制到剪贴板'));
   }).catch(() => {
-    ElMessage.error('复制失败');
+    ElMessage.error(t('复制失败'));
   });
 };
 </script>

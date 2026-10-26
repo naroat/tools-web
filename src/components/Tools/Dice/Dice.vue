@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref,reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -51,24 +53,22 @@ const resetDice = () => {
       </div>
       <div class="">
         <div class="ml-5 flex justify-center">
-          <el-text style="">骰子数量：</el-text>
+          <el-text style="">{{ t("骰子数量：") }}</el-text>
           <div class="w-4/6">
             <el-slider class="w-72 ml-3" v-model="diceNum" :min="1" :max="6" :step="1" blockSize="18" :showValue="true"></el-slider>
           </div>
         </div>
       </div>
       <div class="mb-5 flex justify-center">
-        <el-button type="primary" class="w-48" size="large" @click="shake" v-if="!genStatus">投骰子</el-button>
-        <el-button type="primary" class="w-48" size="large" disabled v-else>投骰子...</el-button>
-        <el-button type="primary" class="w-48" size="large" @click="resetDice">重置</el-button>
+        <el-button type="primary" class="w-48" size="large" @click="shake" v-if="!genStatus">{{ t("投骰子") }}</el-button>
+        <el-button type="primary" class="w-48" size="large" disabled v-else>{{ t("投骰子...") }}</el-button>
+        <el-button type="primary" class="w-48" size="large" @click="resetDice">{{ t("重置") }}</el-button>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线投骰子，骰子工具，自定义骰子数量
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线投骰子，骰子工具，自定义骰子数量") }}</el-text>
     </ToolDetail>
 
   </div>

@@ -42,29 +42,23 @@
               type="primary" 
               @click="startTimer" 
               :disabled="isRunning"
-            >
-              开始
-            </el-button>
+            >{{ t("开始") }}</el-button>
             <el-button 
               type="warning" 
               @click="pauseTimer" 
               :disabled="!isRunning"
-            >
-              暂停
-            </el-button>
+            >{{ t("暂停") }}</el-button>
             <el-button 
               type="danger" 
               @click="resetTimer"
-            >
-              重置
-            </el-button>
+            >{{ t("重置") }}</el-button>
           </div>
         </div>
         
         <div class="settings-section">
-          <h3>时间设置（分钟）</h3>
+          <h3>{{ t("时间设置（分钟）") }}</h3>
           <el-form label-position="top" class="settings-form">
-            <el-form-item label="工作时间">
+            <el-form-item :label="t('工作时间')">
               <el-input-number 
                 v-model="workTime" 
                 :min="1" 
@@ -73,7 +67,7 @@
                 :disabled="isRunning"
               />
             </el-form-item>
-            <el-form-item label="短休息">
+            <el-form-item :label="t('短休息')">
               <el-input-number 
                 v-model="shortBreakTime" 
                 :min="1" 
@@ -82,7 +76,7 @@
                 :disabled="isRunning"
               />
             </el-form-item>
-            <el-form-item label="长休息">
+            <el-form-item :label="t('长休息')">
               <el-input-number 
                 v-model="longBreakTime" 
                 :min="1" 
@@ -91,7 +85,7 @@
                 :disabled="isRunning"
               />
             </el-form-item>
-            <el-form-item label="工作轮数">
+            <el-form-item :label="t('工作轮数')">
               <el-input-number 
                 v-model="workRounds" 
                 :min="1" 
@@ -103,18 +97,18 @@
         </div>
         
         <div class="status-section">
-          <h3>状态</h3>
+          <h3>{{ t("状态") }}</h3>
           <div class="status-info">
             <div class="status-item">
-              <span class="status-label">当前模式:</span>
-              <span class="status-value">{{ currentModeText }}</span>
+              <span class="status-label">{{ t("当前模式:") }}</span>
+              <span class="status-value">{{ t(currentModeText) }}</span>
             </div>
             <div class="status-item">
-              <span class="status-label">已完成轮数:</span>
+              <span class="status-label">{{ t("已完成轮数:") }}</span>
               <span class="status-value">{{ completedRounds }}/{{ workRounds }}</span>
             </div>
             <div class="status-item">
-              <span class="status-label">今日完成:</span>
+              <span class="status-label">{{ t("今日完成:") }}</span>
               <span class="status-value">{{ todayCompleted }}</span>
             </div>
           </div>
@@ -123,16 +117,16 @@
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线番茄时钟工具，用于时间管理，支持工作和休息模式切换，可自定义工作时间、休息时间和工作轮数，帮助提高工作效率和专注力。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线番茄时钟工具，用于时间管理，支持工作和休息模式切换，可自定义工作时间、休息时间和工作轮数，帮助提高工作效率和专注力。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { ElMessage } from 'element-plus';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
@@ -240,7 +234,7 @@ const switchMode = () => {
     currentTime.value = workTime.value * 60;
   }
   
-  ElMessage.success(`切换到${currentModeText.value}模式`);
+  ElMessage.success(t('切换到{mode}模式', { mode: t(currentModeText.value) }));
 };
 
 // 播放提示音

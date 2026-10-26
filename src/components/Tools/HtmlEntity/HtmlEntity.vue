@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive,ref,onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -39,12 +41,12 @@ onMounted(() => {
 
     <div class="p-4 rounded-2xl bg-white ">
       <div class="mb-6">
-        <el-input v-model="content" :rows="10" type="textarea" placeholder="请输入内容" @change="parser"></el-input>
+        <el-input v-model="content" :rows="10" type="textarea" :placeholder="t('请输入内容')" @change="parser"></el-input>
         <div class="mt-3">
-          <el-button type="primary" @click="parser('toEntity')">HTML转实体</el-button>
-          <el-button type="primary" @click="parser('toHTML')">实体转HTML</el-button>
-          <el-button type="primary" @click="copy(cleanContent)">复制结果</el-button>
-          <el-button type="primary" @click="clear">清除</el-button>
+          <el-button type="primary" @click="parser('toEntity')">{{ t("HTML转实体") }}</el-button>
+          <el-button type="primary" @click="parser('toHTML')">{{ t("实体转HTML") }}</el-button>
+          <el-button type="primary" @click="copy(cleanContent)">{{ t("复制结果") }}</el-button>
+          <el-button type="primary" @click="clear">{{ t("清除") }}</el-button>
         </div>
       </div>
 
@@ -54,10 +56,8 @@ onMounted(() => {
 
 
       <!-- desc -->
-      <ToolDetail title="描述">
-        <el-text>
-          html实体转义，实体转义成html
-        </el-text> 
+      <ToolDetail :title="t('描述')">
+        <el-text>{{ t("html实体转义，实体转义成html") }}</el-text>
       </ToolDetail>
     </div>
   </div>

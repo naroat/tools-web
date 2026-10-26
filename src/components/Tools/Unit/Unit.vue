@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive, onMounted } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -60,31 +62,31 @@ onMounted(() => {
     <div>
       <div  class="p-4 rounded-2xl bg-white">
         <el-tabs v-model="info.activeName" class="demo-tabs" @tab-click="handleClick">
-          <el-tab-pane label="长度" name="lengthTab">
+          <el-tab-pane :label="t('长度')" name="lengthTab">
             <Length/>
           </el-tab-pane>
-          <el-tab-pane label="面积" name="areaTab">
+          <el-tab-pane :label="t('面积')" name="areaTab">
             <Area/>
           </el-tab-pane>
           <!-- <el-tab-pane label="体积" name="lengthTab">体积</el-tab-pane> -->
-          <el-tab-pane label="重量" name="weightTab">
+          <el-tab-pane :label="t('重量')" name="weightTab">
             <Weight/>
           </el-tab-pane>
-          <el-tab-pane label="时间" name="timeTab">
+          <el-tab-pane :label="t('时间')" name="timeTab">
             <Time/>
           </el-tab-pane>
           <!-- <el-tab-pane label="角度" name="fourth">角度</el-tab-pane> -->
           <!-- <el-tab-pane label="速度" name="fourth">速度</el-tab-pane> -->
-          <el-tab-pane label="温度" name="temperatureTab">
+          <el-tab-pane :label="t('温度')" name="temperatureTab">
             <Temperature/>
           </el-tab-pane>
-          <el-tab-pane label="压力" name="pressureTab">
+          <el-tab-pane :label="t('压力')" name="pressureTab">
             <Pressure/>
           </el-tab-pane>
-          <el-tab-pane label="热量" name="heatTab">
+          <el-tab-pane :label="t('热量')" name="heatTab">
             <Heat/>
           </el-tab-pane>
-          <el-tab-pane label="功率" name="powerTab">
+          <el-tab-pane :label="t('功率')" name="powerTab">
             <Power/>
           </el-tab-pane>
           <!-- <el-tab-pane label="字节" name="fourth">字节</el-tab-pane> -->
@@ -93,10 +95,8 @@ onMounted(() => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线单位换算、长度单位换算、面积单位换算、时间单位换算、温度单位换算、压力单位换算、热量单位换算、功率单位换算。
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线单位换算、长度单位换算、面积单位换算、时间单位换算、温度单位换算、压力单位换算、热量单位换算、功率单位换算。") }}</el-text>
     </ToolDetail>
 
   </div>

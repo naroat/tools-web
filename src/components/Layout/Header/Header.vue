@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t, locale, setLocale } from '@/i18n'
+
 import { ref, reactive, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue';
 import { useToolsStore } from '@/store/modules/tools'
@@ -74,7 +76,7 @@ onMounted(() => {
 
 <template>
   <header class="h-24 w-full flex justify-between pt-2 pb-2 c-xs:h-16 c-xs:border-b-[1px] items-center">
-    <div class="flex items-center w-full">
+    <div class="flex items-center flex-1 min-w-0">
       <div class="hidden c-sm:block c-md:hidden c-xs:block">
         <svg @click="componentStore.setleftComDrawerStatus(!componentStore.leftComDrawer)" :class="['icon', { 'rotate': componentStore.leftComDrawer }]" t="1702978210636" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7618" width="30" height="30">
           <path fill="#444" fill-opacity=".9" d="M895.936 256l-768-0.896 0.128-64L896 192l-0.064 64zM179.2 689.152l202.688-152a32 32 0 0 0 0-51.2L179.2 333.952a32 32 0 0 0-51.2 25.6v304a32 32 0 0 0 51.2 25.6z m12.8-89.6v-176l117.312 88L192 599.552zM896 544H480v-64H896v64z m-0.064 288l-768-0.896 0.128-64L896 768l-0.064 64z" p-id="7619"></path>
@@ -98,7 +100,7 @@ onMounted(() => {
       </div>
       
     
-      <div class="c-xs:w-[85%] w-full mr-3">
+      <div class="ml-3 mr-3 flex-1 min-w-0">
         <!-- <el-input 
           v-model="searchParam.title" 
           placeholder="搜索工具" 
@@ -116,16 +118,16 @@ onMounted(() => {
           remote-show-suffix
           :suffix-transition="false"
           :suffix-icon="Search"
-          placeholder="输入关键词搜索，如文本、json、图片等"
+          :placeholder="t('输入关键词搜索，如文本、json、图片等')"
           :remote-method="searchTools"
           :loading="loading"
-          class="ml-3"
+          class="w-full"
           size="large"
         >
           <el-option
             v-for="item in options"
             :key="item.id"
-            :label="item.title + ' - ' + item.desc"
+            :label="t(item.title) + ' - ' + t(item.desc)"
             :value="item.id"
             @click="optionClick(item.url)"
           >
@@ -134,15 +136,23 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class=" w-full md:w-auto flex md:block c-xs:w-auto">
-      <ul class="flex mt-4 flex-col md:flex-row md:mt-0 justify-end items-center c-xs:mt-0">
+    <div class="w-auto shrink-0 flex md:block">
+      <ul class="flex mt-4 flex-row md:mt-0 justify-end items-center c-xs:mt-0">
+        <li class="ml-3 shrink-0">
+          <button
+            type="button"
+            class="px-3 py-2 rounded-lg border border-blue-200 bg-white text-sm whitespace-nowrap hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+            :aria-label="locale === 'en' ? '切换为中文' : 'Switch to English'"
+            @click="setLocale(locale === 'en' ? 'zh-CN' : 'en')"
+          >{{ locale === 'en' ? '中文' : 'English' }}</button>
+        </li>
         <!-- about -->
          <li class="ml-3 c-xs:hidden">
           <router-link to="/about">
             <el-tooltip
               class="box-item"
               effect="dark"
-              content="关于tools-web"
+              :content="t('关于tools-web')"
               placement="bottom"
             >
               <svg t="1715594765484" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5578" width="33" height="33"><path d="M511.899716 948.506609c-241.310951 0-437.636339-196.318224-437.636339-437.636339 0-241.323231 196.325387-437.639408 437.636339-437.639408s437.636339 196.316178 437.636339 437.639408C949.536055 752.188384 753.210667 948.506609 511.899716 948.506609zM511.899716 113.944122c-218.866776 0-396.926148 178.064488-396.926148 396.926148 0 218.856543 178.059372 396.926148 396.926148 396.926148 218.868823 0 396.926148-178.069605 396.926148-396.926148C908.825864 292.00861 730.768539 113.944122 511.899716 113.944122zM561.15656 335.324138c-29.853935 0-54.03773-24.189935-54.03773-54.047963 0-29.855982 24.184819-54.047963 54.03773-54.047963 29.838585 0 54.0408 24.191982 54.0408 54.047963C615.19736 311.134203 590.995145 335.324138 561.15656 335.324138zM424.962691 430.321746c0-4.394077 0-8.806573 0-13.19758 42.878576-17.016559 108.943224-10.793834 153.201218-26.418696 1.75804 0 3.510964 0 5.27719 0-21.329794 108.134813-66.391083 206.496028-76.599585 316.955792 2.425236 1.850138 2.086521 1.473561 5.287423 2.623757 33.247218 11.155061 52.320623-66.110697 73.948199-60.727083 21.644973 5.38873-13.548574 43.733037-18.47784 50.193169-19.400862 25.362644-56.465013 68.439742-100.376105 68.657706-31.008224 0.181125-63.159482-19.378349-58.101279-71.301929 5.056156-51.981908 34.219359-124.319423 50.172703-182.263114C472.184179 468.050022 488.801648 429.049776 424.962691 430.321746z" fill="#515151" p-id="5579"></path></svg>
@@ -154,7 +164,7 @@ onMounted(() => {
           <el-tooltip
               class="box-item"
               effect="dark"
-              content="GitHub仓库"
+              :content="t('GitHub仓库')"
               placement="bottom"
             >
             <a href="https://github.com/naroat/tools-web" target="_blank">
@@ -164,7 +174,7 @@ onMounted(() => {
         </li>
 
         <li class="hover:text-blue-500 c-xs:hidden">
-          <el-button type="primary" class="ml-3 bg-gradient-to-r from-cyan-500 to-blue-500" @click="createUrlShortcut">保存到桌面</el-button>
+          <el-button type="primary" class="ml-3 bg-gradient-to-r from-cyan-500 to-blue-500" @click="createUrlShortcut">{{ t("保存到桌面") }}</el-button>
         </li>
       </ul>
     </div>

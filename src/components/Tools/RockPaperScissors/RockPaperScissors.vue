@@ -6,7 +6,7 @@
       <div class="tool-content">
         <div class="game-section">
           <div class="player-section">
-            <h3>你的选择</h3>
+            <h3>{{ t("你的选择") }}</h3>
             <div class="choices">
               <div 
                 v-for="choice in choices" 
@@ -16,76 +16,72 @@
                 @click="makeChoice(choice.value)"
               >
                 <div class="choice-icon">{{ choice.icon }}</div>
-                <div class="choice-name">{{ choice.name }}</div>
+                <div class="choice-name">{{ t(choice.name) }}</div>
               </div>
             </div>
           </div>
           
           <div class="result-section">
-            <h3>对战结果</h3>
+            <h3>{{ t("对战结果") }}</h3>
             <div v-if="gameResult" class="result-content">
-              <div class="result-message">{{ gameResult.message }}</div>
+              <div class="result-message">{{ t(gameResult.message) }}</div>
               <div class="result-details">
-                <div class="player-result">你: {{ getChoiceName(selectedChoice) }}</div>
-                <div class="computer-result">电脑: {{ getChoiceName(computerChoice) }}</div>
+                <div class="player-result">{{ t("你:") }}{{ t(getChoiceName(selectedChoice)) }}</div>
+                <div class="computer-result">{{ t("电脑:") }}{{ t(getChoiceName(computerChoice)) }}</div>
               </div>
-              <el-button type="primary" @click="resetGame">再来一局</el-button>
+              <el-button type="primary" @click="resetGame">{{ t("再来一局") }}</el-button>
             </div>
-            <div v-else class="no-result">
-              请选择你的武器开始游戏
-            </div>
+            <div v-else class="no-result">{{ t("请选择你的武器开始游戏") }}</div>
           </div>
           
           <div class="computer-section">
-            <h3>电脑选择</h3>
+            <h3>{{ t("电脑选择") }}</h3>
             <div class="computer-choice">
               <div v-if="computerChoice" class="choice-item computer">
                 <div class="choice-icon">{{ getChoiceIcon(computerChoice) }}</div>
-                <div class="choice-name">{{ getChoiceName(computerChoice) }}</div>
+                <div class="choice-name">{{ t(getChoiceName(computerChoice)) }}</div>
               </div>
-              <div v-else class="waiting">
-                等待中...
-              </div>
+              <div v-else class="waiting">{{ t("等待中...") }}</div>
             </div>
           </div>
         </div>
         
         <div class="stats-section">
-          <h3>游戏统计</h3>
+          <h3>{{ t("游戏统计") }}</h3>
           <div class="stats-grid">
             <div class="stat-item">
-              <div class="stat-label">总游戏数</div>
+              <div class="stat-label">{{ t("总游戏数") }}</div>
               <div class="stat-value">{{ stats.total }}</div>
             </div>
             <div class="stat-item win">
-              <div class="stat-label">胜利</div>
+              <div class="stat-label">{{ t("胜利") }}</div>
               <div class="stat-value">{{ stats.wins }}</div>
             </div>
             <div class="stat-item lose">
-              <div class="stat-label">失败</div>
+              <div class="stat-label">{{ t("失败") }}</div>
               <div class="stat-value">{{ stats.losses }}</div>
             </div>
             <div class="stat-item draw">
-              <div class="stat-label">平局</div>
+              <div class="stat-label">{{ t("平局") }}</div>
               <div class="stat-value">{{ stats.draws }}</div>
             </div>
           </div>
-          <el-button @click="resetStats">重置统计</el-button>
+          <el-button @click="resetStats">{{ t("重置统计") }}</el-button>
         </div>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线剪刀石头布游戏，与电脑对战，支持实时显示对战结果和游戏统计，可用于休闲娱乐和决策参考。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线剪刀石头布游戏，与电脑对战，支持实时显示对战结果和游戏统计，可用于休闲娱乐和决策参考。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'

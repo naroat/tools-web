@@ -6,60 +6,58 @@
       <div class="tool-content">
         <div class="input-section">
           <el-form label-position="top">
-            <el-form-item label="抽签选项（每行一个）">
+            <el-form-item :label="t('抽签选项（每行一个）')">
               <el-input
                 v-model="optionsText"
                 type="textarea"
                 :rows="8"
-                placeholder="请输入抽签选项，每行一个"
+                :placeholder="t('请输入抽签选项，每行一个')"
               />
             </el-form-item>
             
-            <el-form-item label="抽取设置">
+            <el-form-item :label="t('抽取设置')">
               <div class="settings-grid">
-                <el-form-item label="抽取数量" class="setting-item">
+                <el-form-item :label="t('抽取数量')" class="setting-item">
                   <el-input-number v-model="drawCount" :min="1" :max="10" size="small" />
                 </el-form-item>
                 
-                <el-form-item label="是否允许重复" class="setting-item">
+                <el-form-item :label="t('是否允许重复')" class="setting-item">
                   <el-switch v-model="allowRepeat" size="small" />
                 </el-form-item>
               </div>
             </el-form-item>
             
             <el-form-item>
-              <el-button type="primary" @click="drawLottery">开始抽签</el-button>
-              <el-button @click="clearOptions">清空</el-button>
+              <el-button type="primary" @click="drawLottery">{{ t("开始抽签") }}</el-button>
+              <el-button @click="clearOptions">{{ t("清空") }}</el-button>
             </el-form-item>
           </el-form>
         </div>
         
         <div class="result-section">
-          <h3>抽签结果</h3>
+          <h3>{{ t("抽签结果") }}</h3>
           <div v-if="results.length > 0" class="result-list">
             <div v-for="(result, index) in results" :key="index" class="result-item">
               <span class="result-number">{{ index + 1 }}</span>
               <span class="result-text">{{ result }}</span>
             </div>
           </div>
-          <div v-else class="no-result">
-            点击开始抽签按钮开始抽取
-          </div>
+          <div v-else class="no-result">{{ t("点击开始抽签按钮开始抽取") }}</div>
         </div>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线抽签工具，输入多个选项后随机抽取一个或多个结果，支持设置抽取数量和是否允许重复抽取，可用于随机选择、抽奖等场景。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线抽签工具，输入多个选项后随机抽取一个或多个结果，支持设置抽取数量和是否允许重复抽取，可用于随机选择、抽奖等场景。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'

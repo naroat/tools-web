@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import axios from "axios";
 import { ElMessage } from "element-plus";
 //创建axios实例
@@ -46,7 +47,7 @@ request.interceptors.response.use((response) => {
     }
     ElMessage({
         type: 'error',
-        message: msg
+        message: t(msg)
     })
     return Promise.reject(error);
 });

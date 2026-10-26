@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, watch, computed } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -130,22 +132,22 @@ watch([inputText, algorithm, key], async () => {
 const calculateHash = async () => {
   // 由于我们已经在watch中自动计算了哈希，这里只需要显示成功消息
   if (!inputText.value) {
-    ElMessage.warning('请输入要计算哈希的文本')
+    ElMessage.warning(t('请输入要计算哈希的文本'))
     return
   }
   
   if (algorithm.value.startsWith('HMAC-') && !key.value) {
-    ElMessage.warning('请输入Hmac密钥')
+    ElMessage.warning(t('请输入Hmac密钥'))
     return
   }
   
-  ElMessage.success('计算成功')
+  ElMessage.success(t('计算成功'))
 }
 
 // 复制结果
 const copyResult = () => {
   if (!hashResult.value || hashResult.value === '计算失败' || hashResult.value === '请输入Hmac密钥') {
-    ElMessage.warning('没有可复制的内容')
+    ElMessage.warning(t('没有可复制的内容'))
     return
   }
   
@@ -169,17 +171,17 @@ const clearInput = () => {
           v-model="inputText"
           type="textarea"
           :rows="4"
-          placeholder="请输入要计算哈希的文本"
+          :placeholder="t('请输入要计算哈希的文本')"
           class="mb-2"
         />
         
         <div class="flex items-center gap-2 mb-2">
-          <el-text>哈希算法：</el-text>
+          <el-text>{{ t("哈希算法：") }}</el-text>
           <el-select v-model="algorithm" style="width: 150px;">
             <el-option
               v-for="option in algorithmOptions"
               :key="option.value"
-              :label="option.label"
+              :label="t(option.label)"
               :value="option.value"
             />
           </el-select>
@@ -187,10 +189,10 @@ const clearInput = () => {
         
         <!-- 密钥输入（仅Hmac算法需要） -->
         <div class="flex items-center gap-2 mb-2" v-if="isHmacAlgorithm">
-          <el-text>密钥(HMAC算法必填)：</el-text>
+          <el-text>{{ t("密钥(HMAC算法必填)：") }}</el-text>
           <el-input
             v-model="key"
-            placeholder="请输入Hmac密钥"
+            :placeholder="t('请输入Hmac密钥')"
             style="width: 500px;"
           />
         </div>
@@ -198,9 +200,9 @@ const clearInput = () => {
       
       <!-- 操作按钮 -->
       <div class="mb-4">
-        <el-button type="primary" @click="calculateHash">计算哈希</el-button>
-        <el-button @click="copyResult">复制结果</el-button>
-        <el-button @click="clearInput">清空</el-button>
+        <el-button type="primary" @click="calculateHash">{{ t("计算哈希") }}</el-button>
+        <el-button @click="copyResult">{{ t("复制结果") }}</el-button>
+        <el-button @click="clearInput">{{ t("清空") }}</el-button>
       </div>
       
       <!-- 结果部分 -->
@@ -209,21 +211,19 @@ const clearInput = () => {
           :value="hashResult"
           type="textarea"
           :rows="2"
-          placeholder="哈希结果"
+          :placeholder="t('哈希结果')"
           readonly
         >
           <template #append>
-            <el-button @click="copyResult">复制</el-button>
+            <el-button @click="copyResult">{{ t("复制") }}</el-button>
           </template>
         </el-input>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线Hash计算器，支持MD5、SHA-1、SHA-256、SHA-384、SHA-512等多种哈希算法，以及Hmac-MD5、Hmac-SHA1、Hmac-SHA256、Hmac-SHA384、Hmac-SHA512等Hmac算法，可用于数据完整性验证、密码加密等场景。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线Hash计算器，支持MD5、SHA-1、SHA-256、SHA-384、SHA-512等多种哈希算法，以及Hmac-MD5、Hmac-SHA1、Hmac-SHA256、Hmac-SHA384、Hmac-SHA512等Hmac算法，可用于数据完整性验证、密码加密等场景。") }}</el-text>
     </ToolDetail>
 
   </div>

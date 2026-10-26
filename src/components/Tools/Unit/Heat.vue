@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 
 const info: {
@@ -62,30 +64,30 @@ const tran = (key: string) => {
 <template>
     <div>
       <div>
-        <el-divider content-position="left">热量单位</el-divider>
+        <el-divider content-position="left">{{ t("热量单位") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">瓦(Wh)</el-text>
+            <el-text class="custom-box-text">{{ t("瓦(Wh)") }}</el-text>
             <el-input
               v-model="info.wh"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('wh')">转换</el-button>
+                <el-button @click="tran('wh')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">毫瓦时(mWh)</el-text>
+            <el-text class="custom-box-text">{{ t("毫瓦时(mWh)") }}</el-text>
             <el-input
               v-model="info.mmwh"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('mmwh')">转换</el-button>
+                <el-button @click="tran('mmwh')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -94,26 +96,26 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">千瓦时(kWh)</el-text>
+            <el-text class="custom-box-text">{{ t("千瓦时(kWh)") }}</el-text>
             <el-input
               v-model="info.kwh"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('kwh')">转换</el-button>
+                <el-button @click="tran('kwh')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">兆瓦时(MWh)</el-text>
+            <el-text class="custom-box-text">{{ t("兆瓦时(MWh)") }}</el-text>
             <el-input
               v-model="info.mwh"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('mwh')">转换</el-button>
+                <el-button @click="tran('mwh')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -122,26 +124,26 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">焦(J)</el-text>
+            <el-text class="custom-box-text">{{ t("焦(J)") }}</el-text>
             <el-input
               v-model="info.j"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('j')">转换</el-button>
+                <el-button @click="tran('j')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">千焦(kJ)</el-text>
+            <el-text class="custom-box-text">{{ t("千焦(kJ)") }}</el-text>
             <el-input
               v-model="info.kj"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('kj')">转换</el-button>
+                <el-button @click="tran('kj')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -150,7 +152,7 @@ const tran = (key: string) => {
       </div>
 
       <div class="w-full text-center">
-        <el-button type="primary" @click="clear">清除全部</el-button>
+        <el-button type="primary" @click="clear">{{ t("清除全部") }}</el-button>
       </div>
     </div>
 </template>

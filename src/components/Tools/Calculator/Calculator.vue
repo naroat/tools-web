@@ -50,16 +50,16 @@
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线简易计算器，支持基本的加减乘除和取模运算，具有历史记录显示功能，可用于日常简单计算。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线简易计算器，支持基本的加减乘除和取模运算，具有历史记录显示功能，可用于日常简单计算。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref } from 'vue';
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'

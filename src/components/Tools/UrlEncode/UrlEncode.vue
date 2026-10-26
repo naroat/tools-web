@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -45,10 +47,10 @@ const copyRes = async () => {
       </div>
 
       <div class="mt-4 flex flex-wrap gap-2 button-container">
-        <el-button type="primary" @click="toEncode">UrlEncode编码</el-button>
-        <el-button type="primary" @click="toDecode">UrlDecode解码</el-button>
-        <el-button type="primary" @click="copyRes">复制结果</el-button>
-        <el-button type="danger" @click="clear">清空内容</el-button>
+        <el-button type="primary" @click="toEncode">{{ t("UrlEncode编码") }}</el-button>
+        <el-button type="primary" @click="toDecode">{{ t("UrlDecode解码") }}</el-button>
+        <el-button type="primary" @click="copyRes">{{ t("复制结果") }}</el-button>
+        <el-button type="danger" @click="clear">{{ t("清空内容") }}</el-button>
       </div>
 
       <div class="mt-3 min-h-md bg-gray-100 p-3 mb-3">
@@ -57,10 +59,8 @@ const copyRes = async () => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线url编码，在线url解码工具
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线url编码，在线url解码工具") }}</el-text>
     </ToolDetail>
 
   </div>

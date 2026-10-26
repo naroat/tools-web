@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -133,37 +135,35 @@ const execMatch = () => {
       </div>
 
       <div class="mt-4">
-        <el-text class="font-bold">常用正则：</el-text>
+        <el-text class="font-bold">{{ t("常用正则：") }}</el-text>
         <ul class="flex flex-wrap">
           <li v-for="(item, index) in info.regList" :key="index">
-            <el-button link type="primary" @click="useReg(item.reg)" class="mr-2 mt-2">{{ item.title }}</el-button>
+            <el-button link type="primary" @click="useReg(item.reg)" class="mr-2 mt-2">{{ t(item.title) }}</el-button>
           </li>
         </ul>
         <div class="flex items-center mt-4">
-          <el-input v-model="info.reg" class="mr-2" placeholder="正则表达式"></el-input>
+          <el-input v-model="info.reg" class="mr-2" :placeholder="t('正则表达式')"></el-input>
           
           <div class="mr-2">
-            <el-checkbox v-model="info.isAll" label="全局搜索" size="large"/>
+            <el-checkbox v-model="info.isAll" :label="t('全局搜索')" size="large"/>
           </div>
           <div class="mr-2">
-            <el-checkbox v-model="info.isCase" label="忽略大小写" size="large" /> 
+            <el-checkbox v-model="info.isCase" :label="t('忽略大小写')" size="large" />
           </div>
 
-          <el-button type="primary" @click="execMatch">测试匹配</el-button>
+          <el-button type="primary" @click="execMatch">{{ t("测试匹配") }}</el-button>
         </div>
       </div>
 
       <div class="mt-3 min-h-md bg-gray-100 p-3 mb-3">
-        <el-text>共找到 {{ info.matchNum }} 处匹配结果</el-text>
+        <el-text>{{ t("共找到") }}{{ info.matchNum }}{{ t("处匹配结果") }}</el-text>
         <el-input type="textarea" :rows="4" readonly v-model="info.matchRes"></el-input>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串") }}</el-text>
     </ToolDetail>
 
   </div>

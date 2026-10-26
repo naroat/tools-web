@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 
 const info: {
@@ -156,30 +158,30 @@ const tran = (key: string) => {
 <template>
     <div>
       <div>
-        <el-divider content-position="left">国际重量单位(公制)</el-divider>
+        <el-divider content-position="left">{{ t("国际重量单位(公制)") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">吨(t)</el-text>
+            <el-text class="custom-box-text">{{ t("吨(t)") }}</el-text>
             <el-input
               v-model="info.t"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('t')">转换</el-button>
+                <el-button @click="tran('t')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">千克/公斤(kg)</el-text>
+            <el-text class="custom-box-text">{{ t("千克/公斤(kg)") }}</el-text>
             <el-input
               v-model="info.kg"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('kg')">转换</el-button>
+                <el-button @click="tran('kg')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -187,56 +189,56 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">克(g)</el-text>
+            <el-text class="custom-box-text">{{ t("克(g)") }}</el-text>
             <el-input
               v-model="info.g"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('g')">转换</el-button>
+                <el-button @click="tran('g')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">毫克(mg)</el-text>
+            <el-text class="custom-box-text">{{ t("毫克(mg)") }}</el-text>
             <el-input
               v-model="info.mg"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('mg')">转换</el-button>
+                <el-button @click="tran('mg')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
         </div>
 
         <!-- ----- -->
-        <el-divider content-position="left">中国传统重量单位(市制)</el-divider>
+        <el-divider content-position="left">{{ t("中国传统重量单位(市制)") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">斤</el-text>
+            <el-text class="custom-box-text">{{ t("斤") }}</el-text>
             <el-input
               v-model="info.jin"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('jin')">转换</el-button>
+                <el-button @click="tran('jin')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">两</el-text>
+            <el-text class="custom-box-text">{{ t("两") }}</el-text>
             <el-input
               v-model="info.liang"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('liang')">转换</el-button>
+                <el-button @click="tran('liang')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -244,55 +246,55 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">钱</el-text>
+            <el-text class="custom-box-text">{{ t("钱") }}</el-text>
             <el-input
               v-model="info.qian"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('qian')">转换</el-button>
+                <el-button @click="tran('qian')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">担</el-text>
+            <el-text class="custom-box-text">{{ t("担") }}</el-text>
             <el-input
               v-model="info.dan"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('dan')">转换</el-button>
+                <el-button @click="tran('dan')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
         </div>
 
-        <el-divider content-position="left">英制重量单位(常衡制)</el-divider>
+        <el-divider content-position="left">{{ t("英制重量单位(常衡制)") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">磅(lb)</el-text>
+            <el-text class="custom-box-text">{{ t("磅(lb)") }}</el-text>
             <el-input
               v-model="info.eng_lb"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_lb')">转换</el-button>
+                <el-button @click="tran('eng_lb')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">盎司(oz)</el-text>
+            <el-text class="custom-box-text">{{ t("盎司(oz)") }}</el-text>
             <el-input
               v-model="info.eng_oz"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_oz')">转换</el-button>
+                <el-button @click="tran('eng_oz')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -300,26 +302,26 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">英石(st)</el-text>
+            <el-text class="custom-box-text">{{ t("英石(st)") }}</el-text>
             <el-input
               v-model="info.eng_st"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_st')">转换</el-button>
+                <el-button @click="tran('eng_st')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">英担(cwt)</el-text>
+            <el-text class="custom-box-text">{{ t("英担(cwt)") }}</el-text>
             <el-input
               v-model="info.eng_cwt"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_cwt')">转换</el-button>
+                <el-button @click="tran('eng_cwt')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -327,26 +329,26 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">打兰(dr)</el-text>
+            <el-text class="custom-box-text">{{ t("打兰(dr)") }}</el-text>
             <el-input
               v-model="info.eng_dr"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_dr')">转换</el-button>
+                <el-button @click="tran('eng_dr')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">格令(gr)</el-text>
+            <el-text class="custom-box-text">{{ t("格令(gr)") }}</el-text>
             <el-input
               v-model="info.eng_gr"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_gr')">转换</el-button>
+                <el-button @click="tran('eng_gr')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -354,43 +356,43 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">长吨(lt)</el-text>
+            <el-text class="custom-box-text">{{ t("长吨(lt)") }}</el-text>
             <el-input
               v-model="info.eng_lt"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_lt')">转换</el-button>
+                <el-button @click="tran('eng_lt')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
         </div>
 
-        <el-divider content-position="left">英制重量单位(金衡制)</el-divider>
+        <el-divider content-position="left">{{ t("英制重量单位(金衡制)") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">磅(lbt)</el-text>
+            <el-text class="custom-box-text">{{ t("磅(lbt)") }}</el-text>
             <el-input
               v-model="info.eng_lbt"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_lbt')">转换</el-button>
+                <el-button @click="tran('eng_lbt')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">盎司(ozt)</el-text>
+            <el-text class="custom-box-text">{{ t("盎司(ozt)") }}</el-text>
             <el-input
               v-model="info.eng_ozt"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_ozt')">转换</el-button>
+                <el-button @click="tran('eng_ozt')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -398,26 +400,26 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">格令</el-text>
+            <el-text class="custom-box-text">{{ t("格令") }}</el-text>
             <el-input
               v-model="info.eng_grain"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_grain')">转换</el-button>
+                <el-button @click="tran('eng_grain')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">英钱(dwt)</el-text>
+            <el-text class="custom-box-text">{{ t("英钱(dwt)") }}</el-text>
             <el-input
               v-model="info.eng_dwt"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('eng_dwt')">转换</el-button>
+                <el-button @click="tran('eng_dwt')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -425,7 +427,7 @@ const tran = (key: string) => {
       </div>
 
       <div class="w-full text-center">
-        <el-button type="primary" @click="clear">清除全部</el-button>
+        <el-button type="primary" @click="clear">{{ t("清除全部") }}</el-button>
       </div>
     </div>
 </template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { onMounted, reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -28,7 +30,7 @@ const gen = () => {
   //包含字符验证
   if (info.char == '') {
     ElMessage({
-      message: "包含字符不能为空",
+      message: t("包含字符不能为空"),
       type: "warning",
       duration: 1500
     })
@@ -38,7 +40,7 @@ const gen = () => {
   //生成长度验证
   if (info.pwLen > 100) {
     ElMessage({
-      message: "生成长度范围在1~100",
+      message: t("生成长度范围在1~100"),
       type: "warning",
       duration: 1500
     })
@@ -48,7 +50,7 @@ const gen = () => {
   //生成数量验证
   if (info.pwNum > 100) {
     ElMessage({
-      message: "生成数量范围在1~100",
+      message: t("生成数量范围在1~100"),
       type: "warning",
       duration: 1500
     })
@@ -122,27 +124,27 @@ onMounted(() => {
     <DetailHeader :title="info.title"></DetailHeader>
 
     <div class="p-4 rounded-2xl bg-white">
-      <el-text>密码组合</el-text>
+      <el-text>{{ t("密码组合") }}</el-text>
       <div>
-        <el-checkbox v-model="info.checkedNum" label="数字(0-9)"  @change="(val: any) => (changeCheckBox(val, 0))"/>
-        <el-checkbox v-model="info.checkedLower" label="小写字母(a-z)"  @change="(val: any) => (changeCheckBox(val, 1))"/>
-        <el-checkbox v-model="info.checkedUpper" label="大写字母(A-Z)" @change="(val: any) => (changeCheckBox(val, 2))"/>
-        <el-checkbox v-model="info.checkedSign" label="其他符号(~!@#$%^&*()-+_=,.)"  @change="(val: any) => (changeCheckBox(val, 3))"/>
+        <el-checkbox v-model="info.checkedNum" :label="t('数字(0-9)')"  @change="(val: any) => (changeCheckBox(val, 0))"/>
+        <el-checkbox v-model="info.checkedLower" :label="t('小写字母(a-z)')"  @change="(val: any) => (changeCheckBox(val, 1))"/>
+        <el-checkbox v-model="info.checkedUpper" :label="t('大写字母(A-Z)')" @change="(val: any) => (changeCheckBox(val, 2))"/>
+        <el-checkbox v-model="info.checkedSign" :label="t('其他符号(~!@#$%^&*()-+_=,.)')"  @change="(val: any) => (changeCheckBox(val, 3))"/>
       </div>
       <div>
         <el-input class="" v-model="info.char">
-          <template #prepend>包含字符:</template>
+          <template #prepend>{{ t("包含字符:") }}</template>
         </el-input>
-        <el-input v-model="info.pwLen" placeholder="范围1~100" class="mt-3" max="100" type="number">
-          <template #prepend>生成长度:</template>
+        <el-input v-model="info.pwLen" :placeholder="t('范围1~100')" class="mt-3" max="100" type="number">
+          <template #prepend>{{ t("生成长度:") }}</template>
         </el-input>
-        <el-input v-model="info.pwNum" placeholder="范围1~100" class="mt-3" max="100" type="number">
-          <template #prepend>生成数量:</template>
+        <el-input v-model="info.pwNum" :placeholder="t('范围1~100')" class="mt-3" max="100" type="number">
+          <template #prepend>{{ t("生成数量:") }}</template>
         </el-input>
       </div>
       <div class="mt-3 mb-3">
-        <el-button type="primary" @click="gen">生成密码</el-button>
-        <el-button type="primary" @click="copyRes(info.resStr)">复制全部</el-button>
+        <el-button type="primary" @click="gen">{{ t("生成密码") }}</el-button>
+        <el-button type="primary" @click="copyRes(info.resStr)">{{ t("复制全部") }}</el-button>
       </div>
       <!-- res -->
       <div>
@@ -151,10 +153,8 @@ onMounted(() => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线生成密码支持开启或关闭大小写 、数字 、特殊符号，支持自定义字符，长度；批量生成密码
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线生成密码支持开启或关闭大小写 、数字 、特殊符号，支持自定义字符，长度；批量生成密码") }}</el-text>
     </ToolDetail>
 
   </div>

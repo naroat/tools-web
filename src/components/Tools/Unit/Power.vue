@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 
 const info: {
@@ -57,30 +59,30 @@ switch (key) {
 <template>
     <div>
       <div>
-        <el-divider content-position="left">功率单位</el-divider>
+        <el-divider content-position="left">{{ t("功率单位") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">瓦(W)</el-text>
+            <el-text class="custom-box-text">{{ t("瓦(W)") }}</el-text>
             <el-input
               v-model="info.w"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('w')">转换</el-button>
+                <el-button @click="tran('w')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">毫瓦(mW)</el-text>
+            <el-text class="custom-box-text">{{ t("毫瓦(mW)") }}</el-text>
             <el-input
               v-model="info.mmw"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('mmw')">转换</el-button>
+                <el-button @click="tran('mmw')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -89,26 +91,26 @@ switch (key) {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">千瓦(kW)</el-text>
+            <el-text class="custom-box-text">{{ t("千瓦(kW)") }}</el-text>
             <el-input
               v-model="info.kw"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('kw')">转换</el-button>
+                <el-button @click="tran('kw')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">兆瓦(MW)</el-text>
+            <el-text class="custom-box-text">{{ t("兆瓦(MW)") }}</el-text>
             <el-input
               v-model="info.mw"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('mw')">转换</el-button>
+                <el-button @click="tran('mw')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -117,14 +119,14 @@ switch (key) {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">亿瓦(GW)</el-text>
+            <el-text class="custom-box-text">{{ t("亿瓦(GW)") }}</el-text>
             <el-input
               v-model="info.gw"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('gw')">转换</el-button>
+                <el-button @click="tran('gw')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -133,7 +135,7 @@ switch (key) {
       </div>
 
       <div class="w-full text-center">
-        <el-button type="primary" @click="clear">清除全部</el-button>
+        <el-button type="primary" @click="clear">{{ t("清除全部") }}</el-button>
       </div>
     </div>
 </template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 
 const info: {
@@ -57,30 +59,30 @@ const tran = (key: string) => {
 <template>
     <div>
       <div>
-        <el-divider content-position="left">国际温度单位</el-divider>
+        <el-divider content-position="left">{{ t("国际温度单位") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">摄氏度(℃)</el-text>
+            <el-text class="custom-box-text">{{ t("摄氏度(℃)") }}</el-text>
             <el-input
               v-model="info.c"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('c')">转换</el-button>
+                <el-button @click="tran('c')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">华氏度(℉)</el-text>
+            <el-text class="custom-box-text">{{ t("华氏度(℉)") }}</el-text>
             <el-input
               v-model="info.f"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('f')">转换</el-button>
+                <el-button @click="tran('f')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -89,26 +91,26 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">开氏度(K)</el-text>
+            <el-text class="custom-box-text">{{ t("开氏度(K)") }}</el-text>
             <el-input
               v-model="info.k"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('k')">转换</el-button>
+                <el-button @click="tran('k')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">列氏度(°Re)</el-text>
+            <el-text class="custom-box-text">{{ t("列氏度(°Re)") }}</el-text>
             <el-input
               v-model="info.re"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('re')">转换</el-button>
+                <el-button @click="tran('re')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -117,14 +119,14 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">兰氏度(°R)</el-text>
+            <el-text class="custom-box-text">{{ t("兰氏度(°R)") }}</el-text>
             <el-input
               v-model="info.r"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('r')">转换</el-button>
+                <el-button @click="tran('r')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -133,7 +135,7 @@ const tran = (key: string) => {
       </div>
 
       <div class="w-full text-center">
-        <el-button type="primary" @click="clear">清除全部</el-button>
+        <el-button type="primary" @click="clear">{{ t("清除全部") }}</el-button>
       </div>
     </div>
 </template>

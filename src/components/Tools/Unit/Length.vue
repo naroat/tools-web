@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 
 const lengthInfo: {
@@ -163,23 +165,23 @@ const tran = (key: string) => {
 <template>
     <div>
       <div>
-        <el-divider content-position="left">国际长度单位(公制)</el-divider>
+        <el-divider content-position="left">{{ t("国际长度单位(公制)") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">公里(km)</el-text>
+            <el-text class="custom-box-text">{{ t("公里(km)") }}</el-text>
             <el-input
               v-model="lengthInfo.km"
               placeholder=""
               class="input-with-select"
             >
               <template #append>
-                <el-button @click="tran('km')">转换</el-button>
+                <el-button @click="tran('km')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">米(m)</el-text>
+            <el-text class="custom-box-text">{{ t("米(m)") }}</el-text>
             <el-input
               v-model="lengthInfo.m"
               placeholder=""
@@ -187,7 +189,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('m')">转换</el-button>
+                <el-button @click="tran('m')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -195,7 +197,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">分米(dm)</el-text>
+            <el-text class="custom-box-text">{{ t("分米(dm)") }}</el-text>
             <el-input
               v-model="lengthInfo.dm"
               placeholder=""
@@ -203,12 +205,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('dm')">转换</el-button>
+                <el-button @click="tran('dm')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">厘米(cm)</el-text>
+            <el-text class="custom-box-text">{{ t("厘米(cm)") }}</el-text>
             <el-input
               v-model="lengthInfo.cm"
               placeholder=""
@@ -216,7 +218,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('cm')">转换</el-button>
+                <el-button @click="tran('cm')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -224,7 +226,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">毫米(mm)</el-text>
+            <el-text class="custom-box-text">{{ t("毫米(mm)") }}</el-text>
             <el-input
               v-model="lengthInfo.mm"
               placeholder=""
@@ -232,12 +234,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('mm')">转换</el-button>
+                <el-button @click="tran('mm')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">丝(dmm)</el-text>
+            <el-text class="custom-box-text">{{ t("丝(dmm)") }}</el-text>
             <el-input
               v-model="lengthInfo.dmm"
               placeholder=""
@@ -245,7 +247,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('dmm')">转换</el-button>
+                <el-button @click="tran('dmm')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -253,7 +255,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">微米(um)</el-text>
+            <el-text class="custom-box-text">{{ t("微米(um)") }}</el-text>
             <el-input
               v-model="lengthInfo.um"
               placeholder=""
@@ -261,12 +263,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('um')">转换</el-button>
+                <el-button @click="tran('um')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">纳米(nm)</el-text>
+            <el-text class="custom-box-text">{{ t("纳米(nm)") }}</el-text>
             <el-input
               v-model="lengthInfo.nm"
               placeholder=""
@@ -274,16 +276,16 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('nm')">转换</el-button>
+                <el-button @click="tran('nm')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
         </div>
-        <el-divider content-position="left">中国传统长度单位(市制)</el-divider>
+        <el-divider content-position="left">{{ t("中国传统长度单位(市制)") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">里</el-text>
+            <el-text class="custom-box-text">{{ t("里") }}</el-text>
             <el-input
               v-model="lengthInfo.tradition_li"
               placeholder=""
@@ -291,12 +293,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('tradition_li')">转换</el-button>
+                <el-button @click="tran('tradition_li')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">丈</el-text>
+            <el-text class="custom-box-text">{{ t("丈") }}</el-text>
             <el-input
               v-model="lengthInfo.tradition_zhang"
               placeholder=""
@@ -304,7 +306,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('tradition_zhang')">转换</el-button>
+                <el-button @click="tran('tradition_zhang')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -312,7 +314,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">尺</el-text>
+            <el-text class="custom-box-text">{{ t("尺") }}</el-text>
             <el-input
               v-model="lengthInfo.tradition_chi"
               placeholder=""
@@ -320,12 +322,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('tradition_chi')">转换</el-button>
+                <el-button @click="tran('tradition_chi')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">寸</el-text>
+            <el-text class="custom-box-text">{{ t("寸") }}</el-text>
             <el-input
               v-model="lengthInfo.tradition_cun"
               placeholder=""
@@ -333,7 +335,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('tradition_cun')">转换</el-button>
+                <el-button @click="tran('tradition_cun')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -341,7 +343,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">分</el-text>
+            <el-text class="custom-box-text">{{ t("分") }}</el-text>
             <el-input
               v-model="lengthInfo.tradition_fen"
               placeholder=""
@@ -349,12 +351,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('tradition_fen')">转换</el-button>
+                <el-button @click="tran('tradition_fen')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">厘</el-text>
+            <el-text class="custom-box-text">{{ t("厘") }}</el-text>
             <el-input
               v-model="lengthInfo.tradition_mill"
               placeholder=""
@@ -362,7 +364,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('tradition_mill')">转换</el-button>
+                <el-button @click="tran('tradition_mill')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -370,7 +372,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">毫</el-text>
+            <el-text class="custom-box-text">{{ t("毫") }}</el-text>
             <el-input
               v-model="lengthInfo.tradition_hao"
               placeholder=""
@@ -378,16 +380,16 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('tradition_hao')">转换</el-button>
+                <el-button @click="tran('tradition_hao')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
         </div>
-        <el-divider content-position="left">英制长度单位</el-divider>
+        <el-divider content-position="left">{{ t("英制长度单位") }}</el-divider>
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">海里(nmi)</el-text>
+            <el-text class="custom-box-text">{{ t("海里(nmi)") }}</el-text>
             <el-input
               v-model="lengthInfo.eng_nmi"
               placeholder=""
@@ -395,12 +397,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('eng_nmi')">转换</el-button>
+                <el-button @click="tran('eng_nmi')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">英寻(fm)</el-text>
+            <el-text class="custom-box-text">{{ t("英寻(fm)") }}</el-text>
             <el-input
               v-model="lengthInfo.eng_fm"
               placeholder=""
@@ -408,7 +410,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('eng_fm')">转换</el-button>
+                <el-button @click="tran('eng_fm')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -416,7 +418,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">英里(mi)</el-text>
+            <el-text class="custom-box-text">{{ t("英里(mi)") }}</el-text>
             <el-input
               v-model="lengthInfo.eng_mi"
               placeholder=""
@@ -424,12 +426,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('eng_mi')">转换</el-button>
+                <el-button @click="tran('eng_mi')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">弗隆(fur)</el-text>
+            <el-text class="custom-box-text">{{ t("弗隆(fur)") }}</el-text>
             <el-input
               v-model="lengthInfo.eng_fur"
               placeholder=""
@@ -437,7 +439,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('eng_fur')">转换</el-button>
+                <el-button @click="tran('eng_fur')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -445,7 +447,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">码(yd)</el-text>
+            <el-text class="custom-box-text">{{ t("码(yd)") }}</el-text>
             <el-input
               v-model="lengthInfo.eng_yd"
               placeholder=""
@@ -453,12 +455,12 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('eng_yd')">转换</el-button>
+                <el-button @click="tran('eng_yd')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
           <div class="custom-box-single">
-            <el-text class="custom-box-text">英尺(ft)</el-text>
+            <el-text class="custom-box-text">{{ t("英尺(ft)") }}</el-text>
             <el-input
               v-model="lengthInfo.eng_ft"
               placeholder=""
@@ -466,7 +468,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('eng_ft')">转换</el-button>
+                <el-button @click="tran('eng_ft')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -474,7 +476,7 @@ const tran = (key: string) => {
         <!-- group -->
         <div class="custom-box">
           <div class="custom-box-single">
-            <el-text class="custom-box-text">英寸(in)</el-text>
+            <el-text class="custom-box-text">{{ t("英寸(in)") }}</el-text>
             <el-input
               v-model="lengthInfo.eng_in"
               placeholder=""
@@ -482,7 +484,7 @@ const tran = (key: string) => {
               type="number"
             >
               <template #append>
-                <el-button @click="tran('eng_in')">转换</el-button>
+                <el-button @click="tran('eng_in')">{{ t("转换") }}</el-button>
               </template>
             </el-input>
           </div>
@@ -490,7 +492,7 @@ const tran = (key: string) => {
       </div>
 
       <div class="w-full text-center">
-        <el-button type="primary" @click="clear">清除全部</el-button>
+        <el-button type="primary" @click="clear">{{ t("清除全部") }}</el-button>
       </div>
     </div>
 </template>

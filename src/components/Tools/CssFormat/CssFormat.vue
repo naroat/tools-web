@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -27,7 +29,7 @@ const formatCode = async () => {
     console.log(error)
     ElMessage({
       showClose: true,
-      message: '请填入正确代码格式',
+      message: t('请填入正确代码格式'),
       type: 'error',
     })
   }
@@ -63,7 +65,7 @@ const copyRes = async () => {
       <div>
         <codemirror
           v-model="info.code"
-          placeholder="这里是代码..."
+          :placeholder="t('这里是代码...')"
           :style="{ height: '400px' }"
           :autofocus="true"
           :indent-with-tab="true" 
@@ -72,10 +74,10 @@ const copyRes = async () => {
       </div>
       
       <div class="mt-4">
-        <el-button type="primary" @click="formatCode">格式化</el-button>
-        <el-button type="primary" @click="compress">压缩</el-button>
-        <el-button type="primary" @click="copyRes">复制</el-button>
-        <el-button type="primary" @click="clear">清空</el-button>
+        <el-button type="primary" @click="formatCode">{{ t("格式化") }}</el-button>
+        <el-button type="primary" @click="compress">{{ t("压缩") }}</el-button>
+        <el-button type="primary" @click="copyRes">{{ t("复制") }}</el-button>
+        <el-button type="primary" @click="clear">{{ t("清空") }}</el-button>
       </div>
 
       <div class="mt-3 min-h-md bg-red-100 p-3 mb-3" v-show="info.isParseErr">
@@ -84,10 +86,8 @@ const copyRes = async () => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线css格式化，在线压缩css代码
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线css格式化，在线压缩css代码") }}</el-text>
     </ToolDetail>
 
   </div>

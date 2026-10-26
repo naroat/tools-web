@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { onMounted, onUnmounted, reactive } from 'vue'
 import { VideoPause,VideoPlay,CopyDocument } from '@element-plus/icons-vue'
 import { Jh_getTimeStamp,Jh_timeStampToTime,Jh_convertTimeStamp } from '@/utils/time'
@@ -87,31 +89,31 @@ const copyRes = async () => {
     <DetailHeader :title="info.title"></DetailHeader>
     <div class="flex flex-col p-4 rounded-2xl bg-white">
       <div class="flex flex-direction">
-        <el-text class="mr-2 w-12">现在</el-text>
+        <el-text class="mr-2 w-12">{{ t("现在") }}</el-text>
         <el-button class="mr-3" link @click="copyRes()">{{ info.nowTime }} <el-icon class="ml-1 mr-1"><CopyDocument /></el-icon></el-button>
-        <el-button v-if="info.isPlay" type="danger" link class="flex items-center" @click="isPlayChange()"><el-icon class="mr-1" size="16"><VideoPlay/></el-icon>停止</el-button>
-        <el-button v-else="info.isPlay" type="primary" link class="flex items-center" @click="isPlayChange()"><el-icon class="mr-1" size="16"><VideoPause /></el-icon>开始</el-button>
+        <el-button v-if="info.isPlay" type="danger" link class="flex items-center" @click="isPlayChange()"><el-icon class="mr-1" size="16"><VideoPlay/></el-icon>{{ t("停止") }}</el-button>
+        <el-button v-else="info.isPlay" type="primary" link class="flex items-center" @click="isPlayChange()"><el-icon class="mr-1" size="16"><VideoPause /></el-icon>{{ t("开始") }}</el-button>
       </div>
 
       <div class="flex flex-direction mt-4 justify-start">
-        <el-text class="mr-2 w-12">时间戳</el-text>
-        <el-input v-model="info.waitTimeStamp" class="h-8 mr-2 w-60 max-w-[30%]" placeholder="毫秒/秒">
+        <el-text class="mr-2 w-12">{{ t("时间戳") }}</el-text>
+        <el-input v-model="info.waitTimeStamp" class="h-8 mr-2 w-60 max-w-[30%]" :placeholder="t('毫秒/秒')">
         </el-input> 
-        <el-button class="mr-2 max-w-[25%]" @click="timeTran('toDate')">转换</el-button>
-        <el-input v-model="info.tranDate" class="h-8 w-72 mr-2 max-w-[30%]" placeholder="北京时间"></el-input>
+        <el-button class="mr-2 max-w-[25%]" @click="timeTran('toDate')">{{ t("转换") }}</el-button>
+        <el-input v-model="info.tranDate" class="h-8 w-72 mr-2 max-w-[30%]" :placeholder="t('北京时间')"></el-input>
       </div>
 
       <div class="flex flex-direction mt-4 justify-start">
-        <el-text class="mr-2 w-12">时间</el-text>
+        <el-text class="mr-2 w-12">{{ t("时间") }}</el-text>
         <el-input v-model="info.waitDate" class="h-8 mr-2 w-60 max-w-[30%]"></el-input> 
-        <el-button class="mr-2 max-w-[25%]" @click="timeTran('toStamp')">转换</el-button>
-        <el-input v-model="info.tranTimeStamp" :value="info.tranTimeStamp == 0 ? '' : info.tranTimeStamp" class="h-8 w-72 mr-2 max-w-[30%]" placeholder="时间戳">
+        <el-button class="mr-2 max-w-[25%]" @click="timeTran('toStamp')">{{ t("转换") }}</el-button>
+        <el-input v-model="info.tranTimeStamp" :value="info.tranTimeStamp == 0 ? '' : info.tranTimeStamp" class="h-8 w-72 mr-2 max-w-[30%]" :placeholder="t('时间戳')">
           <template #prepend>
             <el-select v-model="info.chooseTranStampOption" placeholder="Select"  class="trantimestamp-select">
               <el-option
                 v-for="item in info.tranOptions"
                 :key="item.value"
-                :label="item.label"
+                :label="t(item.label)"
                 :value="item.value"
               />
             </el-select>
@@ -121,9 +123,8 @@ const copyRes = async () => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        时间戳，是从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数（不考虑闰秒），用于表示一个时间点。然而，这种格式对于人类阅读并不友好，因此需要转换成可读的日期和时间格式。这个工具能够将时间戳快速转换为人类可读的日期时间格式，同时也支持反向转换，即将日期时间转换为时间戳。<br>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("时间戳，是从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数（不考虑闰秒），用于表示一个时间点。然而，这种格式对于人类阅读并不友好，因此需要转换成可读的日期和时间格式。这个工具能够将时间戳快速转换为人类可读的日期时间格式，同时也支持反向转换，即将日期时间转换为时间戳。") }}<br>
       </el-text> 
     </ToolDetail>
 

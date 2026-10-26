@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -96,46 +98,44 @@ const tableDataControlFive = reactive([
 
     <div class="p-4 rounded-2xl bg-white">
       <el-table :data="tableDataControlOne" class="w-full mb-3">
-        <el-table-column label="1xx 信息，表示临时响应并需要请求者继续执行操作" align="center">
-          <el-table-column prop="code" label="状态码" width="270" />
-          <el-table-column prop="desc" label="含义解释" />
+        <el-table-column :label="t('1xx 信息，表示临时响应并需要请求者继续执行操作')" align="center">
+          <el-table-column prop="code" :label="t('状态码')" width="270" />
+          <el-table-column prop="desc" :label="t('含义解释')" ><template #default="{ row }">{{ t(row.desc) }}</template></el-table-column>
         </el-table-column>
       </el-table>
 
       <el-table :data="tableDataControlTwo" class="w-full mb-3">
-        <el-table-column label="2xx 成功，操作被成功接收并处理" align="center">
-          <el-table-column prop="code" label="状态码" width="270" />
-          <el-table-column prop="desc" label="含义解释"/>
+        <el-table-column :label="t('2xx 成功，操作被成功接收并处理')" align="center">
+          <el-table-column prop="code" :label="t('状态码')" width="270" />
+          <el-table-column prop="desc" :label="t('含义解释')"><template #default="{ row }">{{ t(row.desc) }}</template></el-table-column>
         </el-table-column>
       </el-table>
 
       <el-table :data="tableDataControlThree" class="w-full mb-3">
-        <el-table-column label="3xx 表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向" align="center">
-          <el-table-column prop="code" label="状态码" width="270" />
-          <el-table-column prop="desc" label="含义解释"/>
+        <el-table-column :label="t('3xx 表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向')" align="center">
+          <el-table-column prop="code" :label="t('状态码')" width="270" />
+          <el-table-column prop="desc" :label="t('含义解释')"><template #default="{ row }">{{ t(row.desc) }}</template></el-table-column>
         </el-table-column>
       </el-table>
 
       <el-table :data="tableDataControlFour" class="w-full mb-3">
-        <el-table-column label="4xx 客户端错误，请求包含语法错误或无法完成请求" align="center">
-          <el-table-column prop="code" label="状态码" width="270" />
-          <el-table-column prop="desc" label="含义解释"/>
+        <el-table-column :label="t('4xx 客户端错误，请求包含语法错误或无法完成请求')" align="center">
+          <el-table-column prop="code" :label="t('状态码')" width="270" />
+          <el-table-column prop="desc" :label="t('含义解释')"><template #default="{ row }">{{ t(row.desc) }}</template></el-table-column>
         </el-table-column>
       </el-table>
 
       <el-table :data="tableDataControlFive" class="w-full mb-3">
-        <el-table-column label="5xx 这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错" align="center">
-          <el-table-column prop="code" label="状态码" width="270" />
-          <el-table-column prop="desc" label="含义解释"/>
+        <el-table-column :label="t('5xx 这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错')" align="center">
+          <el-table-column prop="code" :label="t('状态码')" width="270" />
+          <el-table-column prop="desc" :label="t('含义解释')"><template #default="{ row }">{{ t(row.desc) }}</template></el-table-column>
         </el-table-column>
       </el-table>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        超全面http状态对应的名称和含义解释
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("超全面http状态对应的名称和含义解释") }}</el-text>
     </ToolDetail>
   </div>
 </template>

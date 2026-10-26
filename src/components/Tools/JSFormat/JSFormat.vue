@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -34,7 +36,7 @@ const formatCode = async () => {
   } catch (error) {
     ElMessage({
       showClose: true,
-      message: '请填入正确的js代码',
+      message: t('请填入正确的js代码'),
       type: 'error',
     })
   }
@@ -52,7 +54,7 @@ const confuseCompress = async () => {
   } catch(error) {
     ElMessage({
       showClose: true,
-      message: '请填入正确的js代码: ' + (error as Error).message,
+      message: t('请填入正确的js代码: ' + (error as Error).message),
       type: 'error',
     })
   }
@@ -77,7 +79,7 @@ const copyRes = async () => {
       <div>
         <codemirror
           v-model="info.code"
-          placeholder="这里是代码..."
+          :placeholder="t('这里是代码...')"
           :style="{ height: '400px' }"
           :autofocus="true"
           :indent-with-tab="true" 
@@ -86,10 +88,10 @@ const copyRes = async () => {
       </div>
       
       <div class="mt-4">
-        <el-button type="primary" @click="formatCode">格式化</el-button>
-        <el-button type="primary" @click="confuseCompress">混淆压缩</el-button>
-        <el-button type="primary" @click="copyRes">复制</el-button>
-        <el-button type="primary" @click="clear">清空</el-button>
+        <el-button type="primary" @click="formatCode">{{ t("格式化") }}</el-button>
+        <el-button type="primary" @click="confuseCompress">{{ t("混淆压缩") }}</el-button>
+        <el-button type="primary" @click="copyRes">{{ t("复制") }}</el-button>
+        <el-button type="primary" @click="clear">{{ t("清空") }}</el-button>
       </div>
 
       <div class="mt-3 min-h-md bg-red-100 p-3 mb-3" v-show="info.isParseErr">
@@ -98,10 +100,8 @@ const copyRes = async () => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        JS格式化/压缩工具,提供在线JS格式化、JS压缩、JS混淆
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("JS格式化/压缩工具,提供在线JS格式化、JS压缩、JS混淆") }}</el-text>
     </ToolDetail>
   </div>
 </template>

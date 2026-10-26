@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive,ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -26,7 +28,7 @@ const uploadLogo = ref()
 //上传达到上限触发
 const handleExceed = () => {
   ElMessage({
-    message: '上传数量已达上限，请清除后重新上传',
+    message: t('上传数量已达上限，请清除后重新上传'),
     type: 'warning',
   })
 }
@@ -62,52 +64,52 @@ const gen = () => {
     <div class="flex justify-between w-full p-4 rounded-2xl bg-white">
       <div class="w-4/6 ">
         <div class="flex mb-3">
-          <div class="w-16 mr-2"><el-text>内容</el-text></div>
-          <el-input v-model="info.content" type="textarea" :rows="Number(3)" class="w-full" placeholder="可在此输入文字或网址"></el-input>
+          <div class="w-16 mr-2"><el-text>{{ t("内容") }}</el-text></div>
+          <el-input v-model="info.content" type="textarea" :rows="Number(3)" class="w-full" :placeholder="t('可在此输入文字或网址')"></el-input>
         </div>
         <div class="flex mb-3">
-          <div class="w-16 mr-2"><el-text>尺寸</el-text></div>
+          <div class="w-16 mr-2"><el-text>{{ t("尺寸") }}</el-text></div>
           <el-input v-model="info.size" class="">
             <template #append>
                 <el-select v-model="info.size" class="size-select">
-                  <el-option label="常规 200px" value="200" />
-                  <el-option label="常规 300px" value="300" />
-                  <el-option label="适中 350px" value="350" />
-                  <el-option label="较大 500px" value="500" />
+                  <el-option :label="t('常规 200px')" value="200" />
+                  <el-option :label="t('常规 300px')" value="300" />
+                  <el-option :label="t('适中 350px')" value="350" />
+                  <el-option :label="t('较大 500px')" value="500" />
                   <!-- 分割线 start -->
                   <div class="flex justify-center bg-gray-200 w-full">
                     <div class="h-[1px] bg-gray-200 w-4/5"></div>
                   </div>
                   <!-- 分割线 end -->
-                  <el-option label="超大 1000px" value="1000" />
-                  <el-option label="超大 1200px" value="1200" />
+                  <el-option :label="t('超大 1000px')" value="1000" />
+                  <el-option :label="t('超大 1200px')" value="1200" />
                 </el-select>
             </template>
           </el-input>
         </div>
         <div class="flex mb-3">
           <div class="w-16">
-            <el-text>纠错级别</el-text>
+            <el-text>{{ t("纠错级别") }}</el-text>
           </div>
           <el-select v-model="info.errorCorrectionLevel" class="corr-select">
-            <el-option label="L 可遮挡 7%" value="L" />
-            <el-option label="M 可遮挡 15%" value="M" />
-            <el-option label="Q 可遮挡 25%" value="Q" />
-            <el-option label="H 可遮挡 30%" value="H" />
+            <el-option :label="t('L 可遮挡 7%')" value="L" />
+            <el-option :label="t('M 可遮挡 15%')" value="M" />
+            <el-option :label="t('Q 可遮挡 25%')" value="Q" />
+            <el-option :label="t('H 可遮挡 30%')" value="H" />
           </el-select>
         </div>
         <div class="flex mb-3">
-          <div class="w-16"><el-text>边距</el-text></div>
+          <div class="w-16"><el-text>{{ t("边距") }}</el-text></div>
           <el-input-number v-model="info.margin" :step="1" :min="0"/>
         </div>
         <div class="flex mb-3">
-          <div class="w-16"><el-text>颜色</el-text></div>
+          <div class="w-16"><el-text>{{ t("颜色") }}</el-text></div>
           <!-- <div class="w-16 flex flex-col items-center bg-gray-100 p-1 rounded-md mr-2">
             <el-text>前景色</el-text>
             <el-color-picker v-model="info.preColor" />
           </div> -->
           <div class="w-16 flex flex-col items-center bg-gray-100 p-1 rounded-md">
-            <el-text>背景色</el-text>
+            <el-text>{{ t("背景色") }}</el-text>
             <el-color-picker v-model="info.bgColor" />
           </div>
         </div>
@@ -140,7 +142,7 @@ const gen = () => {
         </div>
         <div class="flex mb-3">
           <div class="w-16"></div>
-          <el-button type="primary" @click="gen">生成二维码</el-button>
+          <el-button type="primary" @click="gen">{{ t("生成二维码") }}</el-button>
         </div>
       </div>
       <div class="w-[200px] h-[200px]">
@@ -176,10 +178,8 @@ const gen = () => {
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        根据内容生成二维码，自定义尺寸，纠错级别，颜色等带logo二维码
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("根据内容生成二维码，自定义尺寸，纠错级别，颜色等带logo二维码") }}</el-text>
     </ToolDetail>
 
   </div>

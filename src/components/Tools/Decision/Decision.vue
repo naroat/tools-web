@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive, onMounted,ref } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -67,8 +69,8 @@ onMounted(() => {
     <div class="p-4 rounded-2xl bg-white">
       <div>
         <el-radio-group v-model="info.checked" @change="changeCheckBox">
-          <el-radio label="0" size="large">吃什么</el-radio>
-          <el-radio label="1" size="large">干什么</el-radio>
+          <el-radio label="0" size="large">{{ t("吃什么") }}</el-radio>
+          <el-radio label="1" size="large">{{ t("干什么") }}</el-radio>
         </el-radio-group>
       </div>
 
@@ -82,17 +84,15 @@ onMounted(() => {
       </div>
 
       <div class="mt-3">
-        <el-button @click="choose" v-if="!chooseStatus" type="primary">帮我决定</el-button>
-        <el-button @click="choose" type="primary" disabled v-else>决定中...</el-button>
-        <el-button @click="clear">清空</el-button>
+        <el-button @click="choose" v-if="!chooseStatus" type="primary">{{ t("帮我决定") }}</el-button>
+        <el-button @click="choose" type="primary" disabled v-else>{{ t("决定中...") }}</el-button>
+        <el-button @click="clear">{{ t("清空") }}</el-button>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        选择困难症患者的福音！由我来帮你决定，可自定义决定内容，随机选择决定
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("选择困难症患者的福音！由我来帮你决定，可自定义决定内容，随机选择决定") }}</el-text>
     </ToolDetail>
 
   </div>

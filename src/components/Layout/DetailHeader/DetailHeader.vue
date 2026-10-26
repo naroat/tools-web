@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { Star, StarFilled } from '@element-plus/icons-vue'
 import { onMounted, reactive, ref } from 'vue';
 import { useRoute } from 'vue-router'
@@ -30,7 +32,7 @@ const getToolInfo = async () => {
 const toggleCollect = () => {
   const toolInfo = toolsStore.currentTool
   if (!toolInfo) {
-    ElMessage.warning('获取工具信息失败');
+    ElMessage.warning(t('获取工具信息失败'));
     return;
   }
   
@@ -39,18 +41,18 @@ const toggleCollect = () => {
     const success = toolsStore.removeCollect(toolInfo.url)
     if (success) {
       isCollected.value = false
-      ElMessage.success('已取消收藏');
+      ElMessage.success(t('已取消收藏'));
     } else {
-      ElMessage.error('取消收藏失败');
+      ElMessage.error(t('取消收藏失败'));
     }
   } else {
     // 添加收藏
     const success = toolsStore.addCollect(toolInfo)
     if (success) {
       isCollected.value = true
-      ElMessage.success('收藏成功');
+      ElMessage.success(t('收藏成功'));
     } else {
-      ElMessage.error('收藏失败，可能已经收藏过了');
+      ElMessage.error(t('收藏失败，可能已经收藏过了'));
     }
   }
 }
@@ -65,7 +67,7 @@ onMounted(() => {
 <template>
   <div class="flex justify-between items-center rounded-2xl p-4 mt-5 mb-5 tech-detail-header">
     <div class="text-xl tech-title">
-      {{ props.title }}
+      {{ t(props.title) }}
     </div>
     <div>
       <el-button 
@@ -75,7 +77,7 @@ onMounted(() => {
         class="tech-button"
         size="default"
       >
-        {{ isCollected ? '已收藏' : '收藏' }}
+        {{ t(isCollected ? '已收藏' : '收藏') }}
       </el-button>
     </div>
   </div>

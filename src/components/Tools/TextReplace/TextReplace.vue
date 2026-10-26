@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, computed } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -40,7 +42,7 @@ const replaceResult = computed(() => {
 // 复制结果
 const copyResult = () => {
   if (!replaceResult.value || replaceResult.value === '替换失败：正则表达式语法错误') {
-    ElMessage.warning('没有可复制的内容')
+    ElMessage.warning(t('没有可复制的内容'))
     return
   }
   
@@ -66,7 +68,7 @@ const clearInput = () => {
           v-model="inputText"
           type="textarea"
           :rows="6"
-          placeholder="请输入要处理的文本"
+          :placeholder="t('请输入要处理的文本')"
           class="mb-2"
         />
         
@@ -74,29 +76,29 @@ const clearInput = () => {
           <div>
             <el-input
               v-model="findText"
-              placeholder="请输入要查找的文本"
+              :placeholder="t('请输入要查找的文本')"
               class="mb-2"
             />
           </div>
           <div>
             <el-input
               v-model="replaceText"
-              placeholder="请输入要替换的文本"
+              :placeholder="t('请输入要替换的文本')"
               class="mb-2"
             />
           </div>
         </div>
         
         <div class="flex items-center gap-4 mb-2">
-          <el-checkbox v-model="useRegex">使用正则表达式</el-checkbox>
-          <el-checkbox v-model="caseSensitive">区分大小写</el-checkbox>
+          <el-checkbox v-model="useRegex">{{ t("使用正则表达式") }}</el-checkbox>
+          <el-checkbox v-model="caseSensitive">{{ t("区分大小写") }}</el-checkbox>
         </div>
       </div>
       
       <!-- 操作按钮 -->
       <div class="mb-4">
-        <el-button @click="copyResult">复制结果</el-button>
-        <el-button @click="clearInput">清空</el-button>
+        <el-button @click="copyResult">{{ t("复制结果") }}</el-button>
+        <el-button @click="clearInput">{{ t("清空") }}</el-button>
       </div>
       
       <!-- 结果部分 -->
@@ -105,21 +107,19 @@ const clearInput = () => {
           :value="replaceResult"
           type="textarea"
           :rows="6"
-          placeholder="替换结果"
+          :placeholder="t('替换结果')"
           readonly
         >
           <template #append>
-            <el-button @click="copyResult">复制</el-button>
+            <el-button @click="copyResult">{{ t("复制") }}</el-button>
           </template>
         </el-input>
       </div>
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线文本替换工具，支持普通文本和正则表达式替换，可用于批量修改文本内容，支持区分大小写选项。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线文本替换工具，支持普通文本和正则表达式替换，可用于批量修改文本内容，支持区分大小写选项。") }}</el-text>
     </ToolDetail>
 
   </div>

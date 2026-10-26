@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { reactive } from 'vue'
 import DetailHeader from '@/components/Layout/DetailHeader/DetailHeader.vue'
 import ToolDetail from '@/components/Layout/ToolDetail/ToolDetail.vue'
@@ -79,7 +81,7 @@ const tailScaleToBase = (content: string, scale: number): number => {
       break;
     default:
       ElMessage({
-        message: "参数错误",
+        message: t("参数错误"),
         type: "warning",
         duration: 1500
       })
@@ -102,7 +104,7 @@ const baseToTailScale = (num: number, scale: number): string => {
       break;
     default:
       ElMessage({
-        message: "参数错误",
+        message: t("参数错误"),
         type: "warning",
         duration: 1500
       })
@@ -114,7 +116,7 @@ const baseToTailScale = (num: number, scale: number): string => {
 const tranCheck = () => {
   if (!info.content) {
     ElMessage({
-      message: "请输入转换数值",
+      message: t("请输入转换数值"),
       type: "warning",
       duration: 1500
     })
@@ -123,7 +125,7 @@ const tranCheck = () => {
 
   if (info.chooseTranOptions == '2' && isBinary(info.content) == false) {
     ElMessage({
-      message: "不是二进制值",
+      message: t("不是二进制值"),
       type: "warning",
       duration: 1500
     })
@@ -132,7 +134,7 @@ const tranCheck = () => {
 
   if (info.chooseTranOptions == '8' && isOctal(info.content) == false) {
     ElMessage({
-      message: "不是八进制值",
+      message: t("不是八进制值"),
       type: "warning",
       duration: 1500
     })
@@ -141,7 +143,7 @@ const tranCheck = () => {
 
   if (info.chooseTranOptions == '10' && isDecimal(info.content) == false) {
     ElMessage({
-      message: "不是十进制值",
+      message: t("不是十进制值"),
       type: "warning",
       duration: 1500
     })
@@ -150,7 +152,7 @@ const tranCheck = () => {
 
   if (info.chooseTranOptions == '16' && isHexadecimal(info.content) == false) {
     ElMessage({
-      message: "不是十六进制值",
+      message: t("不是十六进制值"),
       type: "warning",
       duration: 1500
     })
@@ -205,7 +207,7 @@ const copyRes = async (index: any) => {
                 <el-option
                   v-for="item in info.tranOptions"
                   :key="item.value"
-                  :label="item.label"
+                  :label="t(item.label)"
                   :value="item.value"
                 />
               </el-select>
@@ -213,36 +215,34 @@ const copyRes = async (index: any) => {
           </el-input>
         </div>
         
-        <el-button type="primary" @click="tran()">转换</el-button>
+        <el-button type="primary" @click="tran()">{{ t("转换") }}</el-button>
       </div>
 
       <div class="mt-3 min-h-md bg-gray-100 p-3 mb-3 flex flex-col">
         <el-table :data="info.tranOptions" border style="width: 100%">
-          <el-table-column prop="label" label="进制" width="120">
+          <el-table-column prop="label" :label="t('进制')" width="120">
             <template #default="scope">
               <div class="flex items-center">
-                <span class="mr-1">{{ scope.row.label }}</span>
+                <span class="mr-1">{{ t(scope.row.label) }}</span>
                 <el-tooltip
                   v-if="scope.row.desc != ''"
                   class="box-item"
                   effect="dark"
-                  :content="scope.row.desc"
+                  :content="t(scope.row.desc)"
                   placement="top-start"
                 ><el-icon ><InfoFilled /></el-icon></el-tooltip>
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="tranValue" label="结果"/>
-          <el-table-column prop="" label="操作" width="60">
+          <el-table-column prop="tranValue" :label="t('结果')"/>
+          <el-table-column prop="" :label="t('操作')" width="60">
             <template #default="scope">
               <el-button
                 link
                 type="primary"
                 size="small"
                 @click.prevent="copyRes(scope.$index)"
-              >
-                复制
-              </el-button>
+              >{{ t("复制") }}</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -250,10 +250,8 @@ const copyRes = async (index: any) => {
     </div>
     
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        进位制其实是一种记数的方式，所以也称为进位记数法/位值计数法，可以用有限的数字符号代表所有的数值。 可使用数字符号的数目称为基数（英文：radix）或底数，基数为n，即可称n进位制，简称n进制。 例如平常生活中我们经常用到的十进制，就是使用10个阿拉伯数字0-9进行记数，所以它的基数就是10，称为十进制。
-      </el-text> 
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("进位制其实是一种记数的方式，所以也称为进位记数法/位值计数法，可以用有限的数字符号代表所有的数值。 可使用数字符号的数目称为基数（英文：radix）或底数，基数为n，即可称n进位制，简称n进制。 例如平常生活中我们经常用到的十进制，就是使用10个阿拉伯数字0-9进行记数，所以它的基数就是10，称为十进制。") }}</el-text>
     </ToolDetail>
 
   </div>

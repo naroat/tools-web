@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { initializeLocale } from './i18n'
 import ElementPlus from 'element-plus';
 //@ts-ignore忽略当前文件ts类型的检测否则有红色提示(打包会失败)
 //入口文件main.ts全局安装element-plus,element-plus默认支持语言英语设置为中文
@@ -20,6 +21,7 @@ import { setupMdEditor } from './plugins/v-md-editor'
 import 'default-passive-events'
 
 
+initializeLocale()
 const app = createApp(App)
 //安装仓库
 app.use(pinia)

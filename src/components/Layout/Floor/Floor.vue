@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
 import {  ref } from 'vue';
 const appDesc = ref(import.meta.env.VITE_APP_DESC || '')
 const currentYear: number = new Date().getFullYear();
@@ -6,7 +7,7 @@ const currentYear: number = new Date().getFullYear();
 
 <template>
   <div class="w-full rounded-2xl z-10 p-5 text-center tech-footer">
-    <el-text>{{ appDesc }}  © {{ currentYear }} <a href="https://github.com/naroat/tools-web" target="_blank" class="text-blue-700 tech-link">Tools-Web</a></el-text>
+    <el-text>{{ t(appDesc) }}  © {{ currentYear }} <a href="https://github.com/naroat/tools-web" target="_blank" class="text-blue-700 tech-link">Tools-Web</a></el-text>
   </div>
 </template>
 

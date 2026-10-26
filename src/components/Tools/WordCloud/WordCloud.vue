@@ -6,36 +6,36 @@
       <div class="tool-content">
         <div class="input-section">
           <el-form label-position="top">
-            <el-form-item label="输入文本">
+            <el-form-item :label="t('输入文本')">
               <el-input
                 v-model="inputText"
                 type="textarea"
                 :rows="6"
-                placeholder="请输入要生成词云的文本"
+                :placeholder="t('请输入要生成词云的文本')"
               />
             </el-form-item>
             
-            <el-form-item label="词云设置">
+            <el-form-item :label="t('词云设置')">
               <div class="settings-grid">
-                <el-form-item label="形状" class="setting-item">
+                <el-form-item :label="t('形状')" class="setting-item">
                   <el-select v-model="shape" size="small">
-                    <el-option label="圆形" value="circle" />
-                    <el-option label="矩形" value="rect" />
-                    <el-option label="三角形" value="triangle" />
-                    <el-option label="心形" value="heart" />
+                    <el-option :label="t('圆形')" value="circle" />
+                    <el-option :label="t('矩形')" value="rect" />
+                    <el-option :label="t('三角形')" value="triangle" />
+                    <el-option :label="t('心形')" value="heart" />
                   </el-select>
                 </el-form-item>
                 
-                <el-form-item label="颜色方案" class="setting-item">
+                <el-form-item :label="t('颜色方案')" class="setting-item">
                   <el-select v-model="colorScheme" size="small">
-                    <el-option label="默认" value="default" />
-                    <el-option label="暖色" value="warm" />
-                    <el-option label="冷色" value="cool" />
-                    <el-option label="多彩" value="multi" />
+                    <el-option :label="t('默认')" value="default" />
+                    <el-option :label="t('暖色')" value="warm" />
+                    <el-option :label="t('冷色')" value="cool" />
+                    <el-option :label="t('多彩')" value="multi" />
                   </el-select>
                 </el-form-item>
                 
-                <el-form-item label="字体大小范围" class="setting-item">
+                <el-form-item :label="t('字体大小范围')" class="setting-item">
                   <div class="size-range">
                     <el-input-number v-model="minFontSize" :min="10" :max="50" size="small" />
                     <span class="range-separator">-</span>
@@ -46,9 +46,9 @@
             </el-form-item>
             
             <el-form-item>
-              <el-button type="primary" @click="generateWordCloud">生成词云</el-button>
-              <el-button @click="downloadWordCloud">下载图片</el-button>
-              <el-button @click="clearText">清空</el-button>
+              <el-button type="primary" @click="generateWordCloud">{{ t("生成词云") }}</el-button>
+              <el-button @click="downloadWordCloud">{{ t("下载图片") }}</el-button>
+              <el-button @click="clearText">{{ t("清空") }}</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -60,16 +60,16 @@
     </div>
 
     <!-- desc -->
-    <ToolDetail title="描述">
-      <el-text>
-        在线词云生成工具，根据输入文本生成词云图，支持自定义词云形状、颜色方案和字体大小范围，可用于文本分析和可视化。
-      </el-text>
+    <ToolDetail :title="t('描述')">
+      <el-text>{{ t("在线词云生成工具，根据输入文本生成词云图，支持自定义词云形状、颜色方案和字体大小范围，可用于文本分析和可视化。") }}</el-text>
     </ToolDetail>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 import { ref, onMounted, nextTick } from 'vue';
 import * as echarts from 'echarts';
 import 'echarts-wordcloud';
