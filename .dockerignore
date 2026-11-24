@@ -1,4 +1,33 @@
+# 依赖与产物：宿主机上的 node_modules 可能带 Windows / macOS 原生二进制，
+# 绝不能进镜像，否则容器里的 rollup / esbuild 会报平台不匹配
 node_modules
+**/node_modules
 dist
-.env.development
-.env.production
+dist-ssr
+
+# 环境变量文件（可能含密钥），镜像内用 .env.example 兜底
+.env
+.env.*
+!.env.example
+
+# 版本控制 / 编辑器 / 系统垃圾文件
+.git
+.gitignore
+.gitattributes
+.github
+.idea
+.vscode
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# 文档
+README.md
+README.en.md
+
+# Docker 自身
+Dockerfile
+.dockerignore
+docker-compose*.yml

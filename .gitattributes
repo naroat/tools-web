@@ -1,0 +1,13 @@
+# 统一换行符为 LF：Windows 上 core.autocrlf=true 会把文件检出成 CRLF，
+# 导致 Dockerfile 的 RUN 指令末尾多出 \r、.dockerignore 规则失效、容器内 shell 报错
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.zip binary
